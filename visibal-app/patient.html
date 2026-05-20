@@ -74,6 +74,21 @@
 /* ── NOTIFICATION BADGE ── */
 .app-top-btn{position:relative;}
 .notif-badge{position:absolute;top:-3px;right:-3px;background:var(--red);color:white;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:2px solid white;pointer-events:none;line-height:1;}
+/* ── PAIN REPORT ── */
+.pain-card{padding:16px 14px;}
+.pain-row{display:flex;justify-content:space-between;gap:4px;margin-bottom:8px;}
+.pain-btn{flex:1;background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:22px;cursor:pointer;transition:all .15s;line-height:1;}
+.pain-btn span{font-size:10px;font-weight:700;color:var(--grey);}
+.pain-btn.active{border-color:var(--red);background:var(--red-light);}
+.pain-btn.active span{color:var(--red);}
+.pain-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--grey-light);margin-bottom:10px;padding:0 4px;}
+.pain-status{font-size:12px;color:var(--grey);text-align:center;padding-top:10px;border-top:1px solid var(--border);}
+.pain-status.alert{color:var(--red);font-weight:600;}
+/* ── CONSENT STEP ── */
+.consent-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:12px;color:var(--grey);line-height:1.6;max-height:120px;overflow-y:auto;margin-bottom:16px;text-align:left;width:100%;}
+.consent-check-row{display:flex;align-items:flex-start;gap:10px;text-align:left;margin-bottom:20px;width:100%;}
+.consent-check-row input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;cursor:pointer;accent-color:var(--red);}
+.consent-check-row label{font-size:13px;color:var(--text);cursor:pointer;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -213,6 +228,20 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12H4"/></svg>
           <span data-i18n="aligner_removed">Schiene entfernt</span>
         </button>
+      </div>
+
+      <!-- Pain Report -->
+      <div class="sec-label" style="margin-top:24px;">Schmerzen melden</div>
+      <div class="card pain-card">
+        <div class="pain-row">
+          <button class="pain-btn" onclick="logPain(1)">😊<span>1</span></button>
+          <button class="pain-btn" onclick="logPain(2)">😐<span>2</span></button>
+          <button class="pain-btn" onclick="logPain(3)">😕<span>3</span></button>
+          <button class="pain-btn" onclick="logPain(4)">😬<span>4</span></button>
+          <button class="pain-btn" onclick="logPain(5)">😣<span>5</span></button>
+        </div>
+        <div class="pain-labels"><span>Kein Schmerz</span><span>Stark</span></div>
+        <div class="pain-status" id="painStatus">Kein Schmerz heute gemeldet</div>
       </div>
 
       <!-- Week overview -->
@@ -405,6 +434,24 @@
             <div class="list-row-sub" data-i18n="privacy_sub">DSGVO-konform</div>
           </div>
           <svg class="list-row-arrow" viewBox="0 0 12 18" fill="none" width="8" height="12"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+      </div>
+
+      <div class="list-section">
+        <div class="list-row" onclick="exportUserData()" style="cursor:pointer;">
+          <div class="list-row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg></div>
+          <div class="list-row-text">
+            <div class="list-row-title">Meine Daten exportieren</div>
+            <div class="list-row-sub">DSGVO Art. 20 — JSON-Download</div>
+          </div>
+          <svg class="list-row-arrow" viewBox="0 0 12 18" fill="none" width="8" height="12"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="list-row" onclick="resetDemo()" style="cursor:pointer;">
+          <div class="list-row-ico" style="background:#ffe8e8;color:var(--red);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg></div>
+          <div class="list-row-text">
+            <div class="list-row-title" style="color:var(--red);">Demo zurücksetzen</div>
+            <div class="list-row-sub">Alle lokalen Daten löschen</div>
+          </div>
         </div>
       </div>
 
@@ -1208,12 +1255,76 @@ async function requestCamera() {
 }
 async function requestNotifications() {
   try { if ('Notification' in window) await Notification.requestPermission(); } catch(e) {}
-  completeOnboarding();
+  onboardNext(4);
 }
 function completeOnboarding() {
+  const chk = document.getElementById('consentCheck');
+  if (chk && !chk.checked) return;
   localStorage.setItem('visibal_onboarded', '1');
+  localStorage.setItem('visibal_consent_ts', new Date().toISOString());
   document.getElementById('onboardOverlay').style.display = 'none';
   _trackEvent('onboarding_complete');
+}
+
+// ── PAIN REPORT ───────────────────────────────────────────
+function logPain(level) {
+  document.querySelectorAll('.pain-btn').forEach((b,i) => b.classList.toggle('active', i+1 === level));
+  const pain = JSON.parse(localStorage.getItem('visibal_pain_log') || '[]');
+  pain.unshift({ level, ts: new Date().toISOString() });
+  localStorage.setItem('visibal_pain_log', JSON.stringify(pain.slice(0, 30)));
+  const emojis = ['','😊','😐','😕','😬','😣'];
+  const el = document.getElementById('painStatus');
+  if (el) {
+    const t = new Date().toLocaleTimeString('de-CH', {hour:'2-digit', minute:'2-digit'});
+    el.textContent = `${emojis[level]} Level ${level} — heute ${t} Uhr gemeldet`;
+    el.className = level >= 4 ? 'pain-status alert' : 'pain-status';
+  }
+  _trackEvent('pain_l' + level);
+  if (level >= 4) showToast('Schmerz-Alert an Praxis gesendet ✓', 'ok', 3500);
+}
+
+// ── GDPR DATA EXPORT ──────────────────────────────────────
+function exportUserData() {
+  const data = {
+    export_timestamp: new Date().toISOString(),
+    gdpr_basis: 'DSGVO Art. 15 / Art. 20 — Recht auf Auskunft und Datenübertragbarkeit',
+    patient: 'Marie Müller',
+    practice: 'Dr. med. dent. Schmidt · Schaffhausen',
+    consent_given: localStorage.getItem('visibal_consent_ts') || null,
+    wear: { today_secs: localStorage.getItem('vw_secs'), date: localStorage.getItem('vw_date') },
+    pain_log: JSON.parse(localStorage.getItem('visibal_pain_log') || '[]'),
+    analytics: JSON.parse(localStorage.getItem('visibal_analytics') || '{}'),
+    settings: { language: localStorage.getItem('visibal_lang'), dark_mode: localStorage.getItem('visibal_dark') }
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'VISIBAL-Meine-Daten-' + new Date().toISOString().slice(0,10) + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  _trackEvent('gdpr_export');
+  showToast('Daten exportiert ✓', 'ok');
+}
+
+// ── DEMO RESET ────────────────────────────────────────────
+function resetDemo() {
+  showConfirm('Demo zurücksetzen?', 'Alle lokalen Daten werden gelöscht. Das Onboarding startet neu.', 'Zurücksetzen', 'Abbrechen', () => {
+    Object.keys(localStorage).filter(k => k.startsWith('visibal') || k.startsWith('vw_')).forEach(k => localStorage.removeItem(k));
+    window.location.reload();
+  });
+}
+
+// ── CONSENT GATE ──────────────────────────────────────────
+function enableConsentBtn() {
+  const btn = document.getElementById('consentCompleteBtn');
+  const chk = document.getElementById('consentCheck');
+  if (!btn || !chk) return;
+  btn.disabled = !chk.checked;
+  btn.style.opacity = chk.checked ? '1' : '.5';
+  btn.style.cursor = chk.checked ? 'pointer' : 'default';
 }
 
 // ── PRINT WEAR REPORT ─────────────────────────────────────
@@ -1296,12 +1407,24 @@ if (!localStorage.getItem('visibal_onboarded')) {
     <div class="onboard-title">Erinnerungen aktivieren</div>
     <div class="onboard-sub">Tägliche Tragezeit-Erinnerungen und Mitteilungen von Ihrer Praxis.</div>
     <button class="onboard-btn" onclick="requestNotifications()">Benachrichtigungen erlauben</button>
-    <button class="onboard-btn-skip" onclick="completeOnboarding()">Überspringen</button>
+    <button class="onboard-btn-skip" onclick="onboardNext(4)">Überspringen</button>
+  </div>
+  <div class="onboard-step" id="onboard-step-4">
+    <div class="onboard-perm-ico">🔒</div>
+    <div class="onboard-title">Datenschutz & Einwilligung</div>
+    <div class="onboard-sub">Bitte kurz durchlesen — dann kann es losgehen.</div>
+    <div class="consent-box">Ihre Daten (Tragezeit, Fotos, Chat, Schmerzmeldungen) werden verschlüsselt auf EU-Servern in Frankfurt gespeichert und ausschliesslich an Ihre behandelnde Praxis übermittelt. Nivellmedical AG erhält keine persönlichen Daten. Sie können Ihre Daten jederzeit exportieren oder löschen lassen (DSGVO Art. 15–20, Schweizer DSG). Die App stellt keine Diagnosen — alle medizinischen Entscheidungen trifft Ihre Praxis.</div>
+    <div class="consent-check-row">
+      <input type="checkbox" id="consentCheck" onchange="enableConsentBtn()">
+      <label for="consentCheck">Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Gesundheitsdaten für die Begleitung meiner Aligner-Behandlung zu.</label>
+    </div>
+    <button class="onboard-btn" id="consentCompleteBtn" onclick="completeOnboarding()" disabled style="opacity:.5;cursor:default;">App starten →</button>
   </div>
   <div class="onboard-dots">
     <span class="onboard-dot active" id="odot-1"></span>
     <span class="onboard-dot" id="odot-2"></span>
     <span class="onboard-dot" id="odot-3"></span>
+    <span class="onboard-dot" id="odot-4"></span>
   </div>
 </div>
 

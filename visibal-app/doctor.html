@@ -132,6 +132,10 @@
         </div>
       </div>
 
+      <!-- Hot Topics -->
+      <div class="sec-label" style="margin-top:24px;">Hot Topics · diese Woche</div>
+      <div class="card" style="padding:16px;" id="hotTopicsCard"></div>
+
       <!-- Search -->
       <div class="search-bar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -732,9 +736,44 @@ function printPatientReport() {
   _trackEvent('print_patient_report');
 }
 
+// ── HOT TOPICS ────────────────────────────────────────────
+function renderHotTopics() {
+  const card = document.getElementById('hotTopicsCard');
+  if (!card) return;
+  const demo = [
+    { q: 'Schiene drückt — normal?', n: 13 },
+    { q: 'Was darf ich essen / trinken?', n: 9 },
+    { q: 'Wann nächster Stufenwechsel?', n: 7 },
+    { q: 'Schiene reinigen & Pflege', n: 6 },
+    { q: 'Schmerzen lindern', n: 4 },
+    { q: 'Kann ich Sport treiben?', n: 3 }
+  ];
+  try {
+    const stored = JSON.parse(localStorage.getItem('visibal_chat_topics') || '{}');
+    Object.entries(stored).forEach(([q, n]) => {
+      const ex = demo.find(t => t.q.toLowerCase().includes(q.toLowerCase().slice(0, 12)));
+      if (ex) ex.n += n; else if (demo.length < 8) demo.push({ q: q.slice(0, 40), n });
+    });
+    demo.sort((a, b) => b.n - a.n);
+  } catch(e) {}
+  const max = demo[0]?.n || 1;
+  card.innerHTML = demo.slice(0, 6).map((t, i) => `
+    <div style="margin-bottom:${i < 5 ? '12' : '0'}px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <div style="font-size:12px;font-weight:600;color:var(--text);flex:1;margin-right:8px;">${t.q}</div>
+        <div style="font-size:11px;font-weight:700;color:var(--grey);white-space:nowrap;">${t.n}×</div>
+      </div>
+      <div style="height:5px;background:var(--border);border-radius:3px;overflow:hidden;">
+        <div style="height:100%;width:${Math.round(t.n / max * 100)}%;background:var(--red);border-radius:3px;"></div>
+      </div>
+    </div>
+  `).join('');
+}
+
 // Init
 renderPatients();
 _updateFilterCounts();
+renderHotTopics();
 loadPractice();
 _applyTheme();
 if (sessionStorage.getItem('notifs_seen')) {
