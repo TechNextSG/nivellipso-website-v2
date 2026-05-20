@@ -48,6 +48,28 @@
 /* ── NOTIFICATION BADGE ── */
 .app-top-btn{position:relative;}
 .notif-badge{position:absolute;top:-3px;right:-3px;background:var(--red);color:white;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:2px solid white;pointer-events:none;line-height:1;}
+/* ── ANALYTICS ── */
+.analytics-score{font-size:36px;font-weight:800;color:var(--black);line-height:1;}
+.phase-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.phase-row:last-child{margin-bottom:0;}
+.phase-label{width:64px;font-size:11px;font-weight:700;color:var(--grey);letter-spacing:.3px;}
+.phase-bar-wrap{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.phase-bar-fill{height:100%;border-radius:4px;}
+.phase-count{width:24px;text-align:right;font-size:12px;font-weight:700;color:var(--text);}
+/* ── MESSAGES ── */
+.msg-thread{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
+.msg-thread:last-child{border-bottom:none;}
+.msg-thread:active{background:var(--bg);}
+.msg-unread-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:6px;}
+.msg-thread-name{font-size:14px;font-weight:700;color:var(--black);}
+.msg-thread-time{font-size:10px;color:var(--grey-light);}
+.msg-thread-preview{font-size:12px;color:var(--grey);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/* ── SETTINGS ── */
+.settings-avatar{width:56px;height:56px;background:var(--red);color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0;}
+.settings-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border);}
+.settings-row:last-child{border-bottom:none;}
+.settings-row-label{font-size:13px;font-weight:600;color:var(--text);}
+.settings-row-sub{font-size:11px;color:var(--grey);margin-top:1px;}
 </style>
 </head>
 <body>
@@ -211,6 +233,198 @@
       <button class="action-btn outline full-row" onclick="showToast('Notiz-Editor öffnet sich (Demo)')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
         Neue Notiz hinzufügen
+      </button>
+    </div>
+
+    <!-- VIEW: ANALYTICS -->
+    <div class="view" id="view-analytics">
+      <div class="greeting">
+        <div class="greeting-time">Statistik · Praxis Schmidt</div>
+        <div class="greeting-name">Compliance-Analyse</div>
+      </div>
+
+      <div class="sec-label">Gesamtcompliance · Mai 2026</div>
+      <div class="card" style="margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+          <div>
+            <div class="analytics-score">87%</div>
+            <div style="font-size:12px;color:var(--grey);margin-top:3px;">Ø über 18 Patienten</div>
+          </div>
+          <div style="font-size:11px;font-weight:600;color:var(--ok);background:var(--ok-light);padding:4px 10px;border-radius:10px;">↑ +3% ggü. April</div>
+        </div>
+        <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:6px;">
+          <div style="height:100%;width:87%;background:var(--ok);border-radius:3px;"></div>
+        </div>
+        <div style="font-size:10px;color:var(--grey-light);">Zielwert: ≥ 85% — erfüllt ✓</div>
+      </div>
+
+      <div class="sec-label">Praxis-Tragezeit · letzte 7 Tage</div>
+      <div class="card" style="margin-bottom:14px;">
+        <div style="display:flex;gap:6px;align-items:flex-end;height:80px;margin-bottom:10px;">
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:86%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Mo<br>Ø 21h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:95%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Di<br>Ø 22h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--warn);height:72%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Mi<br>Ø 17h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:91%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Do<br>Ø 22h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:88%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Fr<br>Ø 21h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:95%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);">Sa<br>Ø 22h</div></div>
+          <div style="flex:1;text-align:center;"><div style="background:var(--red);height:91%;border-radius:4px 4px 0 0;margin-bottom:4px;"></div><div style="font-size:9px;color:var(--grey);font-weight:700;">Heute<br>Ø 22h</div></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--grey);padding-top:8px;border-top:1px solid var(--border);">
+          <span>Praxis-Ø 21h 12min / Tag</span>
+          <span style="color:var(--ok);font-weight:700;">87% Compliance</span>
+        </div>
+      </div>
+
+      <div class="sec-label">Status-Verteilung</div>
+      <div class="quick-stats" style="margin-bottom:14px;">
+        <div class="stat-mini" style="border-top:3px solid var(--ok);">
+          <div class="stat-mini-n"><em style="color:var(--ok);">14</em></div>
+          <div class="stat-mini-l">Konform</div>
+        </div>
+        <div class="stat-mini" style="border-top:3px solid var(--warn);">
+          <div class="stat-mini-n"><em style="color:var(--warn);">3</em></div>
+          <div class="stat-mini-l">Achtung</div>
+        </div>
+        <div class="stat-mini" style="border-top:3px solid var(--red);">
+          <div class="stat-mini-n"><em style="color:var(--red);">1</em></div>
+          <div class="stat-mini-l">Kritisch</div>
+        </div>
+      </div>
+
+      <div class="sec-label">Phasen-Verteilung</div>
+      <div class="card">
+        <div class="phase-row">
+          <div class="phase-label">SOFT</div>
+          <div class="phase-bar-wrap"><div class="phase-bar-fill" style="width:28%;background:var(--warn-light);border:1px solid var(--warn);"></div></div>
+          <div class="phase-count">5</div>
+        </div>
+        <div class="phase-row">
+          <div class="phase-label">REGULAR</div>
+          <div class="phase-bar-wrap"><div class="phase-bar-fill" style="width:39%;background:var(--red);"></div></div>
+          <div class="phase-count">7</div>
+        </div>
+        <div class="phase-row">
+          <div class="phase-label">INTENSE</div>
+          <div class="phase-bar-wrap"><div class="phase-bar-fill" style="width:33%;background:var(--black);"></div></div>
+          <div class="phase-count">6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW: MESSAGES -->
+    <div class="view" id="view-messages">
+      <div class="greeting">
+        <div class="greeting-time">Nachrichten</div>
+        <div class="greeting-name">3 ungelesene Nachrichten</div>
+      </div>
+
+      <div class="card" style="padding:0 16px;">
+        <div class="msg-thread" onclick="showToast('Chat mit T. Brauer öffnet sich (Demo)')">
+          <div class="msg-unread-dot"></div>
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--alert-light);color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;">TB</div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+              <div class="msg-thread-name">Tobias Brauer</div>
+              <div class="msg-thread-time">Heute, 08:14</div>
+            </div>
+            <div style="font-size:11px;color:var(--red);font-weight:600;margin-bottom:1px;">! Tragezeit unter 60% — 4 Tage</div>
+            <div class="msg-thread-preview">Ich habe Schmerzen beim Tragen...</div>
+          </div>
+        </div>
+        <div class="msg-thread" onclick="showToast('Chat mit K. Weber öffnet sich (Demo)')">
+          <div class="msg-unread-dot"></div>
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--red-light);color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;">KW</div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+              <div class="msg-thread-name">Klara Weber</div>
+              <div class="msg-thread-time">Heute, 09:32</div>
+            </div>
+            <div class="msg-thread-preview">Kann ich die Schiene auch nachts abnehmem?</div>
+          </div>
+        </div>
+        <div class="msg-thread" onclick="showToast('Fotos von M. Schmidt öffnen sich (Demo)')">
+          <div class="msg-unread-dot"></div>
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--red-light);color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;">MS</div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
+              <div class="msg-thread-name">Marie Schmidt</div>
+              <div class="msg-thread-time">Gestern, 19:45</div>
+            </div>
+            <div class="msg-thread-preview">📷 Foto-Upload: Stufe 8 · Prüfung ausstehend</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:8px;text-align:center;font-size:12px;color:var(--grey-light);padding:16px;">Keine weiteren Nachrichten</div>
+    </div>
+
+    <!-- VIEW: SETTINGS -->
+    <div class="view" id="view-settings">
+      <div class="greeting">
+        <div class="greeting-time">Praxis-Einstellungen</div>
+        <div class="greeting-name">Dr. med. Schmidt</div>
+      </div>
+
+      <div class="sec-label">Praxis</div>
+      <div class="card" style="margin-bottom:14px;">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:16px;">
+          <div class="settings-avatar">PS</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;color:var(--black);">Dr. med. P. Schmidt</div>
+            <div style="font-size:12px;color:var(--grey);margin-top:2px;">Zahnarzt & Kieferchirurg</div>
+            <div style="font-size:11px;color:var(--grey-light);margin-top:2px;">Bahnhofstrasse 12 · 8001 Zürich</div>
+          </div>
+        </div>
+        <button class="action-btn outline full-row" onclick="showToast('Praxisdaten bearbeiten (Demo)')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          Praxisdaten bearbeiten
+        </button>
+      </div>
+
+      <div class="sec-label">Benachrichtigungen</div>
+      <div class="card" style="margin-bottom:14px;">
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-label">Kritische Alerts</div>
+            <div class="settings-row-sub">Sofort bei Compliance unter 60%</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-label">Tages-Zusammenfassung</div>
+            <div class="settings-row-sub">Täglich um 18:00 Uhr</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-row-label">Foto-Uploads</div>
+            <div class="settings-row-sub">Bei neuen Patienten-Fotos</div>
+          </div>
+          <label class="switch"><input type="checkbox"><span class="switch-slider"></span></label>
+        </div>
+      </div>
+
+      <div class="sec-label">App-Info</div>
+      <div class="card" style="margin-bottom:14px;">
+        <div class="settings-row">
+          <div class="settings-row-label">Version</div>
+          <div style="font-size:12px;color:var(--grey);">VISIBAL Clinic 1.0</div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Hersteller</div>
+          <div style="font-size:12px;color:var(--grey);">nivellipso® · Swiss-Made</div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Support</div>
+          <div style="font-size:12px;color:var(--red);">support@nivellipso.ch</div>
+        </div>
+      </div>
+
+      <button class="action-btn full-row" style="background:var(--bg);color:var(--red);border:1px solid var(--red);" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        Abmelden
       </button>
     </div>
 
