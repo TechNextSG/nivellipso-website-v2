@@ -28,6 +28,22 @@
 .toast{background:rgba(26,26,26,.92);color:white;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;white-space:nowrap;}
 .toast.ok{background:rgba(0,140,60,.92);}
 .toast.err{background:rgba(192,0,0,.92);}
+/* ── ONBOARDING ── */
+.onboard-overlay{position:fixed;inset:0;background:white;z-index:9999;display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;}
+.onboard-logo{width:72px;height:72px;background:var(--red);color:white;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 20px;}
+.onboard-title{font-size:22px;font-weight:800;color:var(--black);text-align:center;margin-bottom:10px;}
+.onboard-sub{font-size:14px;color:var(--grey);text-align:center;line-height:1.6;margin-bottom:24px;max-width:300px;}
+.onboard-step{display:none;flex-direction:column;align-items:center;width:100%;max-width:320px;}
+.onboard-step.active{display:flex;}
+.onboard-features{list-style:none;text-align:left;margin-bottom:28px;width:100%;}
+.onboard-features li{padding:9px 0;font-size:14px;color:var(--text);border-bottom:1px solid var(--border);}
+.onboard-features li:last-child{border-bottom:none;}
+.onboard-perm-ico{font-size:56px;margin-bottom:20px;}
+.onboard-btn{width:100%;padding:16px;background:var(--red);color:white;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 0 var(--red-dark);}
+.onboard-btn-skip{background:none;border:none;color:var(--grey);font-size:14px;cursor:pointer;padding:8px;}
+.onboard-dots{display:flex;gap:6px;margin-top:32px;}
+.onboard-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .2s;}
+.onboard-dot.active{background:var(--red);}
 /* ── CONFIRM SHEET ── */
 .confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:2100;display:none;align-items:flex-end;}
 .confirm-overlay.show{display:flex;}
@@ -216,6 +232,10 @@
           <span style="color:var(--ok);font-weight:700;" data-i18n="compliance_pct">94% Compliance</span>
         </div>
       </div>
+      <button class="action-btn outline full-row" onclick="printWearReport()" style="margin-top:4px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span>Bericht drucken / PDF</span>
+      </button>
 
       <!-- Reminder Settings -->
       <div class="sec-label" style="margin-top:24px;" data-i18n="reminders">Erinnerungen</div>
@@ -338,11 +358,11 @@
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;">
-          <button class="action-btn outline" style="margin:0;font-size:12px;padding:10px;">
+          <button class="action-btn outline" style="margin:0;font-size:12px;padding:10px;" onclick="window.location.href='tel:+41520000000'">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="display:inline;margin-right:5px;vertical-align:middle;"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
             <span data-i18n="call">Anrufen</span>
           </button>
-          <button class="action-btn outline" style="margin:0;font-size:12px;padding:10px;">
+          <button class="action-btn outline" style="margin:0;font-size:12px;padding:10px;" onclick="window.location.href='sms:+41520000000'">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="display:inline;margin-right:5px;vertical-align:middle;"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
             <span data-i18n="message">Nachricht</span>
           </button>
@@ -360,6 +380,15 @@
             <div class="list-row-sub" id="langSubText" data-i18n="lang_sub">Deutsch (CH)</div>
           </div>
           <svg class="list-row-arrow" viewBox="0 0 12 18" fill="none" width="8" height="12"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <!-- Dark mode toggle -->
+        <div class="list-row">
+          <div class="list-row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></div>
+          <div class="list-row-text">
+            <div class="list-row-title">Dunkles Design</div>
+            <div class="list-row-sub" id="darkModeSubText">Aus</div>
+          </div>
+          <label class="switch" onclick="event.stopPropagation()"><input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"><span class="switch-slider"></span></label>
         </div>
         <div class="list-row">
           <div class="list-row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg></div>
@@ -1160,9 +1189,121 @@ if (sessionStorage.getItem('notifs_seen')) {
   if (b) b.style.display = 'none';
 }
 
+// ── ONBOARDING ────────────────────────────────────────────
+function onboardNext(step) {
+  document.querySelectorAll('.onboard-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.onboard-dot').forEach(d => d.classList.remove('active'));
+  const s = document.getElementById('onboard-step-' + step);
+  const d = document.getElementById('odot-' + step);
+  if (s) s.classList.add('active');
+  if (d) d.classList.add('active');
+}
+async function requestCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    stream.getTracks().forEach(t => t.stop());
+    showToast('Kamera erlaubt ✓', 'ok');
+  } catch(e) { showToast('Kamera nicht verfügbar', 'err'); }
+  onboardNext(3);
+}
+async function requestNotifications() {
+  try { if ('Notification' in window) await Notification.requestPermission(); } catch(e) {}
+  completeOnboarding();
+}
+function completeOnboarding() {
+  localStorage.setItem('visibal_onboarded', '1');
+  document.getElementById('onboardOverlay').style.display = 'none';
+  _trackEvent('onboarding_complete');
+}
+
+// ── PRINT WEAR REPORT ─────────────────────────────────────
+function printWearReport() {
+  const secs = _totalWearSecs();
+  const lang = getAppLang();
+  const date = new Date().toLocaleDateString('de-CH');
+  const w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>VISIBAL Bericht</title><style>
+    body{font-family:Arial,sans-serif;max-width:640px;margin:40px auto;color:#111;font-size:14px;}
+    h1{color:#C00000;margin-bottom:4px;}
+    .meta{color:#666;font-size:12px;margin-bottom:24px;}
+    .stats{display:flex;gap:32px;margin-bottom:28px;padding:16px;background:#f7f7f7;border-radius:8px;}
+    .stat-n{font-size:28px;font-weight:700;color:#111;}
+    .stat-l{font-size:11px;color:#666;}
+    table{width:100%;border-collapse:collapse;}
+    th{background:#C00000;color:white;padding:10px 12px;text-align:left;font-size:13px;}
+    td{padding:10px 12px;border-bottom:1px solid #eee;font-size:13px;}
+    .ok{color:#2d8a4e;font-weight:700;} .warn{color:#b87300;font-weight:700;}
+    footer{margin-top:32px;font-size:10px;color:#aaa;text-align:center;}
+  </style></head><body>
+    <h1>VISIBAL — Tragezeit-Bericht</h1>
+    <div class="meta">Erstellt: ${date} &nbsp;·&nbsp; Patient: Marie Müller &nbsp;·&nbsp; Praxis: Dr. med. dent. Schmidt</div>
+    <div class="stats">
+      <div><div class="stat-n">${_fmtWear(secs)}</div><div class="stat-l">Heute</div></div>
+      <div><div class="stat-n">94%</div><div class="stat-l">Compliance</div></div>
+      <div><div class="stat-n">8/14</div><div class="stat-l">Stufe</div></div>
+      <div><div class="stat-n">REGULAR</div><div class="stat-l">Phase</div></div>
+    </div>
+    <table>
+      <tr><th>Tag</th><th>Tragezeit</th><th>Status</th></tr>
+      <tr><td>Montag</td><td>22h 00min</td><td class="ok">✓ Ziel erreicht</td></tr>
+      <tr><td>Dienstag</td><td>23h 10min</td><td class="ok">✓ Ziel erreicht</td></tr>
+      <tr><td>Mittwoch</td><td>17h 30min</td><td class="warn">⚠ Unter Ziel</td></tr>
+      <tr><td>Donnerstag</td><td>22h 00min</td><td class="ok">✓ Ziel erreicht</td></tr>
+      <tr><td>Freitag</td><td>22h 15min</td><td class="ok">✓ Ziel erreicht</td></tr>
+      <tr><td>Samstag</td><td>23h 00min</td><td class="ok">✓ Ziel erreicht</td></tr>
+      <tr><td>Heute</td><td>${_fmtWear(secs)}</td><td class="${secs>=79200?'ok':'warn'}">${secs>=79200?'✓ Ziel erreicht':'⚠ Unter Ziel'}</td></tr>
+    </table>
+    <footer>VISIBAL v1.0 · nivellipso® · Swiss-Made · Erstellt ${date}</footer>
+  </body></html>`);
+  w.document.close();
+  w.print();
+  _trackEvent('print_wear_report');
+}
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js').catch(()=>{});
 }
+
+// First-run onboarding
+if (!localStorage.getItem('visibal_onboarded')) {
+  document.getElementById('onboardOverlay').style.display = 'flex';
+}
 </script>
+
+<!-- ONBOARDING OVERLAY -->
+<div class="onboard-overlay" id="onboardOverlay">
+  <div class="onboard-step active" id="onboard-step-1">
+    <div class="onboard-logo">V</div>
+    <div class="onboard-title">Willkommen bei VISIBAL</div>
+    <div class="onboard-sub">Ihre persönliche Begleitung für die nivellipso® Aligner-Behandlung.</div>
+    <ul class="onboard-features">
+      <li>✓ Tragezeit automatisch tracken</li>
+      <li>✓ KI-Assistent bei Fragen</li>
+      <li>✓ Fotos dokumentieren</li>
+      <li>✓ Direkt mit Ihrer Praxis in Kontakt</li>
+    </ul>
+    <button class="onboard-btn" onclick="onboardNext(2)">Loslegen →</button>
+  </div>
+  <div class="onboard-step" id="onboard-step-2">
+    <div class="onboard-perm-ico">📷</div>
+    <div class="onboard-title">Kamera erlauben</div>
+    <div class="onboard-sub">Für die Foto-Dokumentation Ihres Behandlungsfortschritts. Ihre Bilder bleiben privat.</div>
+    <button class="onboard-btn" onclick="requestCamera()">Kamera erlauben</button>
+    <button class="onboard-btn-skip" onclick="onboardNext(3)">Überspringen</button>
+  </div>
+  <div class="onboard-step" id="onboard-step-3">
+    <div class="onboard-perm-ico">🔔</div>
+    <div class="onboard-title">Erinnerungen aktivieren</div>
+    <div class="onboard-sub">Tägliche Tragezeit-Erinnerungen und Mitteilungen von Ihrer Praxis.</div>
+    <button class="onboard-btn" onclick="requestNotifications()">Benachrichtigungen erlauben</button>
+    <button class="onboard-btn-skip" onclick="completeOnboarding()">Überspringen</button>
+  </div>
+  <div class="onboard-dots">
+    <span class="onboard-dot active" id="odot-1"></span>
+    <span class="onboard-dot" id="odot-2"></span>
+    <span class="onboard-dot" id="odot-3"></span>
+  </div>
+</div>
+
 </body>
 </html>
