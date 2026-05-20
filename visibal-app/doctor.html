@@ -83,15 +83,15 @@
       <!-- Compliance Overview -->
       <div class="quick-stats">
         <div class="stat-mini" style="border-top:3px solid var(--ok);">
-          <div class="stat-mini-n">14<em style="color:var(--ok);">✓</em></div>
-          <div class="stat-mini-l">Compliant</div>
+          <div class="stat-mini-n" id="statOk">14<em style="color:var(--ok);">✓</em></div>
+          <div class="stat-mini-l">Konform</div>
         </div>
         <div class="stat-mini" style="border-top:3px solid var(--warn);">
-          <div class="stat-mini-n">3<em style="color:var(--warn);">⚠</em></div>
+          <div class="stat-mini-n" id="statWarn">3<em style="color:var(--warn);">⚠</em></div>
           <div class="stat-mini-l">Achtung</div>
         </div>
         <div class="stat-mini" style="border-top:3px solid var(--red);">
-          <div class="stat-mini-n">1<em>!</em></div>
+          <div class="stat-mini-n" id="statAlert">1<em>!</em></div>
           <div class="stat-mini-l">Kritisch</div>
         </div>
       </div>
@@ -138,7 +138,7 @@
         <div class="patient-avatar" style="width:60px;height:60px;font-size:20px;background:var(--red-light);color:var(--red);">MS</div>
         <div style="flex:1;">
           <div style="font-size:18px;font-weight:700;color:var(--black);">Marie Schmidt</div>
-          <div style="font-size:12px;color:var(--grey);">Stufe 9 von 14 · REGULAR · Dual Arch</div>
+          <div style="font-size:12px;color:var(--grey);">Stufe 8 von 14 · REGULAR · Dual Arch</div>
           <div style="margin-top:6px;display:flex;gap:6px;align-items:center;">
             <span class="patient-status-pill pill-ok">✓ 22h</span>
             <span style="font-size:11px;color:var(--grey);">Compliance: 94%</span>
@@ -166,12 +166,12 @@
       <div class="sec-label">Behandlungsfortschritt</div>
       <div class="progress-hero" style="margin-bottom:14px;">
         <div class="progress-phase-tag">REGULAR PHASE</div>
-        <div class="progress-step">Stufe 9 von 14</div>
-        <div class="progress-substep">Three-Aligner · Tag 5 dieser Stufe · Start: 14.03.2026</div>
-        <div class="progress-bar"><div class="progress-fill" style="width:64%;"></div></div>
+        <div class="progress-step">Stufe 8 von 14</div>
+        <div class="progress-substep">Three-Aligner · Tag 17 dieser Stufe · Start: 14.03.2026</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:57%;"></div></div>
         <div class="progress-labels">
           <span>SOFT ✓</span>
-          <span>64%</span>
+          <span>57%</span>
           <span>INTENSE</span>
         </div>
       </div>
@@ -199,7 +199,7 @@
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px;">
         <div style="background:linear-gradient(135deg,#fceaea,#fff);border-radius:8px;aspect-ratio:1;display:flex;align-items:flex-end;padding:8px;font-size:9px;font-weight:700;color:white;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 50%),linear-gradient(135deg,#f8c8c8,#fceaea);">Stufe 1<br>14.03</div>
         <div style="border-radius:8px;aspect-ratio:1;display:flex;align-items:flex-end;padding:8px;font-size:9px;font-weight:700;color:white;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 50%),linear-gradient(135deg,#fcd0d0,#fdf0f0);">Stufe 5<br>12.04</div>
-        <div style="border-radius:8px;aspect-ratio:1;display:flex;align-items:flex-end;padding:8px;font-size:9px;font-weight:700;color:white;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 50%),linear-gradient(135deg,#fdd8d8,#fff5f5);border:2px solid var(--red);">Stufe 9<br>Aktuell</div>
+        <div style="border-radius:8px;aspect-ratio:1;display:flex;align-items:flex-end;padding:8px;font-size:9px;font-weight:700;color:white;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 50%),linear-gradient(135deg,#fdd8d8,#fff5f5);border:2px solid var(--red);">Stufe 8<br>Aktuell</div>
       </div>
 
       <!-- Notes -->
@@ -279,7 +279,7 @@
 <script>
 // Demo Patient Data
 const patients = [
-  { id: 1, name: 'Marie Schmidt', stage: '9/14', phase: 'REGULAR', status: 'ok', wear: '94%', avatar: 'MS' },
+  { id: 1, name: 'Marie Schmidt', stage: '8/14', phase: 'REGULAR', status: 'ok', wear: '94%', avatar: 'MS' },
   { id: 2, name: 'Tobias Brauer', stage: '12/14', phase: 'INTENSE', status: 'alert', wear: '54%', avatar: 'TB' },
   { id: 3, name: 'Klara Weber', stage: '4/8', phase: 'SOFT', status: 'warn', wear: '74%', avatar: 'KW' },
   { id: 4, name: 'Lukas Frey', stage: '7/14', phase: 'REGULAR', status: 'ok', wear: '91%', avatar: 'LF' },
@@ -310,6 +310,9 @@ function _updateFilterCounts() {
   const fpAlert = document.getElementById('fpAlert'); if (fpAlert) fpAlert.textContent = `! Kritisch · ${al}`;
   const fpWarn = document.getElementById('fpWarn'); if (fpWarn) fpWarn.textContent = `⚠ Achtung · ${wa}`;
   const fpOk = document.getElementById('fpOk'); if (fpOk) fpOk.textContent = `✓ OK · ${ok}`;
+  const sOk = document.getElementById('statOk'); if (sOk) sOk.innerHTML = `${ok}<em style="color:var(--ok);">✓</em>`;
+  const sWarn = document.getElementById('statWarn'); if (sWarn) sWarn.innerHTML = `${wa}<em style="color:var(--warn);">⚠</em>`;
+  const sAlert = document.getElementById('statAlert'); if (sAlert) sAlert.innerHTML = `${al}<em>!</em>`;
 }
 
 function renderPatients(filter='all') {
