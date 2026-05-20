@@ -106,6 +106,8 @@ button { font-family: inherit; cursor: pointer; }
   padding: 0 0 80px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
 }
 .app-content.has-no-tabs { padding-bottom: 20px; }
 
@@ -147,7 +149,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* View management */
 .view { display: none; padding: 16px 20px 20px; animation: fadeUp .3s ease; }
-.view.active { display: block; }
+.view.active { display: block; flex-grow: 1; }
 
 /* ── COMPONENTS ── */
 
