@@ -571,6 +571,7 @@
 
 <script src="app.js"></script>
 <script>
+if (localStorage.getItem('visibal_role') !== 'patient') { window.location.replace('index.html'); }
 // ── TRANSLATIONS ──────────────────────────────────────────
 const VISIBAL_T = {
   de: {
@@ -979,7 +980,7 @@ function logout() {
   }[lang] || ['Log out?','','Log out','Cancel'];
   showConfirm(t[0], t[1], t[2], t[3], () => {
     localStorage.removeItem('visibal_role');
-    window.location.href = 'index.html';
+    window.location.replace('index.html');
   });
 }
 
