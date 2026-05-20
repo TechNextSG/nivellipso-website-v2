@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brackets & Bögen — nivellipso® Professional Series</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C00000'/><rect x='14' y='6' width='4' height='20' fill='white'/><rect x='6' y='14' width='20' height='4' fill='white'/></svg>">
+<meta name="description" content="nivellipso® Brackets — Metall, Keramik, Selbstligierend. Professional Series für Kieferorthopäden. Swiss-Made.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nivellipso.com/brackets.html">
+<meta property="og:title" content="Brackets & Bögen — nivellipso® Professional Series">
+<meta property="og:description" content="Metall, Keramik, Selbstligierend. Komplettsortiment zu Sonderpreisen für nivellipso®-Kunden.">
+<meta property="og:image" content="https://nivellipso.com/images/team/dr-albin-vukaj-circle-240.png">
+<script defer data-domain="nivellipso.com" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="nivell-design.css">
+<style>
+.br-hero-bg{background:linear-gradient(145deg,#0a0000 0%,var(--black) 50%,#1a0000 100%);position:relative;overflow:hidden;}
+.br-hero-bg::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(192,0,0,.15) 0%,transparent 70%);pointer-events:none;}
+.br-hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);}
+
+.bracket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;}
+.bracket-card{background:white;padding:32px 28px;border-top:3px solid var(--red);transition:transform .2s,box-shadow .2s;}
+.bracket-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.bracket-tag{font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--red);text-transform:uppercase;margin-bottom:8px;}
+.bracket-name{font-size:22px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.3px;}
+.bracket-sub{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.bracket-price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+.bracket-price{font-size:30px;font-weight:700;color:var(--red);letter-spacing:-1px;line-height:1;}
+.bracket-price em{font-style:normal;font-size:13px;color:var(--grey);font-weight:400;}
+.bracket-vp{font-size:11px;color:var(--grey);text-align:right;}
+.bracket-desc{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:16px;}
+.bracket-feats{display:flex;flex-direction:column;gap:7px;}
+.bracket-feat{font-size:12px;color:var(--text);display:flex;gap:8px;align-items:flex-start;}
+.bracket-feat::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0;}
+
+.catalog-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:24px;}
+.catalog-table th{background:var(--red);color:white;padding:13px 18px;text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.catalog-table th:nth-child(2),.catalog-table th:nth-child(3){text-align:right;}
+.catalog-table td{padding:12px 18px;border-bottom:1px solid var(--border);}
+.catalog-table td:nth-child(2),.catalog-table td:nth-child(3){text-align:right;font-weight:700;color:var(--black);}
+.catalog-table tr:nth-child(even) td{background:var(--bg);}
+.catalog-section{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin:32px 0 12px;}
+
+@media(max-width:768px){
+  .bracket-grid{grid-template-columns:1fr;gap:10px;}
+  .catalog-table{font-size:13px;}
+  .catalog-table th,.catalog-table td{padding:10px 12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="n-nav">
+<div class="n-nav-inner">
+  <a href="index.html" class="n-logo">
+    <img src="images/logo/logo_black.png" alt="nivellipso" class="n-logo-img">
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" class="active" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;gap:6px;">
+      <a href="https://www.instagram.com/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <button class="n-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button type="button" class="lang-btn" id="langBtn">
+      <span id="lFlag">🇩🇪</span><span id="lCode">DE</span>
+      <svg viewBox="0 0 10 6" fill="none" width="10"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5"/></svg>
+      <div class="lang-dropdown">
+        <div class="lang-opt active" data-lang="de" onclick="setNivellLang('de',window.NIVELL_T)">🇩🇪 Deutsch</div>
+        <div class="lang-opt" data-lang="fr" onclick="setNivellLang('fr',window.NIVELL_T)">🇫🇷 Français</div>
+        <div class="lang-opt" data-lang="it" onclick="setNivellLang('it',window.NIVELL_T)">🇮🇹 Italiano</div>
+        <div class="lang-opt" data-lang="en" onclick="setNivellLang('en',window.NIVELL_T)">🇬🇧 English</div>
+        <div class="lang-opt" data-lang="ru" onclick="setNivellLang('ru',window.NIVELL_T)">🇷🇺 Русский</div>
+        <div class="lang-opt" data-lang="es" onclick="setNivellLang('es',window.NIVELL_T)">🇪🇸 Español</div>
+      </div>
+    </button>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="font-size:12px;padding:10px 18px;" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+<div class="n-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" style="color:var(--red);" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <a href="https://nivellonlign.com/" target="_blank" class="n-mobile-cta" data-i18n="n_portal">Doctor Portal →</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="n-page-hero br-hero-bg">
+<div class="n-page-hero-inner">
+  <div class="n-breadcrumb"><a href="index.html" data-i18n="br_bc_home">Home</a> <svg viewBox="0 0 8 14" fill="none" width="8" height="14"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg> <span data-i18n="br_bc_current">Brackets</span></div>
+  <div class="t-label" style="color:var(--red);" data-i18n="br_label">Professional Bracket Series</div>
+  <h1 class="n-page-h1" data-i18n="br_h1">Brackets & Bögen.<br><em>Direkt vom Hersteller.</em></h1>
+  <p class="n-page-sub" data-i18n="br_sub">Metall, Keramik, selbstligierend. Bögen, Ligaturen, Adhesive. Komplettsortiment zu Sonderpreisen für nivellipso®-Kunden — direkt via Doctor Portal bestellbar.</p>
+  <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="#types" class="btn-3d" data-i18n="br_cta1">Bracket-Typen</a>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d-ghost" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+</div>
+
+<!-- Member Banner -->
+<section style="background:linear-gradient(135deg,#1a1a1a,#2a1010);color:white;padding:18px 20px;text-align:center;">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:14px;">
+    <span style="background:#ffd700;color:#1a1a1a;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.5px;" data-i18n="br_banner_badge">★ MEMBER −45%</span>
+    <span data-i18n="br_banner_text">nivellipso®-Ärzte bekommen <strong>45% Rabatt auf alle Brackets</strong> mit dem persönlichen Honor-Code.</span>
+    <a href="index.html#honor-reward" style="color:#ffd700;font-weight:700;text-decoration:none;font-size:13px;" data-i18n="br_banner_cta">→ Code anfordern</a>
+  </div>
+</section>
+
+<!-- BRACKET TYPES -->
+<section class="n-sec" id="types">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="br_types_label">Bracket-Typen</div>
+    <h2 class="t-h2" data-i18n="br_types_h2">Drei Systeme.<br>Für jede klinische Anforderung.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="bracket-grid n-fade">
+    <div class="bracket-card">
+      <div class="bracket-tag" data-i18n="br_metal_tag">Standard</div>
+      <div class="bracket-name" data-i18n="br_metal_name">Metallbrackets</div>
+      <div class="bracket-sub" data-i18n="br_metal_sub">MIM · 022"-Slot · Roth/MBT</div>
+      <div class="bracket-price-row">
+        <div class="bracket-price">CHF 2.40<em data-i18n="br_per_unit">/Stk</em></div>
+        <div class="bracket-vp" data-i18n="br_metal_vp">CHF 480.—<br>VE à 200</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#fff5e8,#fffdf5);border-left:3px solid #b8860b;padding:10px 14px;border-radius:6px;margin:6px 0 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;">
+        <span style="color:#8a6500;font-weight:600;" data-i18n="br_member_badge">★ Member −45%</span>
+        <span style="color:#b8860b;font-weight:700;font-size:14px;">CHF 1.32<em style="font-style:normal;font-size:11px;" data-i18n="br_per_unit">/Stk</em></span>
+      </div>
+      <p class="bracket-desc" data-i18n="br_metal_desc">Robust, präzise, kosteneffizient. Metal Injection Moulded für höchste Materialqualität und exakte Slot-Tolleranzen.</p>
+      <div class="bracket-feats">
+        <div class="bracket-feat" data-i18n="br_metal_f1">MIM-Technologie</div>
+        <div class="bracket-feat" data-i18n="br_metal_f2">022"-Slot Standard</div>
+        <div class="bracket-feat" data-i18n="br_metal_f3">Roth & MBT verfügbar</div>
+        <div class="bracket-feat" data-i18n="br_metal_f4">Hohe Bondstärke</div>
+      </div>
+    </div>
+    <div class="bracket-card">
+      <div class="bracket-tag" data-i18n="br_ceramic_tag">Ästhetisch</div>
+      <div class="bracket-name" data-i18n="br_ceramic_name">Keramikbrackets</div>
+      <div class="bracket-sub" data-i18n="br_ceramic_sub">Monokristallin · Hochtransluzent</div>
+      <div class="bracket-price-row">
+        <div class="bracket-price">CHF 7.80<em data-i18n="br_per_unit">/Stk</em></div>
+        <div class="bracket-vp" data-i18n="br_ceramic_vp">CHF 1'560.—<br>VE à 200</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#fff5e8,#fffdf5);border-left:3px solid #b8860b;padding:10px 14px;border-radius:6px;margin:6px 0 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;">
+        <span style="color:#8a6500;font-weight:600;" data-i18n="br_member_badge">★ Member −45%</span>
+        <span style="color:#b8860b;font-weight:700;font-size:14px;">CHF 4.29<em style="font-style:normal;font-size:11px;" data-i18n="br_per_unit">/Stk</em></span>
+      </div>
+      <p class="bracket-desc" data-i18n="br_ceramic_desc">Maximale Ästhetik durch monokristalline Keramik. Praktisch unsichtbar auf den Zähnen. Für anspruchsvolle Erwachsenenfälle.</p>
+      <div class="bracket-feats">
+        <div class="bracket-feat" data-i18n="br_ceramic_f1">Monokristallin Saphir</div>
+        <div class="bracket-feat" data-i18n="br_ceramic_f2">Höchste Transluzenz</div>
+        <div class="bracket-feat" data-i18n="br_ceramic_f3">Verfärbungsresistent</div>
+        <div class="bracket-feat" data-i18n="br_ceramic_f4">Glatte Oberfläche</div>
+      </div>
+    </div>
+    <div class="bracket-card">
+      <div class="bracket-tag" data-i18n="br_sl_tag">Premium</div>
+      <div class="bracket-name" data-i18n="br_sl_name">Selbstligierend</div>
+      <div class="bracket-sub" data-i18n="br_sl_sub">Passiv · Kein Ligaturwechsel</div>
+      <div class="bracket-price-row">
+        <div class="bracket-price">CHF 9.50<em data-i18n="br_per_unit">/Stk</em></div>
+        <div class="bracket-vp" data-i18n="br_sl_vp">CHF 1'900.—<br>VE à 200</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#fff5e8,#fffdf5);border-left:3px solid #b8860b;padding:10px 14px;border-radius:6px;margin:6px 0 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;">
+        <span style="color:#8a6500;font-weight:600;" data-i18n="br_member_badge">★ Member −45%</span>
+        <span style="color:#b8860b;font-weight:700;font-size:14px;">CHF 5.23<em style="font-style:normal;font-size:11px;" data-i18n="br_per_unit">/Stk</em></span>
+      </div>
+      <p class="bracket-desc" data-i18n="br_sl_desc">Passives Slide-Mechanismus, keine Ligaturen nötig. Reduziert Reibung, beschleunigt Behandlung, kürzere Stuhlzeiten.</p>
+      <div class="bracket-feats">
+        <div class="bracket-feat" data-i18n="br_sl_f1">Passive Mechanik</div>
+        <div class="bracket-feat" data-i18n="br_sl_f2">Keine Ligaturen</div>
+        <div class="bracket-feat" data-i18n="br_sl_f3">Geringere Reibung</div>
+        <div class="bracket-feat" data-i18n="br_sl_f4">Kürzere Termine</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FULL CATALOG -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="br_cat_label">Vollständiger Katalog</div>
+    <h2 class="t-h2" data-i18n="br_cat_h2">Bögen, Zubehör, Materialien.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" style="margin-bottom:16px;" data-i18n="br_cat_note">Alle Preise in CHF, exkl. MWSt. 8.1%. Gültig ab 01.05.2026. Lieferung ab Manufaktur Schaffhausen.</p>
+  </div>
+  <div class="n-fade">
+    <div class="catalog-section" data-i18n="br_cat_sec_brackets">Brackets</div>
+    <table class="catalog-table">
+      <thead><tr><th data-i18n="br_cat_th_artikel">Artikel</th><th data-i18n="br_cat_th_stk">CHF/Stk</th><th data-i18n="br_cat_th_ve">CHF/VE</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="br_cat_metal">Metallbrackets (MIM, 022"-Slot, Roth/MBT)</td><td>2.40</td><td>480.00</td></tr>
+        <tr><td data-i18n="br_cat_ceramic">Keramikbrackets (Monokristallin, ästhetisch)</td><td>7.80</td><td>1'560.00</td></tr>
+        <tr><td data-i18n="br_cat_sl">Selbstligierende Brackets (passiv)</td><td>9.50</td><td>1'900.00</td></tr>
+        <tr><td data-i18n="br_cat_tubes">Buccal-Tubes (1. Molar, schweissbar)</td><td>14.00</td><td>140.00</td></tr>
+      </tbody>
+    </table>
+
+    <div class="catalog-section" data-i18n="br_cat_sec_boegen">Bögen</div>
+    <table class="catalog-table">
+      <thead><tr><th data-i18n="br_cat_th_artikel">Artikel</th><th data-i18n="br_cat_th_stk">CHF/Stk</th><th data-i18n="br_cat_th_ve">CHF/VE</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="br_cat_niti_r">NiTi-Bogen rund</td><td>3.20</td><td>32.00</td></tr>
+        <tr><td data-i18n="br_cat_niti_sq">NiTi-Bogen rechteckig</td><td>4.10</td><td>41.00</td></tr>
+        <tr><td data-i18n="br_cat_steel_r">Stahlbogen rund</td><td>1.80</td><td>18.00</td></tr>
+        <tr><td data-i18n="br_cat_steel_sq">Stahlbogen rechteckig</td><td>2.40</td><td>24.00</td></tr>
+        <tr><td data-i18n="br_cat_tma">TMA-Bogen</td><td>5.60</td><td>56.00</td></tr>
+      </tbody>
+    </table>
+
+    <div class="catalog-section" data-i18n="br_cat_sec_lig">Ligaturen & Power Chains</div>
+    <table class="catalog-table">
+      <thead><tr><th data-i18n="br_cat_th_artikel">Artikel</th><th></th><th data-i18n="br_cat_th_ve">CHF/VE</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="br_cat_lig">Elastomer-Ligaturen farbig (1'000 Stk.)</td><td>—</td><td>28.00</td></tr>
+        <tr><td data-i18n="br_cat_chain">Power-Chain kurz/mittel/lang (15 Spulen)</td><td>—</td><td>62.00</td></tr>
+      </tbody>
+    </table>
+
+    <div class="catalog-section" data-i18n="br_cat_sec_adh">Adhesive & Bonding</div>
+    <table class="catalog-table">
+      <thead><tr><th data-i18n="br_cat_th_artikel">Artikel</th><th></th><th data-i18n="br_cat_th_ve">CHF/VE</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="br_cat_etch">Etch & Bond Kit (5 ml)</td><td>—</td><td>85.00</td></tr>
+        <tr><td data-i18n="br_cat_adhesiv">Bracket-Adhesiv lichthärtend (4×4g)</td><td>—</td><td>120.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- WHY -->
+<section class="n-sec">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="br_why_label">Warum Nivellipso Brackets?</div>
+    <h2 class="t-h2" data-i18n="br_why_h2">Hersteller-Direkt. Schweizer Standard.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;" class="n-fade">
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="t-h3" data-i18n="br_why1_h">Direkt vom Hersteller</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="br_why1_p">Kein Zwischenhändler, kein Aufschlag. Sie zahlen die Manufakturpreise — fair und transparent.</p>
+    </div>
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
+      <div class="t-h3" data-i18n="br_why2_h">CE MDR Zertifiziert</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="br_why2_p">EU 2017/745 Klasse IIa. ISO 13485. Vollständige Rückverfolgbarkeit jeder Charge.</p>
+    </div>
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <div class="t-h3" data-i18n="br_why3_h">Schnelle Lieferung</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="br_why3_p">Standard 5–10 WT, Express 2–3 WT innerhalb CH/FL. Frei Haus ab CHF 600.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- LOYALTY (gleiches Programm wie Aligners) -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="br_loyal_label">Loyalty-Programm</div>
+    <h2 class="t-h2" data-i18n="br_loyal_h2">Auch auf Brackets — bis zu 20% Rabatt.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" data-i18n="br_loyal_p">Das Loyalty-Programm gilt für das gesamte Sortiment: Aligners, Brackets, Zubehör und Bögen. Je mehr Fälle pro Jahr, desto höher der Rabatt.</p>
+    <a href="aligner.html#loyalty" class="btn-3d-outline" style="margin-top:20px;" data-i18n="br_loyal_cta">Tier-Übersicht →</a>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<div style="background:var(--red);padding:56px 40px;text-align:center;">
+  <h2 style="font-size:clamp(22px,3vw,38px);font-weight:700;color:white;letter-spacing:-1px;margin-bottom:12px;" data-i18n="br_cta_h2">Bestellung über das Doctor Portal.</h2>
+  <p style="font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;" data-i18n="br_cta_p">Alle Brackets, Bögen und Zubehör direkt online bestellen. Lieferung in 5–10 Werktagen.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="background:white;color:var(--red);box-shadow:0 4px 0 rgba(0,0,0,.2);" data-i18n="br_cta_btn1">Doctor Portal →</a>
+    <a href="index.html#contact-form" class="btn-3d-ghost" data-i18n="br_cta_btn2">Beratung anfragen</a>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleNivellChat()">
+  <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <span class="c-label" data-i18n="cb_toggle_label">Bracket-Fragen?</span>
+  <svg class="c-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-hdr"><div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">⚙️</div><div style="margin-left:10px;"><div class="chat-hdr-name" data-i18n="cb_hdr_name">Bracket-Beratung</div><div class="chat-hdr-sub" data-i18n="cb_hdr_sub">Materialien · Preise · Lieferung</div></div></div>
+  <div class="chat-msgs" id="chatMessages"><div class="msg-bot" data-i18n="cb_welcome">Hallo! Ich beantworte Ihre Fragen zu Brackets, Bögen und Zubehör.</div></div>
+  <div class="chat-suggs" id="chatSugg">
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg1">Metall vs Keramik?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg2">Selbstligierend Vorteile</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg3">Lieferzeit</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" placeholder="Ihre Frage..." onkeypress="if(event.key==='Enter')sendNivellChat()">
+    <button class="chat-send" onclick="sendNivellChat()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="n-footer">
+<div class="n-footer-inner">
+  <div class="n-footer-grid">
+    <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--red-dark);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><rect x="7" y="2" width="2" height="12" fill="white"/><rect x="2" y="7" width="12" height="2" fill="white"/></svg></div><span style="font-size:17px;font-weight:700;color:white;">nivellipso<span style="color:var(--red);">®</span></span></div><p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;" data-i18n="ft_brand_tagline">Professional Bracket Series · Swiss-Made in Schaffhausen seit 2015.</p></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_products">Produkte</h4><ul><li><a href="aligner.html" data-i18n="n_align">Clear Aligners</a></li><li><a href="brackets.html" style="color:var(--red);font-weight:700;" data-i18n="n_brack">Brackets</a></li><li><a href="whitening.html" data-i18n="n_white">Whitening</a></li><li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_resources">Ressourcen</h4><ul><li><a href="academy.html" data-i18n="n_acad">Academy</a></li><li><a href="https://nivellonlign.com/" target="_blank" data-i18n="ft_link_portal">Doctor Portal</a></li><li><a href="index.html#faq" data-i18n="ft_link_faq">FAQ</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_contact">Kontakt</h4><ul><li><a href="mailto:sales@nivellipso.com">sales@nivellipso.com</a></li><li><a href="tel:+41794697176">+41 79 469 71 76</a></li><li><a href="index.html#contact-form" data-i18n="ft_link_contactform">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="n-footer-bottom"><p data-i18n="ft_copyright">Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen</p><p class="n-conf" data-i18n="ft_confidential">VERTRAULICH · NIVELLMEDICAL AG</p></div>
+</div>
+</footer>
+
+<script src="nivell-site.js"></script>
+<script>
+const T = {
+  de: {
+    // Nav
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Kontakt', n_portal:'Doctor Portal →',
+    // Breadcrumb
+    br_bc_home:'Home',
+    br_bc_current:'Brackets',
+    // Hero
+    br_label:'Professional Bracket Series',
+    br_h1:'Brackets &amp; Bögen.<br><em>Direkt vom Hersteller.</em>',
+    br_sub:'Metall, Keramik, selbstligierend. Bögen, Ligaturen, Adhesive. Komplettsortiment zu Sonderpreisen für nivellipso®-Kunden — direkt via Doctor Portal bestellbar.',
+    br_cta1:'Bracket-Typen',
+    // Member banner
+    br_banner_badge:'★ MEMBER −45%',
+    br_banner_text:'nivellipso®-Ärzte bekommen <strong>45% Rabatt auf alle Brackets</strong> mit dem persönlichen Honor-Code.',
+    br_banner_cta:'→ Code anfordern',
+    // Bracket types section
+    br_types_label:'Bracket-Typen',
+    br_types_h2:'Drei Systeme.<br>Für jede klinische Anforderung.',
+    // Metal card
+    br_metal_tag:'Standard',
+    br_metal_name:'Metallbrackets',
+    br_metal_sub:'MIM · 022"-Slot · Roth/MBT',
+    br_per_unit:'/Stk',
+    br_metal_vp:'CHF 480.—<br>VE à 200',
+    br_member_badge:'★ Member −45%',
+    br_metal_desc:'Robust, präzise, kosteneffizient. Metal Injection Moulded für höchste Materialqualität und exakte Slot-Tolleranzen.',
+    br_metal_f1:'MIM-Technologie',
+    br_metal_f2:'022"-Slot Standard',
+    br_metal_f3:'Roth &amp; MBT verfügbar',
+    br_metal_f4:'Hohe Bondstärke',
+    // Ceramic card
+    br_ceramic_tag:'Ästhetisch',
+    br_ceramic_name:'Keramikbrackets',
+    br_ceramic_sub:'Monokristallin · Hochtransluzent',
+    br_ceramic_vp:'CHF 1\'560.—<br>VE à 200',
+    br_ceramic_desc:'Maximale Ästhetik durch monokristalline Keramik. Praktisch unsichtbar auf den Zähnen. Für anspruchsvolle Erwachsenenfälle.',
+    br_ceramic_f1:'Monokristallin Saphir',
+    br_ceramic_f2:'Höchste Transluzenz',
+    br_ceramic_f3:'Verfärbungsresistent',
+    br_ceramic_f4:'Glatte Oberfläche',
+    // Self-ligating card
+    br_sl_tag:'Premium',
+    br_sl_name:'Selbstligierend',
+    br_sl_sub:'Passiv · Kein Ligaturwechsel',
+    br_sl_vp:'CHF 1\'900.—<br>VE à 200',
+    br_sl_desc:'Passives Slide-Mechanismus, keine Ligaturen nötig. Reduziert Reibung, beschleunigt Behandlung, kürzere Stuhlzeiten.',
+    br_sl_f1:'Passive Mechanik',
+    br_sl_f2:'Keine Ligaturen',
+    br_sl_f3:'Geringere Reibung',
+    br_sl_f4:'Kürzere Termine',
+    // Catalog
+    br_cat_label:'Vollständiger Katalog',
+    br_cat_h2:'Bögen, Zubehör, Materialien.',
+    br_cat_note:'Alle Preise in CHF, exkl. MWSt. 8.1%. Gültig ab 01.05.2026. Lieferung ab Manufaktur Schaffhausen.',
+    br_cat_th_artikel:'Artikel',
+    br_cat_th_stk:'CHF/Stk',
+    br_cat_th_ve:'CHF/VE',
+    br_cat_sec_brackets:'Brackets',
+    br_cat_metal:'Metallbrackets (MIM, 022"-Slot, Roth/MBT)',
+    br_cat_ceramic:'Keramikbrackets (Monokristallin, ästhetisch)',
+    br_cat_sl:'Selbstligierende Brackets (passiv)',
+    br_cat_tubes:'Buccal-Tubes (1. Molar, schweissbar)',
+    br_cat_sec_boegen:'Bögen',
+    br_cat_niti_r:'NiTi-Bogen rund',
+    br_cat_niti_sq:'NiTi-Bogen rechteckig',
+    br_cat_steel_r:'Stahlbogen rund',
+    br_cat_steel_sq:'Stahlbogen rechteckig',
+    br_cat_tma:'TMA-Bogen',
+    br_cat_sec_lig:'Ligaturen &amp; Power Chains',
+    br_cat_lig:'Elastomer-Ligaturen farbig (1\'000 Stk.)',
+    br_cat_chain:'Power-Chain kurz/mittel/lang (15 Spulen)',
+    br_cat_sec_adh:'Adhesive &amp; Bonding',
+    br_cat_etch:'Etch &amp; Bond Kit (5 ml)',
+    br_cat_adhesiv:'Bracket-Adhesiv lichthärtend (4×4g)',
+    // Why section
+    br_why_label:'Warum Nivellipso Brackets?',
+    br_why_h2:'Hersteller-Direkt. Schweizer Standard.',
+    br_why1_h:'Direkt vom Hersteller',
+    br_why1_p:'Kein Zwischenhändler, kein Aufschlag. Sie zahlen die Manufakturpreise — fair und transparent.',
+    br_why2_h:'CE MDR Zertifiziert',
+    br_why2_p:'EU 2017/745 Klasse IIa. ISO 13485. Vollständige Rückverfolgbarkeit jeder Charge.',
+    br_why3_h:'Schnelle Lieferung',
+    br_why3_p:'Standard 5–10 WT, Express 2–3 WT innerhalb CH/FL. Frei Haus ab CHF 600.',
+    // Loyalty
+    br_loyal_label:'Loyalty-Programm',
+    br_loyal_h2:'Auch auf Brackets — bis zu 20% Rabatt.',
+    br_loyal_p:'Das Loyalty-Programm gilt für das gesamte Sortiment: Aligners, Brackets, Zubehör und Bögen. Je mehr Fälle pro Jahr, desto höher der Rabatt.',
+    br_loyal_cta:'Tier-Übersicht →',
+    // CTA
+    br_cta_h2:'Bestellung über das Doctor Portal.',
+    br_cta_p:'Alle Brackets, Bögen und Zubehör direkt online bestellen. Lieferung in 5–10 Werktagen.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Beratung anfragen',
+    // Chatbot
+    cb_toggle_label:'Bracket-Fragen?',
+    cb_hdr_name:'Bracket-Beratung',
+    cb_hdr_sub:'Materialien · Preise · Lieferung',
+    cb_welcome:'Hallo! Ich beantworte Ihre Fragen zu Brackets, Bögen und Zubehör.',
+    cb_sugg1:'Metall vs Keramik?',
+    cb_sugg2:'Selbstligierend Vorteile',
+    cb_sugg3:'Lieferzeit',
+    cb_placeholder:'Ihre Frage...',
+    // Footer
+    ft_brand_tagline:'Professional Bracket Series · Swiss-Made in Schaffhausen seit 2015.',
+    ft_col_products:'Produkte',
+    ft_col_resources:'Ressourcen',
+    ft_col_contact:'Kontakt',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Kontaktformular',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'VERTRAULICH · NIVELLMEDICAL AG'
+  },
+  en: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    br_bc_home:'Home',
+    br_bc_current:'Brackets',
+    br_label:'Professional Bracket Series',
+    br_h1:'Brackets &amp; Archwires.<br><em>Direct from the Manufacturer.</em>',
+    br_sub:'Metal, ceramic, self-ligating. Archwires, ligatures, adhesives. Complete range at special prices for nivellipso® customers — order direct via Doctor Portal.',
+    br_cta1:'Bracket Types',
+    br_banner_badge:'★ MEMBER −45%',
+    br_banner_text:'nivellipso® doctors receive <strong>45% discount on all brackets</strong> with their personal Honor Code.',
+    br_banner_cta:'→ Request Code',
+    br_types_label:'Bracket Types',
+    br_types_h2:'Three systems.<br>For every clinical requirement.',
+    br_metal_tag:'Standard',
+    br_metal_name:'Metal Brackets',
+    br_metal_sub:'MIM · 022" Slot · Roth/MBT',
+    br_per_unit:'/unit',
+    br_metal_vp:'CHF 480.—<br>Box of 200',
+    br_member_badge:'★ Member −45%',
+    br_metal_desc:'Robust, precise, cost-effective. Metal Injection Moulded for highest material quality and exact slot tolerances.',
+    br_metal_f1:'MIM technology',
+    br_metal_f2:'022" slot standard',
+    br_metal_f3:'Roth &amp; MBT available',
+    br_metal_f4:'High bond strength',
+    br_ceramic_tag:'Aesthetic',
+    br_ceramic_name:'Ceramic Brackets',
+    br_ceramic_sub:'Monocrystalline · Highly translucent',
+    br_ceramic_vp:'CHF 1\'560.—<br>Box of 200',
+    br_ceramic_desc:'Maximum aesthetics with monocrystalline ceramic. Virtually invisible on the teeth. For demanding adult cases.',
+    br_ceramic_f1:'Monocrystalline sapphire',
+    br_ceramic_f2:'Highest translucency',
+    br_ceramic_f3:'Stain resistant',
+    br_ceramic_f4:'Smooth surface',
+    br_sl_tag:'Premium',
+    br_sl_name:'Self-Ligating',
+    br_sl_sub:'Passive · No ligature changes',
+    br_sl_vp:'CHF 1\'900.—<br>Box of 200',
+    br_sl_desc:'Passive slide mechanism, no ligatures required. Reduces friction, accelerates treatment, shorter chair time.',
+    br_sl_f1:'Passive mechanics',
+    br_sl_f2:'No ligatures',
+    br_sl_f3:'Lower friction',
+    br_sl_f4:'Shorter appointments',
+    br_cat_label:'Full Catalogue',
+    br_cat_h2:'Archwires, accessories, materials.',
+    br_cat_note:'All prices in CHF, excl. VAT 8.1%. Valid from 01.05.2026. Delivery from Schaffhausen factory.',
+    br_cat_th_artikel:'Item',
+    br_cat_th_stk:'CHF/unit',
+    br_cat_th_ve:'CHF/box',
+    br_cat_sec_brackets:'Brackets',
+    br_cat_metal:'Metal brackets (MIM, 022" slot, Roth/MBT)',
+    br_cat_ceramic:'Ceramic brackets (monocrystalline, aesthetic)',
+    br_cat_sl:'Self-ligating brackets (passive)',
+    br_cat_tubes:'Buccal tubes (1st molar, weldable)',
+    br_cat_sec_boegen:'Archwires',
+    br_cat_niti_r:'NiTi archwire round',
+    br_cat_niti_sq:'NiTi archwire rectangular',
+    br_cat_steel_r:'Steel archwire round',
+    br_cat_steel_sq:'Steel archwire rectangular',
+    br_cat_tma:'TMA archwire',
+    br_cat_sec_lig:'Ligatures &amp; Power Chains',
+    br_cat_lig:'Elastomeric ligatures coloured (1\'000 pcs.)',
+    br_cat_chain:'Power chain short/medium/long (15 spools)',
+    br_cat_sec_adh:'Adhesive &amp; Bonding',
+    br_cat_etch:'Etch &amp; Bond Kit (5 ml)',
+    br_cat_adhesiv:'Bracket adhesive light-curing (4×4g)',
+    br_why_label:'Why nivellipso Brackets?',
+    br_why_h2:'Direct from Manufacturer. Swiss Standard.',
+    br_why1_h:'Direct from the Manufacturer',
+    br_why1_p:'No middlemen, no markup. You pay factory prices — fair and transparent.',
+    br_why2_h:'CE MDR Certified',
+    br_why2_p:'EU 2017/745 Class IIa. ISO 13485. Full traceability of every batch.',
+    br_why3_h:'Fast Delivery',
+    br_why3_p:'Standard 5–10 working days, Express 2–3 working days within CH/FL. Free shipping from CHF 600.',
+    br_loyal_label:'Loyalty Programme',
+    br_loyal_h2:'Also on Brackets — up to 20% discount.',
+    br_loyal_p:'The loyalty programme applies to the entire range: aligners, brackets, accessories and archwires. The more cases per year, the higher the discount.',
+    br_loyal_cta:'View Tiers →',
+    br_cta_h2:'Order via the Doctor Portal.',
+    br_cta_p:'Order all brackets, archwires and accessories directly online. Delivery in 5–10 working days.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Request Consultation',
+    cb_toggle_label:'Bracket Questions?',
+    cb_hdr_name:'Bracket Consultation',
+    cb_hdr_sub:'Materials · Prices · Delivery',
+    cb_welcome:'Hello! I answer your questions about brackets, archwires and accessories.',
+    cb_sugg1:'Metal vs Ceramic?',
+    cb_sugg2:'Self-ligating advantages',
+    cb_sugg3:'Delivery time',
+    cb_placeholder:'Your question...',
+    ft_brand_tagline:'Professional Bracket Series · Swiss-Made in Schaffhausen since 2015.',
+    ft_col_products:'Products',
+    ft_col_resources:'Resources',
+    ft_col_contact:'Contact',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Contact Form',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'CONFIDENTIAL · NIVELLMEDICAL AG'
+  },
+  fr: {
+    n_home:'Accueil', n_align:'Aligneurs', n_brack:'Brackets', n_white:'Blanchiment', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    br_bc_home:'Accueil',
+    br_bc_current:'Brackets',
+    br_label:'Série Brackets Professionnelle',
+    br_h1:'Brackets &amp; Arcs.<br><em>Directement du Fabricant.</em>',
+    br_sub:'Métal, céramique, auto-ligaturant. Arcs, ligatures, adhésifs. Gamme complète à prix spéciaux pour les clients nivellipso® — commande directe via Doctor Portal.',
+    br_cta1:'Types de Brackets',
+    br_banner_badge:'★ MEMBRE −45%',
+    br_banner_text:'Les médecins nivellipso® bénéficient de <strong>45% de réduction sur tous les brackets</strong> avec leur code Honor personnel.',
+    br_banner_cta:'→ Demander le code',
+    br_types_label:'Types de Brackets',
+    br_types_h2:'Trois systèmes.<br>Pour chaque exigence clinique.',
+    br_metal_tag:'Standard',
+    br_metal_name:'Brackets Métalliques',
+    br_metal_sub:'MIM · Slot 022" · Roth/MBT',
+    br_per_unit:'/pièce',
+    br_metal_vp:'CHF 480.—<br>Boîte de 200',
+    br_member_badge:'★ Membre −45%',
+    br_metal_desc:'Robustes, précis, économiques. Metal Injection Moulded pour une qualité maximale et des tolérances de slot exactes.',
+    br_metal_f1:'Technologie MIM',
+    br_metal_f2:'Slot 022" standard',
+    br_metal_f3:'Roth &amp; MBT disponibles',
+    br_metal_f4:'Haute résistance au collage',
+    br_ceramic_tag:'Esthétique',
+    br_ceramic_name:'Brackets Céramiques',
+    br_ceramic_sub:'Monocristallin · Haute translucidité',
+    br_ceramic_vp:'CHF 1\'560.—<br>Boîte de 200',
+    br_ceramic_desc:'Esthétique maximale grâce à la céramique monocristalline. Pratiquement invisible sur les dents. Pour les cas adultes exigeants.',
+    br_ceramic_f1:'Saphir monocristallin',
+    br_ceramic_f2:'Translucidité maximale',
+    br_ceramic_f3:'Résistant aux taches',
+    br_ceramic_f4:'Surface lisse',
+    br_sl_tag:'Premium',
+    br_sl_name:'Auto-ligaturant',
+    br_sl_sub:'Passif · Sans changement de ligature',
+    br_sl_vp:'CHF 1\'900.—<br>Boîte de 200',
+    br_sl_desc:'Mécanisme passif à glissière, aucune ligature nécessaire. Réduit la friction, accélère le traitement, moins de temps en salle.',
+    br_sl_f1:'Mécanique passive',
+    br_sl_f2:'Sans ligatures',
+    br_sl_f3:'Friction réduite',
+    br_sl_f4:'Rendez-vous plus courts',
+    br_cat_label:'Catalogue Complet',
+    br_cat_h2:'Arcs, accessoires, matériaux.',
+    br_cat_note:'Tous les prix en CHF, TVA 8.1% excl. Valable dès le 01.05.2026. Livraison depuis la manufacture de Schaffhouse.',
+    br_cat_th_artikel:'Article',
+    br_cat_th_stk:'CHF/pièce',
+    br_cat_th_ve:'CHF/boîte',
+    br_cat_sec_brackets:'Brackets',
+    br_cat_metal:'Brackets métalliques (MIM, slot 022", Roth/MBT)',
+    br_cat_ceramic:'Brackets céramiques (monocristallin, esthétique)',
+    br_cat_sl:'Brackets auto-ligaturants (passifs)',
+    br_cat_tubes:'Tubes buccaux (1er molaire, soudables)',
+    br_cat_sec_boegen:'Arcs',
+    br_cat_niti_r:'Arc NiTi rond',
+    br_cat_niti_sq:'Arc NiTi rectangulaire',
+    br_cat_steel_r:'Arc acier rond',
+    br_cat_steel_sq:'Arc acier rectangulaire',
+    br_cat_tma:'Arc TMA',
+    br_cat_sec_lig:'Ligatures &amp; Power Chains',
+    br_cat_lig:'Ligatures élastomères colorées (1\'000 pcs.)',
+    br_cat_chain:'Power chain court/moyen/long (15 bobines)',
+    br_cat_sec_adh:'Adhésif &amp; Collage',
+    br_cat_etch:'Kit Etch &amp; Bond (5 ml)',
+    br_cat_adhesiv:'Adhésif bracket photopolymérisable (4×4g)',
+    br_why_label:'Pourquoi les Brackets nivellipso?',
+    br_why_h2:'Direct du Fabricant. Standard Suisse.',
+    br_why1_h:'Directement du Fabricant',
+    br_why1_p:'Pas d\'intermédiaire, pas de majoration. Vous payez les prix manufacture — juste et transparent.',
+    br_why2_h:'Certifié CE MDR',
+    br_why2_p:'EU 2017/745 Classe IIa. ISO 13485. Traçabilité complète de chaque lot.',
+    br_why3_h:'Livraison Rapide',
+    br_why3_p:'Standard 5–10 jours ouvrés, Express 2–3 jours ouvrés en CH/FL. Franco de port dès CHF 600.',
+    br_loyal_label:'Programme Fidélité',
+    br_loyal_h2:'Aussi sur les Brackets — jusqu\'à 20% de réduction.',
+    br_loyal_p:'Le programme fidélité s\'applique à toute la gamme: aligneurs, brackets, accessoires et arcs. Plus il y a de cas par an, plus la réduction est élevée.',
+    br_loyal_cta:'Voir les niveaux →',
+    br_cta_h2:'Commande via le Doctor Portal.',
+    br_cta_p:'Commandez tous les brackets, arcs et accessoires directement en ligne. Livraison en 5–10 jours ouvrés.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Demander un conseil',
+    cb_toggle_label:'Questions Brackets?',
+    cb_hdr_name:'Conseil Brackets',
+    cb_hdr_sub:'Matériaux · Prix · Livraison',
+    cb_welcome:'Bonjour! Je réponds à vos questions sur les brackets, arcs et accessoires.',
+    cb_sugg1:'Métal vs Céramique?',
+    cb_sugg2:'Avantages auto-ligaturant',
+    cb_sugg3:'Délai de livraison',
+    cb_placeholder:'Votre question...',
+    ft_brand_tagline:'Série Brackets Professionnelle · Swiss-Made à Schaffhouse depuis 2015.',
+    ft_col_products:'Produits',
+    ft_col_resources:'Ressources',
+    ft_col_contact:'Contact',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Formulaire de contact',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'CONFIDENTIEL · NIVELLMEDICAL AG'
+  },
+  it: {
+    n_home:'Home', n_align:'Allineatori', n_brack:'Brackets', n_white:'Sbiancamento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contatti', n_portal:'Doctor Portal →',
+    br_bc_home:'Home',
+    br_bc_current:'Brackets',
+    br_label:'Serie Bracket Professionale',
+    br_h1:'Bracket &amp; Archi.<br><em>Direttamente dal Produttore.</em>',
+    br_sub:'Metallo, ceramica, autoligante. Archi, legature, adesivi. Gamma completa a prezzi speciali per i clienti nivellipso® — ordine diretto tramite Doctor Portal.',
+    br_cta1:'Tipi di Bracket',
+    br_banner_badge:'★ MEMBRO −45%',
+    br_banner_text:'I medici nivellipso® ricevono <strong>45% di sconto su tutti i bracket</strong> con il codice Honor personale.',
+    br_banner_cta:'→ Richiedere il codice',
+    br_types_label:'Tipi di Bracket',
+    br_types_h2:'Tre sistemi.<br>Per ogni esigenza clinica.',
+    br_metal_tag:'Standard',
+    br_metal_name:'Bracket Metallici',
+    br_metal_sub:'MIM · Slot 022" · Roth/MBT',
+    br_per_unit:'/pz',
+    br_metal_vp:'CHF 480.—<br>Confezione da 200',
+    br_member_badge:'★ Membro −45%',
+    br_metal_desc:'Robusti, precisi, economici. Metal Injection Moulded per la massima qualità del materiale e tolleranze slot esatte.',
+    br_metal_f1:'Tecnologia MIM',
+    br_metal_f2:'Slot 022" standard',
+    br_metal_f3:'Roth &amp; MBT disponibili',
+    br_metal_f4:'Alta resistenza al bonding',
+    br_ceramic_tag:'Estetico',
+    br_ceramic_name:'Bracket Ceramici',
+    br_ceramic_sub:'Monocristallino · Alta traslucenza',
+    br_ceramic_vp:'CHF 1\'560.—<br>Confezione da 200',
+    br_ceramic_desc:'Massima estetica grazie alla ceramica monocristallina. Praticamente invisibile sui denti. Per casi adulti esigenti.',
+    br_ceramic_f1:'Zaffiro monocristallino',
+    br_ceramic_f2:'Massima traslucenza',
+    br_ceramic_f3:'Resistente alle macchie',
+    br_ceramic_f4:'Superficie liscia',
+    br_sl_tag:'Premium',
+    br_sl_name:'Autoligante',
+    br_sl_sub:'Passivo · Nessun cambio di legatura',
+    br_sl_vp:'CHF 1\'900.—<br>Confezione da 200',
+    br_sl_desc:'Meccanismo a scorrimento passivo, nessuna legatura necessaria. Riduce l\'attrito, accelera il trattamento, meno tempo in studio.',
+    br_sl_f1:'Meccanica passiva',
+    br_sl_f2:'Nessuna legatura',
+    br_sl_f3:'Attrito ridotto',
+    br_sl_f4:'Appuntamenti più brevi',
+    br_cat_label:'Catalogo Completo',
+    br_cat_h2:'Archi, accessori, materiali.',
+    br_cat_note:'Tutti i prezzi in CHF, IVA 8.1% esclusa. Valido dal 01.05.2026. Consegna dalla manifattura di Sciaffusa.',
+    br_cat_th_artikel:'Articolo',
+    br_cat_th_stk:'CHF/pz',
+    br_cat_th_ve:'CHF/conf.',
+    br_cat_sec_brackets:'Bracket',
+    br_cat_metal:'Bracket metallici (MIM, slot 022", Roth/MBT)',
+    br_cat_ceramic:'Bracket ceramici (monocristallino, estetico)',
+    br_cat_sl:'Bracket autoliganti (passivi)',
+    br_cat_tubes:'Tubi buccali (1° molare, saldabili)',
+    br_cat_sec_boegen:'Archi',
+    br_cat_niti_r:'Arco NiTi rotondo',
+    br_cat_niti_sq:'Arco NiTi rettangolare',
+    br_cat_steel_r:'Arco acciaio rotondo',
+    br_cat_steel_sq:'Arco acciaio rettangolare',
+    br_cat_tma:'Arco TMA',
+    br_cat_sec_lig:'Legature &amp; Power Chain',
+    br_cat_lig:'Legature elastomeriche colorate (1\'000 pz.)',
+    br_cat_chain:'Power chain corta/media/lunga (15 bobine)',
+    br_cat_sec_adh:'Adesivo &amp; Bonding',
+    br_cat_etch:'Kit Etch &amp; Bond (5 ml)',
+    br_cat_adhesiv:'Adesivo bracket fotopolimerizzabile (4×4g)',
+    br_why_label:'Perché i Bracket nivellipso?',
+    br_why_h2:'Diretto dal Produttore. Standard Svizzero.',
+    br_why1_h:'Direttamente dal Produttore',
+    br_why1_p:'Nessun intermediario, nessun ricarico. Si pagano i prezzi di fabbrica — equi e trasparenti.',
+    br_why2_h:'Certificato CE MDR',
+    br_why2_p:'EU 2017/745 Classe IIa. ISO 13485. Piena tracciabilità di ogni lotto.',
+    br_why3_h:'Consegna Rapida',
+    br_why3_p:'Standard 5–10 giorni lavorativi, Express 2–3 giorni lavorativi in CH/FL. Porto franco da CHF 600.',
+    br_loyal_label:'Programma Fedeltà',
+    br_loyal_h2:'Anche sui Bracket — fino al 20% di sconto.',
+    br_loyal_p:'Il programma fedeltà è valido per tutta la gamma: allineatori, bracket, accessori e archi. Più casi all\'anno, maggiore è lo sconto.',
+    br_loyal_cta:'Panoramica livelli →',
+    br_cta_h2:'Ordine tramite il Doctor Portal.',
+    br_cta_p:'Ordina tutti i bracket, archi e accessori direttamente online. Consegna in 5–10 giorni lavorativi.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Richiedere consulenza',
+    cb_toggle_label:'Domande sui Bracket?',
+    cb_hdr_name:'Consulenza Bracket',
+    cb_hdr_sub:'Materiali · Prezzi · Consegna',
+    cb_welcome:'Salve! Rispondo alle sue domande su bracket, archi e accessori.',
+    cb_sugg1:'Metallo vs Ceramica?',
+    cb_sugg2:'Vantaggi autoligante',
+    cb_sugg3:'Tempi di consegna',
+    cb_placeholder:'La sua domanda...',
+    ft_brand_tagline:'Serie Bracket Professionale · Swiss-Made a Sciaffusa dal 2015.',
+    ft_col_products:'Prodotti',
+    ft_col_resources:'Risorse',
+    ft_col_contact:'Contatti',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Modulo di contatto',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'RISERVATO · NIVELLMEDICAL AG'
+  },
+  ru: {
+    n_home:'Главная', n_align:'Элайнеры', n_brack:'Брекеты', n_white:'Отбеливание', n_vis:'VISIBAL', n_acad:'Академия', n_con:'Контакты', n_portal:'Doctor Portal →',
+    br_bc_home:'Главная',
+    br_bc_current:'Брекеты',
+    br_label:'Профессиональная серия брекетов',
+    br_h1:'Брекеты &amp; Дуги.<br><em>Напрямую от производителя.</em>',
+    br_sub:'Металл, керамика, самолигирующие. Дуги, лигатуры, адгезивы. Полный ассортимент по специальным ценам для клиентов nivellipso® — заказ напрямую через Doctor Portal.',
+    br_cta1:'Типы брекетов',
+    br_banner_badge:'★ УЧАСТНИК −45%',
+    br_banner_text:'Врачи nivellipso® получают <strong>скидку 45% на все брекеты</strong> по персональному коду Honor.',
+    br_banner_cta:'→ Запросить код',
+    br_types_label:'Типы брекетов',
+    br_types_h2:'Три системы.<br>Для каждого клинического случая.',
+    br_metal_tag:'Стандарт',
+    br_metal_name:'Металлические брекеты',
+    br_metal_sub:'MIM · Паз 022" · Roth/MBT',
+    br_per_unit:'/шт',
+    br_metal_vp:'CHF 480.—<br>Упак. 200 шт.',
+    br_member_badge:'★ Участник −45%',
+    br_metal_desc:'Прочные, точные, экономичные. Литьё металла под давлением (MIM) обеспечивает высокое качество материала и точные допуски паза.',
+    br_metal_f1:'Технология MIM',
+    br_metal_f2:'Паз 022" стандарт',
+    br_metal_f3:'Roth &amp; MBT в наличии',
+    br_metal_f4:'Высокая адгезия',
+    br_ceramic_tag:'Эстетика',
+    br_ceramic_name:'Керамические брекеты',
+    br_ceramic_sub:'Монокристаллические · Высокая прозрачность',
+    br_ceramic_vp:'CHF 1\'560.—<br>Упак. 200 шт.',
+    br_ceramic_desc:'Максимальная эстетика благодаря монокристаллической керамике. Практически незаметны на зубах. Для требовательных случаев у взрослых.',
+    br_ceramic_f1:'Монокристаллический сапфир',
+    br_ceramic_f2:'Максимальная прозрачность',
+    br_ceramic_f3:'Устойчивость к окрашиванию',
+    br_ceramic_f4:'Гладкая поверхность',
+    br_sl_tag:'Премиум',
+    br_sl_name:'Самолигирующие',
+    br_sl_sub:'Пассивные · Без замены лигатур',
+    br_sl_vp:'CHF 1\'900.—<br>Упак. 200 шт.',
+    br_sl_desc:'Пассивный скользящий механизм, лигатуры не нужны. Снижает трение, ускоряет лечение, сокращает время у кресла.',
+    br_sl_f1:'Пассивная механика',
+    br_sl_f2:'Без лигатур',
+    br_sl_f3:'Меньше трения',
+    br_sl_f4:'Короткие визиты',
+    br_cat_label:'Полный каталог',
+    br_cat_h2:'Дуги, аксессуары, материалы.',
+    br_cat_note:'Все цены в CHF, без НДС 8.1%. Действительно с 01.05.2026. Доставка с завода в Шаффхаузене.',
+    br_cat_th_artikel:'Наименование',
+    br_cat_th_stk:'CHF/шт',
+    br_cat_th_ve:'CHF/упак.',
+    br_cat_sec_brackets:'Брекеты',
+    br_cat_metal:'Металлические брекеты (MIM, паз 022", Roth/MBT)',
+    br_cat_ceramic:'Керамические брекеты (монокристаллические, эстетические)',
+    br_cat_sl:'Самолигирующие брекеты (пассивные)',
+    br_cat_tubes:'Буккальные трубки (1-й моляр, под сварку)',
+    br_cat_sec_boegen:'Дуги',
+    br_cat_niti_r:'Дуга NiTi круглая',
+    br_cat_niti_sq:'Дуга NiTi прямоугольная',
+    br_cat_steel_r:'Стальная дуга круглая',
+    br_cat_steel_sq:'Стальная дуга прямоугольная',
+    br_cat_tma:'Дуга TMA',
+    br_cat_sec_lig:'Лигатуры &amp; Power Chain',
+    br_cat_lig:'Эластомерные лигатуры цветные (1\'000 шт.)',
+    br_cat_chain:'Power chain короткий/средний/длинный (15 катушек)',
+    br_cat_sec_adh:'Адгезивы &amp; Бондинг',
+    br_cat_etch:'Набор Etch &amp; Bond (5 мл)',
+    br_cat_adhesiv:'Брекет-адгезив светового отверждения (4×4г)',
+    br_why_label:'Почему брекеты nivellipso?',
+    br_why_h2:'Напрямую от производителя. Швейцарский стандарт.',
+    br_why1_h:'Напрямую от производителя',
+    br_why1_p:'Без посредников, без наценок. Вы платите заводские цены — честно и прозрачно.',
+    br_why2_h:'Сертификат CE MDR',
+    br_why2_p:'EU 2017/745 Класс IIa. ISO 13485. Полная прослеживаемость каждой партии.',
+    br_why3_h:'Быстрая доставка',
+    br_why3_p:'Стандарт 5–10 раб. дней, экспресс 2–3 раб. дня в CH/FL. Бесплатная доставка от CHF 600.',
+    br_loyal_label:'Программа лояльности',
+    br_loyal_h2:'Также на брекеты — скидка до 20%.',
+    br_loyal_p:'Программа лояльности распространяется на весь ассортимент: элайнеры, брекеты, аксессуары и дуги. Чем больше случаев в год, тем выше скидка.',
+    br_loyal_cta:'Обзор уровней →',
+    br_cta_h2:'Заказ через Doctor Portal.',
+    br_cta_p:'Заказывайте все брекеты, дуги и аксессуары напрямую онлайн. Доставка за 5–10 рабочих дней.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Запросить консультацию',
+    cb_toggle_label:'Вопросы о брекетах?',
+    cb_hdr_name:'Консультация по брекетам',
+    cb_hdr_sub:'Материалы · Цены · Доставка',
+    cb_welcome:'Здравствуйте! Отвечаю на вопросы о брекетах, дугах и аксессуарах.',
+    cb_sugg1:'Металл против керамики?',
+    cb_sugg2:'Преимущества самолигирующих',
+    cb_sugg3:'Срок доставки',
+    cb_placeholder:'Ваш вопрос...',
+    ft_brand_tagline:'Профессиональная серия брекетов · Swiss-Made в Шаффхаузене с 2015 года.',
+    ft_col_products:'Продукты',
+    ft_col_resources:'Ресурсы',
+    ft_col_contact:'Контакты',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Контактная форма',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'КОНФИДЕНЦИАЛЬНО · NIVELLMEDICAL AG'
+  },
+  es: {
+    n_home:'Inicio', n_align:'Alineadores', n_brack:'Brackets', n_white:'Blanqueamiento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contacto', n_portal:'Doctor Portal →',
+    br_bc_home:'Inicio',
+    br_bc_current:'Brackets',
+    br_label:'Serie Brackets Profesional',
+    br_h1:'Brackets &amp; Arcos.<br><em>Directamente del Fabricante.</em>',
+    br_sub:'Metal, cerámica, autoligado. Arcos, ligaduras, adhesivos. Gama completa a precios especiales para clientes nivellipso® — pedido directo a través del Doctor Portal.',
+    br_cta1:'Tipos de Brackets',
+    br_banner_badge:'★ MIEMBRO −45%',
+    br_banner_text:'Los médicos nivellipso® obtienen <strong>45% de descuento en todos los brackets</strong> con su código Honor personal.',
+    br_banner_cta:'→ Solicitar código',
+    br_types_label:'Tipos de Brackets',
+    br_types_h2:'Tres sistemas.<br>Para cada exigencia clínica.',
+    br_metal_tag:'Estándar',
+    br_metal_name:'Brackets Metálicos',
+    br_metal_sub:'MIM · Slot 022" · Roth/MBT',
+    br_per_unit:'/ud.',
+    br_metal_vp:'CHF 480.—<br>Caja de 200',
+    br_member_badge:'★ Miembro −45%',
+    br_metal_desc:'Robustos, precisos, rentables. Metal Injection Moulded para la más alta calidad de material y tolerancias de slot exactas.',
+    br_metal_f1:'Tecnología MIM',
+    br_metal_f2:'Slot 022" estándar',
+    br_metal_f3:'Roth &amp; MBT disponibles',
+    br_metal_f4:'Alta resistencia al adhesivo',
+    br_ceramic_tag:'Estético',
+    br_ceramic_name:'Brackets Cerámicos',
+    br_ceramic_sub:'Monocristalino · Alta translucidez',
+    br_ceramic_vp:'CHF 1\'560.—<br>Caja de 200',
+    br_ceramic_desc:'Máxima estética con cerámica monocristalina. Prácticamente invisible en los dientes. Para casos adultos exigentes.',
+    br_ceramic_f1:'Zafiro monocristalino',
+    br_ceramic_f2:'Máxima translucidez',
+    br_ceramic_f3:'Resistente a las manchas',
+    br_ceramic_f4:'Superficie lisa',
+    br_sl_tag:'Premium',
+    br_sl_name:'Autoligado',
+    br_sl_sub:'Pasivo · Sin cambio de ligadura',
+    br_sl_vp:'CHF 1\'900.—<br>Caja de 200',
+    br_sl_desc:'Mecanismo deslizante pasivo, sin ligaduras necesarias. Reduce la fricción, acelera el tratamiento, menos tiempo en sillón.',
+    br_sl_f1:'Mecánica pasiva',
+    br_sl_f2:'Sin ligaduras',
+    br_sl_f3:'Menor fricción',
+    br_sl_f4:'Citas más cortas',
+    br_cat_label:'Catálogo Completo',
+    br_cat_h2:'Arcos, accesorios, materiales.',
+    br_cat_note:'Todos los precios en CHF, IVA 8.1% excl. Válido desde el 01.05.2026. Entrega desde la manufactura de Schaffhausen.',
+    br_cat_th_artikel:'Artículo',
+    br_cat_th_stk:'CHF/ud.',
+    br_cat_th_ve:'CHF/caja',
+    br_cat_sec_brackets:'Brackets',
+    br_cat_metal:'Brackets metálicos (MIM, slot 022", Roth/MBT)',
+    br_cat_ceramic:'Brackets cerámicos (monocristalino, estético)',
+    br_cat_sl:'Brackets autoligantes (pasivos)',
+    br_cat_tubes:'Tubos bucales (1.er molar, soldables)',
+    br_cat_sec_boegen:'Arcos',
+    br_cat_niti_r:'Arco NiTi redondo',
+    br_cat_niti_sq:'Arco NiTi rectangular',
+    br_cat_steel_r:'Arco acero redondo',
+    br_cat_steel_sq:'Arco acero rectangular',
+    br_cat_tma:'Arco TMA',
+    br_cat_sec_lig:'Ligaduras &amp; Power Chains',
+    br_cat_lig:'Ligaduras elastoméricas de colores (1\'000 uds.)',
+    br_cat_chain:'Power chain corta/media/larga (15 bobinas)',
+    br_cat_sec_adh:'Adhesivo &amp; Bonding',
+    br_cat_etch:'Kit Etch &amp; Bond (5 ml)',
+    br_cat_adhesiv:'Adhesivo para bracket fotopolimerizable (4×4g)',
+    br_why_label:'¿Por qué los Brackets nivellipso?',
+    br_why_h2:'Directo del Fabricante. Estándar Suizo.',
+    br_why1_h:'Directamente del Fabricante',
+    br_why1_p:'Sin intermediarios, sin recargo. Usted paga los precios de fábrica — justo y transparente.',
+    br_why2_h:'Certificado CE MDR',
+    br_why2_p:'EU 2017/745 Clase IIa. ISO 13485. Trazabilidad completa de cada lote.',
+    br_why3_h:'Entrega Rápida',
+    br_why3_p:'Estándar 5–10 días hábiles, Express 2–3 días hábiles en CH/FL. Portes gratis desde CHF 600.',
+    br_loyal_label:'Programa de Fidelidad',
+    br_loyal_h2:'También en Brackets — hasta un 20% de descuento.',
+    br_loyal_p:'El programa de fidelidad se aplica a toda la gama: alineadores, brackets, accesorios y arcos. Cuantos más casos al año, mayor el descuento.',
+    br_loyal_cta:'Ver niveles →',
+    br_cta_h2:'Pedido a través del Doctor Portal.',
+    br_cta_p:'Pida todos los brackets, arcos y accesorios directamente online. Entrega en 5–10 días hábiles.',
+    br_cta_btn1:'Doctor Portal →',
+    br_cta_btn2:'Solicitar asesoramiento',
+    cb_toggle_label:'¿Preguntas sobre Brackets?',
+    cb_hdr_name:'Asesoramiento Brackets',
+    cb_hdr_sub:'Materiales · Precios · Entrega',
+    cb_welcome:'¡Hola! Respondo sus preguntas sobre brackets, arcos y accesorios.',
+    cb_sugg1:'¿Metal vs Cerámica?',
+    cb_sugg2:'Ventajas del autoligado',
+    cb_sugg3:'Plazo de entrega',
+    cb_placeholder:'Su pregunta...',
+    ft_brand_tagline:'Serie Brackets Profesional · Swiss-Made en Schaffhausen desde 2015.',
+    ft_col_products:'Productos',
+    ft_col_resources:'Recursos',
+    ft_col_contact:'Contacto',
+    ft_link_portal:'Doctor Portal',
+    ft_link_faq:'FAQ',
+    ft_link_contactform:'Formulario de contacto',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_confidential:'CONFIDENCIAL · NIVELLMEDICAL AG'
+  }
+};
+window.NIVELL_T = T;
+document.addEventListener('DOMContentLoaded', () => {
+  const lang = localStorage.getItem('nivell_lang') || 'de';
+  setNivellLang(lang, T);
+  // Translate chat input placeholder (cannot use innerHTML)
+  const merged = { ...T.de, ...T[lang] };
+  const inp = document.getElementById('chatInput');
+  if (inp && merged.cb_placeholder) inp.placeholder = merged.cb_placeholder;
+});
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  initScrollAnimations();
+  setActiveNav();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clear Aligners — nivellipso® Three-Aligner-System</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C00000'/><rect x='14' y='6' width='4' height='20' fill='white'/><rect x='6' y='14' width='20' height='4' fill='white'/></svg>">
+<meta name="description" content="nivellipso® Clear Aligners — Three-Aligner-System SOFT/REGULAR/INTENSE. Swiss-Made in Schaffhausen. Direkt vom Hersteller.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nivellipso.com/aligner.html">
+<meta property="og:title" content="Clear Aligners — nivellipso® Three-Aligner-System">
+<meta property="og:description" content="Das nivellipso® Three-Aligner-System. SOFT · REGULAR · INTENSE. Swiss-Made seit 2015.">
+<meta property="og:image" content="https://nivellipso.com/images/team/dr-albin-vukaj-circle-240.png">
+<script defer data-domain="nivellipso.com" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="nivell-design.css">
+<style>
+.al-hero-bg{background:linear-gradient(145deg,#0a0000 0%,var(--black) 50%,#1a0000 100%);position:relative;overflow:hidden;}
+.al-hero-bg::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(192,0,0,.15) 0%,transparent 70%);pointer-events:none;}
+.al-hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);}
+
+/* Phase Cards */
+.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;}
+.phase-card{background:white;padding:28px 24px;border-top:3px solid var(--red);transition:transform .2s,box-shadow .2s;position:relative;}
+.phase-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.phase-num{font-size:48px;font-weight:700;color:var(--red);opacity:.12;letter-spacing:-3px;line-height:1;margin-bottom:14px;}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--red);text-transform:uppercase;margin-bottom:6px;}
+.phase-name{font-size:24px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.4px;}
+.phase-mat{font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.phase-desc{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:16px;}
+.phase-feats{display:flex;flex-direction:column;gap:7px;}
+.phase-feat{font-size:12px;color:var(--text);display:flex;gap:8px;align-items:flex-start;}
+.phase-feat::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0;}
+
+/* Pricing Tabs */
+.price-tabs{display:flex;gap:2px;margin-bottom:0;border-bottom:2px solid var(--bg);}
+.price-tab{padding:14px 24px;font-size:13px;font-weight:700;background:none;border:none;cursor:pointer;color:var(--grey);font-family:Arial,sans-serif;transition:all .15s;position:relative;}
+.price-tab.active{color:var(--red);}
+.price-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--red);}
+.price-tab:hover:not(.active){color:var(--text);}
+.price-panel{display:none;padding-top:24px;}
+.price-panel.active{display:block;}
+.price-table{width:100%;border-collapse:collapse;}
+.price-table th{background:var(--red);color:white;padding:13px 20px;text-align:left;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.price-table th:last-child{text-align:right;}
+.price-table td{padding:14px 20px;border-bottom:1px solid var(--border);font-size:14px;}
+.price-table td:last-child{text-align:right;font-weight:700;color:var(--black);}
+.price-table tr:nth-child(even) td{background:var(--bg);}
+.price-incl{background:var(--red-light);border-left:4px solid var(--red);padding:18px 24px;margin-top:16px;font-size:13px;color:var(--text);line-height:1.7;}
+
+/* Workflow */
+.wf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;}
+.wf-step{background:white;padding:24px 20px;border-top:3px solid transparent;transition:border-color .2s,transform .2s;}
+.wf-step:hover{border-top-color:var(--red);transform:translateY(-3px);}
+.wf-n{font-size:36px;font-weight:700;color:var(--red);opacity:.14;line-height:1;margin-bottom:10px;letter-spacing:-2px;}
+.wf-t{font-size:15px;font-weight:700;color:var(--black);margin-bottom:6px;}
+.wf-d{font-size:13px;color:var(--grey);line-height:1.6;}
+
+/* Service grid */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:24px;}
+.svc-row{background:white;border:1px solid var(--border);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s;}
+.svc-row:hover{border-color:var(--red);}
+.svc-name{font-size:14px;color:var(--text);}
+.svc-price{font-size:14px;font-weight:700;color:var(--red);}
+
+/* Loyalty */
+.loyal-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:24px;}
+.loyal-table th{background:var(--red);color:white;padding:13px 20px;text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.loyal-table td{padding:13px 20px;border-bottom:1px solid var(--border);}
+.loyal-table tr:nth-child(even) td{background:var(--bg);}
+.tier-pill{display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.t0{background:#f0f0f0;color:#888;}.t1{background:#fff0e8;color:#b05a00;}.t2{background:#f0f0f0;color:#555;}.t3{background:#fffbe8;color:#9a6f00;}.t4{background:#f0f0ff;color:#6a00c8;}
+
+@media(max-width:768px){
+  .phase-grid{grid-template-columns:1fr;gap:10px;}
+  .wf-grid{grid-template-columns:1fr 1fr;gap:8px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .price-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .price-table{font-size:13px;}
+  .price-table th,.price-table td{padding:10px 12px;}
+}
+@media(max-width:540px){
+  .wf-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="n-nav">
+<div class="n-nav-inner">
+  <a href="index.html" class="n-logo">
+    <img src="images/logo/logo_black.png" alt="nivellipso" class="n-logo-img">
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" class="active" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;gap:6px;">
+      <a href="https://www.instagram.com/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <button class="n-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button type="button" class="lang-btn" id="langBtn">
+      <span id="lFlag">🇩🇪</span><span id="lCode">DE</span>
+      <svg viewBox="0 0 10 6" fill="none" width="10"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5"/></svg>
+      <div class="lang-dropdown">
+        <div class="lang-opt active" data-lang="de" onclick="setNivellLang('de',window.NIVELL_T)">🇩🇪 Deutsch</div>
+        <div class="lang-opt" data-lang="fr" onclick="setNivellLang('fr',window.NIVELL_T)">🇫🇷 Français</div>
+        <div class="lang-opt" data-lang="it" onclick="setNivellLang('it',window.NIVELL_T)">🇮🇹 Italiano</div>
+        <div class="lang-opt" data-lang="en" onclick="setNivellLang('en',window.NIVELL_T)">🇬🇧 English</div>
+        <div class="lang-opt" data-lang="ru" onclick="setNivellLang('ru',window.NIVELL_T)">🇷🇺 Русский</div>
+        <div class="lang-opt" data-lang="es" onclick="setNivellLang('es',window.NIVELL_T)">🇪🇸 Español</div>
+      </div>
+    </button>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="font-size:12px;padding:10px 18px;" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+<div class="n-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" style="color:var(--red);" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <a href="https://nivellonlign.com/" target="_blank" class="n-mobile-cta" data-i18n="n_portal">Doctor Portal →</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="n-page-hero al-hero-bg">
+<div class="n-page-hero-inner">
+  <div class="n-breadcrumb"><a href="index.html" data-i18n="n_home">Home</a> <svg viewBox="0 0 8 14" fill="none" width="8" height="14"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg> <span data-i18n="al_breadcrumb">Clear Aligners</span></div>
+  <div class="t-label" style="color:var(--red);" data-i18n="al_label">Clear Aligners</div>
+  <h1 class="n-page-h1" data-i18n="al_h1">Das nivellipso®<br><em>Three-Aligner-System.</em></h1>
+  <p class="n-page-sub" data-i18n="al_sub">Drei differenzierte Materialien — entwickelt für jede Phase der Zahnbewegung. Vorhersehbar. Stabil. Kein Rezidiv. Swiss-Made in Schaffhausen seit 2015.</p>
+  <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="#pricing" class="btn-3d" data-i18n="al_cta1">Preise & Optionen</a>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d-ghost" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+</div>
+
+<!-- RECOMMENDATION BANNER -->
+<section class="n-sec" style="padding-top:48px;padding-bottom:24px;">
+<div class="n-sec-inner">
+  <div class="n-rec-banner n-fade">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+    <div><strong data-i18n="al_rec_title">★ Klinische Empfehlung</strong><p data-i18n="al_rec_body">Aus biomechanischer Evidenz und 10 Jahren klinischer Erfahrung: Das Three-Aligner-System liefert überlegene Ergebnisse. Single-Aligner-Lösungen für einfache Fälle auf Anfrage verfügbar.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- THE 3 PHASES -->
+<section class="n-sec" style="padding-top:24px;">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_sys_label">Das System</div>
+    <h2 class="t-h2" data-i18n="al_sys_h2">Drei Schienen pro Stufe.<br>Eine Behandlung. Ein Ergebnis.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" data-i18n="al_sys_lead">Jede Behandlungsstufe besteht aus drei Schienen mit unterschiedlichen Materialeigenschaften — Soft für die Initiation, Regular für die aktive Bewegung, Intense für die Stabilisierung.</p>
+  </div>
+  <div class="phase-grid n-fade">
+    <div class="phase-card">
+      <div class="phase-num">01</div>
+      <div class="phase-tag" data-i18n="al_p1_tag">Phase 01</div>
+      <div class="phase-name">SOFT</div>
+      <div class="phase-mat" data-i18n="al_p1_mat">Initiation · Weiches Material</div>
+      <div class="phase-desc" data-i18n="al_p1_desc">Sanfte initiale Zahnbewegung. Das Gewebe passt sich an, der Patient gewöhnt sich an die Schiene. Maximaler Komfort beim Therapiebeginn.</div>
+      <div class="phase-feats">
+        <div class="phase-feat" data-i18n="al_p1_f1">2 Tage pro Stufe</div>
+        <div class="phase-feat" data-i18n="al_p1_f2">Gewebeanpassung</div>
+        <div class="phase-feat" data-i18n="al_p1_f3">Hoher Tragekomfort</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">02</div>
+      <div class="phase-tag" data-i18n="al_p2_tag">Phase 02</div>
+      <div class="phase-name">REGULAR</div>
+      <div class="phase-mat" data-i18n="al_p2_mat">Bewegung · Mittleres Material</div>
+      <div class="phase-desc" data-i18n="al_p2_desc">Hauptbewegungsphase. Optimale Balance zwischen Kraft und Komfort. Hier passiert die eigentliche kieferorthopädische Korrektur.</div>
+      <div class="phase-feats">
+        <div class="phase-feat" data-i18n="al_p2_f1">3 Tage pro Stufe</div>
+        <div class="phase-feat" data-i18n="al_p2_f2">Aktive Zahnbewegung</div>
+        <div class="phase-feat" data-i18n="al_p2_f3">Druckgefühl normal</div>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">03</div>
+      <div class="phase-tag" data-i18n="al_p3_tag">Phase 03</div>
+      <div class="phase-name">INTENSE</div>
+      <div class="phase-mat" data-i18n="al_p3_mat">Finalisierung · Festes Material</div>
+      <div class="phase-desc" data-i18n="al_p3_desc">Finale Stabilisierung und Retention der erreichten Position. Verhindert Rezidive durch konsequenten Gewebe-Settling-Prozess.</div>
+      <div class="phase-feats">
+        <div class="phase-feat" data-i18n="al_p3_f1">2 Tage pro Stufe</div>
+        <div class="phase-feat" data-i18n="al_p3_f2">Finale Stabilisierung</div>
+        <div class="phase-feat" data-i18n="al_p3_f3">Kein Rezidiv</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WHY -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_why_label">Warum drei Schienen?</div>
+    <h2 class="t-h2" data-i18n="al_why_h2">Biomechanik, die funktioniert.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:36px;" class="n-fade">
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <div class="t-h3" data-i18n="al_why_c1_h">Vorhersehbar</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="al_why_c1_p">Drei Phasen statt einer pauschalen Schiene = präzise Steuerung der Bewegung. Klinische Ergebnisse entsprechen dem Treatment Plan.</p>
+    </div>
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="t-h3" data-i18n="al_why_c2_h">Komfortabel</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="al_why_c2_p">SOFT-Phase reduziert Eingewöhnungsprobleme dramatisch. Höhere Patienten-Compliance vom Tag 1 an.</p>
+    </div>
+    <div class="card-3d card-3d-red">
+      <div class="ico-circle" style="margin-bottom:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
+      <div class="t-h3" data-i18n="al_why_c3_h">Stabil</div>
+      <p style="font-size:14px;color:var(--grey);line-height:1.7;" data-i18n="al_why_c3_p">INTENSE-Phase finalisiert die Position. Gewebe-Settling vor Behandlungsende = keine späten Rezidive.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="n-sec" id="pricing">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_price_label">Preise & Optionen</div>
+    <h2 class="t-h2" data-i18n="al_price_h2">Preisliste — gültig ab 01.05.2026.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" style="margin-bottom:32px;" data-i18n="al_price_lead">Alle Preise in CHF, exkl. MWSt. 8.1%. Direkt ab Manufaktur Schaffhausen. Frei Haus ab CHF 600.</p>
+  </div>
+  <div class="n-fade">
+    <div class="price-tabs">
+      <button class="price-tab active" onclick="showTab('single',this)" data-i18n="al_tab_single">Single Arch</button>
+      <button class="price-tab" onclick="showTab('dual',this)" data-i18n="al_tab_dual">Dual Arch</button>
+      <button class="price-tab" onclick="showTab('touch',this)" data-i18n="al_tab_touch">Touch-Up</button>
+      <button class="price-tab" onclick="showTab('retainer',this)" data-i18n="al_tab_retainer">Retainer</button>
+    </div>
+    <!-- SINGLE ARCH -->
+    <div id="tab-single" class="price-panel active">
+      <table class="price-table">
+        <thead><tr><th data-i18n="al_th_steps">Anzahl Stufen</th><th data-i18n="al_th_ind">Indikation</th><th data-i18n="al_th_price">Preis CHF</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="al_s1_steps">Bis 7 Stufen</td><td data-i18n="al_s1_ind">Leichte Korrekturen</td><td>590.—</td></tr>
+          <tr><td data-i18n="al_s2_steps">8–14 Stufen</td><td data-i18n="al_s2_ind">Mittlere Komplexität</td><td>890.—</td></tr>
+          <tr><td data-i18n="al_s3_steps">15–21 Stufen</td><td data-i18n="al_s3_ind">Komplexe Fälle</td><td>1'150.—</td></tr>
+          <tr><td data-i18n="al_s4_steps">Unlimited (bis 36)</td><td data-i18n="al_s4_ind">Volle Behandlung</td><td>1'450.—</td></tr>
+        </tbody>
+      </table>
+      <div class="price-incl" data-i18n="al_single_incl"><strong>Inklusive:</strong> Digitaler Treatment-Plan · ClinCheck-Review · Stufenvisualisierung · Freigabe-Workflow · 1 kostenlose Verfeinerung innerhalb 12 Monaten.</div>
+    </div>
+    <!-- DUAL ARCH -->
+    <div id="tab-dual" class="price-panel">
+      <table class="price-table">
+        <thead><tr><th data-i18n="al_th_steps">Anzahl Stufen</th><th data-i18n="al_th_ind">Indikation</th><th data-i18n="al_th_price">Preis CHF</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="al_s1_steps">Bis 7 Stufen</td><td data-i18n="al_d1_ind">Beide Kiefer, leicht</td><td>920.—</td></tr>
+          <tr><td data-i18n="al_s2_steps">8–14 Stufen</td><td data-i18n="al_d2_ind">Beide Kiefer, mittel</td><td>1'380.—</td></tr>
+          <tr><td data-i18n="al_s3_steps">15–21 Stufen</td><td data-i18n="al_d3_ind">Beide Kiefer, komplex</td><td>1'750.—</td></tr>
+          <tr><td data-i18n="al_s4_steps">Unlimited (bis 36)</td><td data-i18n="al_s4_ind">Volle Behandlung</td><td>2'200.—</td></tr>
+        </tbody>
+      </table>
+      <div class="price-incl" data-i18n="al_dual_incl"><strong>Inklusive:</strong> Digitaler Treatment-Plan · Vollständige Workflow-Unterstützung · 2 kostenlose Verfeinerungen innerhalb 18 Monaten.</div>
+    </div>
+    <!-- TOUCH-UP -->
+    <div id="tab-touch" class="price-panel">
+      <table class="price-table">
+        <thead><tr><th data-i18n="al_th_steps">Stufen</th><th data-i18n="al_th_ind">Indikation</th><th data-i18n="al_th_price">Preis CHF</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="al_t1_steps">1–4 Stufen</td><td data-i18n="al_t1_ind">Kleine Korrekturen, Retainer-Rezidiv</td><td>390.—</td></tr>
+          <tr><td data-i18n="al_t2_steps">5–7 Stufen</td><td data-i18n="al_t2_ind">Mittlere Nachbehandlung</td><td>540.—</td></tr>
+        </tbody>
+      </table>
+      <div class="price-incl" data-i18n="al_touch_incl">Für nachträgliche Korrekturen, Retainer-Rezidive oder finale Feinjustierungen.</div>
+    </div>
+    <!-- RETAINER -->
+    <div id="tab-retainer" class="price-panel">
+      <table class="price-table">
+        <thead><tr><th data-i18n="al_th_variant">Variante</th><th data-i18n="al_th_qty">Anzahl</th><th data-i18n="al_th_price">Preis CHF</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="al_r1_var">Single Arch Paar</td><td data-i18n="al_r_1pair">1 Paar</td><td>120.—</td></tr>
+          <tr><td data-i18n="al_r2_var">Dual Arch Paar</td><td data-i18n="al_r_1pair">1 Paar</td><td>190.—</td></tr>
+          <tr><td data-i18n="al_r3_var">Single Arch 3er-Set</td><td data-i18n="al_r_3pcs">3 Stück</td><td>320.—</td></tr>
+          <tr><td data-i18n="al_r4_var">Dual Arch 3er-Set</td><td data-i18n="al_r_3pcs">3 Stück</td><td>520.—</td></tr>
+        </tbody>
+      </table>
+      <div class="price-incl" data-i18n="al_retainer_incl"><strong>Material:</strong> Biokompatibles PET-G, 1.0mm, klar, geruchsneutral. CE MDR Klasse IIa zertifiziert.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICE FEES -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_svc_label">Service-Gebühren</div>
+    <h2 class="t-h2" data-i18n="al_svc_h2">Zusatzleistungen.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="svc-grid n-fade">
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc1_name">Modell-Scan</span><span class="svc-price" data-i18n="al_svc1_price">CHF 35.— / Kiefer</span></div>
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc2_name">Express-Lieferung (2–3 WT, CH/FL)</span><span class="svc-price">CHF 45.—</span></div>
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc3_name">Refinement (ausserhalb Inklusivkontingent)</span><span class="svc-price">CHF 190.—</span></div>
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc4_name">Plan-Revision (neue ClinCheck-Iteration ab Stufe 3)</span><span class="svc-price">CHF 120.—</span></div>
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc5_name">Versand Standard (frei Haus ab CHF 600)</span><span class="svc-price">CHF 18.—</span></div>
+    <div class="svc-row"><span class="svc-name" data-i18n="al_svc6_name">Versand International (EU/EWR)</span><span class="svc-price" data-i18n="al_svc6_price">Auf Anfrage</span></div>
+  </div>
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="n-sec">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_wf_label">Workflow</div>
+    <h2 class="t-h2" data-i18n="al_wf_h2">Von der Bestellung zur Schiene.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="wf-grid n-fade">
+    <div class="wf-step"><div class="wf-n">01</div><div class="wf-t" data-i18n="al_wf1_t">Bestellen</div><div class="wf-d" data-i18n="al_wf1_d">Doctor Portal oder sales@nivellipso.com · STL/PLY Scans bevorzugt</div></div>
+    <div class="wf-step"><div class="wf-n">02</div><div class="wf-t" data-i18n="al_wf2_t">Plan in 3 WT</div><div class="wf-d" data-i18n="al_wf2_d">Digitaler Treatment-Plan · ClinCheck-Review · Stufenvisualisierung</div></div>
+    <div class="wf-step"><div class="wf-n">03</div><div class="wf-t" data-i18n="al_wf3_t">Freigabe</div><div class="wf-d" data-i18n="al_wf3_d">Sie reviewen und geben frei · Volle Kontrolle vor Produktion</div></div>
+    <div class="wf-step"><div class="wf-n">04</div><div class="wf-t" data-i18n="al_wf4_t">Lieferung</div><div class="wf-d" data-i18n="al_wf4_d">Swiss-Made Schaffhausen · 5–10 WT Standard · 2–3 WT Express</div></div>
+  </div>
+</div>
+</section>
+
+<!-- LOYALTY -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="al_loyal_label">Loyalty-Programm</div>
+    <h2 class="t-h2" data-i18n="al_loyal_h2">Je mehr Sie bestellen,<br>desto mehr sparen Sie.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="n-fade">
+    <table class="loyal-table">
+      <thead><tr><th data-i18n="al_loyal_th_tier">Tier</th><th data-i18n="al_loyal_th_cases">Fälle / Jahr</th><th data-i18n="al_loyal_th_disc">Rabatt</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tier-pill t0">Standard</span></td><td>1–9</td><td>—</td></tr>
+        <tr><td><span class="tier-pill t1">Bronze</span></td><td>10–24</td><td>5%</td></tr>
+        <tr><td><span class="tier-pill t2">Silver</span></td><td>25–49</td><td>10%</td></tr>
+        <tr><td><span class="tier-pill t3">Gold</span></td><td>50–99</td><td>15%</td></tr>
+        <tr><td><span class="tier-pill t4">Platinum</span></td><td>100+</td><td>20%</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--grey);margin-top:14px;" data-i18n="al_loyal_note">Kumuliert pro Praxis und Kalenderjahr. Rabatte greifen automatisch ab der ersten Bestellung im neuen Tier.</p>
+  </div>
+</div>
+</section>
+
+<!-- WIN BACK -->
+<section class="n-sec">
+<div class="n-sec-inner">
+  <div class="n-fade" style="background:linear-gradient(135deg,var(--red-light),white);border:1px solid #fdd;border-left:5px solid var(--red);padding:36px 40px;">
+    <div class="t-label" data-i18n="al_wb_label">Win-Back Aktion Q2/Q3 2026</div>
+    <h2 class="t-h2" style="margin-bottom:20px;" data-i18n="al_wb_h2">Für Praxen, die wir vermisst haben.</h2>
+    <p style="font-size:15px;color:var(--text);line-height:1.75;margin-bottom:24px;max-width:680px;" data-i18n="al_wb_body">Befristet für Praxen mit >12 Monaten Inaktivität — wir möchten Sie zurück gewinnen.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div style="display:flex;gap:12px;"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg></div><div><div style="font-size:14px;font-weight:700;" data-i18n="al_wb_o1_h">Reconnect –15%</div><div style="font-size:12px;color:var(--grey);" data-i18n="al_wb_o1_d">Erste Three-Aligner-Bestellung</div></div></div>
+      <div style="display:flex;gap:12px;"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div style="font-size:14px;font-weight:700;" data-i18n="al_wb_o2_h">60 Tage Zahlungsziel</div><div style="font-size:12px;color:var(--grey);" data-i18n="al_wb_o2_d">Für die ersten 3 Bestellungen</div></div></div>
+      <div style="display:flex;gap:12px;"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div><div><div style="font-size:14px;font-weight:700;" data-i18n="al_wb_o3_h">Persönliche Visite</div><div style="font-size:12px;color:var(--grey);" data-i18n="al_wb_o3_d">Albin kommt zu Ihnen — gratis</div></div></div>
+    </div>
+    <a href="index.html#contact-form" class="btn-3d" style="margin-top:28px;" data-i18n="al_wb_cta">Win-Back anfragen →</a>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<div style="background:var(--red);padding:56px 40px;text-align:center;">
+  <h2 style="font-size:clamp(22px,3vw,38px);font-weight:700;color:white;letter-spacing:-1px;margin-bottom:12px;" data-i18n="al_cta_h2">Erste Bestellung?</h2>
+  <p style="font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;" data-i18n="al_cta_body">Albin zeigt Ihnen den Workflow persönlich. Onboarding inklusive Portal-Tour, STL-Upload-Demo und erste Treatment-Plan-Besprechung.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="index.html#contact-form" class="btn-3d" style="background:white;color:var(--red);box-shadow:0 4px 0 rgba(0,0,0,.2);" data-i18n="al_cta_btn1">Onboarding anfragen →</a>
+    <a href="tel:+41794697176" class="btn-3d-ghost" data-i18n="al_cta_phone">+41 79 469 71 76</a>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleNivellChat()">
+  <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <span class="c-label" data-i18n="cb_toggle">Aligner-Fragen?</span>
+  <svg class="c-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-hdr"><div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🦷</div><div style="margin-left:10px;"><div class="chat-hdr-name" data-i18n="cb_name">Aligner-Beratung</div><div class="chat-hdr-sub" data-i18n="cb_sub">Klinische Fragen · Preise · Workflow</div></div></div>
+  <div class="chat-msgs" id="chatMessages"><div class="msg-bot" data-i18n="cb_welcome">Hallo! Ich beantworte Ihre Fragen zum Three-Aligner-System, Preisen, Lieferzeiten und Workflow.</div></div>
+  <div class="chat-suggs" id="chatSugg">
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg1">SOFT vs REGULAR?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg2">Single Arch Preis?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="cb_sugg3">Lieferzeit</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" data-i18n-placeholder="cb_placeholder" placeholder="Ihre Frage..." onkeypress="if(event.key==='Enter')sendNivellChat()">
+    <button class="chat-send" onclick="sendNivellChat()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="n-footer">
+<div class="n-footer-inner">
+  <div class="n-footer-grid">
+    <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--red-dark);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><rect x="7" y="2" width="2" height="12" fill="white"/><rect x="2" y="7" width="12" height="2" fill="white"/></svg></div><span style="font-size:17px;font-weight:700;color:white;">nivellipso<span style="color:var(--red);">®</span></span></div><p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;" data-i18n="ft_tagline">Clear Aligners · Three-Aligner-System · Swiss-Made in Schaffhausen seit 2015.</p></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_products">Produkte</h4><ul><li><a href="aligner.html" style="color:var(--red);font-weight:700;" data-i18n="n_align">Clear Aligners</a></li><li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li><li><a href="whitening.html" data-i18n="n_white">Whitening</a></li><li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_resources">Ressourcen</h4><ul><li><a href="academy.html" data-i18n="n_acad">Academy</a></li><li><a href="https://nivellonlign.com/" target="_blank" data-i18n="ft_portal_link">Doctor Portal</a></li><li><a href="index.html#faq" data-i18n="ft_faq_link">FAQ</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_contact">Kontakt</h4><ul><li><a href="mailto:sales@nivellipso.com">sales@nivellipso.com</a></li><li><a href="tel:+41794697176">+41 79 469 71 76</a></li><li><a href="index.html#contact-form" data-i18n="ft_contact_form">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="n-footer-bottom"><p data-i18n="ft_copyright">Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen</p><p class="n-conf" data-i18n="ft_conf">VERTRAULICH · NIVELLMEDICAL AG</p></div>
+</div>
+</footer>
+
+<script src="nivell-site.js"></script>
+<script>
+const T = {
+  de: {
+    /* nav */
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Kontakt', n_portal:'Doctor Portal →',
+    /* hero */
+    al_breadcrumb:'Clear Aligners',
+    al_label:'Clear Aligners',
+    al_h1:'Das nivellipso®<br><em>Three-Aligner-System.</em>',
+    al_sub:'Drei differenzierte Materialien — entwickelt für jede Phase der Zahnbewegung. Vorhersehbar. Stabil. Kein Rezidiv. Swiss-Made in Schaffhausen seit 2015.',
+    al_cta1:'Preise &amp; Optionen',
+    /* recommendation banner */
+    al_rec_title:'★ Klinische Empfehlung',
+    al_rec_body:'Aus biomechanischer Evidenz und 10 Jahren klinischer Erfahrung: Das Three-Aligner-System liefert überlegene Ergebnisse. Single-Aligner-Lösungen für einfache Fälle auf Anfrage verfügbar.',
+    /* system section */
+    al_sys_label:'Das System',
+    al_sys_h2:'Drei Schienen pro Stufe.<br>Eine Behandlung. Ein Ergebnis.',
+    al_sys_lead:'Jede Behandlungsstufe besteht aus drei Schienen mit unterschiedlichen Materialeigenschaften — Soft für die Initiation, Regular für die aktive Bewegung, Intense für die Stabilisierung.',
+    /* phase cards */
+    al_p1_tag:'Phase 01', al_p1_mat:'Initiation · Weiches Material',
+    al_p1_desc:'Sanfte initiale Zahnbewegung. Das Gewebe passt sich an, der Patient gewöhnt sich an die Schiene. Maximaler Komfort beim Therapiebeginn.',
+    al_p1_f1:'2 Tage pro Stufe', al_p1_f2:'Gewebeanpassung', al_p1_f3:'Hoher Tragekomfort',
+    al_p2_tag:'Phase 02', al_p2_mat:'Bewegung · Mittleres Material',
+    al_p2_desc:'Hauptbewegungsphase. Optimale Balance zwischen Kraft und Komfort. Hier passiert die eigentliche kieferorthopädische Korrektur.',
+    al_p2_f1:'3 Tage pro Stufe', al_p2_f2:'Aktive Zahnbewegung', al_p2_f3:'Druckgefühl normal',
+    al_p3_tag:'Phase 03', al_p3_mat:'Finalisierung · Festes Material',
+    al_p3_desc:'Finale Stabilisierung und Retention der erreichten Position. Verhindert Rezidive durch konsequenten Gewebe-Settling-Prozess.',
+    al_p3_f1:'2 Tage pro Stufe', al_p3_f2:'Finale Stabilisierung', al_p3_f3:'Kein Rezidiv',
+    /* why section */
+    al_why_label:'Warum drei Schienen?',
+    al_why_h2:'Biomechanik, die funktioniert.',
+    al_why_c1_h:'Vorhersehbar',
+    al_why_c1_p:'Drei Phasen statt einer pauschalen Schiene = präzise Steuerung der Bewegung. Klinische Ergebnisse entsprechen dem Treatment Plan.',
+    al_why_c2_h:'Komfortabel',
+    al_why_c2_p:'SOFT-Phase reduziert Eingewöhnungsprobleme dramatisch. Höhere Patienten-Compliance vom Tag 1 an.',
+    al_why_c3_h:'Stabil',
+    al_why_c3_p:'INTENSE-Phase finalisiert die Position. Gewebe-Settling vor Behandlungsende = keine späten Rezidive.',
+    /* pricing */
+    al_price_label:'Preise &amp; Optionen',
+    al_price_h2:'Preisliste — gültig ab 01.05.2026.',
+    al_price_lead:'Alle Preise in CHF, exkl. MWSt. 8.1%. Direkt ab Manufaktur Schaffhausen. Frei Haus ab CHF 600.',
+    al_tab_single:'Single Arch', al_tab_dual:'Dual Arch', al_tab_touch:'Touch-Up', al_tab_retainer:'Retainer',
+    al_th_steps:'Anzahl Stufen', al_th_ind:'Indikation', al_th_price:'Preis CHF',
+    al_th_variant:'Variante', al_th_qty:'Anzahl',
+    al_s1_steps:'Bis 7 Stufen', al_s1_ind:'Leichte Korrekturen',
+    al_s2_steps:'8–14 Stufen', al_s2_ind:'Mittlere Komplexität',
+    al_s3_steps:'15–21 Stufen', al_s3_ind:'Komplexe Fälle',
+    al_s4_steps:'Unlimited (bis 36)', al_s4_ind:'Volle Behandlung',
+    al_single_incl:'<strong>Inklusive:</strong> Digitaler Treatment-Plan · ClinCheck-Review · Stufenvisualisierung · Freigabe-Workflow · 1 kostenlose Verfeinerung innerhalb 12 Monaten.',
+    al_d1_ind:'Beide Kiefer, leicht', al_d2_ind:'Beide Kiefer, mittel', al_d3_ind:'Beide Kiefer, komplex',
+    al_dual_incl:'<strong>Inklusive:</strong> Digitaler Treatment-Plan · Vollständige Workflow-Unterstützung · 2 kostenlose Verfeinerungen innerhalb 18 Monaten.',
+    al_t1_steps:'1–4 Stufen', al_t1_ind:'Kleine Korrekturen, Retainer-Rezidiv',
+    al_t2_steps:'5–7 Stufen', al_t2_ind:'Mittlere Nachbehandlung',
+    al_touch_incl:'Für nachträgliche Korrekturen, Retainer-Rezidive oder finale Feinjustierungen.',
+    al_r1_var:'Single Arch Paar', al_r2_var:'Dual Arch Paar', al_r3_var:'Single Arch 3er-Set', al_r4_var:'Dual Arch 3er-Set',
+    al_r_1pair:'1 Paar', al_r_3pcs:'3 Stück',
+    al_retainer_incl:'<strong>Material:</strong> Biokompatibles PET-G, 1.0mm, klar, geruchsneutral. CE MDR Klasse IIa zertifiziert.',
+    /* service fees */
+    al_svc_label:'Service-Gebühren',
+    al_svc_h2:'Zusatzleistungen.',
+    al_svc1_name:'Modell-Scan', al_svc1_price:'CHF 35.— / Kiefer',
+    al_svc2_name:'Express-Lieferung (2–3 WT, CH/FL)',
+    al_svc3_name:'Refinement (ausserhalb Inklusivkontingent)',
+    al_svc4_name:'Plan-Revision (neue ClinCheck-Iteration ab Stufe 3)',
+    al_svc5_name:'Versand Standard (frei Haus ab CHF 600)',
+    al_svc6_name:'Versand International (EU/EWR)', al_svc6_price:'Auf Anfrage',
+    /* workflow */
+    al_wf_label:'Workflow',
+    al_wf_h2:'Von der Bestellung zur Schiene.',
+    al_wf1_t:'Bestellen', al_wf1_d:'Doctor Portal oder sales@nivellipso.com · STL/PLY Scans bevorzugt',
+    al_wf2_t:'Plan in 3 WT', al_wf2_d:'Digitaler Treatment-Plan · ClinCheck-Review · Stufenvisualisierung',
+    al_wf3_t:'Freigabe', al_wf3_d:'Sie reviewen und geben frei · Volle Kontrolle vor Produktion',
+    al_wf4_t:'Lieferung', al_wf4_d:'Swiss-Made Schaffhausen · 5–10 WT Standard · 2–3 WT Express',
+    /* loyalty */
+    al_loyal_label:'Loyalty-Programm',
+    al_loyal_h2:'Je mehr Sie bestellen,<br>desto mehr sparen Sie.',
+    al_loyal_th_tier:'Tier', al_loyal_th_cases:'Fälle / Jahr', al_loyal_th_disc:'Rabatt',
+    al_loyal_note:'Kumuliert pro Praxis und Kalenderjahr. Rabatte greifen automatisch ab der ersten Bestellung im neuen Tier.',
+    /* win-back */
+    al_wb_label:'Win-Back Aktion Q2/Q3 2026',
+    al_wb_h2:'Für Praxen, die wir vermisst haben.',
+    al_wb_body:'Befristet für Praxen mit &gt;12 Monaten Inaktivität — wir möchten Sie zurück gewinnen.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'Erste Three-Aligner-Bestellung',
+    al_wb_o2_h:'60 Tage Zahlungsziel', al_wb_o2_d:'Für die ersten 3 Bestellungen',
+    al_wb_o3_h:'Persönliche Visite', al_wb_o3_d:'Albin kommt zu Ihnen — gratis',
+    al_wb_cta:'Win-Back anfragen →',
+    /* bottom cta */
+    al_cta_h2:'Erste Bestellung?',
+    al_cta_body:'Albin zeigt Ihnen den Workflow persönlich. Onboarding inklusive Portal-Tour, STL-Upload-Demo und erste Treatment-Plan-Besprechung.',
+    al_cta_btn1:'Onboarding anfragen →',
+    al_cta_phone:'+41 79 469 71 76',
+    /* chatbot */
+    cb_toggle:'Aligner-Fragen?',
+    cb_name:'Aligner-Beratung',
+    cb_sub:'Klinische Fragen · Preise · Workflow',
+    cb_welcome:'Hallo! Ich beantworte Ihre Fragen zum Three-Aligner-System, Preisen, Lieferzeiten und Workflow.',
+    cb_sugg1:'SOFT vs REGULAR?',
+    cb_sugg2:'Single Arch Preis?',
+    cb_sugg3:'Lieferzeit',
+    cb_placeholder:'Ihre Frage...',
+    /* footer */
+    ft_tagline:'Clear Aligners · Three-Aligner-System · Swiss-Made in Schaffhausen seit 2015.',
+    ft_col_products:'Produkte',
+    ft_col_resources:'Ressourcen',
+    ft_col_contact:'Kontakt',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Kontaktformular',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'VERTRAULICH · NIVELLMEDICAL AG'
+  },
+  en: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    al_breadcrumb:'Clear Aligners',
+    al_label:'Clear Aligners',
+    al_h1:'The nivellipso®<br><em>Three-Aligner System.</em>',
+    al_sub:'Three differentiated materials — designed for each phase of tooth movement. Predictable. Stable. No relapse. Swiss-Made in Schaffhausen since 2015.',
+    al_cta1:'Pricing &amp; Options',
+    al_rec_title:'★ Clinical Recommendation',
+    al_rec_body:'Based on biomechanical evidence and 10 years of clinical experience: the Three-Aligner System delivers superior outcomes. Single-aligner solutions for simple cases available on request.',
+    al_sys_label:'The System',
+    al_sys_h2:'Three aligners per step.<br>One treatment. One result.',
+    al_sys_lead:'Each treatment step consists of three aligners with distinct material properties — Soft for initiation, Regular for active movement, Intense for stabilisation.',
+    al_p1_tag:'Phase 01', al_p1_mat:'Initiation · Soft Material',
+    al_p1_desc:'Gentle initial tooth movement. Tissue adapts, the patient adjusts to the aligner. Maximum comfort at the start of therapy.',
+    al_p1_f1:'2 days per step', al_p1_f2:'Tissue adaptation', al_p1_f3:'High wearing comfort',
+    al_p2_tag:'Phase 02', al_p2_mat:'Movement · Medium Material',
+    al_p2_desc:'Main movement phase. Optimal balance between force and comfort. This is where the actual orthodontic correction happens.',
+    al_p2_f1:'3 days per step', al_p2_f2:'Active tooth movement', al_p2_f3:'Pressure sensation normal',
+    al_p3_tag:'Phase 03', al_p3_mat:'Finalisation · Firm Material',
+    al_p3_desc:'Final stabilisation and retention of the achieved position. Prevents relapse through a consistent tissue-settling process.',
+    al_p3_f1:'2 days per step', al_p3_f2:'Final stabilisation', al_p3_f3:'No relapse',
+    al_why_label:'Why three aligners?',
+    al_why_h2:'Biomechanics that work.',
+    al_why_c1_h:'Predictable',
+    al_why_c1_p:'Three phases instead of a single blanket aligner = precise control of movement. Clinical outcomes match the treatment plan.',
+    al_why_c2_h:'Comfortable',
+    al_why_c2_p:'The SOFT phase dramatically reduces adjustment problems. Higher patient compliance from day one.',
+    al_why_c3_h:'Stable',
+    al_why_c3_p:'The INTENSE phase finalises the position. Tissue settling before end of treatment = no late relapses.',
+    al_price_label:'Pricing &amp; Options',
+    al_price_h2:'Price list — valid from 01.05.2026.',
+    al_price_lead:'All prices in CHF, excl. VAT 8.1%. Direct from the Schaffhausen manufactory. Free delivery from CHF 600.',
+    al_tab_single:'Single Arch', al_tab_dual:'Dual Arch', al_tab_touch:'Touch-Up', al_tab_retainer:'Retainer',
+    al_th_steps:'No. of Steps', al_th_ind:'Indication', al_th_price:'Price CHF',
+    al_th_variant:'Variant', al_th_qty:'Quantity',
+    al_s1_steps:'Up to 7 steps', al_s1_ind:'Minor corrections',
+    al_s2_steps:'8–14 steps', al_s2_ind:'Medium complexity',
+    al_s3_steps:'15–21 steps', al_s3_ind:'Complex cases',
+    al_s4_steps:'Unlimited (up to 36)', al_s4_ind:'Full treatment',
+    al_single_incl:'<strong>Included:</strong> Digital treatment plan · ClinCheck review · Step visualisation · Approval workflow · 1 free refinement within 12 months.',
+    al_d1_ind:'Both arches, mild', al_d2_ind:'Both arches, moderate', al_d3_ind:'Both arches, complex',
+    al_dual_incl:'<strong>Included:</strong> Digital treatment plan · Full workflow support · 2 free refinements within 18 months.',
+    al_t1_steps:'1–4 steps', al_t1_ind:'Minor corrections, retainer relapse',
+    al_t2_steps:'5–7 steps', al_t2_ind:'Moderate retreatment',
+    al_touch_incl:'For subsequent corrections, retainer relapses or final fine-tuning.',
+    al_r1_var:'Single Arch pair', al_r2_var:'Dual Arch pair', al_r3_var:'Single Arch 3-pack', al_r4_var:'Dual Arch 3-pack',
+    al_r_1pair:'1 pair', al_r_3pcs:'3 pieces',
+    al_retainer_incl:'<strong>Material:</strong> Biocompatible PET-G, 1.0 mm, clear, odour-neutral. CE MDR Class IIa certified.',
+    al_svc_label:'Service Fees',
+    al_svc_h2:'Additional Services.',
+    al_svc1_name:'Model scan', al_svc1_price:'CHF 35.— / arch',
+    al_svc2_name:'Express delivery (2–3 working days, CH/FL)',
+    al_svc3_name:'Refinement (outside inclusive contingent)',
+    al_svc4_name:'Plan revision (new ClinCheck iteration from step 3)',
+    al_svc5_name:'Standard shipping (free from CHF 600)',
+    al_svc6_name:'International shipping (EU/EEA)', al_svc6_price:'On request',
+    al_wf_label:'Workflow',
+    al_wf_h2:'From order to aligner.',
+    al_wf1_t:'Order', al_wf1_d:'Doctor Portal or sales@nivellipso.com · STL/PLY scans preferred',
+    al_wf2_t:'Plan in 3 days', al_wf2_d:'Digital treatment plan · ClinCheck review · Step visualisation',
+    al_wf3_t:'Approval', al_wf3_d:'You review and approve · Full control before production',
+    al_wf4_t:'Delivery', al_wf4_d:'Swiss-Made Schaffhausen · 5–10 days standard · 2–3 days express',
+    al_loyal_label:'Loyalty Programme',
+    al_loyal_h2:'The more you order,<br>the more you save.',
+    al_loyal_th_tier:'Tier', al_loyal_th_cases:'Cases / year', al_loyal_th_disc:'Discount',
+    al_loyal_note:'Cumulated per practice and calendar year. Discounts apply automatically from the first order in the new tier.',
+    al_wb_label:'Win-Back Offer Q2/Q3 2026',
+    al_wb_h2:'For practices we have missed.',
+    al_wb_body:'Limited offer for practices with &gt;12 months of inactivity — we want to win you back.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'First Three-Aligner order',
+    al_wb_o2_h:'60-day payment terms', al_wb_o2_d:'For the first 3 orders',
+    al_wb_o3_h:'Personal visit', al_wb_o3_d:'Albin comes to you — free of charge',
+    al_wb_cta:'Request Win-Back →',
+    al_cta_h2:'First order?',
+    al_cta_body:'Albin will walk you through the workflow personally. Onboarding includes a portal tour, STL upload demo and first treatment plan review.',
+    al_cta_btn1:'Request onboarding →',
+    al_cta_phone:'+41 79 469 71 76',
+    cb_toggle:'Aligner questions?',
+    cb_name:'Aligner Consultation',
+    cb_sub:'Clinical questions · Pricing · Workflow',
+    cb_welcome:'Hello! I can answer your questions about the Three-Aligner System, pricing, delivery times and workflow.',
+    cb_sugg1:'SOFT vs REGULAR?',
+    cb_sugg2:'Single Arch price?',
+    cb_sugg3:'Delivery time',
+    cb_placeholder:'Your question...',
+    ft_tagline:'Clear Aligners · Three-Aligner System · Swiss-Made in Schaffhausen since 2015.',
+    ft_col_products:'Products',
+    ft_col_resources:'Resources',
+    ft_col_contact:'Contact',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Contact form',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENTIAL · NIVELLMEDICAL AG'
+  },
+  fr: {
+    n_home:'Accueil', n_align:'Aligneurs', n_brack:'Brackets', n_white:'Blanchiment', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    al_breadcrumb:'Aligneurs transparents',
+    al_label:'Aligneurs transparents',
+    al_h1:'Le système<br><em>Three-Aligner nivellipso®.</em>',
+    al_sub:'Trois matériaux différenciés — conçus pour chaque phase du mouvement dentaire. Prévisible. Stable. Sans récidive. Swiss-Made à Schaffhouse depuis 2015.',
+    al_cta1:'Tarifs &amp; Options',
+    al_rec_title:'★ Recommandation clinique',
+    al_rec_body:"Sur la base de données bioméchaniques et de 10 ans d'expérience clinique : le système Three-Aligner offre des résultats supérieurs. Des solutions mono-gouttière pour les cas simples sont disponibles sur demande.",
+    al_sys_label:'Le Système',
+    al_sys_h2:'Trois gouttières par étape.<br>Un traitement. Un résultat.',
+    al_sys_lead:"Chaque étape de traitement comprend trois gouttières aux propriétés matérielles distinctes — Soft pour l'initiation, Regular pour le mouvement actif, Intense pour la stabilisation.",
+    al_p1_tag:'Phase 01', al_p1_mat:'Initiation · Matériau souple',
+    al_p1_desc:"Mouvement dentaire initial en douceur. Les tissus s'adaptent, le patient s'habitue à la gouttière. Confort maximal en début de thérapie.",
+    al_p1_f1:'2 jours par étape', al_p1_f2:'Adaptation tissulaire', al_p1_f3:'Grand confort de port',
+    al_p2_tag:'Phase 02', al_p2_mat:'Mouvement · Matériau intermédiaire',
+    al_p2_desc:'Phase de mouvement principal. Équilibre optimal entre force et confort. La correction orthodontique proprement dite se produit ici.',
+    al_p2_f1:'3 jours par étape', al_p2_f2:'Mouvement dentaire actif', al_p2_f3:'Sensation de pression normale',
+    al_p3_tag:'Phase 03', al_p3_mat:'Finalisation · Matériau rigide',
+    al_p3_desc:'Stabilisation finale et rétention de la position atteinte. Prévient les récidives grâce à un processus de mise en place tissulaire cohérent.',
+    al_p3_f1:'2 jours par étape', al_p3_f2:'Stabilisation finale', al_p3_f3:'Sans récidive',
+    al_why_label:'Pourquoi trois gouttières ?',
+    al_why_h2:'Une biomécanique qui fonctionne.',
+    al_why_c1_h:'Prévisible',
+    al_why_c1_p:'Trois phases au lieu d’une gouttière générique = contrôle précis du mouvement. Les résultats cliniques correspondent au plan de traitement.',
+    al_why_c2_h:'Confortable',
+    al_why_c2_p:"La phase SOFT réduit considérablement les problèmes d'adaptation. Meilleure compliance du patient dès le jour 1.",
+    al_why_c3_h:'Stable',
+    al_why_c3_p:'La phase INTENSE finalise la position. Mise en place tissulaire avant la fin du traitement = aucune récidive tardive.',
+    al_price_label:'Tarifs &amp; Options',
+    al_price_h2:'Tarifs — valables dès le 01.05.2026.',
+    al_price_lead:'Tous les prix en CHF, TVA 8.1% exclue. Directement depuis la manufacture de Schaffhouse. Livraison gratuite dès CHF 600.',
+    al_tab_single:'Arcade simple', al_tab_dual:'Double arcade', al_tab_touch:'Touch-Up', al_tab_retainer:'Contention',
+    al_th_steps:"Nbre d'étapes", al_th_ind:'Indication', al_th_price:'Prix CHF',
+    al_th_variant:'Variante', al_th_qty:'Quantité',
+    al_s1_steps:"Jusqu'à 7 étapes", al_s1_ind:'Corrections légères',
+    al_s2_steps:'8–14 étapes', al_s2_ind:'Complexité moyenne',
+    al_s3_steps:'15–21 étapes', al_s3_ind:'Cas complexes',
+    al_s4_steps:'Illimité (jusqu\'à 36)', al_s4_ind:'Traitement complet',
+    al_single_incl:'<strong>Inclus :</strong> Plan de traitement numérique · Révision ClinCheck · Visualisation des étapes · Workflow de validation · 1 raffinement gratuit dans les 12 mois.',
+    al_d1_ind:'Les deux arcades, léger', al_d2_ind:'Les deux arcades, moyen', al_d3_ind:'Les deux arcades, complexe',
+    al_dual_incl:'<strong>Inclus :</strong> Plan de traitement numérique · Support workflow complet · 2 raffinements gratuits dans les 18 mois.',
+    al_t1_steps:'1–4 étapes', al_t1_ind:'Petites corrections, récidive de contention',
+    al_t2_steps:'5–7 étapes', al_t2_ind:'Retraitement modéré',
+    al_touch_incl:'Pour corrections ultérieures, récidives de contention ou ajustements finaux.',
+    al_r1_var:'Paire arcade simple', al_r2_var:'Paire double arcade', al_r3_var:'Pack 3 arcade simple', al_r4_var:'Pack 3 double arcade',
+    al_r_1pair:'1 paire', al_r_3pcs:'3 pièces',
+    al_retainer_incl:'<strong>Matériau :</strong> PET-G biocompatible, 1,0 mm, transparent, inodore. Certifié CE MDR Classe IIa.',
+    al_svc_label:'Frais de service',
+    al_svc_h2:'Prestations supplémentaires.',
+    al_svc1_name:'Scan de modèle', al_svc1_price:'CHF 35.— / arcade',
+    al_svc2_name:'Livraison express (2–3 jours ouvrés, CH/FL)',
+    al_svc3_name:'Raffinement (hors contingent inclus)',
+    al_svc4_name:'Révision de plan (nouvelle itération ClinCheck dès étape 3)',
+    al_svc5_name:'Expédition standard (gratuite dès CHF 600)',
+    al_svc6_name:'Expédition internationale (UE/EEE)', al_svc6_price:'Sur demande',
+    al_wf_label:'Workflow',
+    al_wf_h2:'De la commande à la gouttière.',
+    al_wf1_t:'Commander', al_wf1_d:'Doctor Portal ou sales@nivellipso.com · Scans STL/PLY privilégiés',
+    al_wf2_t:'Plan en 3 jours', al_wf2_d:'Plan de traitement numérique · Révision ClinCheck · Visualisation des étapes',
+    al_wf3_t:'Validation', al_wf3_d:'Vous révisez et validez · Contrôle total avant production',
+    al_wf4_t:'Livraison', al_wf4_d:'Swiss-Made Schaffhouse · 5–10 j. standard · 2–3 j. express',
+    al_loyal_label:'Programme de fidélité',
+    al_loyal_h2:'Plus vous commandez,<br>plus vous économisez.',
+    al_loyal_th_tier:'Niveau', al_loyal_th_cases:'Cas / an', al_loyal_th_disc:'Remise',
+    al_loyal_note:"Cumulé par cabinet et année civile. Les remises s'appliquent automatiquement dès la première commande dans le nouveau niveau.",
+    al_wb_label:'Offre Win-Back Q2/Q3 2026',
+    al_wb_h2:'Pour les cabinets qui nous ont manqué.',
+    al_wb_body:'Offre limitée pour les cabinets inactifs depuis &gt;12 mois — nous souhaitons vous retrouver.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'Première commande Three-Aligner',
+    al_wb_o2_h:'60 jours de délai de paiement', al_wb_o2_d:'Pour les 3 premières commandes',
+    al_wb_o3_h:'Visite personnelle', al_wb_o3_d:'Albin vient chez vous — gratuitement',
+    al_wb_cta:'Demander le Win-Back →',
+    al_cta_h2:'Première commande ?',
+    al_cta_body:"Albin vous présentera le workflow en personne. L'onboarding comprend une visite guidée du portail, une démo d'upload STL et la première discussion du plan de traitement.",
+    al_cta_btn1:'Demander l\'onboarding →',
+    al_cta_phone:'+41 79 469 71 76',
+    cb_toggle:'Questions aligneurs ?',
+    cb_name:'Conseil aligneurs',
+    cb_sub:'Questions cliniques · Tarifs · Workflow',
+    cb_welcome:'Bonjour ! Je réponds à vos questions sur le système Three-Aligner, les tarifs, les délais de livraison et le workflow.',
+    cb_sugg1:'SOFT vs REGULAR ?',
+    cb_sugg2:'Prix arcade simple ?',
+    cb_sugg3:'Délai de livraison',
+    cb_placeholder:'Votre question...',
+    ft_tagline:'Aligneurs transparents · Système Three-Aligner · Swiss-Made à Schaffhouse depuis 2015.',
+    ft_col_products:'Produits',
+    ft_col_resources:'Ressources',
+    ft_col_contact:'Contact',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Formulaire de contact',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENTIEL · NIVELLMEDICAL AG'
+  },
+  it: {
+    n_home:'Home', n_align:'Allineatori', n_brack:'Brackets', n_white:'Sbiancamento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contatti', n_portal:'Doctor Portal →',
+    al_breadcrumb:'Allineatori trasparenti',
+    al_label:'Allineatori trasparenti',
+    al_h1:'Il sistema<br><em>Three-Aligner nivellipso®.</em>',
+    al_sub:'Tre materiali differenziati — progettati per ogni fase del movimento dentale. Prevedibile. Stabile. Senza recidive. Swiss-Made a Sciaffusa dal 2015.',
+    al_cta1:'Prezzi &amp; Opzioni',
+    al_rec_title:'★ Raccomandazione clinica',
+    al_rec_body:'Sulla base di evidenze biomeccaniche e 10 anni di esperienza clinica: il sistema Three-Aligner offre risultati superiori. Soluzioni mono-allineatore per casi semplici disponibili su richiesta.',
+    al_sys_label:'Il Sistema',
+    al_sys_h2:'Tre allineatori per fase.<br>Un trattamento. Un risultato.',
+    al_sys_lead:'Ogni fase di trattamento comprende tre allineatori con diverse proprietà materiali — Soft per l\'iniziazione, Regular per il movimento attivo, Intense per la stabilizzazione.',
+    al_p1_tag:'Fase 01', al_p1_mat:'Iniziazione · Materiale morbido',
+    al_p1_desc:'Movimento dentale iniziale delicato. I tessuti si adattano, il paziente si abitua all\'allineatore. Massimo comfort all\'inizio della terapia.',
+    al_p1_f1:'2 giorni per fase', al_p1_f2:'Adattamento tissutale', al_p1_f3:'Alto comfort di utilizzo',
+    al_p2_tag:'Fase 02', al_p2_mat:'Movimento · Materiale medio',
+    al_p2_desc:'Fase di movimento principale. Equilibrio ottimale tra forza e comfort. Qui avviene la vera correzione ortodontica.',
+    al_p2_f1:'3 giorni per fase', al_p2_f2:'Movimento dentale attivo', al_p2_f3:'Sensazione di pressione normale',
+    al_p3_tag:'Fase 03', al_p3_mat:'Finalizzazione · Materiale rigido',
+    al_p3_desc:'Stabilizzazione finale e ritenzione della posizione raggiunta. Previene le recidive grazie a un processo di assestamento tissutale costante.',
+    al_p3_f1:'2 giorni per fase', al_p3_f2:'Stabilizzazione finale', al_p3_f3:'Nessuna recidiva',
+    al_why_label:'Perché tre allineatori?',
+    al_why_h2:'Biomeccanica che funziona.',
+    al_why_c1_h:'Prevedibile',
+    al_why_c1_p:'Tre fasi invece di un singolo allineatore generico = controllo preciso del movimento. I risultati clinici corrispondono al piano di trattamento.',
+    al_why_c2_h:'Confortevole',
+    al_why_c2_p:'La fase SOFT riduce drasticamente i problemi di adattamento. Maggiore compliance del paziente dal primo giorno.',
+    al_why_c3_h:'Stabile',
+    al_why_c3_p:'La fase INTENSE finalizza la posizione. Assestamento tissutale prima della fine del trattamento = nessuna recidiva tardiva.',
+    al_price_label:'Prezzi &amp; Opzioni',
+    al_price_h2:'Listino prezzi — valido dal 01.05.2026.',
+    al_price_lead:'Tutti i prezzi in CHF, IVA 8.1% esclusa. Direttamente dalla manifattura di Sciaffusa. Spedizione gratuita da CHF 600.',
+    al_tab_single:'Arcata singola', al_tab_dual:'Doppia arcata', al_tab_touch:'Touch-Up', al_tab_retainer:'Contenzione',
+    al_th_steps:'N. di fasi', al_th_ind:'Indicazione', al_th_price:'Prezzo CHF',
+    al_th_variant:'Variante', al_th_qty:'Quantità',
+    al_s1_steps:'Fino a 7 fasi', al_s1_ind:'Correzioni leggere',
+    al_s2_steps:'8–14 fasi', al_s2_ind:'Complessità media',
+    al_s3_steps:'15–21 fasi', al_s3_ind:'Casi complessi',
+    al_s4_steps:'Illimitato (fino a 36)', al_s4_ind:'Trattamento completo',
+    al_single_incl:'<strong>Incluso:</strong> Piano di trattamento digitale · Revisione ClinCheck · Visualizzazione fasi · Workflow di approvazione · 1 perfezionamento gratuito entro 12 mesi.',
+    al_d1_ind:'Entrambe le arcate, lieve', al_d2_ind:'Entrambe le arcate, medio', al_d3_ind:'Entrambe le arcate, complesso',
+    al_dual_incl:'<strong>Incluso:</strong> Piano di trattamento digitale · Supporto workflow completo · 2 perfezionamenti gratuiti entro 18 mesi.',
+    al_t1_steps:'1–4 fasi', al_t1_ind:'Piccole correzioni, recidiva di contenzione',
+    al_t2_steps:'5–7 fasi', al_t2_ind:'Ritrattamento moderato',
+    al_touch_incl:'Per correzioni successive, recidive di contenzione o regolazioni finali.',
+    al_r1_var:'Coppia arcata singola', al_r2_var:'Coppia doppia arcata', al_r3_var:'Set da 3 arcata singola', al_r4_var:'Set da 3 doppia arcata',
+    al_r_1pair:'1 coppia', al_r_3pcs:'3 pezzi',
+    al_retainer_incl:'<strong>Materiale:</strong> PET-G biocompatibile, 1,0 mm, trasparente, inodore. Certificato CE MDR Classe IIa.',
+    al_svc_label:'Servizi aggiuntivi',
+    al_svc_h2:'Prestazioni supplementari.',
+    al_svc1_name:'Scansione modello', al_svc1_price:'CHF 35.— / arcata',
+    al_svc2_name:'Consegna express (2–3 giorni lavorativi, CH/FL)',
+    al_svc3_name:'Perfezionamento (fuori contingente incluso)',
+    al_svc4_name:'Revisione piano (nuova iterazione ClinCheck dalla fase 3)',
+    al_svc5_name:'Spedizione standard (gratuita da CHF 600)',
+    al_svc6_name:'Spedizione internazionale (UE/SEE)', al_svc6_price:'Su richiesta',
+    al_wf_label:'Workflow',
+    al_wf_h2:'Dall\'ordine all\'allineatore.',
+    al_wf1_t:'Ordinare', al_wf1_d:'Doctor Portal o sales@nivellipso.com · Scansioni STL/PLY preferite',
+    al_wf2_t:'Piano in 3 giorni', al_wf2_d:'Piano di trattamento digitale · Revisione ClinCheck · Visualizzazione fasi',
+    al_wf3_t:'Approvazione', al_wf3_d:'Revisionate e approvate · Pieno controllo prima della produzione',
+    al_wf4_t:'Consegna', al_wf4_d:'Swiss-Made Sciaffusa · 5–10 giorni standard · 2–3 giorni express',
+    al_loyal_label:'Programma fedeltà',
+    al_loyal_h2:'Più ordinate,<br>più risparmiate.',
+    al_loyal_th_tier:'Livello', al_loyal_th_cases:'Casi / anno', al_loyal_th_disc:'Sconto',
+    al_loyal_note:'Cumulato per studio e anno solare. Gli sconti si applicano automaticamente dal primo ordine nel nuovo livello.',
+    al_wb_label:'Offerta Win-Back Q2/Q3 2026',
+    al_wb_h2:'Per gli studi che ci sono mancati.',
+    al_wb_body:'Offerta limitata per studi inattivi da &gt;12 mesi — vogliamo riconquistarvi.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'Primo ordine Three-Aligner',
+    al_wb_o2_h:'60 giorni di pagamento', al_wb_o2_d:'Per i primi 3 ordini',
+    al_wb_o3_h:'Visita personale', al_wb_o3_d:'Albin viene da voi — gratuitamente',
+    al_wb_cta:'Richiedi Win-Back →',
+    al_cta_h2:'Primo ordine?',
+    al_cta_body:'Albin vi illustrerà il workflow di persona. L\'onboarding include un tour del portale, demo di caricamento STL e primo confronto sul piano di trattamento.',
+    al_cta_btn1:'Richiedi onboarding →',
+    al_cta_phone:'+41 79 469 71 76',
+    cb_toggle:'Domande sugli allineatori?',
+    cb_name:'Consulenza allineatori',
+    cb_sub:'Domande cliniche · Prezzi · Workflow',
+    cb_welcome:'Salve! Rispondo alle vostre domande sul sistema Three-Aligner, prezzi, tempi di consegna e workflow.',
+    cb_sugg1:'SOFT vs REGULAR?',
+    cb_sugg2:'Prezzo arcata singola?',
+    cb_sugg3:'Tempi di consegna',
+    cb_placeholder:'La vostra domanda...',
+    ft_tagline:'Allineatori trasparenti · Sistema Three-Aligner · Swiss-Made a Sciaffusa dal 2015.',
+    ft_col_products:'Prodotti',
+    ft_col_resources:'Risorse',
+    ft_col_contact:'Contatti',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Modulo di contatto',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'RISERVATO · NIVELLMEDICAL AG'
+  },
+  ru: {
+    n_home:'Главная', n_align:'Элайнеры', n_brack:'Брекеты', n_white:'Отбеливание', n_vis:'VISIBAL', n_acad:'Академия', n_con:'Контакты', n_portal:'Doctor Portal →',
+    al_breadcrumb:'Прозрачные элайнеры',
+    al_label:'Прозрачные элайнеры',
+    al_h1:'Система<br><em>Three-Aligner nivellipso®.</em>',
+    al_sub:'Три дифференцированных материала — разработанных для каждой фазы движения зубов. Предсказуемо. Стабильно. Без рецидивов. Swiss-Made в Шаффхаузене с 2015 года.',
+    al_cta1:'Цены &amp; Опции',
+    al_rec_title:'★ Клиническая рекомендация',
+    al_rec_body:'На основе биомеханических данных и 10 лет клинического опыта: система Three-Aligner обеспечивает превосходные результаты. Решения с одной каппой для простых случаев доступны по запросу.',
+    al_sys_label:'Система',
+    al_sys_h2:'Три каппы на ступень.<br>Одно лечение. Один результат.',
+    al_sys_lead:'Каждая ступень лечения включает три каппы с различными материальными свойствами — Soft для инициации, Regular для активного движения, Intense для стабилизации.',
+    al_p1_tag:'Фаза 01', al_p1_mat:'Инициация · Мягкий материал',
+    al_p1_desc:'Плавное начальное движение зубов. Ткани адаптируются, пациент привыкает к каппе. Максимальный комфорт в начале терапии.',
+    al_p1_f1:'2 дня на ступень', al_p1_f2:'Адаптация тканей', al_p1_f3:'Высокий комфорт ношения',
+    al_p2_tag:'Фаза 02', al_p2_mat:'Движение · Средний материал',
+    al_p2_desc:'Основная фаза движения. Оптимальный баланс между силой и комфортом. Здесь происходит реальная ортодонтическая коррекция.',
+    al_p2_f1:'3 дня на ступень', al_p2_f2:'Активное движение зубов', al_p2_f3:'Ощущение давления — норма',
+    al_p3_tag:'Фаза 03', al_p3_mat:'Финализация · Жёсткий материал',
+    al_p3_desc:'Окончательная стабилизация и удержание достигнутого положения. Предотвращает рецидивы благодаря последовательному процессу стабилизации тканей.',
+    al_p3_f1:'2 дня на ступень', al_p3_f2:'Окончательная стабилизация', al_p3_f3:'Без рецидивов',
+    al_why_label:'Почему три каппы?',
+    al_why_h2:'Биомеханика, которая работает.',
+    al_why_c1_h:'Предсказуемо',
+    al_why_c1_p:'Три фазы вместо одной универсальной каппы = точное управление движением. Клинические результаты соответствуют плану лечения.',
+    al_why_c2_h:'Комфортно',
+    al_why_c2_p:'Фаза SOFT значительно снижает проблемы адаптации. Высокий комплаенс пациента с первого дня.',
+    al_why_c3_h:'Стабильно',
+    al_why_c3_p:'Фаза INTENSE фиксирует положение. Стабилизация тканей до окончания лечения = никаких поздних рецидивов.',
+    al_price_label:'Цены &amp; Опции',
+    al_price_h2:'Прайс-лист — действителен с 01.05.2026.',
+    al_price_lead:'Все цены в CHF, без НДС 8,1%. Прямо с производства в Шаффхаузене. Бесплатная доставка от CHF 600.',
+    al_tab_single:'Одна дуга', al_tab_dual:'Обе дуги', al_tab_touch:'Touch-Up', al_tab_retainer:'Ретейнер',
+    al_th_steps:'Кол-во ступеней', al_th_ind:'Показание', al_th_price:'Цена CHF',
+    al_th_variant:'Вариант', al_th_qty:'Количество',
+    al_s1_steps:'До 7 ступеней', al_s1_ind:'Лёгкие коррекции',
+    al_s2_steps:'8–14 ступеней', al_s2_ind:'Средняя сложность',
+    al_s3_steps:'15–21 ступень', al_s3_ind:'Сложные случаи',
+    al_s4_steps:'Без ограничений (до 36)', al_s4_ind:'Полное лечение',
+    al_single_incl:'<strong>Включено:</strong> Цифровой план лечения · Проверка ClinCheck · Визуализация ступеней · Рабочий процесс утверждения · 1 бесплатное уточнение в течение 12 месяцев.',
+    al_d1_ind:'Обе челюсти, лёгкая', al_d2_ind:'Обе челюсти, средняя', al_d3_ind:'Обе челюсти, сложная',
+    al_dual_incl:'<strong>Включено:</strong> Цифровой план лечения · Полная поддержка рабочего процесса · 2 бесплатных уточнения в течение 18 месяцев.',
+    al_t1_steps:'1–4 ступени', al_t1_ind:'Мелкие коррекции, рецидив ретейнера',
+    al_t2_steps:'5–7 ступеней', al_t2_ind:'Умеренное повторное лечение',
+    al_touch_incl:'Для последующих коррекций, рецидивов ретейнера или финальных настроек.',
+    al_r1_var:'Пара (одна дуга)', al_r2_var:'Пара (обе дуги)', al_r3_var:'Набор из 3 (одна дуга)', al_r4_var:'Набор из 3 (обе дуги)',
+    al_r_1pair:'1 пара', al_r_3pcs:'3 штуки',
+    al_retainer_incl:'<strong>Материал:</strong> Биосовместимый PET-G, 1,0 мм, прозрачный, без запаха. Сертифицирован CE MDR класс IIa.',
+    al_svc_label:'Сервисные сборы',
+    al_svc_h2:'Дополнительные услуги.',
+    al_svc1_name:'Сканирование модели', al_svc1_price:'CHF 35.— / дуга',
+    al_svc2_name:'Экспресс-доставка (2–3 рабочих дня, CH/FL)',
+    al_svc3_name:'Уточнение (вне включённого лимита)',
+    al_svc4_name:'Пересмотр плана (новая итерация ClinCheck со ступени 3)',
+    al_svc5_name:'Стандартная доставка (бесплатно от CHF 600)',
+    al_svc6_name:'Международная доставка (ЕС/ЕЭЗ)', al_svc6_price:'По запросу',
+    al_wf_label:'Рабочий процесс',
+    al_wf_h2:'От заказа до каппы.',
+    al_wf1_t:'Заказать', al_wf1_d:'Doctor Portal или sales@nivellipso.com · Предпочтительно сканы STL/PLY',
+    al_wf2_t:'План за 3 дня', al_wf2_d:'Цифровой план лечения · Проверка ClinCheck · Визуализация ступеней',
+    al_wf3_t:'Утверждение', al_wf3_d:'Вы проверяете и утверждаете · Полный контроль до производства',
+    al_wf4_t:'Доставка', al_wf4_d:'Swiss-Made Шаффхаузен · 5–10 дней стандарт · 2–3 дня экспресс',
+    al_loyal_label:'Программа лояльности',
+    al_loyal_h2:'Чем больше заказываете,<br>тем больше экономите.',
+    al_loyal_th_tier:'Уровень', al_loyal_th_cases:'Случаев / год', al_loyal_th_disc:'Скидка',
+    al_loyal_note:'Накапливается по практике и календарному году. Скидки применяются автоматически с первого заказа на новом уровне.',
+    al_wb_label:'Акция Win-Back Q2/Q3 2026',
+    al_wb_h2:'Для клиник, которых нам не хватало.',
+    al_wb_body:'Ограниченное предложение для клиник с &gt;12 месяцами неактивности — мы хотим вернуть вас.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'Первый заказ Three-Aligner',
+    al_wb_o2_h:'60 дней отсрочки платежа', al_wb_o2_d:'Для первых 3 заказов',
+    al_wb_o3_h:'Личный визит', al_wb_o3_d:'Албин приедет к вам — бесплатно',
+    al_wb_cta:'Запросить Win-Back →',
+    al_cta_h2:'Первый заказ?',
+    al_cta_body:'Албин лично покажет вам рабочий процесс. Онбординг включает тур по порталу, демо загрузки STL и первое обсуждение плана лечения.',
+    al_cta_btn1:'Запросить онбординг →',
+    al_cta_phone:'+41 79 469 71 76',
+    cb_toggle:'Вопросы по элайнерам?',
+    cb_name:'Консультация по элайнерам',
+    cb_sub:'Клинические вопросы · Цены · Рабочий процесс',
+    cb_welcome:'Здравствуйте! Я отвечу на ваши вопросы о системе Three-Aligner, ценах, сроках доставки и рабочем процессе.',
+    cb_sugg1:'SOFT vs REGULAR?',
+    cb_sugg2:'Цена одной дуги?',
+    cb_sugg3:'Сроки доставки',
+    cb_placeholder:'Ваш вопрос...',
+    ft_tagline:'Прозрачные элайнеры · Система Three-Aligner · Swiss-Made в Шаффхаузене с 2015 года.',
+    ft_col_products:'Продукты',
+    ft_col_resources:'Ресурсы',
+    ft_col_contact:'Контакты',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Контактная форма',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'КОНФИДЕНЦИАЛЬНО · NIVELLMEDICAL AG'
+  },
+  es: {
+    n_home:'Inicio', n_align:'Alineadores', n_brack:'Brackets', n_white:'Blanqueamiento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contacto', n_portal:'Doctor Portal →',
+    al_breadcrumb:'Alineadores transparentes',
+    al_label:'Alineadores transparentes',
+    al_h1:'El sistema<br><em>Three-Aligner nivellipso®.</em>',
+    al_sub:'Tres materiales diferenciados — diseñados para cada fase del movimiento dental. Predecible. Estable. Sin recaídas. Swiss-Made en Schaffhausen desde 2015.',
+    al_cta1:'Precios &amp; Opciones',
+    al_rec_title:'★ Recomendación clínica',
+    al_rec_body:'Basado en evidencia biomecánica y 10 años de experiencia clínica: el sistema Three-Aligner ofrece resultados superiores. Soluciones de alineador único para casos simples disponibles bajo demanda.',
+    al_sys_label:'El Sistema',
+    al_sys_h2:'Tres alineadores por fase.<br>Un tratamiento. Un resultado.',
+    al_sys_lead:'Cada fase de tratamiento consta de tres alineadores con distintas propiedades materiales — Soft para la iniciación, Regular para el movimiento activo, Intense para la estabilización.',
+    al_p1_tag:'Fase 01', al_p1_mat:'Iniciación · Material blando',
+    al_p1_desc:'Movimiento dental inicial suave. Los tejidos se adaptan, el paciente se acostumbra al alineador. Máximo confort al inicio de la terapia.',
+    al_p1_f1:'2 días por fase', al_p1_f2:'Adaptación tisular', al_p1_f3:'Alto confort de uso',
+    al_p2_tag:'Fase 02', al_p2_mat:'Movimiento · Material intermedio',
+    al_p2_desc:'Fase de movimiento principal. Equilibrio óptimo entre fuerza y confort. Aquí se produce la corrección ortodóntica real.',
+    al_p2_f1:'3 días por fase', al_p2_f2:'Movimiento dental activo', al_p2_f3:'Sensación de presión normal',
+    al_p3_tag:'Fase 03', al_p3_mat:'Finalización · Material rígido',
+    al_p3_desc:'Estabilización final y retención de la posición alcanzada. Previene las recaídas mediante un proceso constante de asentamiento tisular.',
+    al_p3_f1:'2 días por fase', al_p3_f2:'Estabilización final', al_p3_f3:'Sin recaídas',
+    al_why_label:'¿Por qué tres alineadores?',
+    al_why_h2:'Biomecánica que funciona.',
+    al_why_c1_h:'Predecible',
+    al_why_c1_p:'Tres fases en lugar de un alineador genérico = control preciso del movimiento. Los resultados clínicos corresponden al plan de tratamiento.',
+    al_why_c2_h:'Cómodo',
+    al_why_c2_p:'La fase SOFT reduce drásticamente los problemas de adaptación. Mayor cumplimiento del paciente desde el primer día.',
+    al_why_c3_h:'Estable',
+    al_why_c3_p:'La fase INTENSE finaliza la posición. Asentamiento tisular antes del final del tratamiento = sin recaídas tardías.',
+    al_price_label:'Precios &amp; Opciones',
+    al_price_h2:'Lista de precios — válida desde el 01.05.2026.',
+    al_price_lead:'Todos los precios en CHF, IVA 8,1% excluido. Directamente desde la manufactura de Schaffhausen. Envío gratuito desde CHF 600.',
+    al_tab_single:'Arcada simple', al_tab_dual:'Doble arcada', al_tab_touch:'Touch-Up', al_tab_retainer:'Retenedor',
+    al_th_steps:'N.º de fases', al_th_ind:'Indicación', al_th_price:'Precio CHF',
+    al_th_variant:'Variante', al_th_qty:'Cantidad',
+    al_s1_steps:'Hasta 7 fases', al_s1_ind:'Correcciones leves',
+    al_s2_steps:'8–14 fases', al_s2_ind:'Complejidad media',
+    al_s3_steps:'15–21 fases', al_s3_ind:'Casos complejos',
+    al_s4_steps:'Ilimitado (hasta 36)', al_s4_ind:'Tratamiento completo',
+    al_single_incl:'<strong>Incluido:</strong> Plan de tratamiento digital · Revisión ClinCheck · Visualización de fases · Workflow de aprobación · 1 refinamiento gratuito en 12 meses.',
+    al_d1_ind:'Ambas arcadas, leve', al_d2_ind:'Ambas arcadas, moderado', al_d3_ind:'Ambas arcadas, complejo',
+    al_dual_incl:'<strong>Incluido:</strong> Plan de tratamiento digital · Soporte completo de workflow · 2 refinamientos gratuitos en 18 meses.',
+    al_t1_steps:'1–4 fases', al_t1_ind:'Correcciones menores, recaída de retenedor',
+    al_t2_steps:'5–7 fases', al_t2_ind:'Retratamiento moderado',
+    al_touch_incl:'Para correcciones posteriores, recaídas de retenedor o ajustes finales.',
+    al_r1_var:'Par arcada simple', al_r2_var:'Par doble arcada', al_r3_var:'Pack 3 arcada simple', al_r4_var:'Pack 3 doble arcada',
+    al_r_1pair:'1 par', al_r_3pcs:'3 piezas',
+    al_retainer_incl:'<strong>Material:</strong> PET-G biocompatible, 1,0 mm, transparente, inodoro. Certificado CE MDR Clase IIa.',
+    al_svc_label:'Tarifas de servicio',
+    al_svc_h2:'Servicios adicionales.',
+    al_svc1_name:'Escáner de modelo', al_svc1_price:'CHF 35.— / arcada',
+    al_svc2_name:'Entrega express (2–3 días hábiles, CH/FL)',
+    al_svc3_name:'Refinamiento (fuera del contingente incluido)',
+    al_svc4_name:'Revisión de plan (nueva iteración ClinCheck desde fase 3)',
+    al_svc5_name:'Envío estándar (gratuito desde CHF 600)',
+    al_svc6_name:'Envío internacional (UE/EEE)', al_svc6_price:'Bajo consulta',
+    al_wf_label:'Workflow',
+    al_wf_h2:'Del pedido al alineador.',
+    al_wf1_t:'Pedir', al_wf1_d:'Doctor Portal o sales@nivellipso.com · Escaneos STL/PLY preferidos',
+    al_wf2_t:'Plan en 3 días', al_wf2_d:'Plan de tratamiento digital · Revisión ClinCheck · Visualización de fases',
+    al_wf3_t:'Aprobación', al_wf3_d:'Revisa y aprueba · Control total antes de la producción',
+    al_wf4_t:'Entrega', al_wf4_d:'Swiss-Made Schaffhausen · 5–10 días estándar · 2–3 días express',
+    al_loyal_label:'Programa de fidelidad',
+    al_loyal_h2:'Cuanto más pide,<br>más ahorra.',
+    al_loyal_th_tier:'Nivel', al_loyal_th_cases:'Casos / año', al_loyal_th_disc:'Descuento',
+    al_loyal_note:'Acumulado por consulta y año natural. Los descuentos se aplican automáticamente desde el primer pedido en el nuevo nivel.',
+    al_wb_label:'Oferta Win-Back Q2/Q3 2026',
+    al_wb_h2:'Para las clínicas que echamos de menos.',
+    al_wb_body:'Oferta limitada para clínicas con &gt;12 meses de inactividad — queremos recuperarle.',
+    al_wb_o1_h:'Reconnect –15%', al_wb_o1_d:'Primer pedido Three-Aligner',
+    al_wb_o2_h:'60 días de plazo de pago', al_wb_o2_d:'Para los primeros 3 pedidos',
+    al_wb_o3_h:'Visita personal', al_wb_o3_d:'Albin viene a usted — sin coste',
+    al_wb_cta:'Solicitar Win-Back →',
+    al_cta_h2:'¿Primer pedido?',
+    al_cta_body:'Albin le mostrará el workflow personalmente. El onboarding incluye un tour del portal, demo de carga STL y primera revisión del plan de tratamiento.',
+    al_cta_btn1:'Solicitar onboarding →',
+    al_cta_phone:'+41 79 469 71 76',
+    cb_toggle:'¿Preguntas sobre alineadores?',
+    cb_name:'Asesoría de alineadores',
+    cb_sub:'Preguntas clínicas · Precios · Workflow',
+    cb_welcome:'¡Hola! Respondo sus preguntas sobre el sistema Three-Aligner, precios, plazos de entrega y workflow.',
+    cb_sugg1:'¿SOFT vs REGULAR?',
+    cb_sugg2:'¿Precio arcada simple?',
+    cb_sugg3:'Plazo de entrega',
+    cb_placeholder:'Su pregunta...',
+    ft_tagline:'Alineadores transparentes · Sistema Three-Aligner · Swiss-Made en Schaffhausen desde 2015.',
+    ft_col_products:'Productos',
+    ft_col_resources:'Recursos',
+    ft_col_contact:'Contacto',
+    ft_portal_link:'Doctor Portal',
+    ft_faq_link:'FAQ',
+    ft_contact_form:'Formulario de contacto',
+    ft_copyright:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENCIAL · NIVELLMEDICAL AG'
+  }
+};
+window.NIVELL_T = T;
+document.addEventListener('DOMContentLoaded', () => {
+  setNivellLang(localStorage.getItem('nivell_lang') || 'de', T);
+});
+</script>
+<script>
+function showTab(tab,btn){
+  ['single','dual','touch','retainer'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el)el.classList.toggle('active',t===tab);
+  });
+  document.querySelectorAll('.price-tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+}
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  initScrollAnimations();
+  setActiveNav();
+});
+</script>
+</body>
+</html>

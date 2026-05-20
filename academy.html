@@ -1,0 +1,1189 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nivellipso® Academy — Wissen für bessere Ergebnisse</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C00000'/><rect x='14' y='6' width='4' height='20' fill='white'/><rect x='6' y='14' width='20' height='4' fill='white'/></svg>">
+<meta name="description" content="nivellipso® Academy — Klinisches Wissen, Videos, Podcasts und Ressourcen für Kieferorthopäden.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nivellipso.com/academy.html">
+<meta property="og:title" content="nivellipso® Academy — Wissen für bessere Ergebnisse">
+<meta property="og:description" content="Videos, Podcasts und klinische Ressourcen für anspruchsvolle Dentalpraxen. Powered by nivellipso®.">
+<meta property="og:image" content="https://nivellipso.com/images/team/dr-albin-vukaj-circle-240.png">
+<script defer data-domain="nivellipso.com" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="nivell-design.css">
+<style>
+.academy-hero-bg{background:linear-gradient(145deg,#0a0000 0%,var(--black) 50%,#1a0000 100%);position:relative;}
+.academy-hero-bg::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(192,0,0,.16) 0%,transparent 70%);pointer-events:none;}
+.academy-hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);}
+.cat-tabs{display:flex;gap:2px;margin-bottom:36px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+.cat-tabs::-webkit-scrollbar{display:none;}
+.cat-tab{padding:11px 22px;font-size:13px;font-weight:700;background:white;border:1px solid var(--border);cursor:pointer;color:var(--grey);font-family:Arial,sans-serif;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,.04);flex-shrink:0;transition:all .15s;}
+.cat-tab.active{background:var(--red);color:white;border-color:var(--red);box-shadow:0 3px 0 var(--red-dark);}
+.cat-tab:hover:not(.active){border-color:var(--red);color:var(--red);transform:translateY(-1px);}
+.featured-video{position:relative;background:var(--black);aspect-ratio:16/9;overflow:hidden;cursor:pointer;border:1px solid var(--border);margin-bottom:24px;}
+.featured-video img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.featured-video:hover img{transform:scale(1.03);}
+.featured-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.18) 50%,transparent 100%);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.featured-video:hover .featured-overlay{background:linear-gradient(0deg,rgba(0,0,0,.78) 0%,rgba(192,0,0,.18) 50%,transparent 100%);}
+.featured-play-btn{width:68px;height:68px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.38);transition:transform .2s;}
+.featured-video:hover .featured-play-btn{transform:scale(1.1);}
+.featured-play-btn svg{width:26px;height:26px;color:var(--red);margin-left:4px;}
+.featured-meta{position:absolute;bottom:20px;left:20px;right:20px;}
+.featured-tag{display:inline-block;background:var(--red);color:white;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;margin-bottom:8px;}
+.featured-title{font-size:clamp(15px,2.5vw,24px);font-weight:700;color:white;line-height:1.2;letter-spacing:-.3px;}
+.featured-info{font-size:11px;color:rgba(255,255,255,.55);margin-top:5px;display:flex;gap:14px;flex-wrap:wrap;}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.video-card{background:white;border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:block;text-decoration:none;color:inherit;}
+.video-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.video-thumb{position:relative;background:var(--bg);aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.video-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .3s;}
+.video-card:hover .video-thumb img{transform:scale(1.04);}
+.vplay-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);transition:background .2s;}
+.video-card:hover .vplay-wrap{background:rgba(192,0,0,.52);}
+.vplay-btn{width:46px;height:46px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 14px rgba(0,0,0,.26);transition:transform .2s;}
+.video-card:hover .vplay-btn{transform:scale(1.1);}
+.vplay-btn svg{width:17px;height:17px;color:var(--red);margin-left:3px;}
+.vduration{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.7);color:white;font-size:9px;font-weight:700;padding:2px 6px;}
+.vcat{position:absolute;top:6px;left:6px;background:var(--red);color:white;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;}
+.vbody{padding:14px;}
+.vtitle{font-size:14px;font-weight:700;color:var(--black);margin-bottom:5px;line-height:1.3;}
+.vmeta{font-size:10px;color:var(--grey);display:flex;gap:8px;flex-wrap:wrap;}
+.podcast-list{display:flex;flex-direction:column;gap:2px;}
+.podcast-feat{background:var(--black);padding:24px 28px;display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:center;margin-bottom:3px;}
+.podcast-feat img{width:90px;height:90px;object-fit:cover;border-radius:4px;}
+.pf-label{font-size:8px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:5px;}
+.pf-title{font-size:18px;font-weight:700;color:white;letter-spacing:-.3px;margin-bottom:6px;}
+.pf-desc{font-size:12px;color:rgba(255,255,255,.48);line-height:1.55;}
+.pf-btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.pf-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:white;padding:7px 13px;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .2s;}
+.pf-btn:hover{background:rgba(255,255,255,.16);}
+.pf-btn svg{width:14px;height:14px;}
+.podcast-ep{background:white;border:1px solid var(--border);padding:16px 20px;display:flex;gap:12px;align-items:center;transition:border-color .2s,transform .15s;cursor:pointer;}
+.podcast-ep:hover{border-color:var(--red);transform:translateX(3px);}
+.ep-num{font-size:24px;font-weight:700;color:var(--red);opacity:.12;letter-spacing:-1.5px;line-height:1;min-width:36px;}
+.ep-play{width:38px;height:38px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 0 var(--red-dark);transition:transform .15s;}
+.podcast-ep:hover .ep-play{transform:scale(1.08);}
+.ep-play svg{width:14px;height:14px;color:white;margin-left:2px;}
+.ep-info{flex:1;}
+.ep-title{font-size:14px;font-weight:700;color:var(--black);margin-bottom:3px;}
+.ep-desc{font-size:12px;color:var(--grey);line-height:1.45;}
+.ep-meta{font-size:10px;color:var(--grey);margin-top:4px;display:flex;gap:8px;}
+.ep-dur{font-size:11px;font-weight:700;color:var(--red);flex-shrink:0;}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.tip-card{background:white;border:1px solid var(--border);padding:20px;border-top:3px solid var(--red);transition:transform .2s,box-shadow .2s;}
+.tip-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.tip-ico-wrap{width:40px;height:40px;background:var(--red-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px;transition:transform .2s,background .2s;}
+.tip-ico-wrap svg{width:18px;height:18px;color:var(--red);}
+.tip-card:hover .tip-ico-wrap{background:var(--red);transform:rotate(8deg) scale(1.12);}
+.tip-card:hover .tip-ico-wrap svg{color:white;}
+.mailing-hero{background:linear-gradient(135deg,var(--red-light),white);border:1px solid #fdd;border-left:5px solid var(--red);padding:32px 36px;margin-bottom:28px;}
+.mailing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.mail-card{background:white;border:1px solid var(--border);padding:20px;border-top:3px solid var(--red);transition:transform .2s,box-shadow .2s;}
+.mail-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.mail-month{font-size:26px;font-weight:700;color:var(--red);opacity:.14;letter-spacing:-1px;line-height:1;margin-bottom:8px;}
+.mail-topic{font-size:14px;font-weight:700;color:var(--black);margin-bottom:5px;}
+.mail-desc{font-size:12px;color:var(--grey);line-height:1.6;}
+.newsletter-sec{background:var(--red);padding:48px 40px;text-align:center;}
+.newsletter-sec h2{font-size:clamp(20px,3vw,34px);font-weight:700;color:white;letter-spacing:-1px;margin-bottom:10px;}
+.newsletter-sec p{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+.nl-form{display:flex;gap:3px;max-width:500px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+.nl-input{flex:1;min-width:240px;padding:13px 16px;border:none;font-family:Arial,sans-serif;font-size:14px;outline:none;}
+.nl-btn{background:var(--black);color:white;padding:13px 24px;font-size:13px;font-weight:700;border:none;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 3px 0 rgba(0,0,0,.4);transition:transform .12s,box-shadow .12s;}
+.nl-btn:hover{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.4);}
+.nl-note{font-size:10px;color:rgba(255,255,255,.45);margin-top:10px;}
+.coming-soon-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(192,0,0,.1);border:1px solid rgba(192,0,0,.2);color:var(--red);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;}
+.coming-soon-badge::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;animation:pulse-ring 2s ease-out infinite;}
+.stat-strip{background:var(--black);padding:28px 40px;}
+.stat-strip-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+.ss{padding:0 28px;border-right:1px solid rgba(255,255,255,.07);text-align:center;}
+.ss:last-child{border-right:none;}
+.ss-n{font-size:32px;font-weight:700;color:white;letter-spacing:-2px;line-height:1;}
+.ss-n em{font-style:normal;color:var(--red);}
+.ss-l{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
+@media(max-width:768px){
+  .video-grid{grid-template-columns:1fr;}
+  .tips-grid{grid-template-columns:1fr 1fr;}
+  .mailing-grid{grid-template-columns:1fr 1fr;}
+  .podcast-feat{grid-template-columns:1fr;}
+  .podcast-feat img{width:70px;height:70px;}
+  .nl-form{flex-direction:column;}
+  .nl-input{min-width:100%;}
+  .nl-btn{width:100%;}
+  .stat-strip-inner{grid-template-columns:1fr 1fr;gap:12px;}
+  .ss{border-right:none;padding:10px 0;}
+  .stat-strip{padding:20px;}
+  .newsletter-sec{padding:36px 20px;}
+  .mailing-hero{padding:20px;}
+}
+@media(max-width:480px){
+  .tips-grid{grid-template-columns:1fr;}
+  .mailing-grid{grid-template-columns:1fr;}
+  .ep-num{display:none;}
+}
+</style>
+</head>
+<body>
+<!-- ── NAV ── -->
+<nav class="n-nav">
+<div class="n-nav-inner">
+  <a href="index.html" class="n-logo">
+    <img src="images/logo/logo_black.png" alt="nivellipso" class="n-logo-img">
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" class="active" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;gap:6px;">
+      <a href="https://www.instagram.com/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <button class="n-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button type="button" class="lang-btn" id="langBtn">
+      <span id="lFlag">🇩🇪</span><span id="lCode">DE</span>
+      <svg viewBox="0 0 10 6" fill="none" width="10"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5"/></svg>
+      <div class="lang-dropdown">
+        <div class="lang-opt active" data-lang="de" onclick="setNivellLang('de',window.NIVELL_T)">🇩🇪 Deutsch</div>
+        <div class="lang-opt" data-lang="fr" onclick="setNivellLang('fr',window.NIVELL_T)">🇫🇷 Français</div>
+        <div class="lang-opt" data-lang="it" onclick="setNivellLang('it',window.NIVELL_T)">🇮🇹 Italiano</div>
+        <div class="lang-opt" data-lang="en" onclick="setNivellLang('en',window.NIVELL_T)">🇬🇧 English</div>
+        <div class="lang-opt" data-lang="ru" onclick="setNivellLang('ru',window.NIVELL_T)">🇷🇺 Русский</div>
+        <div class="lang-opt" data-lang="es" onclick="setNivellLang('es',window.NIVELL_T)">🇪🇸 Español</div>
+      </div>
+    </button>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="font-size:12px;padding:10px 18px;" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+<div class="n-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" style="color:var(--red);" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <a href="https://nivellonlign.com/" target="_blank" class="n-mobile-cta" data-i18n="n_portal">Doctor Portal →</a>
+</div>
+</nav>
+
+<div class="n-page-hero academy-hero-bg">
+<div class="n-page-hero-inner">
+  <div class="n-breadcrumb"><a href="index.html" data-i18n="ac_bc_home">Home</a> <svg viewBox="0 0 8 14" fill="none" width="8" height="14"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg> <span data-i18n="ac_bc_current">Academy</span></div>
+  <div class="t-label" style="color:var(--red);" data-i18n="ac_label">nivellipso® Academy</div>
+  <h1 class="n-page-h1" data-i18n="ac_h1">Wissen für bessere<br><em>Ergebnisse.</em></h1>
+  <p class="n-page-sub" data-i18n="ac_sub">Videos, Podcasts, klinische Tipps, monatliches Patient-Mailing und Ressourcen — für Ärzte, Praxisteams und Patienten. Alles an einem Ort.</p>
+</div>
+</div>
+
+<div class="stat-strip">
+<div class="stat-strip-inner">
+  <div class="ss"><div class="ss-n">24<em>+</em></div><div class="ss-l" data-i18n="ac_stat_videos">Videos</div></div>
+  <div class="ss"><div class="ss-n">12<em>×</em></div><div class="ss-l" data-i18n="ac_stat_podcast">Podcast Episoden</div></div>
+  <div class="ss"><div class="ss-n">1<em>×/mo</em></div><div class="ss-l" data-i18n="ac_stat_mailing">Patient-Mailing</div></div>
+  <div class="ss"><div class="ss-n">6<em></em></div><div class="ss-l" data-i18n="ac_stat_langs">Sprachen</div></div>
+</div>
+</div>
+
+<section class="n-sec" id="content">
+<div class="n-sec-inner">
+  <div class="cat-tabs n-fade">
+    <button class="cat-tab active" onclick="showCat('videos',this)" data-i18n="ac_tab_videos">📹 Videos</button>
+    <button class="cat-tab" onclick="showCat('podcasts',this)" data-i18n="ac_tab_podcast">🎙️ Podcast</button>
+    <button class="cat-tab" onclick="showCat('tips',this)" data-i18n="ac_tab_tips">💡 Tipps &amp; Tricks</button>
+    <button class="cat-tab" onclick="showCat('mailing',this)" data-i18n="ac_tab_mailing">📧 Patient-Mailing</button>
+    <button class="cat-tab" onclick="showCat('resources',this)" data-i18n="ac_tab_resources">📄 Ressourcen</button>
+  </div>
+
+  <!-- VIDEOS -->
+  <div id="cat-videos">
+    <div class="n-fade"><div class="t-label" data-i18n="ac_vid_label">Featured</div><h2 class="t-h2" data-i18n="ac_vid_h2">Klinische Experten-Videos.</h2><div class="t-rule"></div></div>
+    <div class="featured-video n-fade">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80" alt="Featured" onerror="this.style.display='none'">
+      <div class="featured-overlay"><div class="featured-play-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="featured-meta">
+        <div class="featured-tag" data-i18n="ac_feat_tag">Neu · Klinische Planung</div>
+        <div class="featured-title" data-i18n="ac_feat_title">Das Three-Aligner-System: Biomechanik erklärt</div>
+        <div class="featured-info"><span data-i18n="ac_feat_dur">45 Min.</span><span>Dr. [Clinical Director]</span><span data-i18n="ac_feat_date">Mai 2026</span></div>
+      </div>
+    </div>
+    <div class="video-grid n-fade">
+      <div class="video-card"><div class="video-thumb"><img src="https://images.unsplash.com/photo-1588776814546-1ffbb69b3a73?w=600&q=70" alt="" onerror="this.style.display='none'"><div class="vplay-wrap"><div class="vplay-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div><div class="vduration">22 Min.</div><div class="vcat">SOFT Phase</div></div><div class="vbody"><div class="vtitle" data-i18n="ac_v1_title">Phase SOFT: Was passiert in den ersten 7 Stufen?</div><div class="vmeta"><span>Apr 2026</span><span>Klinik</span></div></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=70" alt="" onerror="this.style.display='none'"><div class="vplay-wrap"><div class="vplay-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div><div class="vduration">18 Min.</div><div class="vcat">Workflow</div></div><div class="vbody"><div class="vtitle" data-i18n="ac_v2_title">SimplyCeph vs. OnyxCeph: Welche Software für welchen Fall?</div><div class="vmeta"><span>Mär 2026</span><span>Workflow</span></div></div></div>
+      <div class="video-card"><div class="video-thumb"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="" onerror="this.style.display='none'"><div class="vplay-wrap"><div class="vplay-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div><div class="vduration">31 Min.</div><div class="vcat">Compliance</div></div><div class="vbody"><div class="vtitle" data-i18n="ac_v3_title">Compliance verbessern: Was Patienten wirklich brauchen</div><div class="vmeta"><span>Feb 2026</span><span>Praxis</span></div></div></div>
+      <div class="video-card"><div class="video-thumb" style="background:#f5f5f5;min-height:120px;"><div class="vplay-wrap" style="position:relative;background:transparent;flex:1;"><div class="vplay-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div><div class="vduration">27 Min.</div><div class="vcat">Retention</div></div><div class="vbody"><div class="vtitle" data-i18n="ac_v4_title">Retentionsphase INTENSE: Kein Rezidiv durch richtigen Abschluss</div><div class="vmeta"><span>Jan 2026</span><span>Klinik</span></div></div></div>
+      <div class="video-card"><div class="video-thumb" style="background:#ebebeb;min-height:120px;"><div class="vplay-wrap" style="position:relative;background:transparent;flex:1;"><div class="vplay-btn"><svg viewBox="0 0 24 24" fill="var(--red)" stroke="none"><path d="M8 5v14l11-7z"/></svg></div></div><div class="vduration">14 Min.</div><div class="vcat">Brackets</div></div><div class="vbody"><div class="vtitle" data-i18n="ac_v5_title">Selbstligierende vs. konventionelle Brackets: Klinischer Vergleich</div><div class="vmeta"><span>Dez 2025</span><span>Produkt</span></div></div></div>
+      <div class="video-card" style="border:2px dashed var(--border);background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:200px;text-align:center;padding:20px;"><div><div style="font-size:32px;margin-bottom:10px;">🎬</div><div style="font-size:13px;font-weight:700;color:var(--grey);margin-bottom:8px;" data-i18n="ac_v6_title">Weiteres Video</div><span class="coming-soon-badge">Coming Q3 2026</span></div></div>
+    </div>
+  </div>
+
+  <!-- PODCASTS -->
+  <div id="cat-podcasts" style="display:none;">
+    <div class="n-fade"><div class="t-label" data-i18n="ac_pod_label">Podcast</div><h2 class="t-h2" data-i18n="ac_pod_h2">nivellipso® Podcast.<br>Klinisches Wissen. Unterwegs.</h2><div class="t-rule"></div></div>
+    <div class="podcast-feat n-fade">
+      <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=200&q=80" alt="Podcast" onerror="this.style.background='#333'">
+      <div>
+        <div class="pf-label" data-i18n="ac_pf_label">Episode 12 · Neueste Folge</div>
+        <div class="pf-title" data-i18n="ac_pf_title">Compliance ist kein Zufall — das sagen die Daten</div>
+        <div class="pf-desc" data-i18n="ac_pf_desc">Warum 30% aller Aligner-Patienten zu wenig tragen und was die Wissenschaft sagt. Mit Daten aus VISIBAL-Pilotpraxen.</div>
+        <div class="pf-btns">
+          <a href="#" class="pf-btn"><svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M12 1a11 11 0 100 22A11 11 0 0012 1zm-2 5v8l6-4-6-4z"/></svg> Spotify</a>
+          <a href="#" class="pf-btn"><svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04z"/></svg> Apple</a>
+          <a href="#" class="pf-btn"><svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg> YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="podcast-list n-fade">
+      <div class="podcast-ep"><div class="ep-num">11</div><div class="ep-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div><div class="ep-info"><div class="ep-title" data-i18n="ac_ep11_title">Das Three-Aligner-System — warum drei Materialien besser sind als eines</div><div class="ep-desc" data-i18n="ac_ep11_desc">Biomechanische Grundlagen, klinische Evidenz, Patientenkomfort.</div><div class="ep-meta"><span>Apr 2026</span><span>Klinik</span></div></div><div class="ep-dur">38 Min.</div></div>
+      <div class="podcast-ep"><div class="ep-num">10</div><div class="ep-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div><div class="ep-info"><div class="ep-title" data-i18n="ac_ep10_title">VISIBAL — wie Online die Patientenbegleitung verändert</div><div class="ep-desc" data-i18n="ac_ep10_desc">Compliance-Daten, App-Konzept, klinische Mehrwerte.</div><div class="ep-meta"><span>Mär 2026</span><span>Digital Health</span></div></div><div class="ep-dur">42 Min.</div></div>
+      <div class="podcast-ep"><div class="ep-num">09</div><div class="ep-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div><div class="ep-info"><div class="ep-title" data-i18n="ac_ep09_title">Swiss-Made: Was es bedeutet und warum es wichtig ist</div><div class="ep-desc" data-i18n="ac_ep09_desc">Regulatorik, Produktion in Schaffhausen, CE MDR.</div><div class="ep-meta"><span>Feb 2026</span><span>Qualität</span></div></div><div class="ep-dur">29 Min.</div></div>
+      <div class="podcast-ep"><div class="ep-num">08</div><div class="ep-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div><div class="ep-info"><div class="ep-title" data-i18n="ac_ep08_title">Patienten, die nicht tragen: Ursachen, Lösungen, Gesprächsführung</div><div class="ep-desc" data-i18n="ac_ep08_desc">Psychologie der Compliance. Praktische Tipps für die Praxis.</div><div class="ep-meta"><span>Jan 2026</span><span>Praxismanagement</span></div></div><div class="ep-dur">33 Min.</div></div>
+      <div class="podcast-ep"><div class="ep-num">07</div><div class="ep-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div><div class="ep-info"><div class="ep-title" data-i18n="ac_ep07_title">Retainer &amp; Rezidiv: Was die Wissenschaft wirklich sagt</div><div class="ep-desc" data-i18n="ac_ep07_desc">Langzeitergebnisse, Materialien, INTENSE Phase im Detail.</div><div class="ep-meta"><span>Dez 2025</span><span>Klinik</span></div></div><div class="ep-dur">41 Min.</div></div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div id="cat-tips" style="display:none;">
+    <div class="n-fade"><div class="t-label" data-i18n="ac_tips_label">Tipps &amp; Tricks</div><h2 class="t-h2" data-i18n="ac_tips_h2">Klinische Shortcuts.<br>Für den Alltag.</h2><div class="t-rule"></div><p class="t-lead" style="margin-bottom:28px;" data-i18n="ac_tips_lead">Praxiserprobte Tipps von erfahrenen Kieferorthopäden — direkt anwendbar, klinisch validiert.</p></div>
+    <div class="tips-grid n-fade">
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip1_title">22-Stunden-Regel</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip1_desc">Unter 20h/Tag verliert der Aligner biomechanische Wirksamkeit. Kommunizieren Sie 22h als medizinische Notwendigkeit — nicht als Empfehlung.</p></div>
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip2_title">SOFT-Phase richtig erklären</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip2_desc">Die SOFT-Phase ist nicht schwächer — sie ist für Gewebeanpassung optimiert. Fehlender Druck = korrekter Beginn, kein Fehler.</p></div>
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip3_title">Freigabe vor Produktion</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip3_desc">Niemals ohne Freigabe produzieren. Nutzen Sie die Stufenvisualisierung im Portal — Patient Buy-in vor Behandlung verdoppelt die Compliance.</p></div>
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip4_title">Foto-Dokumentation</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip4_desc">Standard: Frontal, lateral, okklusal. VISIBAL führt Patienten durch das Protokoll automatisch. Die Timeline ist klinisch und motivational wertvoll.</p></div>
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip5_title">Proaktive Intervention</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip5_desc">Kontaktieren Sie Patienten nach Stufe 3, wenn VISIBAL Compliance-Abfall signalisiert. Frühe Intervention verhindert Stagnation.</p></div>
+      <div class="tip-card"><div class="tip-ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div><div style="font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_tip6_title">Meilenstein-Motivation</div><p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="ac_tip6_desc">Feiern Sie Phasen-Abschlüsse mit dem Patienten. „Sie sind in Phase 2" — Mini-Milestones erhöhen die emotionale Bindung messbar.</p></div>
+    </div>
+  </div>
+
+  <!-- MAILING -->
+  <div id="cat-mailing" style="display:none;">
+    <div class="n-fade"><div class="t-label" data-i18n="ac_mail_label">Patient-Mailing</div><h2 class="t-h2" data-i18n="ac_mail_h2">1× im Monat.<br>Sanft. Klar. Wirksam.</h2><div class="t-rule"></div></div>
+    <div class="mailing-hero n-fade">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:flex-start;">
+        <div class="ico-3d anim-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+        <div>
+          <h3 style="font-size:19px;font-weight:700;color:var(--black);margin-bottom:8px;" data-i18n="ac_mail_hero_h3">Das nivellipso® Patient-Mailing-System</h3>
+          <p style="font-size:14px;color:var(--grey);line-height:1.75;" data-i18n="ac_mail_hero_p">Einmal pro Monat erhalten Ihre Aligner-Patienten automatisch eine phasenbasierte E-Mail — die richtige Botschaft, zum richtigen Zeitpunkt, in ihrer Sprache. Kein Massenversand. Keine generischen Templates. Klinisch abgestimmt.</p>
+          <div style="display:flex;gap:20px;margin-top:16px;flex-wrap:wrap;">
+            <span style="font-size:12px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:6px;"><span style="color:var(--red);">✓</span> <span data-i18n="ac_mail_feat1">Automatisch phasenbasiert</span></span>
+            <span style="font-size:12px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:6px;"><span style="color:var(--red);">✓</span> <span data-i18n="ac_mail_feat2">6 Sprachen</span></span>
+            <span style="font-size:12px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:6px;"><span style="color:var(--red);">✓</span> <span data-i18n="ac_mail_feat3">DSGVO-konform</span></span>
+            <span style="font-size:12px;font-weight:700;color:var(--black);display:flex;align-items:center;gap:6px;"><span style="color:var(--red);">✓</span> <span data-i18n="ac_mail_feat4">Via VISIBAL oder E-Mail</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 style="font-size:18px;font-weight:700;color:var(--black);margin-bottom:6px;" data-i18n="ac_mail_plan_h3">Jährlicher Inhaltsplan</h3>
+    <p style="font-size:13px;color:var(--grey);margin-bottom:20px;" data-i18n="ac_mail_plan_p">Abgestimmt auf eine typische 12-Monats-Behandlung. Motivierend, informativ, nie aufdringlich.</p>
+    <div class="mailing-grid n-fade">
+      <div class="mail-card"><div class="mail-month">01</div><div class="mail-topic" data-i18n="ac_m01_topic">Willkommen &amp; Start</div><div class="mail-desc" data-i18n="ac_m01_desc">„Ihr erstes Lächeln hat begonnen." Überblick, SOFT-Phase erklärt, VISIBAL-App.</div></div>
+      <div class="mail-card"><div class="mail-month">02</div><div class="mail-topic" data-i18n="ac_m02_topic">22 Stunden — warum es zählt</div><div class="mail-desc" data-i18n="ac_m02_desc">Sanfte Erinnerung mit Biomechanik-Erklärung. Jede Stunde ohne Schiene verzögert das Ergebnis.</div></div>
+      <div class="mail-card"><div class="mail-month">03</div><div class="mail-topic" data-i18n="ac_m03_topic">Erster Fortschritt sichtbar</div><div class="mail-desc" data-i18n="ac_m03_desc">Foto-Dokumentation Stufe 1 vs. aktuell. Motivation durch sichtbares Ergebnis.</div></div>
+      <div class="mail-card"><div class="mail-month">04</div><div class="mail-topic" data-i18n="ac_m04_topic">Aktivphase beginnt (REGULAR)</div><div class="mail-desc" data-i18n="ac_m04_desc">„Ab heute arbeitet Ihre Schiene auf Hochtouren." Phase-Wechsel und Druckgefühl erklärt.</div></div>
+      <div class="mail-card"><div class="mail-month">05</div><div class="mail-topic" data-i18n="ac_m05_topic">Halbzeit 🎉</div><div class="mail-desc" data-i18n="ac_m05_desc">Meilenstein-E-Mail. Vorher-Nachher. „Sie sind genau auf Kurs."</div></div>
+      <div class="mail-card"><div class="mail-month">06</div><div class="mail-topic" data-i18n="ac_m06_topic">Tipps für Alltag &amp; Reise</div><div class="mail-desc" data-i18n="ac_m06_desc">Sport, Reisen, Restaurantbesuche — kein Grund zur Ausrede.</div></div>
+      <div class="mail-card"><div class="mail-month">07</div><div class="mail-topic" data-i18n="ac_m07_topic">Pflege &amp; Hygiene</div><div class="mail-desc" data-i18n="ac_m07_desc">Reinigung, Aufbewahrung, häufige Fehler vermeiden.</div></div>
+      <div class="mail-card"><div class="mail-month">08</div><div class="mail-topic" data-i18n="ac_m08_topic">Retentionsphase vorbereiten</div><div class="mail-desc" data-i18n="ac_m08_desc">INTENSE erklärt. Bedeutung der Retention für Langzeitergebnis.</div></div>
+      <div class="mail-card"><div class="mail-month">09</div><div class="mail-topic" data-i18n="ac_m09_topic">INTENSE — letzte Meile</div><div class="mail-desc" data-i18n="ac_m09_desc">„Fast geschafft — jetzt nicht nachlassen." Kein Rezidiv durch Konsequenz.</div></div>
+      <div class="mail-card"><div class="mail-month">10</div><div class="mail-topic" data-i18n="ac_m10_topic">Abschlussfoto vorbereiten</div><div class="mail-desc" data-i18n="ac_m10_desc">Anleitung professionelles Foto. Teilen auf VISIBAL. Ihr Lächeln als Beweis.</div></div>
+      <div class="mail-card"><div class="mail-month">11</div><div class="mail-topic" data-i18n="ac_m11_topic">Retainer — lebenslang</div><div class="mail-desc" data-i18n="ac_m11_desc">Warum Retainer wichtig sind. Rezidiv-Risiko. Bestellprozess.</div></div>
+      <div class="mail-card"><div class="mail-month">12</div><div class="mail-topic" data-i18n="ac_m12_topic">Behandlung abgeschlossen 🎊</div><div class="mail-desc" data-i18n="ac_m12_desc">„Ihr Lächeln. Swiss-Made." Bewertungsanfrage. Empfehlungs-Einladung.</div></div>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div id="cat-resources" style="display:none;">
+    <div class="n-fade"><div class="t-label" data-i18n="ac_res_label">Ressourcen</div><h2 class="t-h2" data-i18n="ac_res_h2">Dokumente &amp; Downloads.</h2><div class="t-rule"></div></div>
+    <div style="display:flex;flex-direction:column;gap:2px;" class="n-fade">
+      <div style="background:white;border:1px solid var(--border);padding:18px 22px;display:flex;align-items:center;gap:14px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--black);" data-i18n="ac_res1_title">Preisliste 2026 (CHF)</div><div style="font-size:11px;color:var(--grey);" data-i18n="ac_res1_sub">Gültig ab 01.05.2026 · PDF</div></div><a href="index.html#contact-form" class="btn-3d-outline" style="font-size:11px;padding:6px 14px;"><span data-i18n="ac_res_btn">Anfragen</span></a></div>
+      <div style="background:white;border:1px solid var(--border);padding:18px 22px;display:flex;align-items:center;gap:14px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--black);" data-i18n="ac_res2_title">Patientenaufklärungsbogen</div><div style="font-size:11px;color:var(--grey);" data-i18n="ac_res2_sub">DE / FR / IT / EN · Druckfertig</div></div><a href="index.html#contact-form" class="btn-3d-outline" style="font-size:11px;padding:6px 14px;"><span data-i18n="ac_res_btn">Anfragen</span></a></div>
+      <div style="background:white;border:1px solid var(--border);padding:18px 22px;display:flex;align-items:center;gap:14px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--black);" data-i18n="ac_res3_title">CE MDR Konformitätserklärung</div><div style="font-size:11px;color:var(--grey);" data-i18n="ac_res3_sub">EU 2017/745 · ISO 13485</div></div><a href="index.html#contact-form" class="btn-3d-outline" style="font-size:11px;padding:6px 14px;"><span data-i18n="ac_res_btn">Anfragen</span></a></div>
+      <div style="background:white;border:1px solid var(--border);padding:18px 22px;display:flex;align-items:center;gap:14px;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='var(--border)'"><div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--black);" data-i18n="ac_res4_title">Praxis-Onboarding-Kit</div><div style="font-size:11px;color:var(--grey);" data-i18n="ac_res4_sub">Workflow, Portal-Anleitung, Formulare</div></div><a href="index.html#contact-form" class="btn-3d-outline" style="font-size:11px;padding:6px 14px;"><span data-i18n="ac_res_btn">Anfragen</span></a></div>
+      <div style="background:var(--bg);border:2px dashed var(--border);padding:18px 22px;display:flex;align-items:center;gap:14px;"><div style="font-size:22px;">📦</div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--grey);" data-i18n="ac_res5_title">Weitere Ressourcen in Vorbereitung</div><div style="font-size:11px;color:var(--grey);" data-i18n="ac_res5_sub">Klinische Studien, Behandlungsleitfäden</div></div><span class="coming-soon-badge">Q3 2026</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="newsletter-sec">
+  <h2 data-i18n="ac_nl_h2">Academy Newsletter.</h2>
+  <p data-i18n="ac_nl_p">Neue Videos, Podcast-Episoden und klinische Tipps 1× im Monat. Kein Spam.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="Ihre E-Mail-Adresse" data-i18n-ph="ac_nl_ph">
+    <button class="nl-btn" data-i18n="ac_nl_btn">Anmelden</button>
+  </div>
+  <p class="nl-note" data-i18n="ac_nl_note">Für Kieferorthopäden und Dentalpraxen · DSGVO-konform · Jederzeit abbestellbar</p>
+</div>
+
+<button class="chat-toggle" id="chatToggle" onclick="toggleNivellChat()">
+  <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <span class="c-label" data-i18n="ac_chat_btn">Frage stellen</span>
+  <svg class="c-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-hdr"><div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🎓</div><div style="margin-left:10px;"><div class="chat-hdr-name" data-i18n="ac_chat_name">Academy Assistent</div><div class="chat-hdr-sub" data-i18n="ac_chat_sub">Videos · Podcasts · Tipps · Mailing</div></div></div>
+  <div class="chat-msgs" id="chatMessages"><div class="msg-bot" data-i18n="ac_chat_greet">Willkommen in der nivellipso® Academy! Ich helfe Ihnen, die richtigen Inhalte zu finden.</div></div>
+  <div class="chat-suggs" id="chatSugg">
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="ac_sugg1">3-Aligner Video?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="ac_sugg2">Compliance-Tipps</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="ac_sugg3">Podcast Episoden</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" placeholder="Ihre Frage zur Academy..." data-i18n-ph="ac_chat_ph" onkeypress="if(event.key==='Enter')sendNivellChat()">
+    <button class="chat-send" onclick="sendNivellChat()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<footer class="n-footer">
+<div class="n-footer-inner">
+  <div class="n-footer-grid">
+    <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--red-dark);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><rect x="7" y="2" width="2" height="12" fill="white"/><rect x="2" y="7" width="12" height="2" fill="white"/></svg></div><span style="font-size:17px;font-weight:700;color:white;">nivellipso<span style="color:var(--red);">® Academy</span></span></div><p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;" data-i18n="ac_footer_tagline">Wissen für bessere Ergebnisse. Teil der nivellipso® Plattform. Swiss-Made seit 2015.</p></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_academy">Academy</h4><ul><li><a href="#" onclick="showCat('videos',null);return false;" data-i18n="ft_videos">Videos</a></li><li><a href="#" onclick="showCat('podcasts',null);return false;" data-i18n="ft_podcast">Podcast</a></li><li><a href="#" onclick="showCat('tips',null);return false;" data-i18n="ft_tips">Tipps &amp; Tricks</a></li><li><a href="#" onclick="showCat('mailing',null);return false;" data-i18n="ft_mailing">Patient-Mailing</a></li></ul></div>
+    <div class="n-footer-col"><h4>nivellipso®</h4><ul><li><a href="index.html" data-i18n="ft_website">Website</a></li><li><a href="aligner.html" data-i18n="n_align">Aligners</a></li><li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li><li><a href="https://nivellonlign.com/" target="_blank" data-i18n="n_portal">Doctor Portal →</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="ft_col_contact">Kontakt</h4><ul><li><a href="mailto:sales@nivellipso.com">sales@nivellipso.com</a></li><li><a href="tel:+41614222212">+41 61 422 22 12</a></li><li><a href="index.html#contact-form" data-i18n="ft_contactform">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="n-footer-bottom"><p data-i18n="ft_copy">Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen</p><p class="n-conf" data-i18n="ft_conf">VERTRAULICH · NIVELLMEDICAL AG</p></div>
+</div>
+</footer>
+
+<script src="nivell-site.js"></script>
+<script>
+const T = {
+  de: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Kontakt', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Academy',
+    ac_h1:'Wissen für bessere<br><em>Ergebnisse.</em>',
+    ac_sub:'Videos, Podcasts, klinische Tipps, monatliches Patient-Mailing und Ressourcen — für Ärzte, Praxisteams und Patienten. Alles an einem Ort.',
+    ac_stat_videos:'Videos',
+    ac_stat_podcast:'Podcast Episoden',
+    ac_stat_mailing:'Patient-Mailing',
+    ac_stat_langs:'Sprachen',
+    ac_tab_videos:'📹 Videos',
+    ac_tab_podcast:'🎙️ Podcast',
+    ac_tab_tips:'💡 Tipps &amp; Tricks',
+    ac_tab_mailing:'📧 Patient-Mailing',
+    ac_tab_resources:'📄 Ressourcen',
+    ac_vid_label:'Featured',
+    ac_vid_h2:'Klinische Experten-Videos.',
+    ac_feat_tag:'Neu · Klinische Planung',
+    ac_feat_title:'Das Three-Aligner-System: Biomechanik erklärt',
+    ac_feat_dur:'45 Min.',
+    ac_feat_date:'Mai 2026',
+    ac_v1_title:'Phase SOFT: Was passiert in den ersten 7 Stufen?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph: Welche Software für welchen Fall?',
+    ac_v3_title:'Compliance verbessern: Was Patienten wirklich brauchen',
+    ac_v4_title:'Retentionsphase INTENSE: Kein Rezidiv durch richtigen Abschluss',
+    ac_v5_title:'Selbstligierende vs. konventionelle Brackets: Klinischer Vergleich',
+    ac_v6_title:'Weiteres Video',
+    ac_pod_label:'Podcast',
+    ac_pod_h2:'nivellipso® Podcast.<br>Klinisches Wissen. Unterwegs.',
+    ac_pf_label:'Episode 12 · Neueste Folge',
+    ac_pf_title:'Compliance ist kein Zufall — das sagen die Daten',
+    ac_pf_desc:'Warum 30% aller Aligner-Patienten zu wenig tragen und was die Wissenschaft sagt. Mit Daten aus VISIBAL-Pilotpraxen.',
+    ac_ep11_title:'Das Three-Aligner-System — warum drei Materialien besser sind als eines',
+    ac_ep11_desc:'Biomechanische Grundlagen, klinische Evidenz, Patientenkomfort.',
+    ac_ep10_title:'VISIBAL — wie Online die Patientenbegleitung verändert',
+    ac_ep10_desc:'Compliance-Daten, App-Konzept, klinische Mehrwerte.',
+    ac_ep09_title:'Swiss-Made: Was es bedeutet und warum es wichtig ist',
+    ac_ep09_desc:'Regulatorik, Produktion in Schaffhausen, CE MDR.',
+    ac_ep08_title:'Patienten, die nicht tragen: Ursachen, Lösungen, Gesprächsführung',
+    ac_ep08_desc:'Psychologie der Compliance. Praktische Tipps für die Praxis.',
+    ac_ep07_title:'Retainer &amp; Rezidiv: Was die Wissenschaft wirklich sagt',
+    ac_ep07_desc:'Langzeitergebnisse, Materialien, INTENSE Phase im Detail.',
+    ac_tips_label:'Tipps &amp; Tricks',
+    ac_tips_h2:'Klinische Shortcuts.<br>Für den Alltag.',
+    ac_tips_lead:'Praxiserprobte Tipps von erfahrenen Kieferorthopäden — direkt anwendbar, klinisch validiert.',
+    ac_tip1_title:'22-Stunden-Regel',
+    ac_tip1_desc:'Unter 20h/Tag verliert der Aligner biomechanische Wirksamkeit. Kommunizieren Sie 22h als medizinische Notwendigkeit — nicht als Empfehlung.',
+    ac_tip2_title:'SOFT-Phase richtig erklären',
+    ac_tip2_desc:'Die SOFT-Phase ist nicht schwächer — sie ist für Gewebeanpassung optimiert. Fehlender Druck = korrekter Beginn, kein Fehler.',
+    ac_tip3_title:'Freigabe vor Produktion',
+    ac_tip3_desc:'Niemals ohne Freigabe produzieren. Nutzen Sie die Stufenvisualisierung im Portal — Patient Buy-in vor Behandlung verdoppelt die Compliance.',
+    ac_tip4_title:'Foto-Dokumentation',
+    ac_tip4_desc:'Standard: Frontal, lateral, okklusal. VISIBAL führt Patienten durch das Protokoll automatisch. Die Timeline ist klinisch und motivational wertvoll.',
+    ac_tip5_title:'Proaktive Intervention',
+    ac_tip5_desc:'Kontaktieren Sie Patienten nach Stufe 3, wenn VISIBAL Compliance-Abfall signalisiert. Frühe Intervention verhindert Stagnation.',
+    ac_tip6_title:'Meilenstein-Motivation',
+    ac_tip6_desc:'Feiern Sie Phasen-Abschlüsse mit dem Patienten. „Sie sind in Phase 2" — Mini-Milestones erhöhen die emotionale Bindung messbar.',
+    ac_mail_label:'Patient-Mailing',
+    ac_mail_h2:'1× im Monat.<br>Sanft. Klar. Wirksam.',
+    ac_mail_hero_h3:'Das nivellipso® Patient-Mailing-System',
+    ac_mail_hero_p:'Einmal pro Monat erhalten Ihre Aligner-Patienten automatisch eine phasenbasierte E-Mail — die richtige Botschaft, zum richtigen Zeitpunkt, in ihrer Sprache. Kein Massenversand. Keine generischen Templates. Klinisch abgestimmt.',
+    ac_mail_feat1:'Automatisch phasenbasiert',
+    ac_mail_feat2:'6 Sprachen',
+    ac_mail_feat3:'DSGVO-konform',
+    ac_mail_feat4:'Via VISIBAL oder E-Mail',
+    ac_mail_plan_h3:'Jährlicher Inhaltsplan',
+    ac_mail_plan_p:'Abgestimmt auf eine typische 12-Monats-Behandlung. Motivierend, informativ, nie aufdringlich.',
+    ac_m01_topic:'Willkommen &amp; Start',
+    ac_m01_desc:'„Ihr erstes Lächeln hat begonnen." Überblick, SOFT-Phase erklärt, VISIBAL-App.',
+    ac_m02_topic:'22 Stunden — warum es zählt',
+    ac_m02_desc:'Sanfte Erinnerung mit Biomechanik-Erklärung. Jede Stunde ohne Schiene verzögert das Ergebnis.',
+    ac_m03_topic:'Erster Fortschritt sichtbar',
+    ac_m03_desc:'Foto-Dokumentation Stufe 1 vs. aktuell. Motivation durch sichtbares Ergebnis.',
+    ac_m04_topic:'Aktivphase beginnt (REGULAR)',
+    ac_m04_desc:'„Ab heute arbeitet Ihre Schiene auf Hochtouren." Phase-Wechsel und Druckgefühl erklärt.',
+    ac_m05_topic:'Halbzeit 🎉',
+    ac_m05_desc:'Meilenstein-E-Mail. Vorher-Nachher. „Sie sind genau auf Kurs."',
+    ac_m06_topic:'Tipps für Alltag &amp; Reise',
+    ac_m06_desc:'Sport, Reisen, Restaurantbesuche — kein Grund zur Ausrede.',
+    ac_m07_topic:'Pflege &amp; Hygiene',
+    ac_m07_desc:'Reinigung, Aufbewahrung, häufige Fehler vermeiden.',
+    ac_m08_topic:'Retentionsphase vorbereiten',
+    ac_m08_desc:'INTENSE erklärt. Bedeutung der Retention für Langzeitergebnis.',
+    ac_m09_topic:'INTENSE — letzte Meile',
+    ac_m09_desc:'„Fast geschafft — jetzt nicht nachlassen." Kein Rezidiv durch Konsequenz.',
+    ac_m10_topic:'Abschlussfoto vorbereiten',
+    ac_m10_desc:'Anleitung professionelles Foto. Teilen auf VISIBAL. Ihr Lächeln als Beweis.',
+    ac_m11_topic:'Retainer — lebenslang',
+    ac_m11_desc:'Warum Retainer wichtig sind. Rezidiv-Risiko. Bestellprozess.',
+    ac_m12_topic:'Behandlung abgeschlossen 🎊',
+    ac_m12_desc:'„Ihr Lächeln. Swiss-Made." Bewertungsanfrage. Empfehlungs-Einladung.',
+    ac_res_label:'Ressourcen',
+    ac_res_h2:'Dokumente &amp; Downloads.',
+    ac_res1_title:'Preisliste 2026 (CHF)',
+    ac_res1_sub:'Gültig ab 01.05.2026 · PDF',
+    ac_res2_title:'Patientenaufklärungsbogen',
+    ac_res2_sub:'DE / FR / IT / EN · Druckfertig',
+    ac_res3_title:'CE MDR Konformitätserklärung',
+    ac_res3_sub:'EU 2017/745 · ISO 13485',
+    ac_res4_title:'Praxis-Onboarding-Kit',
+    ac_res4_sub:'Workflow, Portal-Anleitung, Formulare',
+    ac_res5_title:'Weitere Ressourcen in Vorbereitung',
+    ac_res5_sub:'Klinische Studien, Behandlungsleitfäden',
+    ac_res_btn:'Anfragen',
+    ac_nl_h2:'Academy Newsletter.',
+    ac_nl_p:'Neue Videos, Podcast-Episoden und klinische Tipps 1× im Monat. Kein Spam.',
+    ac_nl_ph:'Ihre E-Mail-Adresse',
+    ac_nl_btn:'Anmelden',
+    ac_nl_note:'Für Kieferorthopäden und Dentalpraxen · DSGVO-konform · Jederzeit abbestellbar',
+    ac_chat_name:'Academy Assistent',
+    ac_chat_sub:'Videos · Podcasts · Tipps · Mailing',
+    ac_chat_greet:'Willkommen in der nivellipso® Academy! Ich helfe Ihnen, die richtigen Inhalte zu finden.',
+    ac_chat_btn:'Frage stellen',
+    ac_chat_ph:'Ihre Frage zur Academy...',
+    ac_footer_tagline:'Wissen für bessere Ergebnisse. Teil der nivellipso® Plattform. Swiss-Made seit 2015.',
+    ac_bc_home:'Home',
+    ac_bc_current:'Academy',
+    ac_sugg1:'3-Aligner Video?',
+    ac_sugg2:'Compliance-Tipps',
+    ac_sugg3:'Podcast Episoden',
+    ft_col_academy:'Academy',
+    ft_col_contact:'Kontakt',
+    ft_videos:'Videos',
+    ft_podcast:'Podcast',
+    ft_tips:'Tipps &amp; Tricks',
+    ft_mailing:'Patient-Mailing',
+    ft_website:'Website',
+    ft_contactform:'Kontaktformular',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'VERTRAULICH · NIVELLMEDICAL AG'
+  },
+  en: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Academy',
+    ac_h1:'Knowledge for better<br><em>Results.</em>',
+    ac_sub:'Videos, podcasts, clinical tips, monthly patient mailing and resources — for doctors, practice teams and patients. All in one place.',
+    ac_stat_videos:'Videos',
+    ac_stat_podcast:'Podcast Episodes',
+    ac_stat_mailing:'Patient Mailing',
+    ac_stat_langs:'Languages',
+    ac_tab_videos:'📹 Videos',
+    ac_tab_podcast:'🎙️ Podcast',
+    ac_tab_tips:'💡 Tips &amp; Tricks',
+    ac_tab_mailing:'📧 Patient Mailing',
+    ac_tab_resources:'📄 Resources',
+    ac_vid_label:'Featured',
+    ac_vid_h2:'Clinical expert videos.',
+    ac_feat_tag:'New · Clinical Planning',
+    ac_feat_title:'The Three-Aligner System: Biomechanics Explained',
+    ac_feat_dur:'45 min.',
+    ac_feat_date:'May 2026',
+    ac_v1_title:'SOFT Phase: What happens in the first 7 stages?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph: Which software for which case?',
+    ac_v3_title:'Improving compliance: What patients really need',
+    ac_v4_title:'INTENSE retention phase: No relapse with the right finish',
+    ac_v5_title:'Self-ligating vs. conventional brackets: Clinical comparison',
+    ac_v6_title:'More videos coming soon',
+    ac_pod_label:'Podcast',
+    ac_pod_h2:'nivellipso® Podcast.<br>Clinical knowledge. On the go.',
+    ac_pf_label:'Episode 12 · Latest episode',
+    ac_pf_title:'Compliance is not a coincidence — the data speaks',
+    ac_pf_desc:'Why 30% of all aligner patients wear too little and what the science says. With data from VISIBAL pilot practices.',
+    ac_ep11_title:'The Three-Aligner System — why three materials beat one',
+    ac_ep11_desc:'Biomechanical fundamentals, clinical evidence, patient comfort.',
+    ac_ep10_title:'VISIBAL — how online transforms patient monitoring',
+    ac_ep10_desc:'Compliance data, app concept, clinical added value.',
+    ac_ep09_title:'Swiss-Made: What it means and why it matters',
+    ac_ep09_desc:'Regulatory framework, production in Schaffhausen, CE MDR.',
+    ac_ep08_title:'Patients who don\'t wear: causes, solutions, communication',
+    ac_ep08_desc:'Psychology of compliance. Practical tips for the practice.',
+    ac_ep07_title:'Retainers &amp; relapse: What science really says',
+    ac_ep07_desc:'Long-term results, materials, INTENSE phase in detail.',
+    ac_tips_label:'Tips &amp; Tricks',
+    ac_tips_h2:'Clinical shortcuts.<br>For daily practice.',
+    ac_tips_lead:'Practice-proven tips from experienced orthodontists — directly applicable, clinically validated.',
+    ac_tip1_title:'The 22-hour rule',
+    ac_tip1_desc:'Below 20h/day the aligner loses biomechanical effectiveness. Communicate 22h as a medical necessity — not a recommendation.',
+    ac_tip2_title:'Explaining the SOFT phase correctly',
+    ac_tip2_desc:'The SOFT phase is not weaker — it is optimised for tissue adaptation. Lack of pressure = correct start, not an error.',
+    ac_tip3_title:'Approval before production',
+    ac_tip3_desc:'Never produce without approval. Use the stage visualisation in the portal — patient buy-in before treatment doubles compliance.',
+    ac_tip4_title:'Photo documentation',
+    ac_tip4_desc:'Standard: frontal, lateral, occlusal. VISIBAL guides patients through the protocol automatically. The timeline is clinically and motivationally valuable.',
+    ac_tip5_title:'Proactive intervention',
+    ac_tip5_desc:'Contact patients after stage 3 when VISIBAL signals a compliance drop. Early intervention prevents stagnation.',
+    ac_tip6_title:'Milestone motivation',
+    ac_tip6_desc:'Celebrate phase completions with the patient. "You are in phase 2" — mini-milestones measurably increase emotional engagement.',
+    ac_mail_label:'Patient Mailing',
+    ac_mail_h2:'Once a month.<br>Gentle. Clear. Effective.',
+    ac_mail_hero_h3:'The nivellipso® Patient Mailing System',
+    ac_mail_hero_p:'Once a month your aligner patients automatically receive a phase-based email — the right message, at the right time, in their language. No mass mailings. No generic templates. Clinically aligned.',
+    ac_mail_feat1:'Automatic phase-based',
+    ac_mail_feat2:'6 languages',
+    ac_mail_feat3:'GDPR-compliant',
+    ac_mail_feat4:'Via VISIBAL or email',
+    ac_mail_plan_h3:'Annual content plan',
+    ac_mail_plan_p:'Aligned with a typical 12-month treatment. Motivating, informative, never intrusive.',
+    ac_m01_topic:'Welcome &amp; Start',
+    ac_m01_desc:'"Your first smile has begun." Overview, SOFT phase explained, VISIBAL app.',
+    ac_m02_topic:'22 hours — why it counts',
+    ac_m02_desc:'Gentle reminder with biomechanics explanation. Every hour without the aligner delays the result.',
+    ac_m03_topic:'First progress visible',
+    ac_m03_desc:'Photo documentation stage 1 vs. current. Motivation through visible results.',
+    ac_m04_topic:'Active phase begins (REGULAR)',
+    ac_m04_desc:'"From today your aligner is working at full speed." Phase change and pressure sensation explained.',
+    ac_m05_topic:'Halfway there 🎉',
+    ac_m05_desc:'Milestone email. Before and after. "You are right on track."',
+    ac_m06_topic:'Tips for everyday life &amp; travel',
+    ac_m06_desc:'Sport, travel, restaurant visits — no excuse needed.',
+    ac_m07_topic:'Care &amp; Hygiene',
+    ac_m07_desc:'Cleaning, storage, avoiding common mistakes.',
+    ac_m08_topic:'Preparing for the retention phase',
+    ac_m08_desc:'INTENSE explained. Importance of retention for long-term results.',
+    ac_m09_topic:'INTENSE — the final stretch',
+    ac_m09_desc:'"Almost done — don\'t give up now." No relapse through consistency.',
+    ac_m10_topic:'Prepare the final photo',
+    ac_m10_desc:'Guide to a professional photo. Share on VISIBAL. Your smile as proof.',
+    ac_m11_topic:'Retainer — for life',
+    ac_m11_desc:'Why retainers matter. Relapse risk. Order process.',
+    ac_m12_topic:'Treatment complete 🎊',
+    ac_m12_desc:'"Your smile. Swiss-Made." Review request. Referral invitation.',
+    ac_res_label:'Resources',
+    ac_res_h2:'Documents &amp; Downloads.',
+    ac_res1_title:'Price list 2026 (CHF)',
+    ac_res1_sub:'Valid from 01.05.2026 · PDF',
+    ac_res2_title:'Patient consent form',
+    ac_res2_sub:'DE / FR / IT / EN · Print-ready',
+    ac_res3_title:'CE MDR declaration of conformity',
+    ac_res3_sub:'EU 2017/745 · ISO 13485',
+    ac_res4_title:'Practice onboarding kit',
+    ac_res4_sub:'Workflow, portal guide, forms',
+    ac_res5_title:'Further resources in preparation',
+    ac_res5_sub:'Clinical studies, treatment guidelines',
+    ac_res_btn:'Request',
+    ac_nl_h2:'Academy Newsletter.',
+    ac_nl_p:'New videos, podcast episodes and clinical tips once a month. No spam.',
+    ac_nl_ph:'Your email address',
+    ac_nl_btn:'Subscribe',
+    ac_nl_note:'For orthodontists and dental practices · GDPR-compliant · Unsubscribe anytime',
+    ac_chat_name:'Academy Assistant',
+    ac_chat_sub:'Videos · Podcasts · Tips · Mailing',
+    ac_chat_greet:'Welcome to the nivellipso® Academy! I will help you find the right content.',
+    ac_chat_btn:'Ask a question',
+    ac_chat_ph:'Your question about the Academy...',
+    ac_footer_tagline:'Knowledge for better results. Part of the nivellipso® platform. Swiss-Made since 2015.',
+    ac_bc_home:'Home',
+    ac_bc_current:'Academy',
+    ac_sugg1:'3-Aligner video?',
+    ac_sugg2:'Compliance tips',
+    ac_sugg3:'Podcast episodes',
+    ft_col_academy:'Academy',
+    ft_col_contact:'Contact',
+    ft_videos:'Videos',
+    ft_podcast:'Podcast',
+    ft_tips:'Tips &amp; Tricks',
+    ft_mailing:'Patient Mailing',
+    ft_website:'Website',
+    ft_contactform:'Contact form',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENTIAL · NIVELLMEDICAL AG'
+  },
+  fr: {
+    n_home:'Accueil', n_align:'Aligneurs', n_brack:'Brackets', n_white:'Blanchiment', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Academy',
+    ac_h1:'Le savoir pour de meilleurs<br><em>Résultats.</em>',
+    ac_sub:'Vidéos, podcasts, conseils cliniques, mailing mensuel aux patients et ressources — pour les médecins, les équipes de cabinet et les patients. Tout en un seul endroit.',
+    ac_stat_videos:'Vidéos',
+    ac_stat_podcast:'Épisodes de podcast',
+    ac_stat_mailing:'Mailing patient',
+    ac_stat_langs:'Langues',
+    ac_tab_videos:'📹 Vidéos',
+    ac_tab_podcast:'🎙️ Podcast',
+    ac_tab_tips:'💡 Conseils &amp; Astuces',
+    ac_tab_mailing:'📧 Mailing Patient',
+    ac_tab_resources:'📄 Ressources',
+    ac_vid_label:'À la une',
+    ac_vid_h2:'Vidéos d\'experts cliniques.',
+    ac_feat_tag:'Nouveau · Planification clinique',
+    ac_feat_title:'Le système Three-Aligner : la biomécanique expliquée',
+    ac_feat_dur:'45 min.',
+    ac_feat_date:'Mai 2026',
+    ac_v1_title:'Phase SOFT : que se passe-t-il lors des 7 premières étapes ?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph : quel logiciel pour quel cas ?',
+    ac_v3_title:'Améliorer la compliance : ce dont les patients ont vraiment besoin',
+    ac_v4_title:'Phase de rétention INTENSE : pas de récidive avec une bonne finition',
+    ac_v5_title:'Brackets auto-ligaturants vs. conventionnels : comparaison clinique',
+    ac_v6_title:'Prochaine vidéo à venir',
+    ac_pod_label:'Podcast',
+    ac_pod_h2:'Podcast nivellipso®.<br>Savoir clinique. En déplacement.',
+    ac_pf_label:'Épisode 12 · Dernier épisode',
+    ac_pf_title:'La compliance n\'est pas le fruit du hasard — ce que disent les données',
+    ac_pf_desc:'Pourquoi 30 % de tous les patients en aligneurs portent trop peu et ce que dit la science. Avec des données issues des cabinets pilotes VISIBAL.',
+    ac_ep11_title:'Le système Three-Aligner — pourquoi trois matériaux valent mieux qu\'un',
+    ac_ep11_desc:'Bases biomécaniques, preuves cliniques, confort du patient.',
+    ac_ep10_title:'VISIBAL — comment le numérique transforme le suivi des patients',
+    ac_ep10_desc:'Données de compliance, concept de l\'application, valeur ajoutée clinique.',
+    ac_ep09_title:'Swiss-Made : ce que cela signifie et pourquoi c\'est important',
+    ac_ep09_desc:'Cadre réglementaire, production à Schaffhouse, CE MDR.',
+    ac_ep08_title:'Les patients qui ne portent pas : causes, solutions, communication',
+    ac_ep08_desc:'Psychologie de la compliance. Conseils pratiques pour le cabinet.',
+    ac_ep07_title:'Rétenteurs &amp; récidive : ce que la science dit vraiment',
+    ac_ep07_desc:'Résultats à long terme, matériaux, phase INTENSE en détail.',
+    ac_tips_label:'Conseils &amp; Astuces',
+    ac_tips_h2:'Raccourcis cliniques.<br>Pour le quotidien.',
+    ac_tips_lead:'Conseils éprouvés par des orthodontistes expérimentés — directement applicables, validés cliniquement.',
+    ac_tip1_title:'La règle des 22 heures',
+    ac_tip1_desc:'En dessous de 20h/jour, l\'aligneur perd son efficacité biomécanique. Communiquez 22h comme une nécessité médicale — pas comme une recommandation.',
+    ac_tip2_title:'Expliquer correctement la phase SOFT',
+    ac_tip2_desc:'La phase SOFT n\'est pas plus faible — elle est optimisée pour l\'adaptation des tissus. L\'absence de pression = un début correct, pas une erreur.',
+    ac_tip3_title:'Validation avant production',
+    ac_tip3_desc:'Ne jamais produire sans validation. Utilisez la visualisation des étapes dans le portail — l\'adhésion du patient avant le traitement double la compliance.',
+    ac_tip4_title:'Documentation photographique',
+    ac_tip4_desc:'Standard : frontal, latéral, occlusal. VISIBAL guide automatiquement les patients à travers le protocole. La chronologie est précieuse cliniquement et motivationnellement.',
+    ac_tip5_title:'Intervention proactive',
+    ac_tip5_desc:'Contactez les patients après l\'étape 3 quand VISIBAL signale une baisse de compliance. Une intervention précoce prévient la stagnation.',
+    ac_tip6_title:'Motivation par jalons',
+    ac_tip6_desc:'Célébrez les fins de phase avec le patient. « Vous êtes en phase 2 » — les mini-jalons augmentent mesurably l\'engagement émotionnel.',
+    ac_mail_label:'Mailing Patient',
+    ac_mail_h2:'1× par mois.<br>Doux. Clair. Efficace.',
+    ac_mail_hero_h3:'Le système de mailing patient nivellipso®',
+    ac_mail_hero_p:'Une fois par mois, vos patients en aligneurs reçoivent automatiquement un e-mail basé sur la phase — le bon message, au bon moment, dans leur langue. Pas d\'envoi de masse. Pas de modèles génériques. Aligné cliniquement.',
+    ac_mail_feat1:'Automatique basé sur les phases',
+    ac_mail_feat2:'6 langues',
+    ac_mail_feat3:'Conforme au RGPD',
+    ac_mail_feat4:'Via VISIBAL ou e-mail',
+    ac_mail_plan_h3:'Plan de contenu annuel',
+    ac_mail_plan_p:'Aligné sur un traitement typique de 12 mois. Motivant, informatif, jamais intrusif.',
+    ac_m01_topic:'Bienvenue &amp; Début',
+    ac_m01_desc:'« Votre premier sourire a commencé. » Vue d\'ensemble, phase SOFT expliquée, application VISIBAL.',
+    ac_m02_topic:'22 heures — pourquoi c\'est important',
+    ac_m02_desc:'Rappel en douceur avec explication biomécanique. Chaque heure sans aligneur retarde le résultat.',
+    ac_m03_topic:'Premier progrès visible',
+    ac_m03_desc:'Documentation photo étape 1 vs. actuelle. Motivation grâce aux résultats visibles.',
+    ac_m04_topic:'Phase active commence (REGULAR)',
+    ac_m04_desc:'« À partir d\'aujourd\'hui, votre aligneur travaille à plein régime. » Changement de phase et sensation de pression expliqués.',
+    ac_m05_topic:'À mi-chemin 🎉',
+    ac_m05_desc:'E-mail jalon. Avant-après. « Vous êtes exactement dans les temps. »',
+    ac_m06_topic:'Conseils pour le quotidien &amp; les voyages',
+    ac_m06_desc:'Sport, voyages, restaurants — aucune excuse valable.',
+    ac_m07_topic:'Soin &amp; Hygiène',
+    ac_m07_desc:'Nettoyage, rangement, éviter les erreurs courantes.',
+    ac_m08_topic:'Préparer la phase de rétention',
+    ac_m08_desc:'INTENSE expliqué. Importance de la rétention pour les résultats à long terme.',
+    ac_m09_topic:'INTENSE — le dernier kilomètre',
+    ac_m09_desc:'« Presque fini — ne lâchez pas maintenant. » Pas de récidive grâce à la constance.',
+    ac_m10_topic:'Préparer la photo finale',
+    ac_m10_desc:'Guide pour une photo professionnelle. Partager sur VISIBAL. Votre sourire comme preuve.',
+    ac_m11_topic:'Rétenteur — à vie',
+    ac_m11_desc:'Pourquoi les rétenteurs sont importants. Risque de récidive. Processus de commande.',
+    ac_m12_topic:'Traitement terminé 🎊',
+    ac_m12_desc:'« Votre sourire. Swiss-Made. » Demande d\'avis. Invitation à recommander.',
+    ac_res_label:'Ressources',
+    ac_res_h2:'Documents &amp; Téléchargements.',
+    ac_res1_title:'Tarif 2026 (CHF)',
+    ac_res1_sub:'Valable à partir du 01.05.2026 · PDF',
+    ac_res2_title:'Formulaire de consentement patient',
+    ac_res2_sub:'DE / FR / IT / EN · Prêt à imprimer',
+    ac_res3_title:'Déclaration de conformité CE MDR',
+    ac_res3_sub:'UE 2017/745 · ISO 13485',
+    ac_res4_title:'Kit d\'intégration du cabinet',
+    ac_res4_sub:'Workflow, guide du portail, formulaires',
+    ac_res5_title:'Autres ressources en préparation',
+    ac_res5_sub:'Études cliniques, guides de traitement',
+    ac_res_btn:'Demander',
+    ac_nl_h2:'Newsletter Academy.',
+    ac_nl_p:'Nouvelles vidéos, épisodes de podcast et conseils cliniques 1× par mois. Pas de spam.',
+    ac_nl_ph:'Votre adresse e-mail',
+    ac_nl_btn:'S\'inscrire',
+    ac_nl_note:'Pour les orthodontistes et les cabinets dentaires · Conforme au RGPD · Désinscription à tout moment',
+    ac_chat_name:'Assistant Academy',
+    ac_chat_sub:'Vidéos · Podcasts · Conseils · Mailing',
+    ac_chat_greet:'Bienvenue dans la nivellipso® Academy ! Je vous aide à trouver le bon contenu.',
+    ac_chat_btn:'Poser une question',
+    ac_chat_ph:'Votre question sur l\'Academy...',
+    ac_footer_tagline:'Le savoir pour de meilleurs résultats. Partie de la plateforme nivellipso®. Swiss-Made depuis 2015.',
+    ac_bc_home:'Accueil',
+    ac_bc_current:'Academy',
+    ac_sugg1:'Vidéo 3-Aligneurs ?',
+    ac_sugg2:'Conseils compliance',
+    ac_sugg3:'Épisodes podcast',
+    ft_col_academy:'Academy',
+    ft_col_contact:'Contact',
+    ft_videos:'Vidéos',
+    ft_podcast:'Podcast',
+    ft_tips:'Conseils &amp; Astuces',
+    ft_mailing:'Mailing Patient',
+    ft_website:'Site web',
+    ft_contactform:'Formulaire de contact',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENTIEL · NIVELLMEDICAL AG'
+  },
+  it: {
+    n_home:'Home', n_align:'Allineatori', n_brack:'Brackets', n_white:'Sbiancamento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contatti', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Academy',
+    ac_h1:'Conoscenza per risultati<br><em>migliori.</em>',
+    ac_sub:'Video, podcast, consigli clinici, mailing mensile ai pazienti e risorse — per medici, team dello studio e pazienti. Tutto in un unico posto.',
+    ac_stat_videos:'Video',
+    ac_stat_podcast:'Episodi podcast',
+    ac_stat_mailing:'Mailing pazienti',
+    ac_stat_langs:'Lingue',
+    ac_tab_videos:'📹 Video',
+    ac_tab_podcast:'🎙️ Podcast',
+    ac_tab_tips:'💡 Consigli &amp; Trucchi',
+    ac_tab_mailing:'📧 Mailing Pazienti',
+    ac_tab_resources:'📄 Risorse',
+    ac_vid_label:'In evidenza',
+    ac_vid_h2:'Video di esperti clinici.',
+    ac_feat_tag:'Nuovo · Pianificazione clinica',
+    ac_feat_title:'Il sistema Three-Aligner: la biomeccanica spiegata',
+    ac_feat_dur:'45 min.',
+    ac_feat_date:'Maggio 2026',
+    ac_v1_title:'Fase SOFT: cosa succede nei primi 7 stadi?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph: quale software per quale caso?',
+    ac_v3_title:'Migliorare la compliance: cosa hanno davvero bisogno i pazienti',
+    ac_v4_title:'Fase di ritenzione INTENSE: nessuna recidiva con la giusta conclusione',
+    ac_v5_title:'Brackets autoliganti vs. convenzionali: confronto clinico',
+    ac_v6_title:'Prossimo video in arrivo',
+    ac_pod_label:'Podcast',
+    ac_pod_h2:'Podcast nivellipso®.<br>Conoscenza clinica. In movimento.',
+    ac_pf_label:'Episodio 12 · Ultimo episodio',
+    ac_pf_title:'La compliance non è un caso — lo dicono i dati',
+    ac_pf_desc:'Perché il 30% di tutti i pazienti con allineatori porta troppo poco e cosa dice la scienza. Con dati degli studi pilota VISIBAL.',
+    ac_ep11_title:'Il sistema Three-Aligner — perché tre materiali sono meglio di uno',
+    ac_ep11_desc:'Fondamenti biomeccanici, evidenza clinica, comfort del paziente.',
+    ac_ep10_title:'VISIBAL — come il digitale trasforma il monitoraggio dei pazienti',
+    ac_ep10_desc:'Dati di compliance, concetto dell\'app, valore aggiunto clinico.',
+    ac_ep09_title:'Swiss-Made: cosa significa e perché è importante',
+    ac_ep09_desc:'Quadro normativo, produzione a Sciaffusa, CE MDR.',
+    ac_ep08_title:'Pazienti che non indossano: cause, soluzioni, comunicazione',
+    ac_ep08_desc:'Psicologia della compliance. Consigli pratici per lo studio.',
+    ac_ep07_title:'Ritentori &amp; recidive: cosa dice davvero la scienza',
+    ac_ep07_desc:'Risultati a lungo termine, materiali, fase INTENSE nel dettaglio.',
+    ac_tips_label:'Consigli &amp; Trucchi',
+    ac_tips_h2:'Scorciatoie cliniche.<br>Per il quotidiano.',
+    ac_tips_lead:'Consigli collaudati da ortodontisti esperti — direttamente applicabili, validati clinicamente.',
+    ac_tip1_title:'La regola delle 22 ore',
+    ac_tip1_desc:'Sotto le 20h/giorno l\'allineatore perde efficacia biomeccanica. Comunicare 22h come necessità medica — non come raccomandazione.',
+    ac_tip2_title:'Spiegare correttamente la fase SOFT',
+    ac_tip2_desc:'La fase SOFT non è più debole — è ottimizzata per l\'adattamento dei tessuti. Assenza di pressione = inizio corretto, non un errore.',
+    ac_tip3_title:'Approvazione prima della produzione',
+    ac_tip3_desc:'Mai produrre senza approvazione. Utilizzare la visualizzazione delle fasi nel portale — il consenso del paziente prima del trattamento raddoppia la compliance.',
+    ac_tip4_title:'Documentazione fotografica',
+    ac_tip4_desc:'Standard: frontale, laterale, occlusale. VISIBAL guida automaticamente i pazienti attraverso il protocollo. La timeline è preziosa clinicamente e motivazionalmente.',
+    ac_tip5_title:'Intervento proattivo',
+    ac_tip5_desc:'Contattare i pazienti dopo la fase 3 quando VISIBAL segnala un calo della compliance. L\'intervento precoce previene la stagnazione.',
+    ac_tip6_title:'Motivazione per traguardi',
+    ac_tip6_desc:'Celebrare il completamento delle fasi con il paziente. "Sei nella fase 2" — i mini-traguardi aumentano misurabilmente il coinvolgimento emotivo.',
+    ac_mail_label:'Mailing Pazienti',
+    ac_mail_h2:'1× al mese.<br>Delicato. Chiaro. Efficace.',
+    ac_mail_hero_h3:'Il sistema di mailing pazienti nivellipso®',
+    ac_mail_hero_p:'Una volta al mese i tuoi pazienti con allineatori ricevono automaticamente un\'e-mail basata sulla fase — il messaggio giusto, al momento giusto, nella loro lingua. Nessun invio di massa. Nessun modello generico. Allineato clinicamente.',
+    ac_mail_feat1:'Automatico basato sulle fasi',
+    ac_mail_feat2:'6 lingue',
+    ac_mail_feat3:'Conforme al GDPR',
+    ac_mail_feat4:'Tramite VISIBAL o e-mail',
+    ac_mail_plan_h3:'Piano dei contenuti annuale',
+    ac_mail_plan_p:'Allineato a un trattamento tipico di 12 mesi. Motivante, informativo, mai invasivo.',
+    ac_m01_topic:'Benvenuto &amp; Inizio',
+    ac_m01_desc:'"Il tuo primo sorriso è iniziato." Panoramica, fase SOFT spiegata, app VISIBAL.',
+    ac_m02_topic:'22 ore — perché contano',
+    ac_m02_desc:'Promemoria delicato con spiegazione biomeccanica. Ogni ora senza allineatore ritarda il risultato.',
+    ac_m03_topic:'Primo progresso visibile',
+    ac_m03_desc:'Documentazione fotografica fase 1 vs. attuale. Motivazione attraverso risultati visibili.',
+    ac_m04_topic:'Fase attiva inizia (REGULAR)',
+    ac_m04_desc:'"Da oggi il tuo allineatore lavora a pieno regime." Cambio di fase e sensazione di pressione spiegati.',
+    ac_m05_topic:'A metà strada 🎉',
+    ac_m05_desc:'E-mail traguardo. Prima e dopo. "Sei esattamente in orario."',
+    ac_m06_topic:'Consigli per la vita quotidiana &amp; i viaggi',
+    ac_m06_desc:'Sport, viaggi, ristoranti — nessuna scusa valida.',
+    ac_m07_topic:'Cura &amp; Igiene',
+    ac_m07_desc:'Pulizia, conservazione, evitare gli errori comuni.',
+    ac_m08_topic:'Preparare la fase di ritenzione',
+    ac_m08_desc:'INTENSE spiegato. Importanza della ritenzione per i risultati a lungo termine.',
+    ac_m09_topic:'INTENSE — l\'ultimo miglio',
+    ac_m09_desc:'"Quasi finito — non mollare ora." Nessuna recidiva grazie alla costanza.',
+    ac_m10_topic:'Preparare la foto finale',
+    ac_m10_desc:'Guida per una foto professionale. Condividere su VISIBAL. Il tuo sorriso come prova.',
+    ac_m11_topic:'Ritentore — per tutta la vita',
+    ac_m11_desc:'Perché i ritentori sono importanti. Rischio di recidiva. Processo d\'ordine.',
+    ac_m12_topic:'Trattamento completato 🎊',
+    ac_m12_desc:'"Il tuo sorriso. Swiss-Made." Richiesta di recensione. Invito a raccomandare.',
+    ac_res_label:'Risorse',
+    ac_res_h2:'Documenti &amp; Download.',
+    ac_res1_title:'Listino prezzi 2026 (CHF)',
+    ac_res1_sub:'Valido dal 01.05.2026 · PDF',
+    ac_res2_title:'Modulo di consenso del paziente',
+    ac_res2_sub:'DE / FR / IT / EN · Pronto per la stampa',
+    ac_res3_title:'Dichiarazione di conformità CE MDR',
+    ac_res3_sub:'UE 2017/745 · ISO 13485',
+    ac_res4_title:'Kit di onboarding dello studio',
+    ac_res4_sub:'Workflow, guida al portale, moduli',
+    ac_res5_title:'Altre risorse in preparazione',
+    ac_res5_sub:'Studi clinici, linee guida per il trattamento',
+    ac_res_btn:'Richiedere',
+    ac_nl_h2:'Newsletter Academy.',
+    ac_nl_p:'Nuovi video, episodi podcast e consigli clinici 1× al mese. Nessuno spam.',
+    ac_nl_ph:'Il tuo indirizzo e-mail',
+    ac_nl_btn:'Iscriviti',
+    ac_nl_note:'Per ortodontisti e studi dentistici · Conforme al GDPR · Cancellazione in qualsiasi momento',
+    ac_chat_name:'Assistente Academy',
+    ac_chat_sub:'Video · Podcast · Consigli · Mailing',
+    ac_chat_greet:'Benvenuto nella nivellipso® Academy! Ti aiuto a trovare i contenuti giusti.',
+    ac_chat_btn:'Fai una domanda',
+    ac_chat_ph:'La tua domanda sull\'Academy...',
+    ac_footer_tagline:'Conoscenza per risultati migliori. Parte della piattaforma nivellipso®. Swiss-Made dal 2015.',
+    ac_bc_home:'Home',
+    ac_bc_current:'Academy',
+    ac_sugg1:'Video 3-Allineatori?',
+    ac_sugg2:'Consigli compliance',
+    ac_sugg3:'Episodi podcast',
+    ft_col_academy:'Academy',
+    ft_col_contact:'Contatti',
+    ft_videos:'Video',
+    ft_podcast:'Podcast',
+    ft_tips:'Consigli &amp; Trucchi',
+    ft_mailing:'Mailing Pazienti',
+    ft_website:'Sito web',
+    ft_contactform:'Modulo di contatto',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'RISERVATO · NIVELLMEDICAL AG'
+  },
+  ru: {
+    n_home:'Главная', n_align:'Элайнеры', n_brack:'Брекеты', n_white:'Отбеливание', n_vis:'VISIBAL', n_acad:'Академия', n_con:'Контакты', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Академия',
+    ac_h1:'Знания для лучших<br><em>Результатов.</em>',
+    ac_sub:'Видео, подкасты, клинические советы, ежемесячная рассылка пациентам и ресурсы — для врачей, команд клиник и пациентов. Всё в одном месте.',
+    ac_stat_videos:'Видео',
+    ac_stat_podcast:'Эпизоды подкаста',
+    ac_stat_mailing:'Рассылка пациентам',
+    ac_stat_langs:'Языков',
+    ac_tab_videos:'📹 Видео',
+    ac_tab_podcast:'🎙️ Подкаст',
+    ac_tab_tips:'💡 Советы &amp; Приёмы',
+    ac_tab_mailing:'📧 Рассылка пациентам',
+    ac_tab_resources:'📄 Ресурсы',
+    ac_vid_label:'Избранное',
+    ac_vid_h2:'Видео клинических экспертов.',
+    ac_feat_tag:'Новое · Клиническое планирование',
+    ac_feat_title:'Система Three-Aligner: биомеханика объясняется',
+    ac_feat_dur:'45 мин.',
+    ac_feat_date:'Май 2026',
+    ac_v1_title:'Фаза SOFT: что происходит в первых 7 ступенях?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph: какое ПО для какого случая?',
+    ac_v3_title:'Улучшение соответствия: что действительно нужно пациентам',
+    ac_v4_title:'Фаза удержания INTENSE: нет рецидивов при правильном завершении',
+    ac_v5_title:'Самолигирующиеся vs. обычные брекеты: клиническое сравнение',
+    ac_v6_title:'Следующее видео скоро',
+    ac_pod_label:'Подкаст',
+    ac_pod_h2:'Подкаст nivellipso®.<br>Клинические знания. В движении.',
+    ac_pf_label:'Эпизод 12 · Последний выпуск',
+    ac_pf_title:'Соответствие — не случайность: данные говорят сами',
+    ac_pf_desc:'Почему 30% всех пациентов с элайнерами носят их недостаточно и что говорит наука. С данными из пилотных клиник VISIBAL.',
+    ac_ep11_title:'Система Three-Aligner — почему три материала лучше одного',
+    ac_ep11_desc:'Биомеханические основы, клинические доказательства, комфорт пациента.',
+    ac_ep10_title:'VISIBAL — как цифровые технологии трансформируют мониторинг пациентов',
+    ac_ep10_desc:'Данные о соответствии, концепция приложения, клиническая добавленная стоимость.',
+    ac_ep09_title:'Swiss-Made: что это означает и почему это важно',
+    ac_ep09_desc:'Нормативная база, производство в Шаффхаузене, CE MDR.',
+    ac_ep08_title:'Пациенты, которые не носят: причины, решения, коммуникация',
+    ac_ep08_desc:'Психология соответствия. Практические советы для клиники.',
+    ac_ep07_title:'Ретейнеры &amp; рецидивы: что на самом деле говорит наука',
+    ac_ep07_desc:'Долгосрочные результаты, материалы, фаза INTENSE в деталях.',
+    ac_tips_label:'Советы &amp; Приёмы',
+    ac_tips_h2:'Клинические подсказки.<br>Для повседневной практики.',
+    ac_tips_lead:'Проверенные советы от опытных ортодонтов — сразу применимые, клинически обоснованные.',
+    ac_tip1_title:'Правило 22 часов',
+    ac_tip1_desc:'Менее 20 ч/день элайнер теряет биомеханическую эффективность. Сообщайте о 22 часах как о медицинской необходимости — не как о рекомендации.',
+    ac_tip2_title:'Правильное объяснение фазы SOFT',
+    ac_tip2_desc:'Фаза SOFT не слабее — она оптимизирована для адаптации тканей. Отсутствие давления = правильное начало, не ошибка.',
+    ac_tip3_title:'Одобрение до производства',
+    ac_tip3_desc:'Никогда не производить без одобрения. Используйте визуализацию ступеней на портале — согласие пациента до лечения удваивает соответствие.',
+    ac_tip4_title:'Фотодокументация',
+    ac_tip4_desc:'Стандарт: фронтальный, боковой, окклюзионный. VISIBAL автоматически проводит пациентов через протокол. Хронология ценна клинически и мотивационно.',
+    ac_tip5_title:'Проактивное вмешательство',
+    ac_tip5_desc:'Связывайтесь с пациентами после 3-й ступени, когда VISIBAL сигнализирует о снижении соответствия. Раннее вмешательство предотвращает стагнацию.',
+    ac_tip6_title:'Мотивация через вехи',
+    ac_tip6_desc:'Отмечайте завершение фаз вместе с пациентом. «Вы на фазе 2» — мини-вехи измеримо повышают эмоциональную вовлечённость.',
+    ac_mail_label:'Рассылка пациентам',
+    ac_mail_h2:'1× в месяц.<br>Мягко. Ясно. Эффективно.',
+    ac_mail_hero_h3:'Система рассылки пациентам nivellipso®',
+    ac_mail_hero_p:'Раз в месяц ваши пациенты с элайнерами автоматически получают письмо, основанное на фазе лечения — правильное сообщение, в нужное время, на их языке. Без массовых рассылок. Без шаблонов. Клинически согласовано.',
+    ac_mail_feat1:'Автоматически на основе фаз',
+    ac_mail_feat2:'6 языков',
+    ac_mail_feat3:'Соответствует GDPR',
+    ac_mail_feat4:'Через VISIBAL или e-mail',
+    ac_mail_plan_h3:'Годовой план контента',
+    ac_mail_plan_p:'Согласован с типичным 12-месячным лечением. Мотивирующий, информативный, ненавязчивый.',
+    ac_m01_topic:'Добро пожаловать &amp; Начало',
+    ac_m01_desc:'«Ваша первая улыбка началась.» Обзор, фаза SOFT объяснена, приложение VISIBAL.',
+    ac_m02_topic:'22 часа — почему это важно',
+    ac_m02_desc:'Мягкое напоминание с объяснением биомеханики. Каждый час без каппы откладывает результат.',
+    ac_m03_topic:'Первый прогресс виден',
+    ac_m03_desc:'Фотодокументация ступень 1 vs. текущая. Мотивация через видимые результаты.',
+    ac_m04_topic:'Активная фаза начинается (REGULAR)',
+    ac_m04_desc:'«Сегодня ваша каппа работает на полную мощность.» Смена фазы и ощущение давления объяснены.',
+    ac_m05_topic:'На полпути 🎉',
+    ac_m05_desc:'Письмо-веха. До и после. «Вы точно в графике.»',
+    ac_m06_topic:'Советы для повседневной жизни &amp; путешествий',
+    ac_m06_desc:'Спорт, путешествия, рестораны — никаких оправданий.',
+    ac_m07_topic:'Уход &amp; Гигиена',
+    ac_m07_desc:'Чистка, хранение, избегание распространённых ошибок.',
+    ac_m08_topic:'Подготовка к фазе удержания',
+    ac_m08_desc:'INTENSE объяснена. Важность ретенции для долгосрочных результатов.',
+    ac_m09_topic:'INTENSE — последняя миля',
+    ac_m09_desc:'«Почти готово — не сдавайтесь сейчас.» Нет рецидивов благодаря последовательности.',
+    ac_m10_topic:'Подготовить финальное фото',
+    ac_m10_desc:'Руководство по профессиональному фото. Поделиться в VISIBAL. Ваша улыбка как доказательство.',
+    ac_m11_topic:'Ретейнер — на всю жизнь',
+    ac_m11_desc:'Почему ретейнеры важны. Риск рецидива. Процесс заказа.',
+    ac_m12_topic:'Лечение завершено 🎊',
+    ac_m12_desc:'«Ваша улыбка. Swiss-Made.» Запрос отзыва. Приглашение рекомендовать.',
+    ac_res_label:'Ресурсы',
+    ac_res_h2:'Документы &amp; Загрузки.',
+    ac_res1_title:'Прайс-лист 2026 (CHF)',
+    ac_res1_sub:'Действует с 01.05.2026 · PDF',
+    ac_res2_title:'Форма информированного согласия пациента',
+    ac_res2_sub:'DE / FR / IT / EN · Готово для печати',
+    ac_res3_title:'Декларация соответствия CE MDR',
+    ac_res3_sub:'ЕС 2017/745 · ISO 13485',
+    ac_res4_title:'Комплект адаптации клиники',
+    ac_res4_sub:'Рабочий процесс, руководство по порталу, формы',
+    ac_res5_title:'Дополнительные ресурсы в разработке',
+    ac_res5_sub:'Клинические исследования, руководства по лечению',
+    ac_res_btn:'Запросить',
+    ac_nl_h2:'Академический Newsletter.',
+    ac_nl_p:'Новые видео, эпизоды подкастов и клинические советы 1× в месяц. Без спама.',
+    ac_nl_ph:'Ваш адрес электронной почты',
+    ac_nl_btn:'Подписаться',
+    ac_nl_note:'Для ортодонтов и стоматологических клиник · Соответствует GDPR · Отписка в любое время',
+    ac_chat_name:'Ассистент Академии',
+    ac_chat_sub:'Видео · Подкасты · Советы · Рассылка',
+    ac_chat_greet:'Добро пожаловать в nivellipso® Академию! Я помогу вам найти нужный контент.',
+    ac_chat_btn:'Задать вопрос',
+    ac_chat_ph:'Ваш вопрос об Академии...',
+    ac_footer_tagline:'Знания для лучших результатов. Часть платформы nivellipso®. Swiss-Made с 2015 года.',
+    ac_bc_home:'Главная',
+    ac_bc_current:'Академия',
+    ac_sugg1:'Видео 3-Aligner?',
+    ac_sugg2:'Советы по соответствию',
+    ac_sugg3:'Эпизоды подкаста',
+    ft_col_academy:'Академия',
+    ft_col_contact:'Контакты',
+    ft_videos:'Видео',
+    ft_podcast:'Подкаст',
+    ft_tips:'Советы &amp; Приёмы',
+    ft_mailing:'Рассылка пациентам',
+    ft_website:'Сайт',
+    ft_contactform:'Контактная форма',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'КОНФИДЕНЦИАЛЬНО · NIVELLMEDICAL AG'
+  },
+  es: {
+    n_home:'Inicio', n_align:'Alineadores', n_brack:'Brackets', n_white:'Blanqueamiento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contacto', n_portal:'Doctor Portal →',
+    ac_label:'nivellipso® Academy',
+    ac_h1:'Conocimiento para mejores<br><em>Resultados.</em>',
+    ac_sub:'Vídeos, podcasts, consejos clínicos, mailing mensual a pacientes y recursos — para médicos, equipos de consulta y pacientes. Todo en un solo lugar.',
+    ac_stat_videos:'Vídeos',
+    ac_stat_podcast:'Episodios de podcast',
+    ac_stat_mailing:'Mailing pacientes',
+    ac_stat_langs:'Idiomas',
+    ac_tab_videos:'📹 Vídeos',
+    ac_tab_podcast:'🎙️ Podcast',
+    ac_tab_tips:'💡 Consejos &amp; Trucos',
+    ac_tab_mailing:'📧 Mailing Pacientes',
+    ac_tab_resources:'📄 Recursos',
+    ac_vid_label:'Destacado',
+    ac_vid_h2:'Vídeos de expertos clínicos.',
+    ac_feat_tag:'Nuevo · Planificación clínica',
+    ac_feat_title:'El sistema Three-Aligner: la biomecánica explicada',
+    ac_feat_dur:'45 min.',
+    ac_feat_date:'Mayo 2026',
+    ac_v1_title:'Fase SOFT: ¿qué ocurre en las primeras 7 etapas?',
+    ac_v2_title:'SimplyCeph vs. OnyxCeph: ¿qué software para qué caso?',
+    ac_v3_title:'Mejorar la compliance: lo que los pacientes realmente necesitan',
+    ac_v4_title:'Fase de retención INTENSE: sin recidiva con el cierre correcto',
+    ac_v5_title:'Brackets autoligados vs. convencionales: comparación clínica',
+    ac_v6_title:'Próximo vídeo próximamente',
+    ac_pod_label:'Podcast',
+    ac_pod_h2:'Podcast nivellipso®.<br>Conocimiento clínico. En movimiento.',
+    ac_pf_label:'Episodio 12 · Último episodio',
+    ac_pf_title:'La compliance no es casualidad — los datos lo demuestran',
+    ac_pf_desc:'Por qué el 30% de todos los pacientes con alineadores llevan demasiado poco y qué dice la ciencia. Con datos de consultas piloto VISIBAL.',
+    ac_ep11_title:'El sistema Three-Aligner — por qué tres materiales son mejores que uno',
+    ac_ep11_desc:'Fundamentos biomecánicos, evidencia clínica, confort del paciente.',
+    ac_ep10_title:'VISIBAL — cómo lo digital transforma el seguimiento de pacientes',
+    ac_ep10_desc:'Datos de compliance, concepto de la app, valor añadido clínico.',
+    ac_ep09_title:'Swiss-Made: qué significa y por qué es importante',
+    ac_ep09_desc:'Marco normativo, producción en Schaffhausen, CE MDR.',
+    ac_ep08_title:'Pacientes que no llevan el alineador: causas, soluciones, comunicación',
+    ac_ep08_desc:'Psicología de la compliance. Consejos prácticos para la consulta.',
+    ac_ep07_title:'Retenedores &amp; recidiva: lo que la ciencia realmente dice',
+    ac_ep07_desc:'Resultados a largo plazo, materiales, fase INTENSE en detalle.',
+    ac_tips_label:'Consejos &amp; Trucos',
+    ac_tips_h2:'Atajos clínicos.<br>Para el día a día.',
+    ac_tips_lead:'Consejos probados de ortodoncistas experimentados — directamente aplicables, validados clínicamente.',
+    ac_tip1_title:'La regla de las 22 horas',
+    ac_tip1_desc:'Por debajo de 20h/día el alineador pierde eficacia biomecánica. Comunique 22h como una necesidad médica — no como una recomendación.',
+    ac_tip2_title:'Explicar correctamente la fase SOFT',
+    ac_tip2_desc:'La fase SOFT no es más débil — está optimizada para la adaptación de los tejidos. La falta de presión = inicio correcto, no un error.',
+    ac_tip3_title:'Aprobación antes de la producción',
+    ac_tip3_desc:'Nunca producir sin aprobación. Use la visualización de etapas en el portal — la aceptación del paciente antes del tratamiento duplica la compliance.',
+    ac_tip4_title:'Documentación fotográfica',
+    ac_tip4_desc:'Estándar: frontal, lateral, oclusal. VISIBAL guía automáticamente a los pacientes a través del protocolo. La línea de tiempo es valiosa clínica y motivacionalmente.',
+    ac_tip5_title:'Intervención proactiva',
+    ac_tip5_desc:'Contacte a los pacientes después de la etapa 3 cuando VISIBAL señale una caída de compliance. La intervención temprana previene el estancamiento.',
+    ac_tip6_title:'Motivación por hitos',
+    ac_tip6_desc:'Celebre los cierres de fase con el paciente. "Estás en la fase 2" — los mini-hitos aumentan mediblemente el compromiso emocional.',
+    ac_mail_label:'Mailing Pacientes',
+    ac_mail_h2:'1× al mes.<br>Suave. Claro. Eficaz.',
+    ac_mail_hero_h3:'El sistema de mailing a pacientes nivellipso®',
+    ac_mail_hero_p:'Una vez al mes sus pacientes con alineadores reciben automáticamente un correo electrónico basado en la fase — el mensaje correcto, en el momento correcto, en su idioma. Sin envíos masivos. Sin plantillas genéricas. Alineado clínicamente.',
+    ac_mail_feat1:'Automático basado en fases',
+    ac_mail_feat2:'6 idiomas',
+    ac_mail_feat3:'Conforme al RGPD',
+    ac_mail_feat4:'A través de VISIBAL o correo electrónico',
+    ac_mail_plan_h3:'Plan de contenidos anual',
+    ac_mail_plan_p:'Alineado con un tratamiento típico de 12 meses. Motivador, informativo, nunca intrusivo.',
+    ac_m01_topic:'Bienvenida &amp; Inicio',
+    ac_m01_desc:'"Tu primera sonrisa ha comenzado." Resumen, fase SOFT explicada, app VISIBAL.',
+    ac_m02_topic:'22 horas — por qué importa',
+    ac_m02_desc:'Recordatorio suave con explicación biomecánica. Cada hora sin el alineador retrasa el resultado.',
+    ac_m03_topic:'Primer progreso visible',
+    ac_m03_desc:'Documentación fotográfica etapa 1 vs. actual. Motivación a través de resultados visibles.',
+    ac_m04_topic:'Fase activa comienza (REGULAR)',
+    ac_m04_desc:'"Desde hoy tu alineador trabaja a pleno rendimiento." Cambio de fase y sensación de presión explicados.',
+    ac_m05_topic:'A mitad de camino 🎉',
+    ac_m05_desc:'Email hito. Antes y después. "Estás exactamente en el camino correcto."',
+    ac_m06_topic:'Consejos para el día a día &amp; viajes',
+    ac_m06_desc:'Deporte, viajes, restaurantes — sin excusas.',
+    ac_m07_topic:'Cuidado &amp; Higiene',
+    ac_m07_desc:'Limpieza, almacenamiento, evitar errores comunes.',
+    ac_m08_topic:'Preparar la fase de retención',
+    ac_m08_desc:'INTENSE explicado. Importancia de la retención para los resultados a largo plazo.',
+    ac_m09_topic:'INTENSE — el último tramo',
+    ac_m09_desc:'"Casi listo — no te rindas ahora." Sin recidiva gracias a la constancia.',
+    ac_m10_topic:'Preparar la foto final',
+    ac_m10_desc:'Guía para una foto profesional. Compartir en VISIBAL. Tu sonrisa como prueba.',
+    ac_m11_topic:'Retenedor — de por vida',
+    ac_m11_desc:'Por qué los retenedores son importantes. Riesgo de recidiva. Proceso de pedido.',
+    ac_m12_topic:'Tratamiento completado 🎊',
+    ac_m12_desc:'"Tu sonrisa. Swiss-Made." Solicitud de reseña. Invitación a recomendar.',
+    ac_res_label:'Recursos',
+    ac_res_h2:'Documentos &amp; Descargas.',
+    ac_res1_title:'Lista de precios 2026 (CHF)',
+    ac_res1_sub:'Válida desde el 01.05.2026 · PDF',
+    ac_res2_title:'Formulario de consentimiento del paciente',
+    ac_res2_sub:'DE / FR / IT / EN · Listo para imprimir',
+    ac_res3_title:'Declaración de conformidad CE MDR',
+    ac_res3_sub:'UE 2017/745 · ISO 13485',
+    ac_res4_title:'Kit de incorporación de la consulta',
+    ac_res4_sub:'Workflow, guía del portal, formularios',
+    ac_res5_title:'Más recursos en preparación',
+    ac_res5_sub:'Estudios clínicos, guías de tratamiento',
+    ac_res_btn:'Solicitar',
+    ac_nl_h2:'Newsletter Academy.',
+    ac_nl_p:'Nuevos vídeos, episodios de podcast y consejos clínicos 1× al mes. Sin spam.',
+    ac_nl_ph:'Tu dirección de correo electrónico',
+    ac_nl_btn:'Suscribirse',
+    ac_nl_note:'Para ortodoncistas y consultas dentales · Conforme al RGPD · Cancelar en cualquier momento',
+    ac_chat_name:'Asistente Academy',
+    ac_chat_sub:'Vídeos · Podcasts · Consejos · Mailing',
+    ac_chat_greet:'¡Bienvenido a la nivellipso® Academy! Te ayudo a encontrar el contenido adecuado.',
+    ac_chat_btn:'Hacer una pregunta',
+    ac_chat_ph:'Tu pregunta sobre la Academy...',
+    ac_footer_tagline:'Conocimiento para mejores resultados. Parte de la plataforma nivellipso®. Swiss-Made desde 2015.',
+    ac_bc_home:'Inicio',
+    ac_bc_current:'Academy',
+    ac_sugg1:'¿Vídeo 3-Alineadores?',
+    ac_sugg2:'Consejos de compliance',
+    ac_sugg3:'Episodios de podcast',
+    ft_col_academy:'Academy',
+    ft_col_contact:'Contacto',
+    ft_videos:'Vídeos',
+    ft_podcast:'Podcast',
+    ft_tips:'Consejos &amp; Trucos',
+    ft_mailing:'Mailing Pacientes',
+    ft_website:'Sitio web',
+    ft_contactform:'Formulario de contacto',
+    ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    ft_conf:'CONFIDENCIAL · NIVELLMEDICAL AG'
+  }
+};
+window.NIVELL_T = T;
+document.addEventListener('DOMContentLoaded', () => {
+  setNivellLang(localStorage.getItem('nivell_lang') || 'de', T);
+});
+</script>
+<script>
+function showCat(cat,btn){
+  ['videos','podcasts','tips','mailing','resources'].forEach(c=>{
+    const el=document.getElementById('cat-'+c);
+    if(el)el.style.display=c===cat?'block':'none';
+  });
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  setTimeout(()=>{
+    document.querySelectorAll('#cat-'+cat+' .n-fade').forEach(el=>{
+      el.classList.remove('visible');
+      requestAnimationFrame(()=>el.classList.add('visible'));
+    });
+  },20);
+}
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  initScrollAnimations();
+  setActiveNav();
+  document.getElementById('cat-videos').style.display='block';
+  document.querySelectorAll('#cat-videos .n-fade').forEach(el=>setTimeout(()=>el.classList.add('visible'),100));
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1443 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISIBAL — nivellipso® Patient App & Clinical Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C00000'/><rect x='14' y='6' width='4' height='20' fill='white'/><rect x='6' y='14' width='20' height='4' fill='white'/></svg>">
+<meta name="description" content="VISIBAL by nivellipso® — Klinische Begleit-App für Aligner-Patienten und Compliance-Dashboard für Ärzte.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nivellipso.com/visibal.html">
+<meta property="og:title" content="VISIBAL — nivellipso® Patient App & Clinical Dashboard">
+<meta property="og:description" content="30% aller Patienten brechen ab. VISIBAL beendet das. Patient App + Clinical Intelligence. Powered by nivellipso®.">
+<meta property="og:image" content="https://nivellipso.com/images/team/dr-albin-vukaj-circle-240.png">
+<script defer data-domain="nivellipso.com" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="nivell-design.css">
+<style>
+/* ── VISIBAL-SPECIFIC ── */
+:root { --vis-dark: #0d0000; }
+
+/* HERO */
+.vis-hero { background: linear-gradient(140deg, #0a0000 0%, #111 55%, #1a0000 100%); position: relative; overflow: hidden; padding: 130px 40px 80px; margin-top: 70px; }
+.vis-hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 560px; height: 560px; background: radial-gradient(circle, rgba(192,0,0,.16) 0%, transparent 68%); pointer-events: none; }
+.vis-hero-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+
+/* PHONES SHOWCASE - 3 screens */
+.phones-showcase { display: flex; align-items: flex-end; justify-content: center; position: relative; padding: 10px 0 0; gap: 0; }
+.phone-wrap { position: relative; flex-shrink: 0; }
+.phone-wrap.left  { transform: rotate(-13deg) translateY(22px) translateX(18px); opacity: .72; z-index: 1; transition: all .4s ease; }
+.phone-wrap.center { z-index: 3; filter: drop-shadow(0 20px 40px rgba(0,0,0,.5)); }
+.phone-wrap.right { transform: rotate(13deg) translateY(22px) translateX(-18px); opacity: .72; z-index: 1; transition: all .4s ease; }
+.phone-wrap.left:hover  { opacity: 1; transform: rotate(-7deg) translateY(10px) translateX(10px); z-index: 4; }
+.phone-wrap.right:hover { opacity: 1; transform: rotate(7deg)  translateY(10px) translateX(-10px); z-index: 4; }
+.phone-device { width: 168px; background: #1a1a1a; border-radius: 28px; padding: 8px; box-shadow: 0 0 0 1px rgba(255,255,255,.07); }
+.phone-device.ctr { width: 192px; border-radius: 32px; padding: 10px; }
+.phone-notch { width: 42px; height: 4px; background: rgba(255,255,255,.13); border-radius: 2px; margin: 0 auto 5px; }
+.phone-screen { background: white; border-radius: 20px; overflow: hidden; }
+.phone-device.ctr .phone-screen { border-radius: 23px; }
+
+/* Screen components */
+.ps-hdr { background: var(--red); padding: 13px 11px 10px; display: flex; align-items: center; justify-content: space-between; }
+.ps-logo { font-size: 11px; font-weight: 700; color: white; }
+.ps-ico-sm { width: 20px; height: 20px; background: rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+.ps-body { padding: 10px; }
+.ps-grey { font-size: 7px; color: var(--grey); }
+.ps-name { font-size: 11px; font-weight: 700; color: var(--black); margin-bottom: 9px; }
+.ps-prog { background: var(--bg); border-radius: 6px; padding: 8px; margin-bottom: 6px; }
+.ps-plabel { font-size: 6px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+.ps-ptitle { font-size: 9px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+.ps-bar { background: #e0e0e0; height: 4px; border-radius: 2px; }
+.ps-fill { background: var(--red); height: 4px; border-radius: 2px; }
+.ps-pct { display: flex; justify-content: space-between; font-size: 7px; color: var(--grey); margin-top: 2px; }
+.ps-badge { display: inline-block; background: var(--red); color: white; font-size: 6px; font-weight: 700; padding: 2px 6px; margin-top: 3px; }
+.ps-chat-out { background: var(--red); color: white; border-radius: 6px 6px 2px 6px; padding: 5px 7px; font-size: 7px; line-height: 1.35; margin-bottom: 3px; }
+.ps-chat-in  { background: var(--bg); border-radius: 6px 6px 6px 2px; padding: 5px 7px; font-size: 7px; color: var(--text); line-height: 1.35; margin-bottom: 3px; }
+.ps-ok { background: #f0fff4; border-left: 2px solid #2d8a4e; padding: 4px 7px; font-size: 7px; color: #2d8a4e; font-weight: 700; margin-bottom: 4px; }
+.ps-tabs { display: flex; border-top: 1px solid var(--border); }
+.ps-tab { flex: 1; padding: 5px 0; text-align: center; font-size: 5.5px; color: var(--grey); }
+.ps-tab.a { color: var(--red); }
+.ps-tab-ico { font-size: 10px; display: block; margin-bottom: 1px; }
+/* milestone screen */
+.ms-center { text-align: center; padding: 10px 8px; }
+.ms-emoji { font-size: 28px; margin-bottom: 5px; animation: bounce-in 2s ease-in-out infinite; }
+.ms-title { font-size: 11px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+.ms-sub   { font-size: 8px; color: var(--grey); line-height: 1.4; margin-bottom: 7px; }
+.ms-stars { display: flex; justify-content: center; gap: 2px; font-size: 12px; }
+.ms-prog-wrap { display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.ms-ring { width: 60px; height: 60px; position: relative; }
+.ms-ring svg { width: 60px; height: 60px; transform: rotate(-90deg); }
+.ms-ring-txt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--red); }
+/* dashboard screen */
+.db-hdr { background: var(--bg); padding: 7px 9px; border-bottom: 1px solid var(--border); }
+.db-hdr-t { font-size: 9px; font-weight: 700; color: var(--black); }
+.db-hdr-s { font-size: 7px; color: var(--grey); }
+.db-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 9px; border-bottom: 1px solid rgba(0,0,0,.05); }
+.db-name { font-size: 8px; font-weight: 700; color: var(--black); }
+.db-meta { font-size: 6.5px; color: var(--grey); }
+.db-badge { font-size: 6.5px; font-weight: 700; padding: 2px 5px; border-radius: 2px; }
+.bg-ok   { background: #e8f8ee; color: #2d8a4e; }
+.bg-warn { background: #fff8e8; color: #b87300; }
+.bg-alert{ background: #ffe8e8; color: var(--red); }
+.db-summary { display: flex; padding: 6px 9px; gap: 6px; border-top: 1px solid var(--border); }
+.db-sstat { flex: 1; text-align: center; }
+.db-sn { font-size: 13px; font-weight: 700; color: var(--black); }
+.db-sn em { font-style: normal; color: var(--red); }
+.db-sl { font-size: 6px; color: var(--grey); text-transform: uppercase; letter-spacing: .5px; }
+
+/* SECTIONS */
+.vis-sec { padding: 80px 40px; }
+.vis-sec-dark { background: var(--black); }
+.vis-sec-bg   { background: var(--bg); }
+.vis-inner { max-width: var(--max-w); margin: 0 auto; }
+
+/* Feature grid */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 36px; }
+.feat-card { background: white; padding: 28px 24px; border-top: 3px solid transparent; transition: border-color .2s, transform .2s, box-shadow .2s; }
+.feat-card:hover { border-top-color: var(--red); transform: translateY(-4px); box-shadow: var(--shadow); }
+.feat-card:hover .ico-circle { background: var(--red); transform: rotate(8deg) scale(1.1); }
+.feat-card:hover .ico-circle svg { color: white; }
+.ico-circle { width: 44px; height: 44px; background: var(--red-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: all .2s; }
+.ico-circle svg { width: 20px; height: 20px; color: var(--red); }
+
+/* Mailing timeline */
+.mailing-timeline { display: flex; flex-direction: column; gap: 2px; }
+.ml-item { background: white; border: 1px solid var(--border); padding: 18px 24px; display: flex; gap: 20px; align-items: flex-start; border-left: 4px solid transparent; transition: border-color .2s, transform .15s; }
+.ml-item:hover { border-left-color: var(--red); transform: translateX(4px); }
+.ml-num { font-size: 32px; font-weight: 700; color: var(--red); opacity: .12; letter-spacing: -2px; line-height: 1; min-width: 42px; flex-shrink: 0; }
+.ml-content { flex: 1; }
+.ml-topic { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+.ml-desc  { font-size: 13px; color: var(--grey); line-height: 1.6; }
+.ml-tag   { font-size: 10px; font-weight: 700; color: var(--red); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+
+/* Podcast list */
+.pod-list { display: flex; flex-direction: column; gap: 2px; }
+.pod-ep { background: white; border: 1px solid var(--border); padding: 16px 22px; display: flex; gap: 14px; align-items: center; transition: border-color .2s, transform .15s; cursor: pointer; }
+.pod-ep:hover { border-color: var(--red); transform: translateX(3px); }
+.pod-play { width: 40px; height: 40px; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 3px 0 var(--red-dark), 0 4px 12px var(--red-glow); transition: transform .15s; }
+.pod-ep:hover .pod-play { transform: scale(1.08); }
+.pod-play svg { width: 14px; height: 14px; color: white; margin-left: 2px; }
+.pod-num { font-size: 24px; font-weight: 700; color: var(--red); opacity: .12; letter-spacing: -1.5px; line-height: 1; min-width: 36px; }
+.pod-info { flex: 1; }
+.pod-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+.pod-desc  { font-size: 12px; color: var(--grey); line-height: 1.45; }
+.pod-meta  { font-size: 10px; color: var(--grey); margin-top: 4px; display: flex; gap: 10px; }
+.pod-dur   { font-size: 11px; font-weight: 700; color: var(--red); flex-shrink: 0; }
+
+/* Patient info cards */
+.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; margin-top: 36px; }
+.info-card { background: white; border: 1px solid var(--border); padding: 24px; transition: transform .2s, box-shadow .2s; }
+.info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.info-q { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 8px; padding-left: 14px; border-left: 3px solid var(--red); }
+.info-a { font-size: 13px; color: var(--grey); line-height: 1.7; }
+
+/* Business model */
+.bm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 36px; }
+.bm-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); padding: 28px 24px; transition: border-color .2s, background .2s, transform .2s; }
+.bm-card:hover { border-color: var(--red); background: rgba(192,0,0,.06); transform: translateY(-4px); }
+.bm-card.featured { border-color: var(--red); background: rgba(192,0,0,.08); }
+.bm-tier { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--red); text-transform: uppercase; margin-bottom: 8px; }
+.bm-plan { font-size: 22px; font-weight: 700; color: white; margin-bottom: 4px; }
+.bm-price { font-size: 32px; font-weight: 700; color: white; letter-spacing: -1.5px; }
+.bm-price em { font-style: normal; font-size: 14px; color: rgba(255,255,255,.4); font-weight: 400; }
+.bm-features { margin-top: 20px; display: flex; flex-direction: column; gap: 9px; }
+.bm-feat { font-size: 13px; color: rgba(255,255,255,.55); display: flex; gap: 8px; align-items: flex-start; }
+.bm-feat::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+
+/* CTA section */
+.vis-cta { background: var(--red); padding: 60px 40px; text-align: center; }
+.vis-cta h2 { font-size: clamp(22px,3vw,40px); font-weight: 700; color: white; letter-spacing: -1px; margin-bottom: 12px; }
+.vis-cta p { font-size: 15px; color: rgba(255,255,255,.7); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* Roadmap */
+.roadmap { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 32px; }
+.rm-step { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); padding: 22px 18px; transition: border-color .2s, transform .2s; }
+.rm-step:hover { border-color: var(--red); transform: translateY(-3px); }
+.rm-step.done { border-top: 3px solid var(--red); }
+.rm-q { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--red); text-transform: uppercase; margin-bottom: 8px; }
+.rm-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 6px; }
+.rm-desc { font-size: 12px; color: rgba(255,255,255,.4); line-height: 1.6; }
+.rm-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; margin-bottom: 12px; animation: pulse-ring 2s ease-out infinite; }
+
+/* Mobile */
+@media(max-width:768px){
+  .vis-hero { padding: 90px 20px 56px; }
+  .vis-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .vis-sec { padding: 56px 20px; }
+  .feat-grid { grid-template-columns: 1fr; gap: 10px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .bm-grid { grid-template-columns: 1fr; gap: 10px; }
+  .roadmap { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mailing-timeline { gap: 6px; }
+  .phones-showcase { margin: 0 auto; }
+  .phone-device { width: 140px; border-radius: 22px; padding: 7px; }
+  .phone-device.ctr { width: 160px; border-radius: 26px; padding: 8px; }
+  .phone-screen { min-height: 260px; }
+  .vis-cta { padding: 48px 20px; }
+}
+@media(max-width:480px){
+  .phones-showcase { transform: scale(.9); transform-origin: center top; }
+  .roadmap { grid-template-columns: 1fr; }
+  .ml-num { display: none; }
+  .pod-num { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="n-nav">
+<div class="n-nav-inner">
+  <a href="index.html" class="n-logo">
+    <img src="images/logo/logo_black.png" alt="nivellipso" class="n-logo-img">
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" class="active" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;gap:6px;">
+      <a href="https://www.instagram.com/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <button class="n-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button type="button" class="lang-btn" id="langBtn">
+      <span id="lFlag">🇩🇪</span><span id="lCode">DE</span>
+      <svg viewBox="0 0 10 6" fill="none" width="10"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5"/></svg>
+      <div class="lang-dropdown">
+        <div class="lang-opt active" data-lang="de" onclick="setNivellLang('de',window.NIVELL_T)">🇩🇪 Deutsch</div>
+        <div class="lang-opt" data-lang="fr" onclick="setNivellLang('fr',window.NIVELL_T)">🇫🇷 Français</div>
+        <div class="lang-opt" data-lang="it" onclick="setNivellLang('it',window.NIVELL_T)">🇮🇹 Italiano</div>
+        <div class="lang-opt" data-lang="en" onclick="setNivellLang('en',window.NIVELL_T)">🇬🇧 English</div>
+        <div class="lang-opt" data-lang="ru" onclick="setNivellLang('ru',window.NIVELL_T)">🇷🇺 Русский</div>
+        <div class="lang-opt" data-lang="es" onclick="setNivellLang('es',window.NIVELL_T)">🇪🇸 Español</div>
+      </div>
+    </button>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="font-size:12px;padding:10px 18px;" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+<div class="n-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" style="color:var(--red);" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <a href="https://nivellonlign.com/" target="_blank" class="n-mobile-cta" data-i18n="n_portal">Doctor Portal →</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="vis-hero">
+<div class="vis-hero-inner">
+  <!-- LEFT: Text -->
+  <div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(192,0,0,.15);border:1px solid rgba(192,0,0,.3);padding:6px 14px;margin-bottom:22px;">
+      <div style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse-ring 2s ease-out infinite;"></div>
+      <span style="font-size:9px;letter-spacing:2.5px;color:rgba(255,255,255,.7);text-transform:uppercase;font-weight:700;">nivellipso® Innovation 2026</span>
+    </div>
+    <div class="t-label" style="color:var(--red);" data-i18n="vis_label">VISIBAL</div>
+    <h1 style="font-size:clamp(28px,4.5vw,58px);font-weight:700;color:white;letter-spacing:-1.5px;line-height:1.06;margin-bottom:18px;" data-i18n="vis_h1">30% aller Patienten<br>brechen ab.<br><em style="font-style:normal;color:var(--red);">VISIBAL beendet das.</em></h1>
+    <p style="font-size:15px;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:32px;max-width:480px;" data-i18n="vis_sub">Die erste klinische Begleit-Plattform für Aligner-Patienten — Patient-App, Clinical Dashboard, monatliches Mailing und Podcast-Kanal. Powered by nivellipso®.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#demo" class="btn-3d" data-i18n="vis_cta1">Demo anfragen →</a>
+      <a href="#features" class="btn-3d-ghost" data-i18n="vis_cta2">Mehr erfahren</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:36px;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;">
+      <div><div style="font-size:28px;font-weight:700;color:white;letter-spacing:-1.5px;">30<em style="font-style:normal;color:var(--red);">%</em></div><div style="font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;" data-i18n="vs_stat_noncompliance">Non-Compliance</div></div>
+      <div><div style="font-size:28px;font-weight:700;color:white;letter-spacing:-1.5px;">78<em style="font-style:normal;color:var(--red);">%</em></div><div style="font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;" data-i18n="vs_stat_better">Besser mit App</div></div>
+      <div><div style="font-size:28px;font-weight:700;color:white;letter-spacing:-1.5px;">CHF 89<em style="font-style:normal;color:var(--red);">/mo</em></div><div style="font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;" data-i18n="vs_stat_price">Pro Praxis (Pro)</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: 3 Phone Screens -->
+  <div>
+    <div class="phones-showcase">
+      <!-- LEFT PHONE: Treatment Progress -->
+      <div class="phone-wrap left">
+        <div class="phone-device">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ps-hdr">
+              <span class="ps-logo">VISIBAL</span>
+              <div class="ps-ico-sm">🦷</div>
+            </div>
+            <div class="ps-body">
+              <div class="ps-grey">Guten Morgen</div>
+              <div class="ps-name">Dr. Müller</div>
+              <div class="db-hdr" style="margin-bottom:6px;">
+                <div class="db-hdr-t">Praxis-Übersicht</div>
+                <div class="db-hdr-s">18 aktive Patienten</div>
+              </div>
+              <div class="db-row"><div><div class="db-name">M. Schmidt</div><div class="db-meta">Stufe 9/14 · REGULAR</div></div><span class="db-badge bg-ok">✓ 22h</span></div>
+              <div class="db-row"><div><div class="db-name">K. Weber</div><div class="db-meta">Stufe 4/8 · SOFT</div></div><span class="db-badge bg-warn">⚠ 18h</span></div>
+              <div class="db-row"><div><div class="db-name">T. Brauer</div><div class="db-meta">Stufe 12/14 · INTENSE</div></div><span class="db-badge bg-alert">✗ 12h</span></div>
+              <div class="db-summary">
+                <div class="db-sstat"><div class="db-sn">14<em>✓</em></div><div class="db-sl">Compliant</div></div>
+                <div class="db-sstat"><div class="db-sn">3<em style="color:#b87300">⚠</em></div><div class="db-sl">Achtung</div></div>
+                <div class="db-sstat"><div class="db-sn">1<em style="color:var(--red)">!</em></div><div class="db-sl">Kritisch</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER PHONE: Patient Chat (featured) -->
+      <div class="phone-wrap center">
+        <div class="phone-device ctr">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ps-hdr">
+              <span class="ps-logo">VISIBAL</span>
+              <div class="ps-ico-sm">🦷</div>
+            </div>
+            <div class="ps-body">
+              <div class="ps-grey">Schritt 8 von 14</div>
+              <div class="ps-name">Marie, REGULAR Phase</div>
+              <div class="ps-prog">
+                <div class="ps-plabel">Behandlungsfortschritt</div>
+                <div class="ps-ptitle">Three-Aligner · Dual Arch</div>
+                <div class="ps-bar"><div class="ps-fill" style="width:57%;"></div></div>
+                <div class="ps-pct"><span>SOFT ✓</span><span style="color:var(--red);font-weight:700;">57%</span><span>Fertig</span></div>
+                <div class="ps-badge">REGULAR · Aktiv</div>
+              </div>
+              <div class="ps-plabel" style="margin-top:6px;">Online-Assistent</div>
+              <div class="ps-chat-out">Die Schiene drückt bei Zahn 12, ist das normal?</div>
+              <div class="ps-chat-in">Ja, völlig normal in der REGULAR-Phase. Der Druck zeigt aktive Zahnbewegung. In 2–3 Tagen besser. ✓</div>
+              <div class="ps-ok">Heute: 21h 40min · Ziel fast erreicht 👍</div>
+            </div>
+            <div class="ps-tabs">
+              <div class="ps-tab a"><div class="ps-tab-ico">📊</div>Verlauf</div>
+              <div class="ps-tab"><div class="ps-tab-ico">💬</div>Chat</div>
+              <div class="ps-tab"><div class="ps-tab-ico">📷</div>Fotos</div>
+              <div class="ps-tab"><div class="ps-tab-ico">⚙️</div>Praxis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PHONE: Milestone -->
+      <div class="phone-wrap right">
+        <div class="phone-device">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ps-hdr">
+              <span class="ps-logo">VISIBAL</span>
+              <div class="ps-ico-sm">🏆</div>
+            </div>
+            <div class="ps-body">
+              <div class="ms-center">
+                <div class="ms-prog-wrap">
+                  <div class="ms-ring">
+                    <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="24" fill="none" stroke="#f0f0f0" stroke-width="5"/><circle cx="30" cy="30" r="24" fill="none" stroke="#C00000" stroke-width="5" stroke-dasharray="150.8" stroke-dashoffset="64.8" stroke-linecap="round"/></svg>
+                    <div class="ms-ring-txt">57%</div>
+                  </div>
+                </div>
+                <div class="ms-emoji">🎉</div>
+                <div class="ms-title">Phase 1 abgeschlossen!</div>
+                <div class="ms-sub">SOFT-Phase erfolgreich. Bereit für REGULAR. Ihre Zähne bewegen sich perfekt.</div>
+                <div class="ms-stars"><span>⭐</span><span>⭐</span><span>⭐</span></div>
+              </div>
+              <div style="padding:0 8px 8px;">
+                <div class="ps-plabel" style="margin-bottom:4px;">Nächste Schritte</div>
+                <div style="background:var(--bg);border-radius:5px;padding:6px 8px;font-size:7px;color:var(--text);line-height:1.5;">
+                  <div>✓ Retainer-Termin buchen</div>
+                  <div>✓ Abschluss-Foto hochladen</div>
+                  <div style="color:var(--red);">→ INTENSE-Phase startet</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:14px;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:1px;text-transform:uppercase;">Clinical Dashboard · Patient App · Milestones</div>
+  </div>
+</div>
+</div>
+
+<!-- FEATURES: PATIENT APP -->
+<section class="vis-sec" id="features">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="vis_app_label">VISIBAL Patient</div>
+    <h2 class="t-h2" data-i18n="vis_app_h2">Die App für Ihre Patienten.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" data-i18n="vs_app_lead">Kein Compliance-Problem mehr. Patienten werden durch jede Phase der Behandlung begleitet — mit Echtzeit-Feedback, Online-Assistent und Foto-Dokumentation.</p>
+  </div>
+  <div class="feat-grid n-fade">
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat1_title">Behandlungsfortschritt</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat1_desc">Live-Tracking jeder Alignerstufe. Patienten sehen ihre Progression visuell — das erhöht die Motivation und die Tragedisziplin.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat2_title">Online-Assistent 24/7</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat2_desc">Fragen zu Druck, Passform, Pflege — der Online-Assistent antwortet sofort, in der Sprache des Patienten. Entlastet die Praxis enorm.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat3_title">22h-Tracking</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat3_desc">Patienten erfassen die Tragezeit selbst — VISIBAL erinnert und motiviert. Das Praxis-Dashboard sieht jeden Compliance-Abfall sofort.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat4_title">Foto-Dokumentation</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat4_desc">Standardisierte Fotos nach Anleitung — frontal, lateral, okklusal. Automatische Timeline. Ideal für Verlaufskontrollen und Vor-Nachher.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat5_title">Meilensteine</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat5_desc">Phasen-Abschlüsse werden gefeiert. „Phase 2 geschafft!" — emotionale Bindung erhöht die Compliance für die nächste Phase signifikant.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg></div>
+      <div class="t-h3" data-i18n="vs_feat6_title">6 Sprachen</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="vs_feat6_desc">DE · FR · IT · EN · RU · ES. Jeder Patient erhält Informationen in seiner Muttersprache — lückenlose Kommunikation.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- MONTHLY MAILING -->
+<section class="vis-sec vis-sec-bg" id="mailing">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="vis_mail_label">Patienten-Mailing</div>
+    <h2 class="t-h2" data-i18n="vis_mail_h2">1× im Monat.<br>Sanft. Klar. Wirksam.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" style="margin-bottom:36px;" data-i18n="vs_mail_lead">Automatisch phasenbasiert — die richtige Botschaft zum richtigen Zeitpunkt. Nie aufdringlich, immer relevant. In der Muttersprache des Patienten.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:flex-start;" class="n-fade">
+    <div>
+      <div style="background:white;border-left:4px solid var(--red);padding:22px 28px;margin-bottom:20px;box-shadow:var(--shadow-sm);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:8px;" data-i18n="vs_mail_prinzip_label">Das Prinzip</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.8;" data-i18n="vs_mail_prinzip_text">Jeder Aligner-Patient bekommt 1× pro Monat eine E-Mail — abgestimmt auf seine aktuelle Behandlungsphase. Kein Massenversand. Keine generischen Templates. Klinisch kuratiert, automatisch versendet.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><div style="font-size:13px;font-weight:700;color:var(--black);" data-i18n="vs_mail_b1_title">Automatisch phasenbasiert</div><div style="font-size:12px;color:var(--grey);" data-i18n="vs_mail_b1_sub">SOFT / REGULAR / INTENSE → jeweils passende Inhalte</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><div style="font-size:13px;font-weight:700;color:var(--black);" data-i18n="vs_mail_b2_title">6 Sprachen</div><div style="font-size:12px;color:var(--grey);" data-i18n="vs_mail_b2_sub">DE · FR · IT · EN · RU · ES</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><div style="font-size:13px;font-weight:700;color:var(--black);" data-i18n="vs_mail_b3_title">DSGVO-konform</div><div style="font-size:12px;color:var(--grey);" data-i18n="vs_mail_b3_sub">Opt-in, jederzeit abbestellbar</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="ico-3d-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div><div style="font-size:13px;font-weight:700;color:var(--black);" data-i18n="vs_mail_b4_title">Via VISIBAL oder E-Mail</div><div style="font-size:12px;color:var(--grey);" data-i18n="vs_mail_b4_sub">Push-Notification oder klassisches Mailing</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mailing-timeline">
+      <div class="ml-item"><div class="ml-num">01</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml1_tag">SOFT Phase</div><div class="ml-topic" data-i18n="vs_ml1_topic">Willkommen &amp; Start</div><div class="ml-desc" data-i18n="vs_ml1_desc">Behandlungsüberblick, SOFT-Phase erklärt, VISIBAL-App einrichten. „Ihr Lächeln hat begonnen."</div></div></div>
+      <div class="ml-item"><div class="ml-num">02</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml2_tag">SOFT Phase</div><div class="ml-topic" data-i18n="vs_ml2_topic">22 Stunden — warum es zählt</div><div class="ml-desc" data-i18n="vs_ml2_desc">Sanfte Erinnerung mit Biomechanik-Erklärung. Jede Stunde ohne Schiene verzögert das Ergebnis.</div></div></div>
+      <div class="ml-item"><div class="ml-num">03</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml3_tag">SOFT Phase</div><div class="ml-topic" data-i18n="vs_ml3_topic">Erster Fortschritt sichtbar</div><div class="ml-desc" data-i18n="vs_ml3_desc">Foto-Vergleich Stufe 1 vs. jetzt. Motivation durch sichtbares Ergebnis.</div></div></div>
+      <div class="ml-item"><div class="ml-num">04</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml4_tag">REGULAR Phase</div><div class="ml-topic" data-i18n="vs_ml4_topic">Aktivphase beginnt</div><div class="ml-desc" data-i18n="vs_ml4_desc">„Jetzt arbeitet Ihre Schiene auf Hochtouren." Druckgefühl = Zeichen korrekter Bewegung.</div></div></div>
+      <div class="ml-item"><div class="ml-num">05</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml5_tag">Meilenstein</div><div class="ml-topic" data-i18n="vs_ml5_topic">Halbzeit 🎉</div><div class="ml-desc" data-i18n="vs_ml5_desc">„Sie sind genau auf Kurs." Vorher-Nachher-Erinnerung. Emotionaler Höhepunkt.</div></div></div>
+      <div class="ml-item"><div class="ml-num">06–11</div><div class="ml-content"><div class="ml-tag" data-i18n="vs_ml6_tag">INTENSE · Alltag · Retention</div><div class="ml-topic" data-i18n="vs_ml6_topic">Tipps · INTENSE Phase · Retainer · Abschluss</div><div class="ml-desc" data-i18n="vs_ml6_desc">Reise, Pflege, letzte Meile, Foto, Retainer-Aufklärung. Abschluss mit persönlichem Dank.</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PODCAST -->
+<section class="vis-sec vis-sec-dark" id="podcast">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" style="color:var(--red);" data-i18n="vis_pod_label">VISIBAL Podcast</div>
+    <h2 class="t-h2" style="color:white;" data-i18n="vis_pod_h2">Wissen für Patienten.<br><em style="font-style:normal;color:var(--red);">Einfach erklärt.</em></h2>
+    <div class="t-rule"></div>
+    <p style="font-size:15px;color:rgba(255,255,255,.5);line-height:1.8;max-width:600px;margin-bottom:36px;" data-i18n="vs_pod_lead">Der VISIBAL Podcast erklärt Patienten verständlich, was in ihrer Behandlung passiert — ohne Fachkauderwelsch. Auf Spotify, Apple Podcasts und YouTube.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:flex-start;" class="n-fade">
+    <div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:24px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:6px;" data-i18n="vs_pod_featured_label">Featured Episode</div>
+        <div style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;letter-spacing:-.3px;" data-i18n="vs_pod_featured_title">Warum 22 Stunden?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:16px;" data-i18n="vs_pod_featured_desc">Was passiert, wenn man den Aligner zu wenig trägt — einfach erklärt, ohne Fachwörter.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:white;padding:7px 13px;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">🎵 Spotify</a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:white;padding:7px 13px;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">🎙 Apple</a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:white;padding:7px 13px;font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:all .2s;" onmouseover="this.style.background='rgba(255,255,255,.16)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="pod-list">
+      <div class="pod-ep" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
+        <div class="pod-num" style="color:rgba(192,0,0,.5);">05</div>
+        <div class="pod-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="pod-info"><div class="pod-title" style="color:white;" data-i18n="vs_pod_ep5_title">Die drei Phasen: SOFT, REGULAR, INTENSE erklärt</div><div class="pod-desc" style="color:rgba(255,255,255,.4);" data-i18n="vs_pod_ep5_desc">Was bedeuten die verschiedenen Aligner-Materialien für meine Zähne?</div><div class="pod-meta" style="color:rgba(255,255,255,.25);"><span>Apr 2026</span><span data-i18n="vs_pod_cat_info">Patient-Info</span></div></div>
+        <div class="pod-dur">31 Min.</div>
+      </div>
+      <div class="pod-ep" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
+        <div class="pod-num" style="color:rgba(192,0,0,.5);">04</div>
+        <div class="pod-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="pod-info"><div class="pod-title" style="color:white;" data-i18n="vs_pod_ep4_title">Schmerzen, Druck, Unbehagen — was ist normal?</div><div class="pod-desc" style="color:rgba(255,255,255,.4);" data-i18n="vs_pod_ep4_desc">Wann muss ich mir Sorgen machen und wann ist alles in Ordnung?</div><div class="pod-meta" style="color:rgba(255,255,255,.25);"><span>Mär 2026</span><span data-i18n="vs_pod_cat_info">Patient-Info</span></div></div>
+        <div class="pod-dur">24 Min.</div>
+      </div>
+      <div class="pod-ep" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
+        <div class="pod-num" style="color:rgba(192,0,0,.5);">03</div>
+        <div class="pod-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="pod-info"><div class="pod-title" style="color:white;" data-i18n="vs_pod_ep3_title">Essen, Trinken, Zähneputzen mit Aligner</div><div class="pod-desc" style="color:rgba(255,255,255,.4);" data-i18n="vs_pod_ep3_desc">Die wichtigsten Alltagsfragen beantwortet — einfach und klar.</div><div class="pod-meta" style="color:rgba(255,255,255,.25);"><span>Feb 2026</span><span data-i18n="vs_pod_cat_daily">Alltag</span></div></div>
+        <div class="pod-dur">18 Min.</div>
+      </div>
+      <div class="pod-ep" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
+        <div class="pod-num" style="color:rgba(192,0,0,.5);">02</div>
+        <div class="pod-play"><svg viewBox="0 0 24 24" fill="white" stroke="none" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="pod-info"><div class="pod-title" style="color:white;" data-i18n="vs_pod_ep2_title">Retainer: Warum es nach der Behandlung weitergeht</div><div class="pod-desc" style="color:rgba(255,255,255,.4);" data-i18n="vs_pod_ep2_desc">Kein Retainer = Rezidiv. Was Patienten wissen müssen.</div><div class="pod-meta" style="color:rgba(255,255,255,.25);"><span>Jan 2026</span><span data-i18n="vs_pod_cat_retention">Retention</span></div></div>
+        <div class="pod-dur">22 Min.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PATIENT INFO FAQ -->
+<section class="vis-sec" id="patient-info">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="vs_faq_label">Patient-Info</div>
+    <h2 class="t-h2" data-i18n="vs_faq_h2">Fragen, die Patienten<br>wirklich stellen.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" style="margin-bottom:32px;" data-i18n="vs_faq_lead">VISIBAL beantwortet die häufigsten Patientenfragen automatisch — 24/7, in der richtigen Sprache. Das entlastet Ihre Praxis täglich.</p>
+  </div>
+  <div class="info-grid n-fade">
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq1_q">„Wie lange muss ich den Aligner täglich tragen?"</div><div class="info-a" data-i18n="vs_faq1_a">Mindestens 22 Stunden pro Tag — das ist keine Empfehlung, sondern medizinische Notwendigkeit. Unter 20h verliert der Aligner biomechanische Wirksamkeit. VISIBAL erinnert Sie täglich.</div></div>
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq2_q">„Der Aligner drückt stark — ist das normal?"</div><div class="info-a" data-i18n="vs_faq2_a">Druckgefühl in den ersten 2–3 Tagen nach Stufenwechsel ist normal und gewünscht — er zeigt aktive Zahnbewegung. Starke Schmerzen oder Schleimhautverletzungen bitte sofort melden.</div></div>
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq3_q">„Kann ich mit dem Aligner essen und trinken?"</div><div class="info-a" data-i18n="vs_faq3_a">Bitte vor dem Essen immer abnehmen. Trinken: Wasser mit Aligner ist OK. Alles andere — Kaffee, Säfte, Alkohol — kann den Aligner verfärben und verformen. Immer Zähne putzen vor dem Einsetzen.</div></div>
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq4_q">„Was passiert, wenn ich eine Stufe vergesse?"</div><div class="info-a" data-i18n="vs_faq4_a">Nicht in Panik. Aktuelle Stufe weiter tragen und beim nächsten Termin berichten. Nie zur nächsten Stufe wechseln, wenn die aktuelle nicht perfekt sitzt — Ihre Praxis entscheidet den Wechsel.</div></div>
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq5_q">„Was ist der Unterschied zwischen SOFT, REGULAR und INTENSE?"</div><div class="info-a" data-i18n="vs_faq5_a">Drei verschiedene Materialien für drei Behandlungsphasen: SOFT startet sanft, REGULAR bewegt aktiv, INTENSE stabilisiert final. Jede Phase hat eine klinische Funktion — das Three-Aligner-System ist biomechanisch überlegen.</div></div>
+    <div class="info-card"><div class="info-q" data-i18n="vs_faq6_q">„Brauche ich nach der Behandlung wirklich einen Retainer?"</div><div class="info-a" data-i18n="vs_faq6_a">Ja, immer. Zähne haben ein natürliches Rezidiv-Potential. Ohne Retainer können sich die Zähne zurückbewegen. Ihre Praxis erklärt Ihnen das richtige Retainer-Regime für Ihr Ergebnis.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CLINICAL DASHBOARD -->
+<section class="vis-sec vis-sec-bg">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="vs_clinic_label">VISIBAL Clinic</div>
+    <h2 class="t-h2" data-i18n="vs_clinic_h2">Das Dashboard für Ihre Praxis.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" style="margin-bottom:36px;" data-i18n="vs_clinic_lead">Sehen Sie auf einen Blick, welche Patienten compliant sind und welche Ihre Aufmerksamkeit brauchen — bevor es ein Problem wird.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:36px;" class="n-fade">
+    <div style="background:white;border-top:3px solid #2d8a4e;padding:22px;text-align:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:36px;font-weight:700;color:#2d8a4e;letter-spacing:-2px;">78%</div><div style="font-size:12px;color:var(--grey);margin-top:4px;" data-i18n="vs_clinic_stat1">Ø Compliance-Rate</div></div>
+    <div style="background:white;border-top:3px solid var(--red);padding:22px;text-align:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:36px;font-weight:700;color:var(--red);letter-spacing:-2px;">–30%</div><div style="font-size:12px;color:var(--grey);margin-top:4px;" data-i18n="vs_clinic_stat2">Weniger Notfallanrufe</div></div>
+    <div style="background:white;border-top:3px solid #1a73e8;padding:22px;text-align:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:36px;font-weight:700;color:#1a73e8;letter-spacing:-2px;">24/7</div><div style="font-size:12px;color:var(--grey);margin-top:4px;" data-i18n="vs_clinic_stat3">Online-Assistent beantwortet Fragen</div></div>
+    <div style="background:white;border-top:3px solid #b87300;padding:22px;text-align:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='var(--shadow)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:36px;font-weight:700;color:#b87300;letter-spacing:-2px;">3 WT</div><div style="font-size:12px;color:var(--grey);margin-top:4px;" data-i18n="vs_clinic_stat4">Frühe Intervention</div></div>
+  </div>
+</div>
+</section>
+
+<!-- BUSINESS MODEL -->
+<section class="vis-sec vis-sec-dark" id="demo">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" style="color:var(--red);" data-i18n="vs_bm_label">Business Model</div>
+    <h2 class="t-h2" style="color:white;" data-i18n="vs_bm_h2">Einfache Preisstruktur.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="bm-grid n-fade">
+    <div class="bm-card">
+      <div class="bm-tier" data-i18n="vs_bm_free_tier">Free</div>
+      <div class="bm-plan" data-i18n="vs_bm_free_plan">Basic</div>
+      <div class="bm-price" data-i18n="vs_bm_free_price">CHF 0 <em>/Monat</em></div>
+      <div class="bm-features">
+        <div class="bm-feat" data-i18n="vs_bm_free_f1">Bis 10 aktive Patienten</div>
+        <div class="bm-feat" data-i18n="vs_bm_free_f2">Behandlungs-Tracking</div>
+        <div class="bm-feat" data-i18n="vs_bm_free_f3">Online-Assistent (begrenzt)</div>
+        <div class="bm-feat" data-i18n="vs_bm_free_f4">Für alle nivellipso® Kunden</div>
+      </div>
+    </div>
+    <div class="bm-card featured">
+      <div class="bm-tier" data-i18n="vs_bm_pro_tier">Empfohlen</div>
+      <div class="bm-plan" data-i18n="vs_bm_pro_plan">Pro</div>
+      <div class="bm-price" data-i18n="vs_bm_pro_price">CHF 89 <em>/Monat</em></div>
+      <div class="bm-features">
+        <div class="bm-feat" data-i18n="vs_bm_pro_f1">Unbegrenzte Patienten</div>
+        <div class="bm-feat" data-i18n="vs_bm_pro_f2">Volles Clinical Dashboard</div>
+        <div class="bm-feat" data-i18n="vs_bm_pro_f3">Online-Assistent unbegrenzt</div>
+        <div class="bm-feat" data-i18n="vs_bm_pro_f4">Monatliches Patient-Mailing</div>
+        <div class="bm-feat" data-i18n="vs_bm_pro_f5">Podcast-Integration</div>
+        <div class="bm-feat" data-i18n="vs_bm_pro_f6">Praxis-KPIs &amp; Reports</div>
+      </div>
+      <div style="margin-top:20px;">
+        <a href="index.html#contact-form" class="btn-3d" style="width:100%;text-align:center;display:block;" data-i18n="vs_bm_pro_cta">Demo anfragen</a>
+      </div>
+    </div>
+    <div class="bm-card">
+      <div class="bm-tier" data-i18n="vs_bm_ent_tier">Enterprise</div>
+      <div class="bm-plan" data-i18n="vs_bm_ent_plan">White-Label</div>
+      <div class="bm-price" data-i18n="vs_bm_ent_price">Auf <em>Anfrage</em></div>
+      <div class="bm-features">
+        <div class="bm-feat" data-i18n="vs_bm_ent_f1">Eigenes Branding</div>
+        <div class="bm-feat" data-i18n="vs_bm_ent_f2">API-Integration (OnyxCeph)</div>
+        <div class="bm-feat" data-i18n="vs_bm_ent_f3">DSO &amp; Ketten</div>
+        <div class="bm-feat" data-i18n="vs_bm_ent_f4">Dedicated Support</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ROADMAP -->
+<section class="vis-sec">
+<div class="vis-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="vs_rm_label">Roadmap</div>
+    <h2 class="t-h2" data-i18n="vs_rm_h2">Von der Vision zur Realität.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="roadmap n-fade">
+    <div class="rm-step done"><div class="rm-dot"></div><div class="rm-q" data-i18n="vs_rm1_q">Q2 2026 · Now</div><div class="rm-title" data-i18n="vs_rm1_title">MVP Launch</div><div class="rm-desc" data-i18n="vs_rm1_desc">Konzept, Design, Tech-Stack. Erste 5 Beta-Praxen. Core Features live.</div></div>
+    <div class="rm-step"><div style="width:8px;height:8px;background:rgba(192,0,0,.3);border-radius:50%;margin-bottom:12px;border:2px solid var(--red);"></div><div class="rm-q" data-i18n="vs_rm2_q">Q3 2026</div><div class="rm-title" data-i18n="vs_rm2_title">Beta Roll-out</div><div class="rm-desc" data-i18n="vs_rm2_desc">20 Praxen, Patient-Mailing aktiv, Dashboard v2, Feedback-Loop.</div></div>
+    <div class="rm-step"><div style="width:8px;height:8px;background:rgba(192,0,0,.2);border-radius:50%;margin-bottom:12px;border:1px solid rgba(192,0,0,.4);"></div><div class="rm-q" data-i18n="vs_rm3_q">Q4 2026</div><div class="rm-title" data-i18n="vs_rm3_title">Go-Live</div><div class="rm-desc" data-i18n="vs_rm3_desc">App Store Launch (iOS/Android). 50+ Praxen. Podcast Staffel 1.</div></div>
+    <div class="rm-step"><div style="width:8px;height:8px;background:rgba(255,255,255,.08);border-radius:50%;margin-bottom:12px;border:1px solid rgba(255,255,255,.15);"></div><div class="rm-q" data-i18n="vs_rm4_q">2027+</div><div class="rm-title" data-i18n="vs_rm4_title">International</div><div class="rm-desc" data-i18n="vs_rm4_desc">OnyxCeph API, DACH Expansion, DSO-Partnerschaften.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<div class="vis-cta">
+  <h2 data-i18n="vs_cta_h2">Jetzt VISIBAL testen.</h2>
+  <p data-i18n="vs_cta_p">Kostenlose Demo für nivellipso® Praxen — Albin zeigt Ihnen alles in 30 Minuten persönlich.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="index.html#contact-form" class="btn-3d" style="background:white;color:var(--red);box-shadow:0 4px 0 rgba(0,0,0,.2);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'" data-i18n="vs_cta_btn">Demo anfragen →</a>
+    <a href="tel:+41794697176" class="btn-3d-ghost">+41 79 469 71 76</a>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleNivellChat()">
+  <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <span class="c-label" data-i18n="vs_chat_toggle">Fragen zu VISIBAL?</span>
+  <svg class="c-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-hdr"><div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📱</div><div style="margin-left:10px;"><div class="chat-hdr-name" data-i18n="vs_chat_hdr_name">VISIBAL Beratung</div><div class="chat-hdr-sub" data-i18n="vs_chat_hdr_sub">App · Dashboard · Mailing · Podcast</div></div></div>
+  <div class="chat-msgs" id="chatMessages"><div class="msg-bot" data-i18n="vs_chat_welcome">Hallo! Ich beantworte Ihre Fragen zu VISIBAL — Patient App, Clinical Dashboard, Preise und Demo-Anfragen.</div></div>
+  <div class="chat-suggs" id="chatSugg">
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="vs_chat_sugg1">Was kostet VISIBAL?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="vs_chat_sugg2">Demo buchen</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="vs_chat_sugg3">Wie funktioniert das Mailing?</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" placeholder="Ihre Frage zu VISIBAL..." data-i18n-ph="vs_chat_ph" onkeypress="if(event.key==='Enter')sendNivellChat()">
+    <button class="chat-send" onclick="sendNivellChat()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="n-footer">
+<div class="n-footer-inner">
+  <div class="n-footer-grid">
+    <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--red-dark);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><rect x="7" y="2" width="2" height="12" fill="white"/><rect x="2" y="7" width="12" height="2" fill="white"/></svg></div><span style="font-size:17px;font-weight:700;color:white;">nivellipso<span style="color:var(--red);">®</span></span></div><p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;" data-i18n="vs_footer_desc">VISIBAL — Die klinische Compliance-Plattform von nivellipso®. Swiss-Made seit 2015.</p></div>
+    <div class="n-footer-col"><h4 data-i18n="vs_ft_col1_h">VISIBAL</h4><ul><li><a href="#features" data-i18n="vs_ft_col1_l1">Patient App</a></li><li><a href="#mailing" data-i18n="vs_ft_col1_l2">Patient-Mailing</a></li><li><a href="#podcast" data-i18n="vs_ft_col1_l3">Podcast</a></li><li><a href="#demo" data-i18n="vs_ft_col1_l4">Demo anfragen</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="vs_ft_col2_h">nivellipso®</h4><ul><li><a href="index.html" data-i18n="vs_ft_col2_l1">Website</a></li><li><a href="aligner.html" data-i18n="vs_ft_col2_l2">Aligners</a></li><li><a href="academy.html" data-i18n="vs_ft_col2_l3">Academy</a></li><li><a href="https://nivellonlign.com/" target="_blank" data-i18n="vs_ft_col2_l4">Doctor Portal</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="vs_ft_col3_h">Kontakt</h4><ul><li><a href="mailto:sales@nivellipso.com">sales@nivellipso.com</a></li><li><a href="tel:+41794697176">+41 79 469 71 76</a></li><li><a href="index.html#contact-form" data-i18n="vs_ft_col3_l3">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="n-footer-bottom"><p data-i18n="vs_ft_copy">Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen</p><p class="n-conf" data-i18n="vs_ft_conf">VERTRAULICH · NIVELLMEDICAL AG</p></div>
+</div>
+</footer>
+
+<script src="nivell-site.js"></script>
+<script>
+const T = {
+  de: {
+    // NAV
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Kontakt', n_portal:'Doctor Portal →',
+    // HERO
+    vis_label:'VISIBAL',
+    vis_h1:'30% aller Patienten<br>brechen ab.<br><em style="font-style:normal;color:var(--red);">VISIBAL beendet das.</em>',
+    vis_sub:'Die erste klinische Begleit-Plattform für Aligner-Patienten — Patient-App, Clinical Dashboard, monatliches Mailing und Podcast-Kanal. Powered by nivellipso®.',
+    vis_cta1:'Demo anfragen →',
+    vis_cta2:'Mehr erfahren',
+    vs_stat_noncompliance:'Non-Compliance',
+    vs_stat_better:'Besser mit App',
+    vs_stat_price:'Pro Praxis (Pro)',
+    // FEATURES
+    vis_app_label:'VISIBAL Patient',
+    vis_app_h2:'Die App für Ihre Patienten.',
+    vs_app_lead:'Kein Compliance-Problem mehr. Patienten werden durch jede Phase der Behandlung begleitet — mit Echtzeit-Feedback, Online-Assistent und Foto-Dokumentation.',
+    vs_feat1_title:'Behandlungsfortschritt',
+    vs_feat1_desc:'Live-Tracking jeder Alignerstufe. Patienten sehen ihre Progression visuell — das erhöht die Motivation und die Tragedisziplin.',
+    vs_feat2_title:'Online-Assistent 24/7',
+    vs_feat2_desc:'Fragen zu Druck, Passform, Pflege — der Online-Assistent antwortet sofort, in der Sprache des Patienten. Entlastet die Praxis enorm.',
+    vs_feat3_title:'22h-Tracking',
+    vs_feat3_desc:'Patienten erfassen die Tragezeit selbst — VISIBAL erinnert und motiviert. Das Praxis-Dashboard sieht jeden Compliance-Abfall sofort.',
+    vs_feat4_title:'Foto-Dokumentation',
+    vs_feat4_desc:'Standardisierte Fotos nach Anleitung — frontal, lateral, okklusal. Automatische Timeline. Ideal für Verlaufskontrollen und Vor-Nachher.',
+    vs_feat5_title:'Meilensteine',
+    vs_feat5_desc:'Phasen-Abschlüsse werden gefeiert. „Phase 2 geschafft!" — emotionale Bindung erhöht die Compliance für die nächste Phase signifikant.',
+    vs_feat6_title:'6 Sprachen',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Jeder Patient erhält Informationen in seiner Muttersprache — lückenlose Kommunikation.',
+    // MAILING
+    vis_mail_label:'Patienten-Mailing',
+    vis_mail_h2:'1× im Monat.<br>Sanft. Klar. Wirksam.',
+    vs_mail_lead:'Automatisch phasenbasiert — die richtige Botschaft zum richtigen Zeitpunkt. Nie aufdringlich, immer relevant. In der Muttersprache des Patienten.',
+    vs_mail_prinzip_label:'Das Prinzip',
+    vs_mail_prinzip_text:'Jeder Aligner-Patient bekommt 1× pro Monat eine E-Mail — abgestimmt auf seine aktuelle Behandlungsphase. Kein Massenversand. Keine generischen Templates. Klinisch kuratiert, automatisch versendet.',
+    vs_mail_b1_title:'Automatisch phasenbasiert',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → jeweils passende Inhalte',
+    vs_mail_b2_title:'6 Sprachen',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'DSGVO-konform',
+    vs_mail_b3_sub:'Opt-in, jederzeit abbestellbar',
+    vs_mail_b4_title:'Via VISIBAL oder E-Mail',
+    vs_mail_b4_sub:'Push-Notification oder klassisches Mailing',
+    vs_ml1_tag:'SOFT Phase', vs_ml1_topic:'Willkommen &amp; Start', vs_ml1_desc:'Behandlungsüberblick, SOFT-Phase erklärt, VISIBAL-App einrichten. „Ihr Lächeln hat begonnen."',
+    vs_ml2_tag:'SOFT Phase', vs_ml2_topic:'22 Stunden — warum es zählt', vs_ml2_desc:'Sanfte Erinnerung mit Biomechanik-Erklärung. Jede Stunde ohne Schiene verzögert das Ergebnis.',
+    vs_ml3_tag:'SOFT Phase', vs_ml3_topic:'Erster Fortschritt sichtbar', vs_ml3_desc:'Foto-Vergleich Stufe 1 vs. jetzt. Motivation durch sichtbares Ergebnis.',
+    vs_ml4_tag:'REGULAR Phase', vs_ml4_topic:'Aktivphase beginnt', vs_ml4_desc:'„Jetzt arbeitet Ihre Schiene auf Hochtouren." Druckgefühl = Zeichen korrekter Bewegung.',
+    vs_ml5_tag:'Meilenstein', vs_ml5_topic:'Halbzeit 🎉', vs_ml5_desc:'„Sie sind genau auf Kurs." Vorher-Nachher-Erinnerung. Emotionaler Höhepunkt.',
+    vs_ml6_tag:'INTENSE · Alltag · Retention', vs_ml6_topic:'Tipps · INTENSE Phase · Retainer · Abschluss', vs_ml6_desc:'Reise, Pflege, letzte Meile, Foto, Retainer-Aufklärung. Abschluss mit persönlichem Dank.',
+    // PODCAST
+    vis_pod_label:'VISIBAL Podcast',
+    vis_pod_h2:'Wissen für Patienten.<br><em style="font-style:normal;color:var(--red);">Einfach erklärt.</em>',
+    vs_pod_lead:'Der VISIBAL Podcast erklärt Patienten verständlich, was in ihrer Behandlung passiert — ohne Fachkauderwelsch. Auf Spotify, Apple Podcasts und YouTube.',
+    vs_pod_featured_label:'Featured Episode',
+    vs_pod_featured_title:'Warum 22 Stunden?',
+    vs_pod_featured_desc:'Was passiert, wenn man den Aligner zu wenig trägt — einfach erklärt, ohne Fachwörter.',
+    vs_pod_ep5_title:'Die drei Phasen: SOFT, REGULAR, INTENSE erklärt',
+    vs_pod_ep5_desc:'Was bedeuten die verschiedenen Aligner-Materialien für meine Zähne?',
+    vs_pod_ep4_title:'Schmerzen, Druck, Unbehagen — was ist normal?',
+    vs_pod_ep4_desc:'Wann muss ich mir Sorgen machen und wann ist alles in Ordnung?',
+    vs_pod_ep3_title:'Essen, Trinken, Zähneputzen mit Aligner',
+    vs_pod_ep3_desc:'Die wichtigsten Alltagsfragen beantwortet — einfach und klar.',
+    vs_pod_ep2_title:'Retainer: Warum es nach der Behandlung weitergeht',
+    vs_pod_ep2_desc:'Kein Retainer = Rezidiv. Was Patienten wissen müssen.',
+    vs_pod_cat_info:'Patient-Info', vs_pod_cat_daily:'Alltag', vs_pod_cat_retention:'Retention',
+    // FAQ
+    vs_faq_label:'Patient-Info',
+    vs_faq_h2:'Fragen, die Patienten<br>wirklich stellen.',
+    vs_faq_lead:'VISIBAL beantwortet die häufigsten Patientenfragen automatisch — 24/7, in der richtigen Sprache. Das entlastet Ihre Praxis täglich.',
+    vs_faq1_q:'„Wie lange muss ich den Aligner täglich tragen?"',
+    vs_faq1_a:'Mindestens 22 Stunden pro Tag — das ist keine Empfehlung, sondern medizinische Notwendigkeit. Unter 20h verliert der Aligner biomechanische Wirksamkeit. VISIBAL erinnert Sie täglich.',
+    vs_faq2_q:'„Der Aligner drückt stark — ist das normal?"',
+    vs_faq2_a:'Druckgefühl in den ersten 2–3 Tagen nach Stufenwechsel ist normal und gewünscht — er zeigt aktive Zahnbewegung. Starke Schmerzen oder Schleimhautverletzungen bitte sofort melden.',
+    vs_faq3_q:'„Kann ich mit dem Aligner essen und trinken?"',
+    vs_faq3_a:'Bitte vor dem Essen immer abnehmen. Trinken: Wasser mit Aligner ist OK. Alles andere — Kaffee, Säfte, Alkohol — kann den Aligner verfärben und verformen. Immer Zähne putzen vor dem Einsetzen.',
+    vs_faq4_q:'„Was passiert, wenn ich eine Stufe vergesse?"',
+    vs_faq4_a:'Nicht in Panik. Aktuelle Stufe weiter tragen und beim nächsten Termin berichten. Nie zur nächsten Stufe wechseln, wenn die aktuelle nicht perfekt sitzt — Ihre Praxis entscheidet den Wechsel.',
+    vs_faq5_q:'„Was ist der Unterschied zwischen SOFT, REGULAR und INTENSE?"',
+    vs_faq5_a:'Drei verschiedene Materialien für drei Behandlungsphasen: SOFT startet sanft, REGULAR bewegt aktiv, INTENSE stabilisiert final. Jede Phase hat eine klinische Funktion — das Three-Aligner-System ist biomechanisch überlegen.',
+    vs_faq6_q:'„Brauche ich nach der Behandlung wirklich einen Retainer?"',
+    vs_faq6_a:'Ja, immer. Zähne haben ein natürliches Rezidiv-Potential. Ohne Retainer können sich die Zähne zurückbewegen. Ihre Praxis erklärt Ihnen das richtige Retainer-Regime für Ihr Ergebnis.',
+    // CLINICAL DASHBOARD
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'Das Dashboard für Ihre Praxis.',
+    vs_clinic_lead:'Sehen Sie auf einen Blick, welche Patienten compliant sind und welche Ihre Aufmerksamkeit brauchen — bevor es ein Problem wird.',
+    vs_clinic_stat1:'Ø Compliance-Rate',
+    vs_clinic_stat2:'Weniger Notfallanrufe',
+    vs_clinic_stat3:'Online-Assistent beantwortet Fragen',
+    vs_clinic_stat4:'Frühe Intervention',
+    // BUSINESS MODEL
+    vs_bm_label:'Business Model',
+    vs_bm_h2:'Einfache Preisstruktur.',
+    vs_bm_free_tier:'Free', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/Monat</em>',
+    vs_bm_free_f1:'Bis 10 aktive Patienten', vs_bm_free_f2:'Behandlungs-Tracking', vs_bm_free_f3:'Online-Assistent (begrenzt)', vs_bm_free_f4:'Für alle nivellipso® Kunden',
+    vs_bm_pro_tier:'Empfohlen', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/Monat</em>',
+    vs_bm_pro_f1:'Unbegrenzte Patienten', vs_bm_pro_f2:'Volles Clinical Dashboard', vs_bm_pro_f3:'Online-Assistent unbegrenzt', vs_bm_pro_f4:'Monatliches Patient-Mailing', vs_bm_pro_f5:'Podcast-Integration', vs_bm_pro_f6:'Praxis-KPIs &amp; Reports',
+    vs_bm_pro_cta:'Demo anfragen',
+    vs_bm_ent_tier:'Enterprise', vs_bm_ent_plan:'White-Label', vs_bm_ent_price:'Auf <em>Anfrage</em>',
+    vs_bm_ent_f1:'Eigenes Branding', vs_bm_ent_f2:'API-Integration (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; Ketten', vs_bm_ent_f4:'Dedicated Support',
+    // ROADMAP
+    vs_rm_label:'Roadmap',
+    vs_rm_h2:'Von der Vision zur Realität.',
+    vs_rm1_q:'Q2 2026 · Now', vs_rm1_title:'MVP Launch', vs_rm1_desc:'Konzept, Design, Tech-Stack. Erste 5 Beta-Praxen. Core Features live.',
+    vs_rm2_q:'Q3 2026', vs_rm2_title:'Beta Roll-out', vs_rm2_desc:'20 Praxen, Patient-Mailing aktiv, Dashboard v2, Feedback-Loop.',
+    vs_rm3_q:'Q4 2026', vs_rm3_title:'Go-Live', vs_rm3_desc:'App Store Launch (iOS/Android). 50+ Praxen. Podcast Staffel 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'International', vs_rm4_desc:'OnyxCeph API, DACH Expansion, DSO-Partnerschaften.',
+    // CTA
+    vs_cta_h2:'Jetzt VISIBAL testen.',
+    vs_cta_p:'Kostenlose Demo für nivellipso® Praxen — Albin zeigt Ihnen alles in 30 Minuten persönlich.',
+    vs_cta_btn:'Demo anfragen →',
+    // CHAT
+    vs_chat_toggle:'Fragen zu VISIBAL?',
+    vs_chat_hdr_name:'VISIBAL Beratung',
+    vs_chat_hdr_sub:'App · Dashboard · Mailing · Podcast',
+    vs_chat_welcome:'Hallo! Ich beantworte Ihre Fragen zu VISIBAL — Patient App, Clinical Dashboard, Preise und Demo-Anfragen.',
+    vs_chat_sugg1:'Was kostet VISIBAL?',
+    vs_chat_sugg2:'Demo buchen',
+    vs_chat_sugg3:'Wie funktioniert das Mailing?',
+    vs_chat_ph:'Ihre Frage zu VISIBAL...',
+    // FOOTER
+    vs_footer_desc:'VISIBAL — Die klinische Compliance-Plattform von nivellipso®. Swiss-Made seit 2015.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'Patient App',
+    vs_ft_col1_l2:'Patient-Mailing',
+    vs_ft_col1_l3:'Podcast',
+    vs_ft_col1_l4:'Demo anfragen',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Website',
+    vs_ft_col2_l2:'Aligners',
+    vs_ft_col2_l3:'Academy',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Kontakt',
+    vs_ft_col3_l3:'Kontaktformular',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'VERTRAULICH · NIVELLMEDICAL AG'
+  },
+  en: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    vis_label:'VISIBAL',
+    vis_h1:'30% of patients<br>drop out.<br><em style="font-style:normal;color:var(--red);">VISIBAL ends that.</em>',
+    vis_sub:'The first clinical companion platform for aligner patients — patient app, clinical dashboard, monthly mailing and podcast channel. Powered by nivellipso®.',
+    vis_cta1:'Request demo →',
+    vis_cta2:'Learn more',
+    vs_stat_noncompliance:'Non-Compliance',
+    vs_stat_better:'Better with App',
+    vs_stat_price:'Per Practice (Pro)',
+    vis_app_label:'VISIBAL Patient',
+    vis_app_h2:'The app for your patients.',
+    vs_app_lead:'No more compliance problems. Patients are guided through every phase of treatment — with real-time feedback, online assistant and photo documentation.',
+    vs_feat1_title:'Treatment Progress',
+    vs_feat1_desc:'Live tracking of every aligner step. Patients see their progression visually — boosting motivation and wear discipline.',
+    vs_feat2_title:'Online Assistant 24/7',
+    vs_feat2_desc:'Questions about pressure, fit, care — the online assistant responds instantly, in the patient\'s language. Relieves the practice enormously.',
+    vs_feat3_title:'22h Tracking',
+    vs_feat3_desc:'Patients log their own wear time — VISIBAL reminds and motivates. The practice dashboard spots every compliance drop immediately.',
+    vs_feat4_title:'Photo Documentation',
+    vs_feat4_desc:'Standardised photos with guidance — frontal, lateral, occlusal. Automatic timeline. Ideal for progress checks and before/after.',
+    vs_feat5_title:'Milestones',
+    vs_feat5_desc:'Phase completions are celebrated. "Phase 2 done!" — emotional engagement significantly increases compliance for the next phase.',
+    vs_feat6_title:'6 Languages',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Every patient receives information in their native language — seamless communication.',
+    vis_mail_label:'Patient Mailing',
+    vis_mail_h2:'Once a month.<br>Gentle. Clear. Effective.',
+    vs_mail_lead:'Automatically phase-based — the right message at the right time. Never intrusive, always relevant. In the patient\'s native language.',
+    vs_mail_prinzip_label:'The Principle',
+    vs_mail_prinzip_text:'Every aligner patient receives one email per month — tailored to their current treatment phase. No mass mailings. No generic templates. Clinically curated, automatically sent.',
+    vs_mail_b1_title:'Automatically phase-based',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → matching content for each',
+    vs_mail_b2_title:'6 Languages',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'GDPR-compliant',
+    vs_mail_b3_sub:'Opt-in, unsubscribe at any time',
+    vs_mail_b4_title:'Via VISIBAL or Email',
+    vs_mail_b4_sub:'Push notification or classic mailing',
+    vs_ml1_tag:'SOFT Phase', vs_ml1_topic:'Welcome &amp; Start', vs_ml1_desc:'Treatment overview, SOFT phase explained, set up VISIBAL app. "Your smile has begun."',
+    vs_ml2_tag:'SOFT Phase', vs_ml2_topic:'22 Hours — why it matters', vs_ml2_desc:'Gentle reminder with biomechanics explanation. Every hour without the aligner delays the result.',
+    vs_ml3_tag:'SOFT Phase', vs_ml3_topic:'First progress visible', vs_ml3_desc:'Photo comparison step 1 vs. now. Motivation through visible results.',
+    vs_ml4_tag:'REGULAR Phase', vs_ml4_topic:'Active phase begins', vs_ml4_desc:'"Your aligner is now working at full capacity." Pressure feeling = sign of correct movement.',
+    vs_ml5_tag:'Milestone', vs_ml5_topic:'Halfway there 🎉', vs_ml5_desc:'"You are right on track." Before/after reminder. Emotional highlight.',
+    vs_ml6_tag:'INTENSE · Daily Life · Retention', vs_ml6_topic:'Tips · INTENSE Phase · Retainer · Conclusion', vs_ml6_desc:'Travel, care, final stretch, photo, retainer briefing. Conclusion with personal thanks.',
+    vis_pod_label:'VISIBAL Podcast',
+    vis_pod_h2:'Knowledge for patients.<br><em style="font-style:normal;color:var(--red);">Simply explained.</em>',
+    vs_pod_lead:'The VISIBAL Podcast explains to patients in plain language what is happening during their treatment — no medical jargon. On Spotify, Apple Podcasts and YouTube.',
+    vs_pod_featured_label:'Featured Episode',
+    vs_pod_featured_title:'Why 22 hours?',
+    vs_pod_featured_desc:'What happens when you don\'t wear your aligner enough — simply explained, no technical terms.',
+    vs_pod_ep5_title:'The three phases: SOFT, REGULAR, INTENSE explained',
+    vs_pod_ep5_desc:'What do the different aligner materials mean for my teeth?',
+    vs_pod_ep4_title:'Pain, pressure, discomfort — what is normal?',
+    vs_pod_ep4_desc:'When should I worry and when is everything fine?',
+    vs_pod_ep3_title:'Eating, drinking, brushing with aligner',
+    vs_pod_ep3_desc:'The most important everyday questions answered — simply and clearly.',
+    vs_pod_ep2_title:'Retainer: Why treatment continues after treatment',
+    vs_pod_ep2_desc:'No retainer = relapse. What patients need to know.',
+    vs_pod_cat_info:'Patient Info', vs_pod_cat_daily:'Daily Life', vs_pod_cat_retention:'Retention',
+    vs_faq_label:'Patient Info',
+    vs_faq_h2:'Questions patients<br>really ask.',
+    vs_faq_lead:'VISIBAL automatically answers the most common patient questions — 24/7, in the right language. This relieves your practice every day.',
+    vs_faq1_q:'"How long do I need to wear the aligner each day?"',
+    vs_faq1_a:'At least 22 hours per day — this is not a recommendation, it is a medical necessity. Below 20h the aligner loses biomechanical effectiveness. VISIBAL reminds you daily.',
+    vs_faq2_q:'"The aligner is pressing hard — is that normal?"',
+    vs_faq2_a:'Pressure in the first 2–3 days after a step change is normal and expected — it shows active tooth movement. Strong pain or mucosal injuries should be reported immediately.',
+    vs_faq3_q:'"Can I eat and drink with the aligner in?"',
+    vs_faq3_a:'Always remove before eating. Drinking: plain water with the aligner is OK. Everything else — coffee, juices, alcohol — can stain and deform the aligner. Always brush teeth before reinserting.',
+    vs_faq4_q:'"What happens if I forget a step?"',
+    vs_faq4_a:'Don\'t panic. Keep wearing the current step and report at your next appointment. Never advance to the next step if the current one doesn\'t fit perfectly — your practice decides when to switch.',
+    vs_faq5_q:'"What is the difference between SOFT, REGULAR and INTENSE?"',
+    vs_faq5_a:'Three different materials for three treatment phases: SOFT starts gently, REGULAR moves actively, INTENSE stabilises finally. Each phase has a clinical function — the Three-Aligner system is biomechanically superior.',
+    vs_faq6_q:'"Do I really need a retainer after treatment?"',
+    vs_faq6_a:'Yes, always. Teeth have a natural relapse potential. Without a retainer, teeth can shift back. Your practice will explain the correct retainer regime for your result.',
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'The dashboard for your practice.',
+    vs_clinic_lead:'See at a glance which patients are compliant and which need your attention — before it becomes a problem.',
+    vs_clinic_stat1:'Ø Compliance Rate',
+    vs_clinic_stat2:'Fewer Emergency Calls',
+    vs_clinic_stat3:'Online Assistant Answers Questions',
+    vs_clinic_stat4:'Early Intervention',
+    vs_bm_label:'Business Model',
+    vs_bm_h2:'Simple pricing.',
+    vs_bm_free_tier:'Free', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/month</em>',
+    vs_bm_free_f1:'Up to 10 active patients', vs_bm_free_f2:'Treatment tracking', vs_bm_free_f3:'Online assistant (limited)', vs_bm_free_f4:'For all nivellipso® customers',
+    vs_bm_pro_tier:'Recommended', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/month</em>',
+    vs_bm_pro_f1:'Unlimited patients', vs_bm_pro_f2:'Full clinical dashboard', vs_bm_pro_f3:'Online assistant unlimited', vs_bm_pro_f4:'Monthly patient mailing', vs_bm_pro_f5:'Podcast integration', vs_bm_pro_f6:'Practice KPIs &amp; Reports',
+    vs_bm_pro_cta:'Request demo',
+    vs_bm_ent_tier:'Enterprise', vs_bm_ent_plan:'White-Label', vs_bm_ent_price:'On <em>request</em>',
+    vs_bm_ent_f1:'Custom branding', vs_bm_ent_f2:'API integration (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; chains', vs_bm_ent_f4:'Dedicated support',
+    vs_rm_label:'Roadmap',
+    vs_rm_h2:'From vision to reality.',
+    vs_rm1_q:'Q2 2026 · Now', vs_rm1_title:'MVP Launch', vs_rm1_desc:'Concept, design, tech stack. First 5 beta practices. Core features live.',
+    vs_rm2_q:'Q3 2026', vs_rm2_title:'Beta Roll-out', vs_rm2_desc:'20 practices, patient mailing active, dashboard v2, feedback loop.',
+    vs_rm3_q:'Q4 2026', vs_rm3_title:'Go-Live', vs_rm3_desc:'App Store launch (iOS/Android). 50+ practices. Podcast season 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'International', vs_rm4_desc:'OnyxCeph API, DACH expansion, DSO partnerships.',
+    vs_cta_h2:'Try VISIBAL now.',
+    vs_cta_p:'Free demo for nivellipso® practices — Albin shows you everything in 30 minutes personally.',
+    vs_cta_btn:'Request demo →',
+    vs_chat_toggle:'Questions about VISIBAL?',
+    vs_chat_hdr_name:'VISIBAL Consultation',
+    vs_chat_hdr_sub:'App · Dashboard · Mailing · Podcast',
+    vs_chat_welcome:'Hello! I answer your questions about VISIBAL — patient app, clinical dashboard, pricing and demo requests.',
+    vs_chat_sugg1:'How much does VISIBAL cost?',
+    vs_chat_sugg2:'Book a demo',
+    vs_chat_sugg3:'How does the mailing work?',
+    vs_chat_ph:'Your question about VISIBAL...',
+    vs_footer_desc:'VISIBAL — The clinical compliance platform by nivellipso®. Swiss-Made since 2015.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'Patient App',
+    vs_ft_col1_l2:'Patient Mailing',
+    vs_ft_col1_l3:'Podcast',
+    vs_ft_col1_l4:'Request demo',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Website',
+    vs_ft_col2_l2:'Aligners',
+    vs_ft_col2_l3:'Academy',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Contact',
+    vs_ft_col3_l3:'Contact form',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'CONFIDENTIAL · NIVELLMEDICAL AG'
+  },
+  fr: {
+    n_home:'Accueil', n_align:'Aligneurs', n_brack:'Brackets', n_white:'Blanchiment', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    vis_label:'VISIBAL',
+    vis_h1:'30% des patients<br>abandonnent.<br><em style="font-style:normal;color:var(--red);">VISIBAL y met fin.</em>',
+    vis_sub:'La première plateforme clinique d\'accompagnement pour les patients en aligneurs — application patient, tableau de bord clinique, mailing mensuel et podcast. Powered by nivellipso®.',
+    vis_cta1:'Demander une démo →',
+    vis_cta2:'En savoir plus',
+    vs_stat_noncompliance:'Non-Compliance',
+    vs_stat_better:'Mieux avec l\'app',
+    vs_stat_price:'Par cabinet (Pro)',
+    vis_app_label:'VISIBAL Patient',
+    vis_app_h2:'L\'application pour vos patients.',
+    vs_app_lead:'Fini les problèmes de compliance. Les patients sont accompagnés à chaque phase du traitement — avec retour en temps réel, assistant en ligne et documentation photo.',
+    vs_feat1_title:'Suivi du traitement',
+    vs_feat1_desc:'Suivi en direct de chaque étape d\'aligneur. Les patients visualisent leur progression — ce qui booste la motivation et la discipline de port.',
+    vs_feat2_title:'Assistant en ligne 24/7',
+    vs_feat2_desc:'Questions sur la pression, l\'ajustement, les soins — l\'assistant en ligne répond immédiatement, dans la langue du patient. Soulage considérablement le cabinet.',
+    vs_feat3_title:'Suivi 22h',
+    vs_feat3_desc:'Les patients enregistrent eux-mêmes leur temps de port — VISIBAL rappelle et motive. Le tableau de bord du cabinet détecte immédiatement toute baisse de compliance.',
+    vs_feat4_title:'Documentation photo',
+    vs_feat4_desc:'Photos standardisées avec instructions — frontale, latérale, occlusale. Chronologie automatique. Idéal pour les contrôles de suivi et avant/après.',
+    vs_feat5_title:'Jalons',
+    vs_feat5_desc:'Les fins de phase sont célébrées. „Phase 2 réussie !" — l\'engagement émotionnel augmente significativement la compliance pour la phase suivante.',
+    vs_feat6_title:'6 langues',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Chaque patient reçoit les informations dans sa langue maternelle — communication sans failles.',
+    vis_mail_label:'Mailing Patient',
+    vis_mail_h2:'1× par mois.<br>Doux. Clair. Efficace.',
+    vs_mail_lead:'Automatiquement basé sur les phases — le bon message au bon moment. Jamais intrusif, toujours pertinent. Dans la langue maternelle du patient.',
+    vs_mail_prinzip_label:'Le principe',
+    vs_mail_prinzip_text:'Chaque patient en aligneurs reçoit un e-mail par mois — adapté à sa phase de traitement actuelle. Pas d\'envoi de masse. Pas de templates génériques. Curé cliniquement, envoyé automatiquement.',
+    vs_mail_b1_title:'Automatiquement basé sur les phases',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → contenu adapté à chaque phase',
+    vs_mail_b2_title:'6 langues',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'Conforme RGPD',
+    vs_mail_b3_sub:'Opt-in, désinscription à tout moment',
+    vs_mail_b4_title:'Via VISIBAL ou e-mail',
+    vs_mail_b4_sub:'Notification push ou mailing classique',
+    vs_ml1_tag:'Phase SOFT', vs_ml1_topic:'Bienvenue &amp; Départ', vs_ml1_desc:'Aperçu du traitement, phase SOFT expliquée, configuration de l\'app VISIBAL. „Votre sourire a commencé."',
+    vs_ml2_tag:'Phase SOFT', vs_ml2_topic:'22 heures — pourquoi c\'est important', vs_ml2_desc:'Rappel doux avec explication de la biomécanique. Chaque heure sans gouttière retarde le résultat.',
+    vs_ml3_tag:'Phase SOFT', vs_ml3_topic:'Premiers progrès visibles', vs_ml3_desc:'Comparaison photo étape 1 vs. maintenant. Motivation par des résultats visibles.',
+    vs_ml4_tag:'Phase REGULAR', vs_ml4_topic:'La phase active commence', vs_ml4_desc:'"Votre gouttière travaille maintenant à plein régime." Sensation de pression = signe d\'un mouvement correct.',
+    vs_ml5_tag:'Jalon', vs_ml5_topic:'Mi-parcours 🎉', vs_ml5_desc:'"Vous êtes exactement dans les temps." Rappel avant/après. Point culminant émotionnel.',
+    vs_ml6_tag:'INTENSE · Quotidien · Rétention', vs_ml6_topic:'Conseils · Phase INTENSE · Contention · Conclusion', vs_ml6_desc:'Voyage, soins, dernière ligne droite, photo, information sur la contention. Conclusion avec remerciements personnels.',
+    vis_pod_label:'Podcast VISIBAL',
+    vis_pod_h2:'Savoir pour les patients.<br><em style="font-style:normal;color:var(--red);">Simplement expliqué.</em>',
+    vs_pod_lead:'Le podcast VISIBAL explique aux patients de manière compréhensible ce qui se passe pendant leur traitement — sans jargon médical. Sur Spotify, Apple Podcasts et YouTube.',
+    vs_pod_featured_label:'Épisode vedette',
+    vs_pod_featured_title:'Pourquoi 22 heures ?',
+    vs_pod_featured_desc:'Ce qui se passe quand on ne porte pas assez son aligneur — expliqué simplement, sans termes techniques.',
+    vs_pod_ep5_title:'Les trois phases : SOFT, REGULAR, INTENSE expliquées',
+    vs_pod_ep5_desc:'Que signifient les différents matériaux d\'aligneurs pour mes dents ?',
+    vs_pod_ep4_title:'Douleurs, pression, inconfort — qu\'est-ce qui est normal ?',
+    vs_pod_ep4_desc:'Quand dois-je m\'inquiéter et quand tout va bien ?',
+    vs_pod_ep3_title:'Manger, boire, se brosser les dents avec un aligneur',
+    vs_pod_ep3_desc:'Les questions du quotidien les plus importantes — réponses simples et claires.',
+    vs_pod_ep2_title:'Contention : pourquoi le traitement continue après le traitement',
+    vs_pod_ep2_desc:'Pas de contention = récidive. Ce que les patients doivent savoir.',
+    vs_pod_cat_info:'Info Patient', vs_pod_cat_daily:'Quotidien', vs_pod_cat_retention:'Rétention',
+    vs_faq_label:'Info Patient',
+    vs_faq_h2:'Questions que les patients<br>posent vraiment.',
+    vs_faq_lead:'VISIBAL répond automatiquement aux questions les plus fréquentes des patients — 24/7, dans la bonne langue. Cela soulage votre cabinet chaque jour.',
+    vs_faq1_q:'« Combien de temps dois-je porter l\'aligneur chaque jour ? »',
+    vs_faq1_a:'Au moins 22 heures par jour — ce n\'est pas une recommandation, c\'est une nécessité médicale. En dessous de 20h, l\'aligneur perd son efficacité biomécanique. VISIBAL vous rappelle chaque jour.',
+    vs_faq2_q:'« L\'aligneur appuie fort — est-ce normal ? »',
+    vs_faq2_a:'La sensation de pression dans les 2–3 premiers jours après un changement d\'étape est normale et souhaitée — elle indique un mouvement dentaire actif. Les douleurs intenses ou les blessures des muqueuses doivent être signalées immédiatement.',
+    vs_faq3_q:'« Puis-je manger et boire avec l\'aligneur ? »',
+    vs_faq3_a:'Toujours le retirer avant de manger. Boissons : l\'eau avec l\'aligneur c\'est OK. Tout le reste — café, jus, alcool — peut tacher et déformer l\'aligneur. Toujours se brosser les dents avant de le remettre.',
+    vs_faq4_q:'« Que se passe-t-il si j\'oublie une étape ? »',
+    vs_faq4_a:'Pas de panique. Continuer à porter l\'étape actuelle et en parler au prochain rendez-vous. Ne jamais passer à l\'étape suivante si l\'actuelle n\'est pas parfaitement ajustée — votre cabinet décide du changement.',
+    vs_faq5_q:'« Quelle est la différence entre SOFT, REGULAR et INTENSE ? »',
+    vs_faq5_a:'Trois matériaux différents pour trois phases de traitement : SOFT démarre doucement, REGULAR déplace activement, INTENSE stabilise en final. Chaque phase a une fonction clinique — le système Three-Aligner est supérieur sur le plan biomécanique.',
+    vs_faq6_q:'« Ai-je vraiment besoin d\'une contention après le traitement ? »',
+    vs_faq6_a:'Oui, toujours. Les dents ont un potentiel naturel de récidive. Sans contention, les dents peuvent se déplacer à nouveau. Votre cabinet vous expliquera le bon protocole de contention pour votre résultat.',
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'Le tableau de bord pour votre cabinet.',
+    vs_clinic_lead:'Voyez d\'un coup d\'œil quels patients sont compliants et lesquels ont besoin de votre attention — avant que cela ne devienne un problème.',
+    vs_clinic_stat1:'Ø Taux de compliance',
+    vs_clinic_stat2:'Moins d\'appels urgents',
+    vs_clinic_stat3:'L\'assistant répond 24/7',
+    vs_clinic_stat4:'Intervention précoce',
+    vs_bm_label:'Modèle économique',
+    vs_bm_h2:'Tarification simple.',
+    vs_bm_free_tier:'Gratuit', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/mois</em>',
+    vs_bm_free_f1:'Jusqu\'à 10 patients actifs', vs_bm_free_f2:'Suivi du traitement', vs_bm_free_f3:'Assistant en ligne (limité)', vs_bm_free_f4:'Pour tous les clients nivellipso®',
+    vs_bm_pro_tier:'Recommandé', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/mois</em>',
+    vs_bm_pro_f1:'Patients illimités', vs_bm_pro_f2:'Tableau de bord clinique complet', vs_bm_pro_f3:'Assistant en ligne illimité', vs_bm_pro_f4:'Mailing patient mensuel', vs_bm_pro_f5:'Intégration podcast', vs_bm_pro_f6:'KPIs cabinet &amp; rapports',
+    vs_bm_pro_cta:'Demander une démo',
+    vs_bm_ent_tier:'Entreprise', vs_bm_ent_plan:'Marque blanche', vs_bm_ent_price:'Sur <em>demande</em>',
+    vs_bm_ent_f1:'Branding personnalisé', vs_bm_ent_f2:'Intégration API (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; chaînes', vs_bm_ent_f4:'Support dédié',
+    vs_rm_label:'Feuille de route',
+    vs_rm_h2:'De la vision à la réalité.',
+    vs_rm1_q:'T2 2026 · Maintenant', vs_rm1_title:'Lancement MVP', vs_rm1_desc:'Concept, design, stack tech. 5 premiers cabinets bêta. Fonctionnalités de base live.',
+    vs_rm2_q:'T3 2026', vs_rm2_title:'Déploiement bêta', vs_rm2_desc:'20 cabinets, mailing patient actif, tableau de bord v2, boucle de retour.',
+    vs_rm3_q:'T4 2026', vs_rm3_title:'Mise en service', vs_rm3_desc:'Lancement App Store (iOS/Android). 50+ cabinets. Podcast saison 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'International', vs_rm4_desc:'API OnyxCeph, expansion DACH, partenariats DSO.',
+    vs_cta_h2:'Testez VISIBAL maintenant.',
+    vs_cta_p:'Démo gratuite pour les cabinets nivellipso® — Albin vous montre tout en 30 minutes en personne.',
+    vs_cta_btn:'Demander une démo →',
+    vs_chat_toggle:'Questions sur VISIBAL ?',
+    vs_chat_hdr_name:'Conseil VISIBAL',
+    vs_chat_hdr_sub:'App · Tableau de bord · Mailing · Podcast',
+    vs_chat_welcome:'Bonjour ! Je réponds à vos questions sur VISIBAL — app patient, tableau de bord clinique, tarifs et demandes de démo.',
+    vs_chat_sugg1:'Combien coûte VISIBAL ?',
+    vs_chat_sugg2:'Réserver une démo',
+    vs_chat_sugg3:'Comment fonctionne le mailing ?',
+    vs_chat_ph:'Votre question sur VISIBAL...',
+    vs_footer_desc:'VISIBAL — La plateforme clinique de compliance par nivellipso®. Swiss-Made depuis 2015.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'Application patient',
+    vs_ft_col1_l2:'Mailing patient',
+    vs_ft_col1_l3:'Podcast',
+    vs_ft_col1_l4:'Demander une démo',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Site web',
+    vs_ft_col2_l2:'Aligneurs',
+    vs_ft_col2_l3:'Academy',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Contact',
+    vs_ft_col3_l3:'Formulaire de contact',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'CONFIDENTIEL · NIVELLMEDICAL AG'
+  },
+  it: {
+    n_home:'Home', n_align:'Allineatori', n_brack:'Brackets', n_white:'Sbiancamento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contatti', n_portal:'Doctor Portal →',
+    vis_label:'VISIBAL',
+    vis_h1:'Il 30% dei pazienti<br>abbandona.<br><em style="font-style:normal;color:var(--red);">VISIBAL lo elimina.</em>',
+    vis_sub:'La prima piattaforma clinica di accompagnamento per i pazienti con allineatori — app paziente, dashboard clinica, mailing mensile e canale podcast. Powered by nivellipso®.',
+    vis_cta1:'Richiedi demo →',
+    vis_cta2:'Scopri di più',
+    vs_stat_noncompliance:'Non-Compliance',
+    vs_stat_better:'Migliore con l\'app',
+    vs_stat_price:'Per studio (Pro)',
+    vis_app_label:'VISIBAL Paziente',
+    vis_app_h2:'L\'app per i tuoi pazienti.',
+    vs_app_lead:'Nessun problema di compliance. I pazienti sono accompagnati in ogni fase del trattamento — con feedback in tempo reale, assistente online e documentazione fotografica.',
+    vs_feat1_title:'Progresso del trattamento',
+    vs_feat1_desc:'Monitoraggio in tempo reale di ogni step dell\'allineatore. I pazienti vedono la loro progressione visivamente — aumentando la motivazione e la disciplina di utilizzo.',
+    vs_feat2_title:'Assistente online 24/7',
+    vs_feat2_desc:'Domande su pressione, adattamento, cura — l\'assistente online risponde immediatamente, nella lingua del paziente. Alleggerisce enormemente lo studio.',
+    vs_feat3_title:'Monitoraggio 22h',
+    vs_feat3_desc:'I pazienti registrano il proprio tempo di utilizzo — VISIBAL ricorda e motiva. Il dashboard dello studio rileva immediatamente ogni calo di compliance.',
+    vs_feat4_title:'Documentazione fotografica',
+    vs_feat4_desc:'Foto standardizzate con istruzioni — frontale, laterale, occlusale. Timeline automatica. Ideale per i controlli di avanzamento e prima/dopo.',
+    vs_feat5_title:'Traguardi',
+    vs_feat5_desc:'Le conclusioni di fase vengono celebrate. „Fase 2 completata!" — il legame emotivo aumenta significativamente la compliance per la fase successiva.',
+    vs_feat6_title:'6 lingue',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Ogni paziente riceve informazioni nella propria lingua madre — comunicazione senza lacune.',
+    vis_mail_label:'Mailing Pazienti',
+    vis_mail_h2:'1× al mese.<br>Delicato. Chiaro. Efficace.',
+    vs_mail_lead:'Automaticamente basato sulle fasi — il messaggio giusto al momento giusto. Mai invadente, sempre pertinente. Nella lingua madre del paziente.',
+    vs_mail_prinzip_label:'Il principio',
+    vs_mail_prinzip_text:'Ogni paziente con allineatori riceve 1 e-mail al mese — adattata alla sua fase di trattamento attuale. Nessun invio di massa. Nessun template generico. Curato clinicamente, inviato automaticamente.',
+    vs_mail_b1_title:'Automaticamente basato sulle fasi',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → contenuti adatti a ciascuna fase',
+    vs_mail_b2_title:'6 lingue',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'Conforme GDPR',
+    vs_mail_b3_sub:'Opt-in, cancellazione in qualsiasi momento',
+    vs_mail_b4_title:'Via VISIBAL o e-mail',
+    vs_mail_b4_sub:'Notifica push o mailing classico',
+    vs_ml1_tag:'Fase SOFT', vs_ml1_topic:'Benvenuto &amp; Inizio', vs_ml1_desc:'Panoramica del trattamento, fase SOFT spiegata, configurazione app VISIBAL. „Il tuo sorriso è iniziato."',
+    vs_ml2_tag:'Fase SOFT', vs_ml2_topic:'22 ore — perché è importante', vs_ml2_desc:'Promemoria delicato con spiegazione della biomeccanica. Ogni ora senza l\'allineatore ritarda il risultato.',
+    vs_ml3_tag:'Fase SOFT', vs_ml3_topic:'Primo progresso visibile', vs_ml3_desc:'Confronto fotografico passo 1 vs. adesso. Motivazione attraverso risultati visibili.',
+    vs_ml4_tag:'Fase REGULAR', vs_ml4_topic:'Inizia la fase attiva', vs_ml4_desc:'"Ora il tuo allineatore sta lavorando a pieno regime." Sensazione di pressione = segno di movimento corretto.',
+    vs_ml5_tag:'Traguardo', vs_ml5_topic:'A metà strada 🎉', vs_ml5_desc:'"Sei esattamente in linea con i tempi." Promemoria prima/dopo. Momento emotivo culminante.',
+    vs_ml6_tag:'INTENSE · Quotidiano · Retention', vs_ml6_topic:'Consigli · Fase INTENSE · Retainer · Conclusione', vs_ml6_desc:'Viaggio, cura, ultimo tratto, foto, informazioni sul retainer. Conclusione con ringraziamenti personali.',
+    vis_pod_label:'Podcast VISIBAL',
+    vis_pod_h2:'Conoscenza per i pazienti.<br><em style="font-style:normal;color:var(--red);">Spiegato semplicemente.</em>',
+    vs_pod_lead:'Il podcast VISIBAL spiega ai pazienti in modo comprensibile cosa succede durante il loro trattamento — senza gergo medico. Su Spotify, Apple Podcasts e YouTube.',
+    vs_pod_featured_label:'Episodio in evidenza',
+    vs_pod_featured_title:'Perché 22 ore?',
+    vs_pod_featured_desc:'Cosa succede quando non si indossa abbastanza l\'allineatore — spiegato semplicemente, senza termini tecnici.',
+    vs_pod_ep5_title:'Le tre fasi: SOFT, REGULAR, INTENSE spiegate',
+    vs_pod_ep5_desc:'Cosa significano i diversi materiali degli allineatori per i miei denti?',
+    vs_pod_ep4_title:'Dolore, pressione, disagio — cosa è normale?',
+    vs_pod_ep4_desc:'Quando devo preoccuparmi e quando va tutto bene?',
+    vs_pod_ep3_title:'Mangiare, bere, lavarsi i denti con l\'allineatore',
+    vs_pod_ep3_desc:'Le domande quotidiane più importanti — risposte semplici e chiare.',
+    vs_pod_ep2_title:'Retainer: perché il trattamento continua dopo il trattamento',
+    vs_pod_ep2_desc:'Nessun retainer = recidiva. Quello che i pazienti devono sapere.',
+    vs_pod_cat_info:'Info Paziente', vs_pod_cat_daily:'Quotidiano', vs_pod_cat_retention:'Retention',
+    vs_faq_label:'Info Paziente',
+    vs_faq_h2:'Domande che i pazienti<br>fanno davvero.',
+    vs_faq_lead:'VISIBAL risponde automaticamente alle domande più frequenti dei pazienti — 24/7, nella lingua giusta. Questo alleggerisce il tuo studio ogni giorno.',
+    vs_faq1_q:'„Per quanto tempo devo indossare l\'allineatore ogni giorno?"',
+    vs_faq1_a:'Almeno 22 ore al giorno — non è una raccomandazione, è una necessità medica. Sotto le 20h l\'allineatore perde efficacia biomeccanica. VISIBAL ti ricorda ogni giorno.',
+    vs_faq2_q:'„L\'allineatore preme forte — è normale?"',
+    vs_faq2_a:'La sensazione di pressione nei primi 2–3 giorni dopo il cambio di step è normale e desiderata — mostra un movimento dentale attivo. Dolori forti o lesioni alle mucose devono essere segnalati immediatamente.',
+    vs_faq3_q:'„Posso mangiare e bere con l\'allineatore?"',
+    vs_faq3_a:'Toglierlo sempre prima di mangiare. Bere: l\'acqua con l\'allineatore va bene. Tutto il resto — caffè, succhi, alcol — può colorare e deformare l\'allineatore. Lavarsi sempre i denti prima di reinserirlo.',
+    vs_faq4_q:'„Cosa succede se dimentico uno step?"',
+    vs_faq4_a:'Niente panico. Continuare a indossare lo step attuale e riferirlo alla prossima visita. Non passare mai allo step successivo se quello attuale non è perfettamente adattato — il tuo studio decide il cambio.',
+    vs_faq5_q:'„Qual è la differenza tra SOFT, REGULAR e INTENSE?"',
+    vs_faq5_a:'Tre materiali diversi per tre fasi di trattamento: SOFT inizia delicatamente, REGULAR sposta attivamente, INTENSE stabilizza finalmente. Ogni fase ha una funzione clinica — il sistema Three-Aligner è biomeccanicamente superiore.',
+    vs_faq6_q:'„Ho davvero bisogno di un retainer dopo il trattamento?"',
+    vs_faq6_a:'Sì, sempre. I denti hanno un potenziale di recidiva naturale. Senza retainer, i denti possono spostarsi di nuovo. Il tuo studio ti spiegherà il corretto regime di retainer per il tuo risultato.',
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'Il dashboard per il tuo studio.',
+    vs_clinic_lead:'Vedi a colpo d\'occhio quali pazienti sono complianti e quali necessitano della tua attenzione — prima che diventi un problema.',
+    vs_clinic_stat1:'Ø Tasso di compliance',
+    vs_clinic_stat2:'Meno chiamate urgenti',
+    vs_clinic_stat3:'L\'assistente risponde 24/7',
+    vs_clinic_stat4:'Intervento precoce',
+    vs_bm_label:'Modello di business',
+    vs_bm_h2:'Prezzi semplici.',
+    vs_bm_free_tier:'Gratuito', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/mese</em>',
+    vs_bm_free_f1:'Fino a 10 pazienti attivi', vs_bm_free_f2:'Monitoraggio del trattamento', vs_bm_free_f3:'Assistente online (limitato)', vs_bm_free_f4:'Per tutti i clienti nivellipso®',
+    vs_bm_pro_tier:'Consigliato', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/mese</em>',
+    vs_bm_pro_f1:'Pazienti illimitati', vs_bm_pro_f2:'Dashboard clinica completa', vs_bm_pro_f3:'Assistente online illimitato', vs_bm_pro_f4:'Mailing mensile ai pazienti', vs_bm_pro_f5:'Integrazione podcast', vs_bm_pro_f6:'KPI studio &amp; report',
+    vs_bm_pro_cta:'Richiedi demo',
+    vs_bm_ent_tier:'Enterprise', vs_bm_ent_plan:'White-Label', vs_bm_ent_price:'Su <em>richiesta</em>',
+    vs_bm_ent_f1:'Branding personalizzato', vs_bm_ent_f2:'Integrazione API (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; catene', vs_bm_ent_f4:'Supporto dedicato',
+    vs_rm_label:'Roadmap',
+    vs_rm_h2:'Dalla visione alla realtà.',
+    vs_rm1_q:'Q2 2026 · Ora', vs_rm1_title:'Lancio MVP', vs_rm1_desc:'Concept, design, stack tecnologico. Primi 5 studi beta. Funzionalità core live.',
+    vs_rm2_q:'Q3 2026', vs_rm2_title:'Roll-out Beta', vs_rm2_desc:'20 studi, mailing pazienti attivo, dashboard v2, ciclo di feedback.',
+    vs_rm3_q:'Q4 2026', vs_rm3_title:'Go-Live', vs_rm3_desc:'Lancio App Store (iOS/Android). 50+ studi. Podcast stagione 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'Internazionale', vs_rm4_desc:'API OnyxCeph, espansione DACH, partnership DSO.',
+    vs_cta_h2:'Prova VISIBAL ora.',
+    vs_cta_p:'Demo gratuita per gli studi nivellipso® — Albin ti mostra tutto personalmente in 30 minuti.',
+    vs_cta_btn:'Richiedi demo →',
+    vs_chat_toggle:'Domande su VISIBAL?',
+    vs_chat_hdr_name:'Consulenza VISIBAL',
+    vs_chat_hdr_sub:'App · Dashboard · Mailing · Podcast',
+    vs_chat_welcome:'Ciao! Rispondo alle tue domande su VISIBAL — app paziente, dashboard clinica, prezzi e richieste di demo.',
+    vs_chat_sugg1:'Quanto costa VISIBAL?',
+    vs_chat_sugg2:'Prenota una demo',
+    vs_chat_sugg3:'Come funziona il mailing?',
+    vs_chat_ph:'La tua domanda su VISIBAL...',
+    vs_footer_desc:'VISIBAL — La piattaforma clinica di compliance di nivellipso®. Swiss-Made dal 2015.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'App paziente',
+    vs_ft_col1_l2:'Mailing pazienti',
+    vs_ft_col1_l3:'Podcast',
+    vs_ft_col1_l4:'Richiedi demo',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Sito web',
+    vs_ft_col2_l2:'Allineatori',
+    vs_ft_col2_l3:'Academy',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Contatti',
+    vs_ft_col3_l3:'Modulo di contatto',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'RISERVATO · NIVELLMEDICAL AG'
+  },
+  ru: {
+    n_home:'Главная', n_align:'Элайнеры', n_brack:'Брекеты', n_white:'Отбеливание', n_vis:'VISIBAL', n_acad:'Академия', n_con:'Контакты', n_portal:'Doctor Portal →',
+    vis_label:'VISIBAL',
+    vis_h1:'30% пациентов<br>бросают лечение.<br><em style="font-style:normal;color:var(--red);">VISIBAL это меняет.</em>',
+    vis_sub:'Первая клиническая платформа сопровождения для пациентов с элайнерами — приложение для пациентов, клиническая панель управления, ежемесячная рассылка и подкаст. Powered by nivellipso®.',
+    vis_cta1:'Запросить демо →',
+    vis_cta2:'Узнать больше',
+    vs_stat_noncompliance:'Несоблюдение режима',
+    vs_stat_better:'Лучше с приложением',
+    vs_stat_price:'За клинику (Pro)',
+    vis_app_label:'VISIBAL Пациент',
+    vis_app_h2:'Приложение для ваших пациентов.',
+    vs_app_lead:'Никаких проблем с соблюдением режима. Пациенты сопровождаются на каждом этапе лечения — с обратной связью в реальном времени, онлайн-ассистентом и фотодокументацией.',
+    vs_feat1_title:'Ход лечения',
+    vs_feat1_desc:'Отслеживание каждого шага элайнера в реальном времени. Пациенты видят свой прогресс визуально — это повышает мотивацию и дисциплину ношения.',
+    vs_feat2_title:'Онлайн-ассистент 24/7',
+    vs_feat2_desc:'Вопросы о давлении, посадке, уходе — онлайн-ассистент отвечает мгновенно, на языке пациента. Значительно снижает нагрузку на клинику.',
+    vs_feat3_title:'Отслеживание 22ч',
+    vs_feat3_desc:'Пациенты сами фиксируют время ношения — VISIBAL напоминает и мотивирует. Панель управления клиники немедленно замечает любое снижение комплаентности.',
+    vs_feat4_title:'Фотодокументация',
+    vs_feat4_desc:'Стандартизированные фото по инструкции — фронтальные, боковые, окклюзионные. Автоматическая хронология. Идеально для контроля прогресса и сравнения до/после.',
+    vs_feat5_title:'Вехи',
+    vs_feat5_desc:'Завершение этапов отмечается. „Этап 2 пройден!" — эмоциональная вовлечённость значительно повышает комплаентность на следующем этапе.',
+    vs_feat6_title:'6 языков',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Каждый пациент получает информацию на родном языке — полноценная коммуникация.',
+    vis_mail_label:'Рассылка пациентам',
+    vis_mail_h2:'1× в месяц.<br>Мягко. Ясно. Эффективно.',
+    vs_mail_lead:'Автоматически по фазам — правильное сообщение в нужный момент. Никогда навязчиво, всегда актуально. На родном языке пациента.',
+    vs_mail_prinzip_label:'Принцип',
+    vs_mail_prinzip_text:'Каждый пациент с элайнерами получает 1 письмо в месяц — адаптированное к текущей фазе лечения. Никаких массовых рассылок. Никаких шаблонов. Клинически отобрано, автоматически отправлено.',
+    vs_mail_b1_title:'Автоматически по фазам',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → соответствующий контент для каждой фазы',
+    vs_mail_b2_title:'6 языков',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'Соответствие GDPR',
+    vs_mail_b3_sub:'Opt-in, отписка в любое время',
+    vs_mail_b4_title:'Через VISIBAL или e-mail',
+    vs_mail_b4_sub:'Push-уведомление или классическая рассылка',
+    vs_ml1_tag:'Фаза SOFT', vs_ml1_topic:'Добро пожаловать &amp; Старт', vs_ml1_desc:'Обзор лечения, объяснение фазы SOFT, настройка приложения VISIBAL. „Ваша улыбка началась."',
+    vs_ml2_tag:'Фаза SOFT', vs_ml2_topic:'22 часа — почему это важно', vs_ml2_desc:'Мягкое напоминание с объяснением биомеханики. Каждый час без элайнера откладывает результат.',
+    vs_ml3_tag:'Фаза SOFT', vs_ml3_topic:'Первый прогресс виден', vs_ml3_desc:'Сравнение фото этап 1 vs. сейчас. Мотивация через видимый результат.',
+    vs_ml4_tag:'Фаза REGULAR', vs_ml4_topic:'Начинается активная фаза', vs_ml4_desc:'„Теперь ваш элайнер работает на полную мощность." Ощущение давления = признак правильного движения.',
+    vs_ml5_tag:'Веха', vs_ml5_topic:'Полпути 🎉', vs_ml5_desc:'„Вы точно в графике." Напоминание до/после. Эмоциональный пик.',
+    vs_ml6_tag:'INTENSE · Повседневная жизнь · Ретенция', vs_ml6_topic:'Советы · Фаза INTENSE · Ретейнер · Завершение', vs_ml6_desc:'Путешествие, уход, последний этап, фото, информация о ретейнере. Завершение с личной благодарностью.',
+    vis_pod_label:'Подкаст VISIBAL',
+    vis_pod_h2:'Знания для пациентов.<br><em style="font-style:normal;color:var(--red);">Просто объяснено.</em>',
+    vs_pod_lead:'Подкаст VISIBAL объясняет пациентам доступным языком, что происходит во время лечения — без медицинского жаргона. На Spotify, Apple Podcasts и YouTube.',
+    vs_pod_featured_label:'Рекомендуемый эпизод',
+    vs_pod_featured_title:'Почему 22 часа?',
+    vs_pod_featured_desc:'Что происходит, когда элайнер носят недостаточно — объяснено просто, без технических терминов.',
+    vs_pod_ep5_title:'Три фазы: SOFT, REGULAR, INTENSE — объяснение',
+    vs_pod_ep5_desc:'Что означают различные материалы элайнеров для моих зубов?',
+    vs_pod_ep4_title:'Боль, давление, дискомфорт — что является нормой?',
+    vs_pod_ep4_desc:'Когда стоит беспокоиться, а когда всё в порядке?',
+    vs_pod_ep3_title:'Еда, напитки, чистка зубов с элайнером',
+    vs_pod_ep3_desc:'Ответы на самые важные повседневные вопросы — просто и ясно.',
+    vs_pod_ep2_title:'Ретейнер: почему лечение продолжается после лечения',
+    vs_pod_ep2_desc:'Нет ретейнера = рецидив. Что должны знать пациенты.',
+    vs_pod_cat_info:'Инфо для пациента', vs_pod_cat_daily:'Повседневная жизнь', vs_pod_cat_retention:'Ретенция',
+    vs_faq_label:'Инфо для пациента',
+    vs_faq_h2:'Вопросы, которые пациенты<br>действительно задают.',
+    vs_faq_lead:'VISIBAL автоматически отвечает на самые частые вопросы пациентов — 24/7, на нужном языке. Это ежедневно разгружает вашу клинику.',
+    vs_faq1_q:'„Как долго нужно носить элайнер каждый день?"',
+    vs_faq1_a:'Не менее 22 часов в день — это не рекомендация, это медицинская необходимость. Менее 20ч элайнер теряет биомеханическую эффективность. VISIBAL напоминает вам ежедневно.',
+    vs_faq2_q:'„Элайнер сильно давит — это нормально?"',
+    vs_faq2_a:'Ощущение давления в первые 2–3 дня после смены ступени нормально и желательно — оно указывает на активное движение зубов. Сильная боль или повреждения слизистой — немедленно сообщайте.',
+    vs_faq3_q:'„Можно ли есть и пить с элайнером?"',
+    vs_faq3_a:'Всегда снимайте перед едой. Пить: вода с элайнером допустима. Всё остальное — кофе, соки, алкоголь — может окрасить и деформировать элайнер. Всегда чистите зубы перед его надеванием.',
+    vs_faq4_q:'„Что произойдёт, если я пропущу ступень?"',
+    vs_faq4_a:'Без паники. Продолжайте носить текущую ступень и сообщите на следующем приёме. Никогда не переходите к следующей ступени, если текущая не сидит идеально — ваша клиника решает о смене.',
+    vs_faq5_q:'„В чём разница между SOFT, REGULAR и INTENSE?"',
+    vs_faq5_a:'Три разных материала для трёх фаз лечения: SOFT начинает мягко, REGULAR активно перемещает, INTENSE стабилизирует финально. Каждая фаза выполняет клиническую функцию — система Three-Aligner биомеханически превосходна.',
+    vs_faq6_q:'„Мне действительно нужен ретейнер после лечения?"',
+    vs_faq6_a:'Да, всегда. Зубы имеют естественный потенциал рецидива. Без ретейнера зубы могут вернуться обратно. Ваша клиника объяснит правильный режим ретенции для вашего результата.',
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'Панель управления для вашей клиники.',
+    vs_clinic_lead:'Видите одним взглядом, какие пациенты соблюдают режим, а какие требуют вашего внимания — прежде чем это станет проблемой.',
+    vs_clinic_stat1:'Ø Уровень комплаентности',
+    vs_clinic_stat2:'Меньше экстренных звонков',
+    vs_clinic_stat3:'Ассистент отвечает 24/7',
+    vs_clinic_stat4:'Раннее вмешательство',
+    vs_bm_label:'Бизнес-модель',
+    vs_bm_h2:'Простая ценовая структура.',
+    vs_bm_free_tier:'Бесплатно', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/мес.</em>',
+    vs_bm_free_f1:'До 10 активных пациентов', vs_bm_free_f2:'Отслеживание лечения', vs_bm_free_f3:'Онлайн-ассистент (ограниченно)', vs_bm_free_f4:'Для всех клиентов nivellipso®',
+    vs_bm_pro_tier:'Рекомендуется', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/мес.</em>',
+    vs_bm_pro_f1:'Неограниченные пациенты', vs_bm_pro_f2:'Полная клиническая панель управления', vs_bm_pro_f3:'Онлайн-ассистент без ограничений', vs_bm_pro_f4:'Ежемесячная рассылка пациентам', vs_bm_pro_f5:'Интеграция подкаста', vs_bm_pro_f6:'KPI клиники &amp; отчёты',
+    vs_bm_pro_cta:'Запросить демо',
+    vs_bm_ent_tier:'Enterprise', vs_bm_ent_plan:'White-Label', vs_bm_ent_price:'По <em>запросу</em>',
+    vs_bm_ent_f1:'Собственный брендинг', vs_bm_ent_f2:'Интеграция API (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; сети клиник', vs_bm_ent_f4:'Выделенная поддержка',
+    vs_rm_label:'Дорожная карта',
+    vs_rm_h2:'От идеи к реальности.',
+    vs_rm1_q:'Q2 2026 · Сейчас', vs_rm1_title:'Запуск MVP', vs_rm1_desc:'Концепция, дизайн, технологический стек. Первые 5 бета-клиник. Основные функции запущены.',
+    vs_rm2_q:'Q3 2026', vs_rm2_title:'Бета-развёртывание', vs_rm2_desc:'20 клиник, рассылка пациентам активна, панель управления v2, обратная связь.',
+    vs_rm3_q:'Q4 2026', vs_rm3_title:'Запуск', vs_rm3_desc:'Запуск в App Store (iOS/Android). 50+ клиник. Подкаст, сезон 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'Международный выход', vs_rm4_desc:'API OnyxCeph, расширение DACH, партнёрства DSO.',
+    vs_cta_h2:'Попробуйте VISIBAL сейчас.',
+    vs_cta_p:'Бесплатное демо для клиник nivellipso® — Альбин покажет всё лично за 30 минут.',
+    vs_cta_btn:'Запросить демо →',
+    vs_chat_toggle:'Вопросы о VISIBAL?',
+    vs_chat_hdr_name:'Консультация VISIBAL',
+    vs_chat_hdr_sub:'Приложение · Панель · Рассылка · Подкаст',
+    vs_chat_welcome:'Здравствуйте! Я отвечаю на ваши вопросы о VISIBAL — приложение для пациентов, клиническая панель управления, цены и запросы на демо.',
+    vs_chat_sugg1:'Сколько стоит VISIBAL?',
+    vs_chat_sugg2:'Записаться на демо',
+    vs_chat_sugg3:'Как работает рассылка?',
+    vs_chat_ph:'Ваш вопрос о VISIBAL...',
+    vs_footer_desc:'VISIBAL — Клиническая платформа комплаентности от nivellipso®. Швейцарское производство с 2015 г.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'Приложение для пациентов',
+    vs_ft_col1_l2:'Рассылка пациентам',
+    vs_ft_col1_l3:'Подкаст',
+    vs_ft_col1_l4:'Запросить демо',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Сайт',
+    vs_ft_col2_l2:'Элайнеры',
+    vs_ft_col2_l3:'Академия',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Контакты',
+    vs_ft_col3_l3:'Контактная форма',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'КОНФИДЕНЦИАЛЬНО · NIVELLMEDICAL AG'
+  },
+  es: {
+    n_home:'Inicio', n_align:'Alineadores', n_brack:'Brackets', n_white:'Blanqueamiento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contacto', n_portal:'Doctor Portal →',
+    vis_label:'VISIBAL',
+    vis_h1:'El 30% de los pacientes<br>abandona.<br><em style="font-style:normal;color:var(--red);">VISIBAL lo cambia.</em>',
+    vis_sub:'La primera plataforma clínica de acompañamiento para pacientes con alineadores — aplicación para pacientes, panel clínico, mailing mensual y canal de podcast. Powered by nivellipso®.',
+    vis_cta1:'Solicitar demo →',
+    vis_cta2:'Saber más',
+    vs_stat_noncompliance:'Incumplimiento',
+    vs_stat_better:'Mejor con la app',
+    vs_stat_price:'Por clínica (Pro)',
+    vis_app_label:'VISIBAL Paciente',
+    vis_app_h2:'La app para tus pacientes.',
+    vs_app_lead:'Sin más problemas de cumplimiento. Los pacientes son acompañados en cada fase del tratamiento — con retroalimentación en tiempo real, asistente en línea y documentación fotográfica.',
+    vs_feat1_title:'Progreso del tratamiento',
+    vs_feat1_desc:'Seguimiento en vivo de cada etapa del alineador. Los pacientes ven su progresión visualmente — aumentando la motivación y la disciplina de uso.',
+    vs_feat2_title:'Asistente en línea 24/7',
+    vs_feat2_desc:'Preguntas sobre presión, ajuste, cuidado — el asistente en línea responde de inmediato, en el idioma del paciente. Alivia enormemente la clínica.',
+    vs_feat3_title:'Seguimiento 22h',
+    vs_feat3_desc:'Los pacientes registran su propio tiempo de uso — VISIBAL recuerda y motiva. El panel de la clínica detecta inmediatamente cualquier caída de cumplimiento.',
+    vs_feat4_title:'Documentación fotográfica',
+    vs_feat4_desc:'Fotos estandarizadas con instrucciones — frontal, lateral, oclusal. Cronología automática. Ideal para controles de progreso y antes/después.',
+    vs_feat5_title:'Hitos',
+    vs_feat5_desc:'Las conclusiones de fase se celebran. „¡Fase 2 completada!" — el vínculo emocional aumenta significativamente el cumplimiento en la siguiente fase.',
+    vs_feat6_title:'6 idiomas',
+    vs_feat6_desc:'DE · FR · IT · EN · RU · ES. Cada paciente recibe información en su idioma nativo — comunicación sin brechas.',
+    vis_mail_label:'Mailing Pacientes',
+    vis_mail_h2:'1× al mes.<br>Suave. Claro. Eficaz.',
+    vs_mail_lead:'Automáticamente basado en fases — el mensaje correcto en el momento adecuado. Nunca intrusivo, siempre relevante. En el idioma nativo del paciente.',
+    vs_mail_prinzip_label:'El principio',
+    vs_mail_prinzip_text:'Cada paciente con alineadores recibe 1 e-mail al mes — adaptado a su fase de tratamiento actual. Sin envíos masivos. Sin plantillas genéricas. Curado clínicamente, enviado automáticamente.',
+    vs_mail_b1_title:'Automáticamente por fases',
+    vs_mail_b1_sub:'SOFT / REGULAR / INTENSE → contenido adaptado a cada fase',
+    vs_mail_b2_title:'6 idiomas',
+    vs_mail_b2_sub:'DE · FR · IT · EN · RU · ES',
+    vs_mail_b3_title:'Conforme RGPD',
+    vs_mail_b3_sub:'Opt-in, baja en cualquier momento',
+    vs_mail_b4_title:'Via VISIBAL o e-mail',
+    vs_mail_b4_sub:'Notificación push o mailing clásico',
+    vs_ml1_tag:'Fase SOFT', vs_ml1_topic:'Bienvenida &amp; Inicio', vs_ml1_desc:'Resumen del tratamiento, fase SOFT explicada, configuración de la app VISIBAL. „Tu sonrisa ha comenzado."',
+    vs_ml2_tag:'Fase SOFT', vs_ml2_topic:'22 horas — por qué importa', vs_ml2_desc:'Recordatorio suave con explicación de la biomecánica. Cada hora sin el alineador retrasa el resultado.',
+    vs_ml3_tag:'Fase SOFT', vs_ml3_topic:'Primer progreso visible', vs_ml3_desc:'Comparación de fotos paso 1 vs. ahora. Motivación a través de resultados visibles.',
+    vs_ml4_tag:'Fase REGULAR', vs_ml4_topic:'Comienza la fase activa', vs_ml4_desc:'"Ahora tu alineador está trabajando a pleno rendimiento." Sensación de presión = señal de movimiento correcto.',
+    vs_ml5_tag:'Hito', vs_ml5_topic:'A mitad de camino 🎉', vs_ml5_desc:'"Estás exactamente en el camino correcto." Recordatorio antes/después. Momento emocional culminante.',
+    vs_ml6_tag:'INTENSE · Vida diaria · Retención', vs_ml6_topic:'Consejos · Fase INTENSE · Retenedor · Conclusión', vs_ml6_desc:'Viaje, cuidado, último tramo, foto, información sobre el retenedor. Conclusión con agradecimiento personal.',
+    vis_pod_label:'Podcast VISIBAL',
+    vis_pod_h2:'Conocimiento para pacientes.<br><em style="font-style:normal;color:var(--red);">Explicado de forma sencilla.</em>',
+    vs_pod_lead:'El podcast VISIBAL explica a los pacientes de forma comprensible qué ocurre durante su tratamiento — sin jerga médica. En Spotify, Apple Podcasts y YouTube.',
+    vs_pod_featured_label:'Episodio destacado',
+    vs_pod_featured_title:'¿Por qué 22 horas?',
+    vs_pod_featured_desc:'Qué ocurre cuando no se lleva suficiente el alineador — explicado de forma sencilla, sin términos técnicos.',
+    vs_pod_ep5_title:'Las tres fases: SOFT, REGULAR, INTENSE explicadas',
+    vs_pod_ep5_desc:'¿Qué significan los diferentes materiales de alineadores para mis dientes?',
+    vs_pod_ep4_title:'Dolor, presión, malestar — ¿qué es normal?',
+    vs_pod_ep4_desc:'¿Cuándo debo preocuparme y cuándo todo está bien?',
+    vs_pod_ep3_title:'Comer, beber, cepillarse los dientes con alineador',
+    vs_pod_ep3_desc:'Las preguntas cotidianas más importantes respondidas — de forma sencilla y clara.',
+    vs_pod_ep2_title:'Retenedor: por qué el tratamiento continúa después del tratamiento',
+    vs_pod_ep2_desc:'Sin retenedor = recidiva. Lo que los pacientes deben saber.',
+    vs_pod_cat_info:'Info Paciente', vs_pod_cat_daily:'Vida diaria', vs_pod_cat_retention:'Retención',
+    vs_faq_label:'Info Paciente',
+    vs_faq_h2:'Preguntas que los pacientes<br>realmente hacen.',
+    vs_faq_lead:'VISIBAL responde automáticamente a las preguntas más frecuentes de los pacientes — 24/7, en el idioma correcto. Esto alivia tu clínica cada día.',
+    vs_faq1_q:'„¿Cuánto tiempo debo llevar el alineador cada día?"',
+    vs_faq1_a:'Al menos 22 horas al día — no es una recomendación, es una necesidad médica. Por debajo de 20h el alineador pierde eficacia biomecánica. VISIBAL te recuerda diariamente.',
+    vs_faq2_q:'„El alineador presiona mucho — ¿es normal?"',
+    vs_faq2_a:'La sensación de presión en los primeros 2–3 días tras el cambio de paso es normal y deseada — indica un movimiento dental activo. Dolores fuertes o lesiones en la mucosa deben comunicarse de inmediato.',
+    vs_faq3_q:'„¿Puedo comer y beber con el alineador puesto?"',
+    vs_faq3_a:'Siempre quitarlo antes de comer. Beber: el agua con el alineador está bien. Todo lo demás — café, zumos, alcohol — puede teñir y deformar el alineador. Siempre cepillarse los dientes antes de volver a colocarlo.',
+    vs_faq4_q:'„¿Qué pasa si me olvido un paso?"',
+    vs_faq4_a:'Sin pánico. Seguir usando el paso actual e informar en la próxima visita. Nunca avanzar al siguiente paso si el actual no encaja perfectamente — tu clínica decide el cambio.',
+    vs_faq5_q:'„¿Cuál es la diferencia entre SOFT, REGULAR e INTENSE?"',
+    vs_faq5_a:'Tres materiales diferentes para tres fases de tratamiento: SOFT comienza suavemente, REGULAR mueve activamente, INTENSE estabiliza finalmente. Cada fase tiene una función clínica — el sistema Three-Aligner es biomecánicamente superior.',
+    vs_faq6_q:'„¿Realmente necesito un retenedor después del tratamiento?"',
+    vs_faq6_a:'Sí, siempre. Los dientes tienen un potencial natural de recidiva. Sin retenedor, los dientes pueden volver a moverse. Tu clínica te explicará el régimen correcto de retención para tu resultado.',
+    vs_clinic_label:'VISIBAL Clinic',
+    vs_clinic_h2:'El panel para tu clínica.',
+    vs_clinic_lead:'Ve de un vistazo qué pacientes cumplen y cuáles necesitan tu atención — antes de que se convierta en un problema.',
+    vs_clinic_stat1:'Ø Tasa de cumplimiento',
+    vs_clinic_stat2:'Menos llamadas urgentes',
+    vs_clinic_stat3:'El asistente responde 24/7',
+    vs_clinic_stat4:'Intervención temprana',
+    vs_bm_label:'Modelo de negocio',
+    vs_bm_h2:'Precios simples.',
+    vs_bm_free_tier:'Gratis', vs_bm_free_plan:'Basic', vs_bm_free_price:'CHF 0 <em>/mes</em>',
+    vs_bm_free_f1:'Hasta 10 pacientes activos', vs_bm_free_f2:'Seguimiento del tratamiento', vs_bm_free_f3:'Asistente en línea (limitado)', vs_bm_free_f4:'Para todos los clientes de nivellipso®',
+    vs_bm_pro_tier:'Recomendado', vs_bm_pro_plan:'Pro', vs_bm_pro_price:'CHF 89 <em>/mes</em>',
+    vs_bm_pro_f1:'Pacientes ilimitados', vs_bm_pro_f2:'Panel clínico completo', vs_bm_pro_f3:'Asistente en línea ilimitado', vs_bm_pro_f4:'Mailing mensual a pacientes', vs_bm_pro_f5:'Integración de podcast', vs_bm_pro_f6:'KPIs clínica &amp; informes',
+    vs_bm_pro_cta:'Solicitar demo',
+    vs_bm_ent_tier:'Enterprise', vs_bm_ent_plan:'White-Label', vs_bm_ent_price:'Por <em>consulta</em>',
+    vs_bm_ent_f1:'Branding propio', vs_bm_ent_f2:'Integración API (OnyxCeph)', vs_bm_ent_f3:'DSO &amp; cadenas', vs_bm_ent_f4:'Soporte dedicado',
+    vs_rm_label:'Hoja de ruta',
+    vs_rm_h2:'De la visión a la realidad.',
+    vs_rm1_q:'Q2 2026 · Ahora', vs_rm1_title:'Lanzamiento MVP', vs_rm1_desc:'Concepto, diseño, stack tecnológico. Primeras 5 clínicas beta. Funcionalidades principales en vivo.',
+    vs_rm2_q:'Q3 2026', vs_rm2_title:'Roll-out Beta', vs_rm2_desc:'20 clínicas, mailing a pacientes activo, panel v2, bucle de retroalimentación.',
+    vs_rm3_q:'Q4 2026', vs_rm3_title:'Go-Live', vs_rm3_desc:'Lanzamiento en App Store (iOS/Android). 50+ clínicas. Podcast temporada 1.',
+    vs_rm4_q:'2027+', vs_rm4_title:'Internacional', vs_rm4_desc:'API OnyxCeph, expansión DACH, asociaciones DSO.',
+    vs_cta_h2:'Prueba VISIBAL ahora.',
+    vs_cta_p:'Demo gratuita para clínicas nivellipso® — Albin te muestra todo en 30 minutos personalmente.',
+    vs_cta_btn:'Solicitar demo →',
+    vs_chat_toggle:'¿Preguntas sobre VISIBAL?',
+    vs_chat_hdr_name:'Consulta VISIBAL',
+    vs_chat_hdr_sub:'App · Panel · Mailing · Podcast',
+    vs_chat_welcome:'¡Hola! Respondo tus preguntas sobre VISIBAL — app para pacientes, panel clínico, precios y solicitudes de demo.',
+    vs_chat_sugg1:'¿Cuánto cuesta VISIBAL?',
+    vs_chat_sugg2:'Reservar una demo',
+    vs_chat_sugg3:'¿Cómo funciona el mailing?',
+    vs_chat_ph:'Tu pregunta sobre VISIBAL...',
+    vs_footer_desc:'VISIBAL — La plataforma clínica de cumplimiento de nivellipso®. Swiss-Made desde 2015.',
+    vs_ft_col1_h:'VISIBAL',
+    vs_ft_col1_l1:'App paciente',
+    vs_ft_col1_l2:'Mailing pacientes',
+    vs_ft_col1_l3:'Podcast',
+    vs_ft_col1_l4:'Solicitar demo',
+    vs_ft_col2_h:'nivellipso®',
+    vs_ft_col2_l1:'Sitio web',
+    vs_ft_col2_l2:'Alineadores',
+    vs_ft_col2_l3:'Academy',
+    vs_ft_col2_l4:'Doctor Portal',
+    vs_ft_col3_h:'Contacto',
+    vs_ft_col3_l3:'Formulario de contacto',
+    vs_ft_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    vs_ft_conf:'CONFIDENCIAL · NIVELLMEDICAL AG'
+  }
+};
+window.NIVELL_T = T;
+document.addEventListener('DOMContentLoaded', () => {
+  setNivellLang(localStorage.getItem('nivell_lang') || 'de', T);
+});
+</script>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  initScrollAnimations();
+  setActiveNav();
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

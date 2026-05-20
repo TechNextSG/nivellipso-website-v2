@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whitening — nivellipso® Professional Bleaching</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C00000'/><rect x='14' y='6' width='4' height='20' fill='white'/><rect x='6' y='14' width='20' height='4' fill='white'/></svg>">
+<meta name="description" content="nivellipso® Professional Whitening — Professionelles Bleaching mit sichtbaren Ergebnissen und minimaler Sensitivität.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nivellipso.com/whitening.html">
+<meta property="og:title" content="Whitening — nivellipso® Professional Bleaching">
+<meta property="og:description" content="Professionelles Bleaching. Sichtbare Ergebnisse, minimale Sensitivität. Die perfekte Ergänzung zur Aligner-Behandlung.">
+<meta property="og:image" content="https://nivellipso.com/images/team/dr-albin-vukaj-circle-240.png">
+<script defer data-domain="nivellipso.com" src="https://plausible.io/js/script.js"></script>
+<link rel="stylesheet" href="nivell-design.css">
+<style>
+.wh-hero-bg{background:linear-gradient(145deg,#0a0000 0%,var(--black) 50%,#1a0000 100%);position:relative;overflow:hidden;}
+.wh-hero-bg::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(192,0,0,.15) 0%,transparent 70%);pointer-events:none;}
+.wh-hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;}
+.feat-card{background:white;padding:28px 24px;border-top:3px solid transparent;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.feat-card:hover{border-top-color:var(--red);transform:translateY(-4px);box-shadow:var(--shadow);}
+.feat-card:hover .ico-circle{background:var(--red);transform:rotate(8deg) scale(1.1);}
+.feat-card:hover .ico-circle svg{color:white;}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;}
+.compare-card{background:white;padding:32px 28px;border-top:3px solid;transition:transform .2s,box-shadow .2s;}
+.compare-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.compare-pro{border-top-color:var(--red);}
+.compare-otc{border-top-color:#999;opacity:.85;}
+.compare-title{font-size:20px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.3px;}
+.compare-sub{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.compare-list{display:flex;flex-direction:column;gap:10px;}
+.compare-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.6;}
+.compare-item.yes::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0;}
+.compare-item.no::before{content:'✗';color:#999;font-weight:700;flex-shrink:0;}
+.compare-item.yes{color:var(--text);}
+.compare-item.no{color:var(--grey);}
+
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;}
+.process-step{background:white;padding:28px 22px;border-left:3px solid var(--red);transition:transform .2s;}
+.process-step:hover{transform:translateY(-3px);}
+.process-num{display:inline-block;background:var(--red);color:white;font-size:14px;font-weight:700;width:32px;height:32px;border-radius:50%;text-align:center;line-height:32px;margin-bottom:14px;box-shadow:0 3px 0 var(--red-dark);}
+.process-t{font-size:16px;font-weight:700;color:var(--black);margin-bottom:6px;}
+.process-d{font-size:13px;color:var(--grey);line-height:1.7;}
+
+@media(max-width:768px){
+  .feat-grid{grid-template-columns:1fr;gap:10px;}
+  .compare-grid{grid-template-columns:1fr;gap:10px;}
+  .process-grid{grid-template-columns:1fr;gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="n-nav">
+<div class="n-nav-inner">
+  <a href="index.html" class="n-logo">
+    <img src="images/logo/logo_black.png" alt="nivellipso" class="n-logo-img">
+  </a>
+  <ul class="n-links">
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" class="active" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="display:flex;gap:6px;">
+      <a href="https://www.instagram.com/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/nivellipso" target="_blank" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--grey);text-decoration:none;transition:all .2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--grey)'">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <button class="n-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button type="button" class="lang-btn" id="langBtn">
+      <span id="lFlag">🇩🇪</span><span id="lCode">DE</span>
+      <svg viewBox="0 0 10 6" fill="none" width="10"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5"/></svg>
+      <div class="lang-dropdown">
+        <div class="lang-opt active" data-lang="de" onclick="setNivellLang('de',window.NIVELL_T)">🇩🇪 Deutsch</div>
+        <div class="lang-opt" data-lang="fr" onclick="setNivellLang('fr',window.NIVELL_T)">🇫🇷 Français</div>
+        <div class="lang-opt" data-lang="it" onclick="setNivellLang('it',window.NIVELL_T)">🇮🇹 Italiano</div>
+        <div class="lang-opt" data-lang="en" onclick="setNivellLang('en',window.NIVELL_T)">🇬🇧 English</div>
+        <div class="lang-opt" data-lang="ru" onclick="setNivellLang('ru',window.NIVELL_T)">🇷🇺 Русский</div>
+        <div class="lang-opt" data-lang="es" onclick="setNivellLang('es',window.NIVELL_T)">🇪🇸 Español</div>
+      </div>
+    </button>
+    <a href="https://nivellonlign.com/" target="_blank" class="btn-3d" style="font-size:12px;padding:10px 18px;" data-i18n="n_portal">Doctor Portal →</a>
+  </div>
+</div>
+<div class="n-mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-i18n="n_home">Home</a></li>
+    <li><a href="aligner.html" data-i18n="n_align">Aligners</a></li>
+    <li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li>
+    <li><a href="whitening.html" style="color:var(--red);" data-i18n="n_white">Whitening</a></li>
+    <li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li>
+    <li><a href="academy.html" data-i18n="n_acad">Academy</a></li>
+    <li><a href="index.html#honor-reward" style="color:#b8860b;font-weight:700;">★ Honor</a></li>
+    <li><a href="index.html#contact-form" data-i18n="n_con">Kontakt</a></li>
+  </ul>
+  <a href="https://nivellonlign.com/" target="_blank" class="n-mobile-cta" data-i18n="n_portal">Doctor Portal →</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="n-page-hero wh-hero-bg">
+<div class="n-page-hero-inner">
+  <div class="n-breadcrumb"><a href="index.html" data-i18n="n_home">Home</a> <svg viewBox="0 0 8 14" fill="none" width="8" height="14"><path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg> <span data-i18n="n_white">Whitening</span></div>
+  <div class="t-label" style="color:var(--red);" data-i18n="wt_label">Whitening Solution</div>
+  <h1 class="n-page-h1" data-i18n="wt_h1">Professionelles<br><em>Bleaching.</em></h1>
+  <p class="n-page-sub" data-i18n="wt_sub">Sichtbare Ergebnisse. Minimale Sensitivität. Die perfekte Ergänzung zur Aligner-Behandlung — abgestimmtes Protokoll für maximale Wirkung mit minimalem Risiko.</p>
+  <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="#process" class="btn-3d" data-i18n="wt_cta1">Ablauf entdecken</a>
+    <a href="index.html#contact-form" class="btn-3d-ghost" data-i18n="wt_cta2">Beratung anfragen →</a>
+  </div>
+</div>
+</div>
+
+<!-- FEATURES -->
+<section class="n-sec" id="features">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="wt_feat_label">Klinische Eigenschaften</div>
+    <h2 class="t-h2" data-i18n="wt_feat_h2">Sichtbar weisser.<br>Minimal sensibel.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" data-i18n="wt_feat_lead">Professionelles Bleaching unter ärztlicher Kontrolle — kein Drogerie-Produkt, kein DIY-Risiko. Klinisch bewährte Wirkstoffe in präzisen Konzentrationen.</p>
+  </div>
+  <div class="feat-grid n-fade">
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f1_title">Sichtbare Ergebnisse</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f1_body">Durchschnittlich 3–8 Helligkeitsstufen heller nach einer Behandlung. Wissenschaftlich messbar via VITA-Farbskala.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f2_title">Minimale Sensitivität</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f2_body">Optimierte Formel mit Kaliumnitrat reduziert post-treatment Empfindlichkeit auf ein Minimum. Komfortabel auch für sensible Zähne.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f3_title">Aligner-kompatibel</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f3_body">Speziell abgestimmtes Protokoll für Patienten mit nivellipso® Aligners. Bleaching während oder nach der Behandlung — wir beraten Sie.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f4_title">CE-zertifiziert</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f4_body">Klinisch geprüft, CE-Medizinprodukt. Wirkstoffkonzentration nach EU-Richtlinien für professionelle Anwendung.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f5_title">Schnelle Behandlung</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f5_body">Eine Sitzung à 45–60 Minuten in der Praxis. Oder Heimbehandlung mit individueller Schiene über 7–14 Tage.</p>
+    </div>
+    <div class="feat-card">
+      <div class="ico-circle" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+      <div class="t-h3" data-i18n="wt_f6_title">Persönlich begleitet</div>
+      <p style="font-size:13px;color:var(--grey);line-height:1.7;" data-i18n="wt_f6_body">Vorher-Nachher-Dokumentation. Individuelle Beratung. Nachsorge-Empfehlungen für anhaltendes Ergebnis.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROFESSIONAL VS OTC -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="wt_cmp_label">Vergleich</div>
+    <h2 class="t-h2" data-i18n="wt_cmp_h2">Professionell vs. Drogerie.</h2>
+    <div class="t-rule"></div>
+    <p class="t-lead" data-i18n="wt_cmp_lead">Der Unterschied zwischen einem klinisch geführten Bleaching und einem Whitening-Strip aus dem Supermarkt ist erheblich — vor allem bei Sicherheit und Wirkung.</p>
+  </div>
+  <div class="compare-grid n-fade">
+    <div class="compare-card compare-pro">
+      <div class="compare-title" style="color:var(--red);" data-i18n="wt_pro_title">Professionell ✓</div>
+      <div class="compare-sub" data-i18n="wt_pro_sub">nivellipso® Whitening</div>
+      <div class="compare-list">
+        <div class="compare-item yes" data-i18n="wt_pro1">Wirkstoffkonzentration angepasst an Zahnstruktur</div>
+        <div class="compare-item yes" data-i18n="wt_pro2">Vorbehandlung (Politur, Hypersensitivität-Check)</div>
+        <div class="compare-item yes" data-i18n="wt_pro3">Individuelle Schiene aus PET-G — perfekter Sitz</div>
+        <div class="compare-item yes" data-i18n="wt_pro4">Sichtbarer Effekt: 3–8 Helligkeitsstufen</div>
+        <div class="compare-item yes" data-i18n="wt_pro5">Reduzierte Sensitivität durch Kaliumnitrat</div>
+        <div class="compare-item yes" data-i18n="wt_pro6">Nachsorge &amp; Dokumentation</div>
+        <div class="compare-item yes" data-i18n="wt_pro7">CE-Medizinprodukt, klinisch zertifiziert</div>
+      </div>
+    </div>
+    <div class="compare-card compare-otc">
+      <div class="compare-title" data-i18n="wt_otc_title">Drogerie / OTC ✗</div>
+      <div class="compare-sub" data-i18n="wt_otc_sub">Whitening-Strips &amp; Pasten</div>
+      <div class="compare-list">
+        <div class="compare-item no" data-i18n="wt_otc1">Standardkonzentration — keine Anpassung möglich</div>
+        <div class="compare-item no" data-i18n="wt_otc2">Keine zahnärztliche Voruntersuchung</div>
+        <div class="compare-item no" data-i18n="wt_otc3">Pauschale Strips/Schienen — sitzen schlecht</div>
+        <div class="compare-item no" data-i18n="wt_otc4">Marginaler Effekt: 1–2 Helligkeitsstufen</div>
+        <div class="compare-item no" data-i18n="wt_otc5">Häufige Sensitivität, kein Kaliumnitrat</div>
+        <div class="compare-item no" data-i18n="wt_otc6">Keine Nachsorge</div>
+        <div class="compare-item no" data-i18n="wt_otc7">Risiko bei Karies oder Schmelzschäden</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="n-sec" id="process">
+<div class="n-sec-inner">
+  <div class="n-fade">
+    <div class="t-label" data-i18n="wt_proc_label">Ablauf</div>
+    <h2 class="t-h2" data-i18n="wt_proc_h2">3 Schritte zum Ergebnis.</h2>
+    <div class="t-rule"></div>
+  </div>
+  <div class="process-grid n-fade">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <div class="process-t" data-i18n="wt_step1_title">Voruntersuchung</div>
+      <div class="process-d" data-i18n="wt_step1_body">Zahncheck, professionelle Reinigung, VITA-Farbbestimmung als Ausgangspunkt. Beratung zu Erwartungen und individuellem Protokoll.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <div class="process-t" data-i18n="wt_step2_title">Behandlung</div>
+      <div class="process-d" data-i18n="wt_step2_body">In-Office: 1× 45–60 Min mit aktiver Lichtaktivierung. Oder Heimbehandlung: individuelle Schiene mit Gel, 7–14 Tage täglich 30 Min.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <div class="process-t" data-i18n="wt_step3_title">Nachsorge</div>
+      <div class="process-d" data-i18n="wt_step3_body">Fluoridierung, Dokumentation (Vorher-Nachher), Pflege-Empfehlungen. Auffrischung nach 12–18 Monaten empfehlenswert.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- COMBO WITH ALIGNERS -->
+<section class="n-sec n-sec-bg">
+<div class="n-sec-inner">
+  <div class="n-fade" style="background:linear-gradient(135deg,var(--red-light),white);border:1px solid #fdd;border-left:5px solid var(--red);padding:36px 40px;">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;">
+      <div class="ico-3d" style="width:64px;height:64px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div>
+      <div>
+        <div class="t-label" data-i18n="wt_combo_label">Combo-Empfehlung</div>
+        <h3 class="t-h3" data-i18n="wt_combo_h3">Aligner + Whitening — die perfekte Kombination.</h3>
+        <p style="font-size:14px;color:var(--grey);line-height:1.75;margin-top:10px;" data-i18n="wt_combo_body">Patienten, die bereits eine Aligner-Behandlung machen, profitieren doppelt: die individuelle Aligner-Schiene kann als Bleaching-Träger genutzt werden — präziser Sitz, optimale Wirkstoffverteilung. Wir beraten Sie zum besten Zeitpunkt der Bleaching-Integration (während REGULAR-Phase oder nach Behandlungsabschluss).</p>
+        <a href="aligner.html" class="btn-3d-outline" style="margin-top:18px;" data-i18n="wt_combo_cta">Mehr zu Aligners →</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<div style="background:var(--red);padding:56px 40px;text-align:center;">
+  <h2 style="font-size:clamp(22px,3vw,38px);font-weight:700;color:white;letter-spacing:-1px;margin-bottom:12px;" data-i18n="wt_cta_h2">Bereit für ein weisseres Lächeln?</h2>
+  <p style="font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;" data-i18n="wt_cta_body">Beratungstermin in der Praxis Schaffhausen oder telefonisch. Wir empfehlen das passende Protokoll basierend auf Ihrer Zahnstruktur.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a href="index.html#contact-form" class="btn-3d" style="background:white;color:var(--red);box-shadow:0 4px 0 rgba(0,0,0,.2);" data-i18n="wt_cta_btn1">Beratung anfragen →</a>
+    <a href="tel:+41614222212" class="btn-3d-ghost" data-i18n="wt_cta_btn2">+41 61 422 22 12</a>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleNivellChat()">
+  <svg class="c-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+  <span class="c-label" data-i18n="wt_chat_toggle">Whitening-Fragen?</span>
+  <svg class="c-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-hdr"><div style="width:34px;height:34px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✨</div><div style="margin-left:10px;"><div class="chat-hdr-name" data-i18n="wt_chat_hdr_name">Whitening-Beratung</div><div class="chat-hdr-sub" data-i18n="wt_chat_hdr_sub">Ablauf · Sensitivität · Kombi mit Aligners</div></div></div>
+  <div class="chat-msgs" id="chatMessages"><div class="msg-bot" data-i18n="wt_chat_welcome">Hallo! Ich beantworte Ihre Fragen zum professionellen Bleaching und der Kombination mit Aligner-Behandlungen.</div></div>
+  <div class="chat-suggs" id="chatSugg">
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="wt_sugg1">Sensitivität?</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="wt_sugg2">Dauer der Behandlung</button>
+    <button class="sugg" onclick="sendNivellSugg(this)" data-i18n="wt_sugg3">Kombination mit Aligners</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" data-i18n-ph="wt_chat_placeholder" placeholder="Ihre Frage..." onkeypress="if(event.key==='Enter')sendNivellChat()">
+    <button class="chat-send" onclick="sendNivellChat()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="n-footer">
+<div class="n-footer-inner">
+  <div class="n-footer-grid">
+    <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div style="width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--red-dark);"><svg viewBox="0 0 16 16" fill="none" width="14" height="14"><rect x="7" y="2" width="2" height="12" fill="white"/><rect x="2" y="7" width="12" height="2" fill="white"/></svg></div><span style="font-size:17px;font-weight:700;color:white;">nivellipso<span style="color:var(--red);">®</span></span></div><p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;" data-i18n="wt_footer_tagline">Professional Whitening · Swiss-Made · Klinisch bewährt seit 2015.</p></div>
+    <div class="n-footer-col"><h4 data-i18n="wt_footer_products">Produkte</h4><ul><li><a href="aligner.html" data-i18n="n_align">Clear Aligners</a></li><li><a href="brackets.html" data-i18n="n_brack">Brackets</a></li><li><a href="whitening.html" style="color:var(--red);font-weight:700;" data-i18n="n_white">Whitening</a></li><li><a href="visibal.html" data-i18n="n_vis">VISIBAL</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="wt_footer_resources">Ressourcen</h4><ul><li><a href="academy.html" data-i18n="n_acad">Academy</a></li><li><a href="https://nivellonlign.com/" target="_blank" data-i18n="n_portal">Doctor Portal</a></li><li><a href="index.html#faq" data-i18n="wt_footer_faq">FAQ</a></li></ul></div>
+    <div class="n-footer-col"><h4 data-i18n="wt_footer_contact">Kontakt</h4><ul><li><a href="mailto:sales@nivellipso.com">sales@nivellipso.com</a></li><li><a href="tel:+41614222212">+41 61 422 22 12</a></li><li><a href="index.html#contact-form" data-i18n="n_con">Kontaktformular</a></li></ul></div>
+  </div>
+  <div class="n-footer-bottom"><p data-i18n="wt_footer_copy">Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen</p><p class="n-conf" data-i18n="wt_footer_conf">VERTRAULICH · NIVELLMEDICAL AG</p></div>
+</div>
+</footer>
+
+<script src="nivell-site.js"></script>
+<script>
+const T = {
+  de: {
+    /* NAV */
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Kontakt', n_portal:'Doctor Portal →',
+    /* HERO */
+    wt_label:'Whitening Solution',
+    wt_h1:'Professionelles<br><em>Bleaching.</em>',
+    wt_sub:'Sichtbare Ergebnisse. Minimale Sensitivität. Die perfekte Ergänzung zur Aligner-Behandlung — abgestimmtes Protokoll für maximale Wirkung mit minimalem Risiko.',
+    wt_cta1:'Ablauf entdecken',
+    wt_cta2:'Beratung anfragen →',
+    /* FEATURES */
+    wt_feat_label:'Klinische Eigenschaften',
+    wt_feat_h2:'Sichtbar weisser.<br>Minimal sensibel.',
+    wt_feat_lead:'Professionelles Bleaching unter ärztlicher Kontrolle — kein Drogerie-Produkt, kein DIY-Risiko. Klinisch bewährte Wirkstoffe in präzisen Konzentrationen.',
+    wt_f1_title:'Sichtbare Ergebnisse',
+    wt_f1_body:'Durchschnittlich 3–8 Helligkeitsstufen heller nach einer Behandlung. Wissenschaftlich messbar via VITA-Farbskala.',
+    wt_f2_title:'Minimale Sensitivität',
+    wt_f2_body:'Optimierte Formel mit Kaliumnitrat reduziert post-treatment Empfindlichkeit auf ein Minimum. Komfortabel auch für sensible Zähne.',
+    wt_f3_title:'Aligner-kompatibel',
+    wt_f3_body:'Speziell abgestimmtes Protokoll für Patienten mit nivellipso® Aligners. Bleaching während oder nach der Behandlung — wir beraten Sie.',
+    wt_f4_title:'CE-zertifiziert',
+    wt_f4_body:'Klinisch geprüft, CE-Medizinprodukt. Wirkstoffkonzentration nach EU-Richtlinien für professionelle Anwendung.',
+    wt_f5_title:'Schnelle Behandlung',
+    wt_f5_body:'Eine Sitzung à 45–60 Minuten in der Praxis. Oder Heimbehandlung mit individueller Schiene über 7–14 Tage.',
+    wt_f6_title:'Persönlich begleitet',
+    wt_f6_body:'Vorher-Nachher-Dokumentation. Individuelle Beratung. Nachsorge-Empfehlungen für anhaltendes Ergebnis.',
+    /* COMPARE */
+    wt_cmp_label:'Vergleich',
+    wt_cmp_h2:'Professionell vs. Drogerie.',
+    wt_cmp_lead:'Der Unterschied zwischen einem klinisch geführten Bleaching und einem Whitening-Strip aus dem Supermarkt ist erheblich — vor allem bei Sicherheit und Wirkung.',
+    wt_pro_title:'Professionell ✓',
+    wt_pro_sub:'nivellipso® Whitening',
+    wt_pro1:'Wirkstoffkonzentration angepasst an Zahnstruktur',
+    wt_pro2:'Vorbehandlung (Politur, Hypersensitivität-Check)',
+    wt_pro3:'Individuelle Schiene aus PET-G — perfekter Sitz',
+    wt_pro4:'Sichtbarer Effekt: 3–8 Helligkeitsstufen',
+    wt_pro5:'Reduzierte Sensitivität durch Kaliumnitrat',
+    wt_pro6:'Nachsorge &amp; Dokumentation',
+    wt_pro7:'CE-Medizinprodukt, klinisch zertifiziert',
+    wt_otc_title:'Drogerie / OTC ✗',
+    wt_otc_sub:'Whitening-Strips &amp; Pasten',
+    wt_otc1:'Standardkonzentration — keine Anpassung möglich',
+    wt_otc2:'Keine zahnärztliche Voruntersuchung',
+    wt_otc3:'Pauschale Strips/Schienen — sitzen schlecht',
+    wt_otc4:'Marginaler Effekt: 1–2 Helligkeitsstufen',
+    wt_otc5:'Häufige Sensitivität, kein Kaliumnitrat',
+    wt_otc6:'Keine Nachsorge',
+    wt_otc7:'Risiko bei Karies oder Schmelzschäden',
+    /* PROCESS */
+    wt_proc_label:'Ablauf',
+    wt_proc_h2:'3 Schritte zum Ergebnis.',
+    wt_step1_title:'Voruntersuchung',
+    wt_step1_body:'Zahncheck, professionelle Reinigung, VITA-Farbbestimmung als Ausgangspunkt. Beratung zu Erwartungen und individuellem Protokoll.',
+    wt_step2_title:'Behandlung',
+    wt_step2_body:'In-Office: 1× 45–60 Min mit aktiver Lichtaktivierung. Oder Heimbehandlung: individuelle Schiene mit Gel, 7–14 Tage täglich 30 Min.',
+    wt_step3_title:'Nachsorge',
+    wt_step3_body:'Fluoridierung, Dokumentation (Vorher-Nachher), Pflege-Empfehlungen. Auffrischung nach 12–18 Monaten empfehlenswert.',
+    /* COMBO */
+    wt_combo_label:'Combo-Empfehlung',
+    wt_combo_h3:'Aligner + Whitening — die perfekte Kombination.',
+    wt_combo_body:'Patienten, die bereits eine Aligner-Behandlung machen, profitieren doppelt: die individuelle Aligner-Schiene kann als Bleaching-Träger genutzt werden — präziser Sitz, optimale Wirkstoffverteilung. Wir beraten Sie zum besten Zeitpunkt der Bleaching-Integration (während REGULAR-Phase oder nach Behandlungsabschluss).',
+    wt_combo_cta:'Mehr zu Aligners →',
+    /* CTA BAND */
+    wt_cta_h2:'Bereit für ein weisseres Lächeln?',
+    wt_cta_body:'Beratungstermin in der Praxis Schaffhausen oder telefonisch. Wir empfehlen das passende Protokoll basierend auf Ihrer Zahnstruktur.',
+    wt_cta_btn1:'Beratung anfragen →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    /* CHATBOT */
+    wt_chat_toggle:'Whitening-Fragen?',
+    wt_chat_hdr_name:'Whitening-Beratung',
+    wt_chat_hdr_sub:'Ablauf · Sensitivität · Kombi mit Aligners',
+    wt_chat_welcome:'Hallo! Ich beantworte Ihre Fragen zum professionellen Bleaching und der Kombination mit Aligner-Behandlungen.',
+    wt_sugg1:'Sensitivität?',
+    wt_sugg2:'Dauer der Behandlung',
+    wt_sugg3:'Kombination mit Aligners',
+    wt_chat_placeholder:'Ihre Frage...',
+    /* FOOTER */
+    wt_footer_tagline:'Professional Whitening · Swiss-Made · Klinisch bewährt seit 2015.',
+    wt_footer_products:'Produkte',
+    wt_footer_resources:'Ressourcen',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Kontakt',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'VERTRAULICH · NIVELLMEDICAL AG'
+  },
+  en: {
+    n_home:'Home', n_align:'Aligners', n_brack:'Brackets', n_white:'Whitening', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    wt_label:'Whitening Solution',
+    wt_h1:'nivellipso®<br><em>Professional Whitening.</em>',
+    wt_sub:'Professional bleaching with visible results and minimal sensitivity. The perfect complement to aligner treatment — tailored protocol for maximum effect with minimal risk.',
+    wt_cta1:'Discover the process',
+    wt_cta2:'Request consultation →',
+    wt_feat_label:'Clinical Properties',
+    wt_feat_h2:'Visibly whiter.<br>Minimally sensitive.',
+    wt_feat_lead:'Professional bleaching under medical supervision — no drugstore product, no DIY risk. Clinically proven active ingredients in precise concentrations.',
+    wt_f1_title:'Visible Results',
+    wt_f1_body:'On average 3–8 shade levels brighter after one treatment. Scientifically measurable via VITA shade guide.',
+    wt_f2_title:'Minimal Sensitivity',
+    wt_f2_body:'Optimised formula with potassium nitrate reduces post-treatment sensitivity to a minimum. Comfortable even for sensitive teeth.',
+    wt_f3_title:'Aligner-Compatible',
+    wt_f3_body:'Specially tailored protocol for patients with nivellipso® aligners. Bleaching during or after treatment — we will advise you.',
+    wt_f4_title:'CE Certified',
+    wt_f4_body:'Clinically tested CE medical device. Active ingredient concentration per EU guidelines for professional use.',
+    wt_f5_title:'Fast Treatment',
+    wt_f5_body:'One session of 45–60 minutes in the practice. Or home treatment with a custom tray over 7–14 days.',
+    wt_f6_title:'Personally Guided',
+    wt_f6_body:'Before-and-after documentation. Individual consultation. Aftercare recommendations for lasting results.',
+    wt_cmp_label:'Comparison',
+    wt_cmp_h2:'Professional vs. Over-the-counter.',
+    wt_cmp_lead:'The difference between clinically supervised bleaching and a whitening strip from the supermarket is significant — especially in terms of safety and efficacy.',
+    wt_pro_title:'Professional ✓',
+    wt_pro_sub:'nivellipso® Whitening',
+    wt_pro1:'Active ingredient concentration adapted to tooth structure',
+    wt_pro2:'Pre-treatment (polishing, hypersensitivity check)',
+    wt_pro3:'Custom PET-G tray — perfect fit',
+    wt_pro4:'Visible effect: 3–8 shade levels',
+    wt_pro5:'Reduced sensitivity through potassium nitrate',
+    wt_pro6:'Aftercare &amp; documentation',
+    wt_pro7:'CE medical device, clinically certified',
+    wt_otc_title:'Drugstore / OTC ✗',
+    wt_otc_sub:'Whitening Strips &amp; Pastes',
+    wt_otc1:'Standard concentration — no customisation possible',
+    wt_otc2:'No dental pre-examination',
+    wt_otc3:'Generic strips/trays — poor fit',
+    wt_otc4:'Marginal effect: 1–2 shade levels',
+    wt_otc5:'Frequent sensitivity, no potassium nitrate',
+    wt_otc6:'No aftercare',
+    wt_otc7:'Risk with cavities or enamel damage',
+    wt_proc_label:'Process',
+    wt_proc_h2:'3 steps to results.',
+    wt_step1_title:'Pre-examination',
+    wt_step1_body:'Dental check, professional cleaning, VITA shade determination as a baseline. Consultation on expectations and individual protocol.',
+    wt_step2_title:'Treatment',
+    wt_step2_body:'In-office: 1× 45–60 min with active light activation. Or home treatment: custom tray with gel, 30 min daily for 7–14 days.',
+    wt_step3_title:'Aftercare',
+    wt_step3_body:'Fluoridation, documentation (before-after), care recommendations. Touch-up recommended after 12–18 months.',
+    wt_combo_label:'Combo Recommendation',
+    wt_combo_h3:'Aligners + Whitening — the perfect combination.',
+    wt_combo_body:'Patients already undergoing aligner treatment benefit doubly: the custom aligner tray can be used as a bleaching carrier — precise fit, optimal active ingredient distribution. We advise you on the best time to integrate bleaching (during the REGULAR phase or after treatment completion).',
+    wt_combo_cta:'More about Aligners →',
+    wt_cta_h2:'Ready for a whiter smile?',
+    wt_cta_body:'Consultation appointment at the Schaffhausen practice or by phone. We recommend the right protocol based on your tooth structure.',
+    wt_cta_btn1:'Request consultation →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    wt_chat_toggle:'Whitening questions?',
+    wt_chat_hdr_name:'Whitening Consultation',
+    wt_chat_hdr_sub:'Process · Sensitivity · Combo with Aligners',
+    wt_chat_welcome:'Hello! I answer your questions about professional bleaching and the combination with aligner treatments.',
+    wt_sugg1:'Sensitivity?',
+    wt_sugg2:'Treatment duration',
+    wt_sugg3:'Combination with aligners',
+    wt_chat_placeholder:'Your question...',
+    wt_footer_tagline:'Professional Whitening · Swiss-Made · Clinically proven since 2015.',
+    wt_footer_products:'Products',
+    wt_footer_resources:'Resources',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Contact',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'CONFIDENTIAL · NIVELLMEDICAL AG'
+  },
+  fr: {
+    n_home:'Accueil', n_align:'Aligneurs', n_brack:'Brackets', n_white:'Blanchiment', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contact', n_portal:'Doctor Portal →',
+    wt_label:'Solution Blanchiment',
+    wt_h1:'nivellipso®<br><em>Blanchiment Professionnel.</em>',
+    wt_sub:'Blanchiment professionnel avec des résultats visibles et une sensibilité minimale. Le complément parfait au traitement par aligneurs — protocole adapté pour un effet maximal avec un risque minimal.',
+    wt_cta1:'Découvrir le processus',
+    wt_cta2:'Demander une consultation →',
+    wt_feat_label:'Propriétés Cliniques',
+    wt_feat_h2:'Visiblement plus blanc.<br>Sensibilité minimale.',
+    wt_feat_lead:'Blanchiment professionnel sous contrôle médical — pas de produit de droguerie, pas de risque DIY. Principes actifs cliniquement éprouvés en concentrations précises.',
+    wt_f1_title:'Résultats Visibles',
+    wt_f1_body:'En moyenne 3 à 8 teintes plus claires après un traitement. Mesurable scientifiquement via la teintier VITA.',
+    wt_f2_title:'Sensibilité Minimale',
+    wt_f2_body:'Formule optimisée avec nitrate de potassium réduit la sensibilité post-traitement au minimum. Confortable même pour les dents sensibles.',
+    wt_f3_title:'Compatible Aligneurs',
+    wt_f3_body:'Protocole spécialement adapté pour les patients avec des aligneurs nivellipso®. Blanchiment pendant ou après le traitement — nous vous conseillons.',
+    wt_f4_title:'Certifié CE',
+    wt_f4_body:'Dispositif médical CE testé cliniquement. Concentration en principes actifs selon les directives EU pour usage professionnel.',
+    wt_f5_title:'Traitement Rapide',
+    wt_f5_body:'Une séance de 45 à 60 minutes en cabinet. Ou traitement à domicile avec une gouttière individuelle sur 7 à 14 jours.',
+    wt_f6_title:'Suivi Personnel',
+    wt_f6_body:'Documentation avant-après. Conseil individuel. Recommandations de soins pour un résultat durable.',
+    wt_cmp_label:'Comparaison',
+    wt_cmp_h2:'Professionnel vs. Grande surface.',
+    wt_cmp_lead:'La différence entre un blanchiment cliniquement supervisé et un strip blanchissant de supermarché est considérable — surtout en matière de sécurité et d\'efficacité.',
+    wt_pro_title:'Professionnel ✓',
+    wt_pro_sub:'nivellipso® Blanchiment',
+    wt_pro1:'Concentration adaptée à la structure dentaire',
+    wt_pro2:'Pré-traitement (polissage, vérification hypersensibilité)',
+    wt_pro3:'Gouttière individuelle PET-G — ajustement parfait',
+    wt_pro4:'Effet visible : 3 à 8 teintes',
+    wt_pro5:'Sensibilité réduite grâce au nitrate de potassium',
+    wt_pro6:'Suivi &amp; documentation',
+    wt_pro7:'Dispositif médical CE, certifié cliniquement',
+    wt_otc_title:'Droguerie / OTC ✗',
+    wt_otc_sub:'Strips &amp; Dentifrices Blanchissants',
+    wt_otc1:'Concentration standard — aucune personnalisation possible',
+    wt_otc2:'Pas d\'examen dentaire préalable',
+    wt_otc3:'Strips/gouttières génériques — mauvais ajustement',
+    wt_otc4:'Effet marginal : 1 à 2 teintes',
+    wt_otc5:'Sensibilité fréquente, pas de nitrate de potassium',
+    wt_otc6:'Pas de suivi',
+    wt_otc7:'Risque en cas de caries ou de lésions de l\'émail',
+    wt_proc_label:'Processus',
+    wt_proc_h2:'3 étapes vers le résultat.',
+    wt_step1_title:'Examen préalable',
+    wt_step1_body:'Bilan dentaire, détartrage professionnel, détermination de la teinte VITA comme point de départ. Conseil sur les attentes et le protocole individuel.',
+    wt_step2_title:'Traitement',
+    wt_step2_body:'En cabinet : 1× 45–60 min avec activation lumineuse. Ou traitement à domicile : gouttière individuelle avec gel, 30 min par jour pendant 7–14 jours.',
+    wt_step3_title:'Suivi',
+    wt_step3_body:'Fluoration, documentation (avant-après), recommandations d\'entretien. Retouche recommandée après 12 à 18 mois.',
+    wt_combo_label:'Recommandation Combo',
+    wt_combo_h3:'Aligneurs + Blanchiment — la combinaison parfaite.',
+    wt_combo_body:'Les patients suivant déjà un traitement par aligneurs en profitent doublement : la gouttière individuelle peut être utilisée comme support de blanchiment — ajustement précis, distribution optimale du principe actif. Nous vous conseillons sur le meilleur moment pour intégrer le blanchiment (pendant la phase REGULAR ou après la fin du traitement).',
+    wt_combo_cta:'En savoir plus sur les aligneurs →',
+    wt_cta_h2:'Prêt pour un sourire plus blanc ?',
+    wt_cta_body:'Rendez-vous de consultation au cabinet de Schaffhouse ou par téléphone. Nous recommandons le protocole adapté à votre structure dentaire.',
+    wt_cta_btn1:'Demander une consultation →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    wt_chat_toggle:'Questions blanchiment ?',
+    wt_chat_hdr_name:'Conseil Blanchiment',
+    wt_chat_hdr_sub:'Processus · Sensibilité · Combo avec aligneurs',
+    wt_chat_welcome:'Bonjour ! Je réponds à vos questions sur le blanchiment professionnel et la combinaison avec les traitements par aligneurs.',
+    wt_sugg1:'Sensibilité ?',
+    wt_sugg2:'Durée du traitement',
+    wt_sugg3:'Combinaison avec aligneurs',
+    wt_chat_placeholder:'Votre question...',
+    wt_footer_tagline:'Blanchiment Professionnel · Swiss-Made · Cliniquement éprouvé depuis 2015.',
+    wt_footer_products:'Produits',
+    wt_footer_resources:'Ressources',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Contact',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'CONFIDENTIEL · NIVELLMEDICAL AG'
+  },
+  it: {
+    n_home:'Home', n_align:'Allineatori', n_brack:'Brackets', n_white:'Sbiancamento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contatti', n_portal:'Doctor Portal →',
+    wt_label:'Soluzione Sbiancante',
+    wt_h1:'nivellipso®<br><em>Sbiancamento Professionale.</em>',
+    wt_sub:'Sbiancamento professionale con risultati visibili e sensibilità minima. Il complemento perfetto al trattamento con allineatori — protocollo mirato per massima efficacia con rischio minimo.',
+    wt_cta1:'Scopri il processo',
+    wt_cta2:'Richiedi consulenza →',
+    wt_feat_label:'Proprietà Cliniche',
+    wt_feat_h2:'Visibilmente più bianco.<br>Sensibilità minima.',
+    wt_feat_lead:'Sbiancamento professionale sotto controllo medico — nessun prodotto da drogheria, nessun rischio fai-da-te. Principi attivi clinicamente comprovati in concentrazioni precise.',
+    wt_f1_title:'Risultati Visibili',
+    wt_f1_body:'In media 3–8 toni più chiari dopo un trattamento. Misurabile scientificamente tramite la scala di colori VITA.',
+    wt_f2_title:'Sensibilità Minima',
+    wt_f2_body:'Formula ottimizzata con nitrato di potassio riduce al minimo la sensibilità post-trattamento. Confortevole anche per i denti sensibili.',
+    wt_f3_title:'Compatibile con Allineatori',
+    wt_f3_body:'Protocollo appositamente adattato per pazienti con allineatori nivellipso®. Sbiancamento durante o dopo il trattamento — vi consigliamo.',
+    wt_f4_title:'Certificato CE',
+    wt_f4_body:'Dispositivo medico CE testato clinicamente. Concentrazione del principio attivo secondo le direttive UE per uso professionale.',
+    wt_f5_title:'Trattamento Rapido',
+    wt_f5_body:'Una seduta di 45–60 minuti in studio. Oppure trattamento domiciliare con mascherina individuale per 7–14 giorni.',
+    wt_f6_title:'Seguito Personalmente',
+    wt_f6_body:'Documentazione prima-dopo. Consulenza individuale. Raccomandazioni per la cura per un risultato duraturo.',
+    wt_cmp_label:'Confronto',
+    wt_cmp_h2:'Professionale vs. Farmacia.',
+    wt_cmp_lead:'La differenza tra uno sbiancamento clinicamente supervisionato e uno strip sbiancante del supermercato è considerevole — soprattutto in termini di sicurezza ed efficacia.',
+    wt_pro_title:'Professionale ✓',
+    wt_pro_sub:'nivellipso® Sbiancamento',
+    wt_pro1:'Concentrazione adattata alla struttura dentale',
+    wt_pro2:'Pre-trattamento (lucidatura, controllo ipersensibilità)',
+    wt_pro3:'Mascherina individuale in PET-G — adattamento perfetto',
+    wt_pro4:'Effetto visibile: 3–8 toni',
+    wt_pro5:'Sensibilità ridotta grazie al nitrato di potassio',
+    wt_pro6:'Follow-up &amp; documentazione',
+    wt_pro7:'Dispositivo medico CE, certificato clinicamente',
+    wt_otc_title:'Farmacia / OTC ✗',
+    wt_otc_sub:'Strip &amp; Paste Sbiancanti',
+    wt_otc1:'Concentrazione standard — nessuna personalizzazione possibile',
+    wt_otc2:'Nessuna visita dentistica preventiva',
+    wt_otc3:'Strip/mascherine generiche — adattamento scarso',
+    wt_otc4:'Effetto marginale: 1–2 toni',
+    wt_otc5:'Sensibilità frequente, nessun nitrato di potassio',
+    wt_otc6:'Nessun follow-up',
+    wt_otc7:'Rischio in presenza di carie o danni allo smalto',
+    wt_proc_label:'Processo',
+    wt_proc_h2:'3 passi verso il risultato.',
+    wt_step1_title:'Visita Preventiva',
+    wt_step1_body:'Controllo dentale, pulizia professionale, determinazione del tono VITA come punto di partenza. Consulenza sulle aspettative e sul protocollo individuale.',
+    wt_step2_title:'Trattamento',
+    wt_step2_body:'In studio: 1× 45–60 min con attivazione luminosa. Oppure trattamento domiciliare: mascherina individuale con gel, 30 min al giorno per 7–14 giorni.',
+    wt_step3_title:'Follow-up',
+    wt_step3_body:'Fluorizzazione, documentazione (prima-dopo), raccomandazioni per la cura. Ritocco consigliato dopo 12–18 mesi.',
+    wt_combo_label:'Raccomandazione Combo',
+    wt_combo_h3:'Allineatori + Sbiancamento — la combinazione perfetta.',
+    wt_combo_body:'I pazienti già in trattamento con allineatori beneficiano doppiamente: la mascherina individuale per allineatori può essere utilizzata come supporto per lo sbiancamento — adattamento preciso, distribuzione ottimale del principio attivo. Vi consigliamo sul momento migliore per integrare lo sbiancamento (durante la fase REGULAR o dopo il completamento del trattamento).',
+    wt_combo_cta:'Scopri di più sugli allineatori →',
+    wt_cta_h2:'Pronti per un sorriso più bianco?',
+    wt_cta_body:'Appuntamento di consulenza presso lo studio di Sciaffusa o telefonicamente. Raccomandiamo il protocollo più adatto alla struttura dei vostri denti.',
+    wt_cta_btn1:'Richiedi consulenza →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    wt_chat_toggle:'Domande sullo sbiancamento?',
+    wt_chat_hdr_name:'Consulenza Sbiancamento',
+    wt_chat_hdr_sub:'Processo · Sensibilità · Combo con allineatori',
+    wt_chat_welcome:'Ciao! Rispondo alle vostre domande sullo sbiancamento professionale e sulla combinazione con i trattamenti con allineatori.',
+    wt_sugg1:'Sensibilità?',
+    wt_sugg2:'Durata del trattamento',
+    wt_sugg3:'Combinazione con allineatori',
+    wt_chat_placeholder:'La tua domanda...',
+    wt_footer_tagline:'Sbiancamento Professionale · Swiss-Made · Clinicamente comprovato dal 2015.',
+    wt_footer_products:'Prodotti',
+    wt_footer_resources:'Risorse',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Contatti',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'RISERVATO · NIVELLMEDICAL AG'
+  },
+  ru: {
+    n_home:'Главная', n_align:'Элайнеры', n_brack:'Брекеты', n_white:'Отбеливание', n_vis:'VISIBAL', n_acad:'Академия', n_con:'Контакты', n_portal:'Doctor Portal →',
+    wt_label:'Решение для отбеливания',
+    wt_h1:'nivellipso®<br><em>Профессиональное отбеливание.</em>',
+    wt_sub:'Профессиональное отбеливание с видимыми результатами и минимальной чувствительностью. Идеальное дополнение к лечению элайнерами — скоординированный протокол для максимального эффекта с минимальным риском.',
+    wt_cta1:'Узнать о процессе',
+    wt_cta2:'Запросить консультацию →',
+    wt_feat_label:'Клинические свойства',
+    wt_feat_h2:'Заметно белее.<br>Минимальная чувствительность.',
+    wt_feat_lead:'Профессиональное отбеливание под медицинским контролем — никаких аптечных продуктов, никакого риска DIY. Клинически проверенные активные вещества в точных концентрациях.',
+    wt_f1_title:'Видимые результаты',
+    wt_f1_body:'В среднем на 3–8 тонов светлее после одного сеанса. Научно измеримо по шкале VITA.',
+    wt_f2_title:'Минимальная чувствительность',
+    wt_f2_body:'Оптимизированная формула с нитратом калия снижает чувствительность после процедуры до минимума. Комфортно даже для чувствительных зубов.',
+    wt_f3_title:'Совместимость с элайнерами',
+    wt_f3_body:'Специально адаптированный протокол для пациентов с элайнерами nivellipso®. Отбеливание во время или после лечения — мы проконсультируем вас.',
+    wt_f4_title:'Сертификат CE',
+    wt_f4_body:'Клинически проверенное медицинское изделие CE. Концентрация активного вещества согласно директивам ЕС для профессионального применения.',
+    wt_f5_title:'Быстрое лечение',
+    wt_f5_body:'Один сеанс 45–60 минут в клинике. Или домашнее лечение с индивидуальной каппой в течение 7–14 дней.',
+    wt_f6_title:'Персональное сопровождение',
+    wt_f6_body:'Документация до и после. Индивидуальная консультация. Рекомендации по уходу для стойкого результата.',
+    wt_cmp_label:'Сравнение',
+    wt_cmp_h2:'Профессиональное vs. Аптечное.',
+    wt_cmp_lead:'Разница между клинически контролируемым отбеливанием и отбеливающими полосками из супермаркета значительна — особенно в плане безопасности и эффективности.',
+    wt_pro_title:'Профессиональное ✓',
+    wt_pro_sub:'nivellipso® Отбеливание',
+    wt_pro1:'Концентрация адаптирована к структуре зубов',
+    wt_pro2:'Предварительная обработка (полировка, проверка гиперчувствительности)',
+    wt_pro3:'Индивидуальная каппа из PET-G — идеальная посадка',
+    wt_pro4:'Видимый эффект: 3–8 тонов',
+    wt_pro5:'Сниженная чувствительность благодаря нитрату калия',
+    wt_pro6:'Последующий уход &amp; документация',
+    wt_pro7:'Медицинское изделие CE, клинически сертифицировано',
+    wt_otc_title:'Аптека / OTC ✗',
+    wt_otc_sub:'Отбеливающие полоски &amp; пасты',
+    wt_otc1:'Стандартная концентрация — персонализация невозможна',
+    wt_otc2:'Нет предварительного стоматологического осмотра',
+    wt_otc3:'Стандартные полоски/каппы — плохая посадка',
+    wt_otc4:'Незначительный эффект: 1–2 тона',
+    wt_otc5:'Частая чувствительность, нет нитрата калия',
+    wt_otc6:'Нет последующего ухода',
+    wt_otc7:'Риск при кариесе или повреждении эмали',
+    wt_proc_label:'Процесс',
+    wt_proc_h2:'3 шага к результату.',
+    wt_step1_title:'Предварительный осмотр',
+    wt_step1_body:'Проверка зубов, профессиональная чистка, определение тона VITA как отправная точка. Консультация по ожиданиям и индивидуальному протоколу.',
+    wt_step2_title:'Лечение',
+    wt_step2_body:'В клинике: 1× 45–60 мин с активной световой активацией. Или домашнее лечение: индивидуальная каппа с гелем, 30 мин в день в течение 7–14 дней.',
+    wt_step3_title:'Последующий уход',
+    wt_step3_body:'Фторирование, документация (до-после), рекомендации по уходу. Обновление рекомендуется через 12–18 месяцев.',
+    wt_combo_label:'Рекомендация Комбо',
+    wt_combo_h3:'Элайнеры + Отбеливание — идеальная комбинация.',
+    wt_combo_body:'Пациенты, уже проходящие лечение элайнерами, выигрывают вдвойне: индивидуальная каппа для элайнеров может использоваться как носитель для отбеливания — точная посадка, оптимальное распределение активного вещества. Мы консультируем по оптимальному времени интеграции отбеливания (во время фазы REGULAR или после завершения лечения).',
+    wt_combo_cta:'Подробнее об элайнерах →',
+    wt_cta_h2:'Готовы к более белой улыбке?',
+    wt_cta_body:'Консультация в клинике Шаффхаузена или по телефону. Мы рекомендуем подходящий протокол на основе структуры ваших зубов.',
+    wt_cta_btn1:'Запросить консультацию →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    wt_chat_toggle:'Вопросы об отбеливании?',
+    wt_chat_hdr_name:'Консультация по отбеливанию',
+    wt_chat_hdr_sub:'Процесс · Чувствительность · Комбо с элайнерами',
+    wt_chat_welcome:'Здравствуйте! Я отвечаю на ваши вопросы о профессиональном отбеливании и его сочетании с лечением элайнерами.',
+    wt_sugg1:'Чувствительность?',
+    wt_sugg2:'Продолжительность лечения',
+    wt_sugg3:'Комбинация с элайнерами',
+    wt_chat_placeholder:'Ваш вопрос...',
+    wt_footer_tagline:'Профессиональное отбеливание · Swiss-Made · Клинически проверено с 2015 года.',
+    wt_footer_products:'Продукты',
+    wt_footer_resources:'Ресурсы',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Контакты',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'КОНФИДЕНЦИАЛЬНО · NIVELLMEDICAL AG'
+  },
+  es: {
+    n_home:'Inicio', n_align:'Alineadores', n_brack:'Brackets', n_white:'Blanqueamiento', n_vis:'VISIBAL', n_acad:'Academy', n_con:'Contacto', n_portal:'Doctor Portal →',
+    wt_label:'Solución Blanqueamiento',
+    wt_h1:'nivellipso®<br><em>Blanqueamiento Profesional.</em>',
+    wt_sub:'Blanqueamiento profesional con resultados visibles y sensibilidad mínima. El complemento perfecto al tratamiento con alineadores — protocolo adaptado para el máximo efecto con riesgo mínimo.',
+    wt_cta1:'Descubrir el proceso',
+    wt_cta2:'Solicitar consulta →',
+    wt_feat_label:'Propiedades Clínicas',
+    wt_feat_h2:'Visiblemente más blanco.<br>Sensibilidad mínima.',
+    wt_feat_lead:'Blanqueamiento profesional bajo supervisión médica — sin productos de droguería, sin riesgo de bricolaje. Principios activos clínicamente probados en concentraciones precisas.',
+    wt_f1_title:'Resultados Visibles',
+    wt_f1_body:'En promedio 3–8 tonos más claro después de un tratamiento. Medible científicamente mediante la escala de colores VITA.',
+    wt_f2_title:'Sensibilidad Mínima',
+    wt_f2_body:'Fórmula optimizada con nitrato de potasio reduce la sensibilidad post-tratamiento al mínimo. Cómodo incluso para dientes sensibles.',
+    wt_f3_title:'Compatible con Alineadores',
+    wt_f3_body:'Protocolo especialmente adaptado para pacientes con alineadores nivellipso®. Blanqueamiento durante o después del tratamiento — le asesoramos.',
+    wt_f4_title:'Certificado CE',
+    wt_f4_body:'Dispositivo médico CE probado clínicamente. Concentración de principios activos según directivas UE para uso profesional.',
+    wt_f5_title:'Tratamiento Rápido',
+    wt_f5_body:'Una sesión de 45–60 minutos en la clínica. O tratamiento en casa con una férula individual durante 7–14 días.',
+    wt_f6_title:'Acompañamiento Personal',
+    wt_f6_body:'Documentación antes-después. Asesoramiento individual. Recomendaciones de cuidado para un resultado duradero.',
+    wt_cmp_label:'Comparación',
+    wt_cmp_h2:'Profesional vs. Droguería.',
+    wt_cmp_lead:'La diferencia entre un blanqueamiento clínicamente supervisado y una tira blanqueadora del supermercado es considerable — especialmente en términos de seguridad y eficacia.',
+    wt_pro_title:'Profesional ✓',
+    wt_pro_sub:'nivellipso® Blanqueamiento',
+    wt_pro1:'Concentración adaptada a la estructura dental',
+    wt_pro2:'Pretratamiento (pulido, verificación hipersensibilidad)',
+    wt_pro3:'Férula individual de PET-G — ajuste perfecto',
+    wt_pro4:'Efecto visible: 3–8 tonos',
+    wt_pro5:'Sensibilidad reducida gracias al nitrato de potasio',
+    wt_pro6:'Seguimiento &amp; documentación',
+    wt_pro7:'Dispositivo médico CE, certificado clínicamente',
+    wt_otc_title:'Droguería / OTC ✗',
+    wt_otc_sub:'Tiras &amp; Pastas Blanqueadoras',
+    wt_otc1:'Concentración estándar — sin personalización posible',
+    wt_otc2:'Sin examen dental previo',
+    wt_otc3:'Tiras/férulas genéricas — mal ajuste',
+    wt_otc4:'Efecto marginal: 1–2 tonos',
+    wt_otc5:'Sensibilidad frecuente, sin nitrato de potasio',
+    wt_otc6:'Sin seguimiento',
+    wt_otc7:'Riesgo con caries o daños en el esmalte',
+    wt_proc_label:'Proceso',
+    wt_proc_h2:'3 pasos hacia el resultado.',
+    wt_step1_title:'Examen Previo',
+    wt_step1_body:'Revisión dental, limpieza profesional, determinación del tono VITA como punto de partida. Asesoramiento sobre expectativas y protocolo individual.',
+    wt_step2_title:'Tratamiento',
+    wt_step2_body:'En clínica: 1× 45–60 min con activación lumínica activa. O tratamiento en casa: férula individual con gel, 30 min diarios durante 7–14 días.',
+    wt_step3_title:'Seguimiento',
+    wt_step3_body:'Fluorización, documentación (antes-después), recomendaciones de cuidado. Retoque recomendado después de 12–18 meses.',
+    wt_combo_label:'Recomendación Combo',
+    wt_combo_h3:'Alineadores + Blanqueamiento — la combinación perfecta.',
+    wt_combo_body:'Los pacientes que ya están en tratamiento con alineadores se benefician doblemente: la férula individual de alineadores puede usarse como soporte de blanqueamiento — ajuste preciso, distribución óptima del principio activo. Le asesoramos sobre el mejor momento para integrar el blanqueamiento (durante la fase REGULAR o tras la finalización del tratamiento).',
+    wt_combo_cta:'Más sobre alineadores →',
+    wt_cta_h2:'¿Listo para una sonrisa más blanca?',
+    wt_cta_body:'Cita de consulta en la clínica de Schaffhausen o por teléfono. Recomendamos el protocolo adecuado según su estructura dental.',
+    wt_cta_btn1:'Solicitar consulta →',
+    wt_cta_btn2:'+41 61 422 22 12',
+    wt_chat_toggle:'¿Preguntas sobre blanqueamiento?',
+    wt_chat_hdr_name:'Consulta Blanqueamiento',
+    wt_chat_hdr_sub:'Proceso · Sensibilidad · Combo con alineadores',
+    wt_chat_welcome:'¡Hola! Respondo sus preguntas sobre el blanqueamiento profesional y la combinación con tratamientos de alineadores.',
+    wt_sugg1:'¿Sensibilidad?',
+    wt_sugg2:'Duración del tratamiento',
+    wt_sugg3:'Combinación con alineadores',
+    wt_chat_placeholder:'Su pregunta...',
+    wt_footer_tagline:'Blanqueamiento Profesional · Swiss-Made · Clínicamente probado desde 2015.',
+    wt_footer_products:'Productos',
+    wt_footer_resources:'Recursos',
+    wt_footer_faq:'FAQ',
+    wt_footer_contact:'Contacto',
+    wt_footer_copy:'Copyright © 2026 Nivellmedical AG · Altgraben 31, CH-4624 Härkingen',
+    wt_footer_conf:'CONFIDENCIAL · NIVELLMEDICAL AG'
+  }
+};
+window.NIVELL_T = T;
+document.addEventListener('DOMContentLoaded', () => {
+  setNivellLang(localStorage.getItem('nivell_lang') || 'de', T);
+});
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  initScrollAnimations();
+  setActiveNav();
+});
+</script>
+</body>
+</html>
