@@ -55,6 +55,9 @@
 #timerCircle{transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1);}
 /* ── CHAT ERROR ── */
 .chat-msg.error{background:#fff0f0;border-left:3px solid var(--red);color:#b00000;padding-left:12px;}
+/* ── NOTIFICATION BADGE ── */
+.app-top-btn{position:relative;}
+.notif-badge{position:absolute;top:-3px;right:-3px;background:var(--red);color:white;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:2px solid white;pointer-events:none;line-height:1;}
 </style>
 </head>
 <body>
@@ -68,8 +71,9 @@
       <div class="app-top-name">VISIBAL</div>
     </div>
     <div class="app-top-actions">
-      <button class="app-top-btn" onclick="showNotifications()">
+      <button class="app-top-btn" onclick="showNotifications()" id="notifBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="notif-badge" id="notifBadge">1</span>
       </button>
       <button class="app-top-btn" onclick="logout()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
@@ -172,14 +176,14 @@
 
       <!-- Timer Ring -->
       <div class="timer-card">
-        <div class="timer-label">Heute · 18. Mai 2026</div>
+        <div class="timer-label" id="trackerDate">Heute</div>
         <div class="timer-ring">
           <svg viewBox="0 0 200 200">
             <circle class="timer-bg" cx="100" cy="100" r="85"/>
             <circle class="timer-fg" cx="100" cy="100" r="85" stroke-dasharray="534.07" stroke-dashoffset="79.2" id="timerCircle"/>
           </svg>
           <div class="timer-text">
-            <div class="timer-hours">21:40</div>
+            <div class="timer-hours" id="timerHours">21:40</div>
             <div class="timer-unit" data-i18n="of_22h">von 22h</div>
             <div class="timer-of" data-i18n="hours_min">Stunden:Minuten</div>
           </div>
@@ -781,6 +785,7 @@ function applyLang(lang) {
   updateGreeting(lang);
   // Update html lang attribute
   document.documentElement.lang = lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : lang;
+  updateTrackerDate();
 }
 
 function updateGreeting(lang) {
@@ -841,6 +846,9 @@ function openNotifs() {
       <div class="notif-body"><strong>${T.photo_due}</strong><span>${T.photo_due_sub}</span></div>
     </div>`;
   document.getElementById('notifOverlay').classList.add('show');
+  const badge = document.getElementById('notifBadge');
+  if (badge) badge.style.display = 'none';
+  sessionStorage.setItem('notifs_seen', '1');
 }
 function closeNotifs() { document.getElementById('notifOverlay').classList.remove('show'); }
 
@@ -859,14 +867,19 @@ function switchView(view, btn) {
     chatInput.style.display = 'none';
   }
   if (view === 'tracking') {
+    updateTrackerDate();
+    _updateTimerUI();
     const circle = document.getElementById('timerCircle');
     if (circle) {
-      const target = circle.getAttribute('stroke-dashoffset');
+      const target = circle.style.strokeDashoffset || '79.2';
+      circle.style.transition = 'none';
       circle.style.strokeDashoffset = '534.07';
       requestAnimationFrame(() => requestAnimationFrame(() => {
+        circle.style.transition = '';
         circle.style.strokeDashoffset = target;
       }));
     }
+    if (localStorage.getItem('vw_start')) _startTick();
   }
   if (btn) {
     btn.classList.add('active');
@@ -896,11 +909,26 @@ function logout() {
 
 function logWear() {
   const lang = getAppLang();
-  const m = { de:'✓ Tragezeit erfasst — 21h 40min heute', en:'✓ Wear time logged — 21h 40min today', fr:"✓ Temps enregistré — 21h 40min aujourd'hui", it:'✓ Porto registrato — 21h 40min oggi', ru:'✓ Записано — 21ч 40мин сегодня', es:'✓ Registrado — 21h 40min hoy' };
+  if (!localStorage.getItem('vw_start')) {
+    localStorage.setItem('vw_start', Date.now().toString());
+    localStorage.setItem('vw_date', _TODAY);
+    _startTick();
+  }
+  _updateTimerUI();
+  const m = { de:'✓ Tragezeit läuft', en:'✓ Wear time running', fr:'✓ Comptage en cours', it:'✓ Conteggio in corso', ru:'✓ Отсчёт идёт', es:'✓ Conteo en curso' };
   showToast(m[lang] || m.de, 'ok');
 }
 function logRemove() {
   const lang = getAppLang();
+  const { accum, start } = _getWear();
+  if (start) {
+    const added = Math.floor((Date.now() - start) / 1000);
+    localStorage.setItem('vw_secs', (accum + added).toString());
+    localStorage.setItem('vw_date', _TODAY);
+    localStorage.removeItem('vw_start');
+    if (_wearTick) { clearInterval(_wearTick); _wearTick = null; }
+  }
+  _updateTimerUI();
   const m = { de:'Schiene entfernt — bitte nach dem Essen wieder einsetzen', en:'Aligner removed — please reinsert after eating', fr:'Gouttière retirée — remettez-la après le repas', it:'Allineatore rimosso — reinserirlo dopo il pasto', ru:'Элайнер снят — наденьте снова после еды', es:'Alineador retirado — reinsértelo después de comer' };
   showToast(m[lang] || m.de);
 }
@@ -958,15 +986,179 @@ async function sendMessage() {
   } catch (e) {
     typing.remove();
     const errMsg = document.createElement('div');
-    errMsg.className = 'chat-msg error';
-    errMsg.textContent = { de:'Verbindungsfehler — bitte Praxis direkt kontaktieren.', en:'Connection error — please contact your practice directly.', fr:'Erreur de connexion — contactez votre cabinet directement.', it:'Errore di connessione — contatta lo studio direttamente.', ru:'Ошибка подключения — обратитесь в клинику напрямую.', es:'Error de conexión — contacte su clínica directamente.' }[lang] || 'Connection error.';
+    errMsg.className = 'chat-msg bot';
+    errMsg.textContent = _demoResponse(text, lang);
     msgs.appendChild(errMsg);
   }
   msgs.scrollTop = msgs.scrollHeight;
 }
 
+// ── WEAR TIMER ────────────────────────────────────────────
+const _TODAY = new Date().toISOString().slice(0, 10);
+let _wearTick = null;
+
+function _getWear() {
+  const date = localStorage.getItem('vw_date');
+  const accum = date === _TODAY ? parseInt(localStorage.getItem('vw_secs') || '0') : 0;
+  const start = localStorage.getItem('vw_start');
+  return { accum, start: start ? parseInt(start) : null };
+}
+
+function _totalWearSecs() {
+  const { accum, start } = _getWear();
+  return start ? accum + Math.floor((Date.now() - start) / 1000) : accum;
+}
+
+function _fmtWear(s) {
+  return String(Math.floor(s / 3600)).padStart(2,'0') + ':' + String(Math.floor((s % 3600) / 60)).padStart(2,'0');
+}
+
+function _updateTimerUI() {
+  const secs = _totalWearSecs();
+  const target = 22 * 3600;
+  const offset = +(534.07 * (1 - Math.min(1, secs / target))).toFixed(1);
+  const circle = document.getElementById('timerCircle');
+  const hoursEl = document.getElementById('timerHours');
+  if (circle) circle.style.strokeDashoffset = offset;
+  if (hoursEl) hoursEl.textContent = _fmtWear(secs);
+  const statusEl = document.querySelector('.timer-status');
+  if (statusEl) {
+    const lang = getAppLang();
+    const remaining = Math.max(0, target - secs);
+    if (secs >= target) {
+      const d = { de:'✓ Tagesziel erreicht!', en:'✓ Daily goal reached!', fr:'✓ Objectif atteint!', it:'✓ Obiettivo raggiunto!', ru:'✓ Цель достигнута!', es:'✓ ¡Objetivo alcanzado!' };
+      statusEl.textContent = d[lang] || d.de;
+      statusEl.className = 'timer-status ok';
+    } else {
+      const rh = Math.floor(remaining / 3600), rm = Math.floor((remaining % 3600) / 60);
+      const pre = { de:'Noch', en:'', fr:'Encore', it:'Ancora', ru:'Ещё', es:'Aún' };
+      const suf = { de:'bis Tagesziel', en:'to daily goal', fr:"à l'objectif", it:'al traguardo', ru:'до цели', es:'para el objetivo' };
+      const parts = rh > 0 ? `${rh}h ${rm}min` : `${rm}min`;
+      statusEl.textContent = [pre[lang] || pre.de, parts, suf[lang] || suf.de].filter(Boolean).join(' ');
+    }
+  }
+}
+
+function _startTick() {
+  if (_wearTick) return;
+  _wearTick = setInterval(_updateTimerUI, 10000);
+}
+
+function _initWear() {
+  const date = localStorage.getItem('vw_date');
+  if (date !== _TODAY && !localStorage.getItem('vw_ever')) {
+    localStorage.setItem('vw_date', _TODAY);
+    localStorage.setItem('vw_secs', String(21 * 3600 + 40 * 60));
+    localStorage.setItem('vw_start', String(Date.now()));
+    localStorage.setItem('vw_ever', '1');
+  } else if (date !== _TODAY) {
+    localStorage.removeItem('vw_secs');
+    localStorage.removeItem('vw_start');
+    localStorage.setItem('vw_date', _TODAY);
+  }
+  _updateTimerUI();
+  if (localStorage.getItem('vw_start')) _startTick();
+}
+
+// ── TRACKER DATE ──────────────────────────────────────────
+function updateTrackerDate() {
+  const el = document.getElementById('trackerDate');
+  if (!el) return;
+  const lang = getAppLang();
+  const locale = { de:'de-CH', en:'en-GB', fr:'fr-FR', it:'it-IT', ru:'ru-RU', es:'es-ES' }[lang] || 'de-CH';
+  const labels = { de:'Heute', en:'Today', fr:"Aujourd'hui", it:'Oggi', ru:'Сегодня', es:'Hoy' };
+  try {
+    const date = new Date().toLocaleDateString(locale, { weekday:'short', day:'numeric', month:'long' });
+    el.textContent = (labels[lang] || labels.de) + ' · ' + date;
+  } catch(e) {
+    el.textContent = labels[lang] || labels.de;
+  }
+}
+
+// ── DEMO CHAT RESPONSES ───────────────────────────────────
+const _DR = {
+  de: [
+    [/schmerz|drück|weh|unangenehm/i, 'Leichter Druck in den ersten Tagen nach einem Stufenwechsel ist normal — er zeigt, dass der Aligner wirkt. Bei starken Schmerzen oder Verletzungen wenden Sie sich bitte an Ihre Praxis.'],
+    [/essen|trinken|ernähr|food|kaffee|wein/i, 'Nehmen Sie die Schiene immer vor dem Essen und Trinken heraus. Wasser ist in Ordnung. Kaffee, Tee und gefärbte Getränke können die Schiene verfärben.'],
+    [/wann|stufenwechs|nächst|wechsel/i, 'Ihr nächster Stufenwechsel ist in 3 Tagen geplant (Donnerstag). Die neue Stufe 9 startet dann automatisch — tragen Sie die aktuelle Schiene bis dahin weiter.'],
+    [/22h|tragezeit|trag|stunden/i, 'Das 22h-Ziel ist für optimale Ergebnisse wichtig. Heute sind Sie bereits sehr gut dabei — weiter so! Kurze Pausen für Mahlzeiten und Mundhygiene sind eingerechnet.'],
+    [/reinig|pflege|putzen|sauber|hygien/i, 'Reinigen Sie die Schienen täglich mit lauwarmem Wasser und einer weichen Bürste. Keine heissen Flüssigkeiten oder Zahnpasta — das beschädigt das Material.'],
+    [/notfall|gebroch|verloren|kaputt|bricht/i, 'Bei einem Notfall (gebrochene oder verlorene Schiene, starke Schmerzen) wenden Sie sich direkt an die Praxis Dr. Schmidt in Schaffhausen.'],
+    [/phase|regular|soft|intense/i, 'Sie sind aktuell in der REGULAR-Phase (Stufe 8 von 14). Diese Phase folgt auf SOFT und bereitet auf INTENSE vor. Kleiner Druck ist normal und gewünscht.'],
+  ],
+  en: [
+    [/pain|sore|hurt|pressure|discomfort/i, 'Slight pressure in the first few days after a stage change is normal — it means the aligner is working. For severe pain or injuries, please contact your practice.'],
+    [/eat|drink|food|coffee|wine|meal/i, 'Always remove your aligners before eating and drinking. Water is fine. Coffee, tea and coloured drinks can stain the aligner.'],
+    [/when|next|stage|change|switch/i, 'Your next stage change is planned in 3 days (Thursday). Stage 9 starts automatically — keep wearing your current aligner until then.'],
+    [/22h|wear|time|hours/i, "The 22h goal is important for optimal results. You're doing great today! Short breaks for meals and oral hygiene are factored in."],
+    [/clean|care|brush|hygiene/i, 'Clean aligners daily with lukewarm water and a soft brush. No hot liquids or toothpaste — these can damage the material.'],
+    [/emergency|broken|lost|cracked/i, 'For emergencies (broken or lost aligner, severe pain), contact your practice directly: Dr. Schmidt, Schaffhausen.'],
+    [/phase|regular|soft|intense/i, "You're currently in the REGULAR phase (stage 8 of 14). This follows SOFT and prepares for INTENSE. Light pressure is normal and expected."],
+  ],
+  fr: [
+    [/douleur|pression|gêne|inconfort/i, "Une légère pression dans les premiers jours après un changement de plateau est normale — elle montre que la gouttière fonctionne. Pour des douleurs intenses, contactez votre cabinet."],
+    [/manger|boire|repas|café|alimentation/i, 'Retirez toujours vos gouttières avant de manger et boire. L\'eau est acceptable. Le café, le thé et les boissons colorées peuvent tacher la gouttière.'],
+    [/quand|prochain|changement|plateau/i, 'Votre prochain changement de plateau est prévu dans 3 jours (jeudi). Le plateau 9 démarrera automatiquement — continuez à porter la gouttière actuelle.'],
+    [/22h|port|temps|heures/i, "L'objectif de 22h est crucial pour de bons résultats. Vous progressez très bien aujourd'hui! Les courtes pauses pour les repas sont incluses."],
+    [/nettoyer|entretien|brosser|hygiène/i, 'Nettoyez les gouttières chaque jour à l\'eau tiède et une brosse douce. Pas de liquides chauds ni de dentifrice — cela abîme le matériau.'],
+    [/urgence|cassée|perdue|brisée/i, 'En cas d\'urgence (gouttière cassée ou perdue, douleurs intenses), contactez directement le cabinet Dr. Schmidt, Schaffhouse.'],
+  ],
+  it: [
+    [/dolore|pressione|fastidio|disagio/i, "Una leggera pressione nei primi giorni dopo un cambio di stadio è normale — significa che l'allineatore funziona. Per dolori intensi, contatta il tuo studio."],
+    [/mangiare|bere|pasto|caffè|alimentazione/i, 'Rimuovi sempre gli allineatori prima di mangiare e bere. L\'acqua è accettabile. Caffè, tè e bevande colorate possono macchiare l\'allineatore.'],
+    [/quando|prossimo|cambio|stadio/i, 'Il tuo prossimo cambio di stadio è previsto tra 3 giorni (giovedì). Lo stadio 9 inizierà automaticamente — continua a portare l\'allineatore attuale.'],
+    [/22h|porto|tempo|ore/i, "L'obiettivo di 22h è fondamentale per risultati ottimali. Stai andando molto bene oggi! Le brevi pause per i pasti sono incluse nel calcolo."],
+    [/pulire|igiene|spazzolare|cura/i, 'Pulisci gli allineatori ogni giorno con acqua tiepida e uno spazzolino morbido. No liquidi caldi o dentifricio — danneggiano il materiale.'],
+    [/emergenza|rotto|perso|spezzato/i, 'In caso di emergenza (allineatore rotto o perso, dolori intensi), contatta direttamente lo studio Dr. Schmidt, Sciaffusa.'],
+  ],
+  ru: [
+    [/боль|давление|дискомфорт|неудобн/i, 'Лёгкое давление в первые дни после смены стадии — это нормально и означает, что элайнер работает. При сильных болях обратитесь в клинику.'],
+    [/есть|пить|еда|кофе|напиток/i, 'Всегда снимайте элайнеры перед едой и питьём. Вода — исключение. Кофе, чай и цветные напитки могут окрасить элайнер.'],
+    [/когда|следующ|смена|стадия/i, 'Следующая смена стадии запланирована через 3 дня (в четверг). Стадия 9 начнётся автоматически — продолжайте носить текущий элайнер.'],
+    [/22|ношение|время|часов/i, 'Цель 22ч важна для оптимальных результатов. Сегодня вы отлично справляетесь! Короткие перерывы на приём пищи включены в расчёт.'],
+    [/чистить|уход|щётк|гигиен/i, 'Чистите элайнеры ежедневно тёплой водой и мягкой щёткой. Не используйте горячую воду или зубную пасту — это повредит материал.'],
+    [/срочно|сломан|потерян|аварий/i, 'В экстренных случаях (сломанный или потерянный элайнер, сильная боль) обратитесь напрямую в клинику д-ра Шмидт, Шаффхаузен.'],
+  ],
+  es: [
+    [/dolor|presión|molestia|incomodidad/i, 'Una ligera presión en los primeros días tras un cambio de etapa es normal — significa que el alineador está funcionando. Para dolor intenso, contacte su clínica.'],
+    [/comer|beber|comida|café|bebida/i, 'Retire siempre los alineadores antes de comer y beber. El agua está bien. El café, té y bebidas de color pueden manchar el alineador.'],
+    [/cuándo|próximo|cambio|etapa/i, 'Su próximo cambio de etapa está planificado en 3 días (jueves). La etapa 9 comenzará automáticamente — siga usando el alineador actual.'],
+    [/22h|uso|tiempo|horas/i, 'El objetivo de 22h es crucial para resultados óptimos. ¡Lo está haciendo muy bien hoy! Los descansos cortos para comidas están incluidos.'],
+    [/limpiar|higiene|cepillar|cuidado/i, 'Limpie los alineadores diariamente con agua tibia y un cepillo suave. Sin líquidos calientes ni pasta dental — dañan el material.'],
+    [/emergencia|roto|perdido|accidente/i, 'En caso de emergencia (alineador roto o perdido, dolor intenso), contacte directamente la clínica Dr. Schmidt, Schaffhausen.'],
+  ]
+};
+
+function _demoResponse(text, lang) {
+  const pairs = _DR[lang] || _DR.de;
+  for (const [re, resp] of pairs) { if (re.test(text)) return resp; }
+  const fallback = {
+    de: 'Danke für Ihre Frage! Bei spezifischen medizinischen Fragen empfehle ich, direkt mit Dr. Schmidt Kontakt aufzunehmen. Für allgemeine Fragen zur Behandlung bin ich gerne da.',
+    en: "Thank you for your question! For specific medical concerns, I recommend contacting Dr. Schmidt directly. I'm happy to help with general treatment questions.",
+    fr: 'Merci pour votre question! Pour les questions médicales spécifiques, je recommande de contacter directement Dr. Schmidt. Je suis là pour les questions générales.',
+    it: 'Grazie per la domanda! Per questioni mediche specifiche ti consiglio di contattare direttamente Dr. Schmidt. Sono qui per le domande generali sul trattamento.',
+    ru: 'Спасибо за вопрос! По конкретным медицинским вопросам рекомендую обратиться к д-ру Шмидт напрямую. Рад помочь с общими вопросами о лечении.',
+    es: '¡Gracias por su pregunta! Para consultas médicas específicas le recomiendo contactar directamente al Dr. Schmidt. Estoy aquí para preguntas generales sobre el tratamiento.'
+  };
+  return fallback[lang] || fallback.de;
+}
+
 // ── INIT ──────────────────────────────────────────────────
 applyLang(getAppLang());
+_initWear();
+updateTrackerDate();
+
+// Deep-link tab routing from manifest shortcuts
+const _urlTab = new URLSearchParams(window.location.search).get('tab');
+if (_urlTab && ['home','tracking','chat','photos','profile'].includes(_urlTab)) {
+  switchView(_urlTab);
+}
+
+// Badge: hide if already seen this session
+if (sessionStorage.getItem('notifs_seen')) {
+  const b = document.getElementById('notifBadge');
+  if (b) b.style.display = 'none';
+}
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js').catch(()=>{});

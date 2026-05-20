@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#C00000">
+<title>VISIBAL — nivellipso® Patient Companion</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="app.css">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+<div class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">V</div>
+    <div class="login-title">Willkommen bei<br>VISIBAL</div>
+    <div class="login-sub">Die klinische Begleit-Plattform von nivellipso®</div>
+    
+    <div class="role-select">
+      <button class="role-btn" onclick="enterApp('patient')">
+        <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
+        <div class="role-info">
+          <div class="role-title">Patient</div>
+          <div class="role-desc">Behandlungsfortschritt, Online-Assistent, Fotos</div>
+        </div>
+        <svg class="role-arrow" viewBox="0 0 12 18" fill="none" width="10" height="14"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button class="role-btn" onclick="enterApp('doctor')">
+        <div class="role-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <div class="role-info">
+          <div class="role-title">Praxis / Arzt</div>
+          <div class="role-desc">Dashboard, Compliance-Monitoring, Patienten</div>
+        </div>
+        <svg class="role-arrow" viewBox="0 0 12 18" fill="none" width="10" height="14"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+    
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--grey);line-height:1.6;">
+      <strong>Demo-Modus:</strong> Daten werden lokal gespeichert (localStorage). Echte Produktion: Firebase-Backend oder eigene Lösung.
+    </div>
+    
+    <div style="margin-top:14px;font-size:10px;color:var(--grey-light);">
+      VISIBAL · nivellipso® · Swiss-Made<br>
+      <a href="../index.html" style="color:var(--red);text-decoration:none;">← Zurück zur Website</a>
+    </div>
+  </div>
+</div>
+
+<!-- Install Banner (für PWA-Installation) -->
+<div class="install-banner" id="installBanner">
+  <div class="install-ico">📲</div>
+  <div class="install-text">
+    <strong>VISIBAL installieren</strong>
+    App zum Home-Screen hinzufügen
+  </div>
+  <button class="install-btn" onclick="installApp()">Installieren</button>
+  <button class="install-close" onclick="hideInstall()">×</button>
+</div>
+
+<script>
+function enterApp(role) {
+  localStorage.setItem('visibal_role', role);
+  if (role === 'patient') {
+    window.location.href = 'patient.html';
+  } else {
+    window.location.href = 'doctor.html';
+  }
+}
+
+// PWA install prompt handling
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!sessionStorage.getItem('install_dismissed')) {
+    document.getElementById('installBanner').classList.add('show');
+  }
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+      hideInstall();
+    });
+  }
+}
+
+function hideInstall() {
+  document.getElementById('installBanner').classList.remove('show');
+  sessionStorage.setItem('install_dismissed', '1');
+}
+
+// Auto-redirect if already logged in
+const existingRole = localStorage.getItem('visibal_role');
+if (existingRole) {
+  enterApp(existingRole);
+}
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('SW registered'))
+      .catch(err => console.log('SW failed:', err));
+  });
+}
+</script>
+</body>
+</html>

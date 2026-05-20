@@ -45,6 +45,9 @@
 .empty-state-ico{font-size:40px;margin-bottom:10px;}
 .empty-state-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .empty-state-sub{font-size:12px;color:var(--grey);}
+/* ── NOTIFICATION BADGE ── */
+.app-top-btn{position:relative;}
+.notif-badge{position:absolute;top:-3px;right:-3px;background:var(--red);color:white;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:2px solid white;pointer-events:none;line-height:1;}
 </style>
 </head>
 <body>
@@ -58,8 +61,9 @@
       <div class="app-top-name">VISIBAL <span style="font-weight:400;opacity:.7;font-size:11px;">Clinic</span></div>
     </div>
     <div class="app-top-actions">
-      <button class="app-top-btn" onclick="showNotifs()">
+      <button class="app-top-btn" onclick="showNotifs()" id="notifBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="notif-badge" id="notifBadge">3</span>
       </button>
       <button class="app-top-btn" onclick="logout()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
@@ -73,7 +77,7 @@
     <div class="view active" id="view-overview">
       <div class="greeting">
         <div class="greeting-time">Dashboard · Praxis Schmidt</div>
-        <div class="greeting-name">18 aktive Patienten</div>
+        <div class="greeting-name" id="patientCountHead">18 aktive Patienten</div>
       </div>
 
       <!-- Compliance Overview -->
@@ -109,10 +113,10 @@
 
       <!-- Filter Pills -->
       <div class="filter-pills">
-        <button class="filter-pill active" onclick="filterByStatus('all',this)">Alle · 18</button>
-        <button class="filter-pill" onclick="filterByStatus('alert',this)">! Kritisch · 1</button>
-        <button class="filter-pill" onclick="filterByStatus('warn',this)">⚠ Achtung · 3</button>
-        <button class="filter-pill" onclick="filterByStatus('ok',this)">✓ OK · 14</button>
+        <button class="filter-pill active" id="fpAll" onclick="filterByStatus('all',this)">Alle · 18</button>
+        <button class="filter-pill" id="fpAlert" onclick="filterByStatus('alert',this)">! Kritisch · 1</button>
+        <button class="filter-pill" id="fpWarn" onclick="filterByStatus('warn',this)">⚠ Achtung · 3</button>
+        <button class="filter-pill" id="fpOk" onclick="filterByStatus('ok',this)">✓ OK · 14</button>
       </div>
 
       <!-- Patient List -->
@@ -287,7 +291,26 @@ const patients = [
   { id: 10, name: 'Greta Hofmann', stage: '10/14', phase: 'INTENSE', status: 'ok', wear: '92%', avatar: 'GH' },
   { id: 11, name: 'Hans Imhof', stage: '2/8', phase: 'SOFT', status: 'warn', wear: '72%', avatar: 'HI' },
   { id: 12, name: 'Isabella Jung', stage: '11/14', phase: 'INTENSE', status: 'ok', wear: '96%', avatar: 'IJ' },
+  { id: 13, name: 'Jonas Meier', stage: '3/14', phase: 'SOFT', status: 'ok', wear: '88%', avatar: 'JM' },
+  { id: 14, name: 'Laura Schäfer', stage: '7/8', phase: 'INTENSE', status: 'ok', wear: '97%', avatar: 'LS' },
+  { id: 15, name: 'Marco Brunner', stage: '11/14', phase: 'INTENSE', status: 'ok', wear: '90%', avatar: 'MB' },
+  { id: 16, name: 'Nina Vogel', stage: '5/14', phase: 'REGULAR', status: 'ok', wear: '91%', avatar: 'NV' },
+  { id: 17, name: 'Oliver Suter', stage: '8/14', phase: 'REGULAR', status: 'ok', wear: '93%', avatar: 'OS' },
+  { id: 18, name: 'Petra Lang', stage: '2/8', phase: 'SOFT', status: 'ok', wear: '85%', avatar: 'PL' },
 ];
+
+function _updateFilterCounts() {
+  const tot = patients.length;
+  const al = patients.filter(p => p.status === 'alert').length;
+  const wa = patients.filter(p => p.status === 'warn').length;
+  const ok = patients.filter(p => p.status === 'ok').length;
+  const h = document.getElementById('patientCountHead');
+  if (h) h.textContent = `${tot} aktive Patienten`;
+  const fpAll = document.getElementById('fpAll'); if (fpAll) fpAll.textContent = `Alle · ${tot}`;
+  const fpAlert = document.getElementById('fpAlert'); if (fpAlert) fpAlert.textContent = `! Kritisch · ${al}`;
+  const fpWarn = document.getElementById('fpWarn'); if (fpWarn) fpWarn.textContent = `⚠ Achtung · ${wa}`;
+  const fpOk = document.getElementById('fpOk'); if (fpOk) fpOk.textContent = `✓ OK · ${ok}`;
+}
 
 function renderPatients(filter='all') {
   const list = document.getElementById('patientList');
@@ -389,11 +412,21 @@ function doConfirm() { closeConfirm(); if (_confirmCb) _confirmCb(); }
 function closeConfirm() { document.getElementById('confirmModal').classList.remove('show'); _confirmCb = null; }
 
 // ── NOTIFICATION PANEL ────────────────────────────────────
-function openNotifs() { document.getElementById('notifOverlay').classList.add('show'); }
+function openNotifs() {
+  document.getElementById('notifOverlay').classList.add('show');
+  const badge = document.getElementById('notifBadge');
+  if (badge) badge.style.display = 'none';
+  sessionStorage.setItem('notifs_seen', '1');
+}
 function closeNotifs() { document.getElementById('notifOverlay').classList.remove('show'); }
 
 // Init
 renderPatients();
+_updateFilterCounts();
+if (sessionStorage.getItem('notifs_seen')) {
+  const b = document.getElementById('notifBadge');
+  if (b) b.style.display = 'none';
+}
 
 // Register Service Worker
 if ('serviceWorker' in navigator) {
