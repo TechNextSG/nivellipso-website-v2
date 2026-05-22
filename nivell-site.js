@@ -159,17 +159,81 @@ const NIVELL_FALLBACK = {
   es: "Para esta pregunta específica recomiendo contactar directamente con nuestro equipo:\n\n• Preguntas clínicas: Dr. Albin Vukaj — sales@nivellipso.com\n• Teléfono: +41 79 469 71 76\n\nLa respuesta llega rápida y personalmente. También puedo ayudarle con: precios, tiempos de entrega, el sistema Three-Aligner, VISIBAL, programa Honor & Reward."
 };
 
-function findAnswer(question) {
-  const lang = getLang();
+// Follow-up suggestions per topic index (matches NIVELLIPSO_KNOWLEDGE order)
+const NIVELL_FOLLOWUPS = [
+  // 0 prices
+  {de:['Lieferzeiten?','Honor & Reward?','Doctor Portal?'],en:['Delivery times?','Honor & Reward?','Doctor Portal?'],fr:['Délais de livraison?','Honor & Reward?','Doctor Portal?'],it:['Tempi di consegna?','Honor & Reward?','Doctor Portal?'],ru:['Сроки доставки?','Honor & Reward?','Doctor Portal?'],es:['¿Tiempos de entrega?','Honor & Reward?','Doctor Portal?']},
+  // 1 promo/honor
+  {de:['Preise & Rabatte?','Demo anfragen?','Kontakt'],en:['Prices & discounts?','Request demo?','Contact'],fr:['Prix & remises?','Demander démo?','Contact'],it:['Prezzi & sconti?','Richiedere demo?','Contatto'],ru:['Цены и скидки?','Запросить демо?','Контакт'],es:['¿Precios y descuentos?','¿Solicitar demo?','Contacto']},
+  // 2 three-aligner system
+  {de:['Preise?','Was ist VISIBAL?','Doctor Portal?'],en:['Pricing?','What is VISIBAL?','Doctor Portal?'],fr:['Prix?','Qu\'est-ce que VISIBAL?','Doctor Portal?'],it:['Prezzi?','Cos\'è VISIBAL?','Doctor Portal?'],ru:['Цены?','Что такое VISIBAL?','Doctor Portal?'],es:['¿Precios?','¿Qué es VISIBAL?','Doctor Portal?']},
+  // 3 delivery
+  {de:['Preise?','Doctor Portal?','Kontakt'],en:['Pricing?','Doctor Portal?','Contact'],fr:['Prix?','Doctor Portal?','Contact'],it:['Prezzi?','Doctor Portal?','Contatto'],ru:['Цены?','Doctor Portal?','Контакт'],es:['¿Precios?','Doctor Portal?','Contacto']},
+  // 4 brackets
+  {de:['Preise?','Honor & Reward?','Doctor Portal?'],en:['Pricing?','Honor & Reward?','Doctor Portal?'],fr:['Prix?','Honor & Reward?','Doctor Portal?'],it:['Prezzi?','Honor & Reward?','Doctor Portal?'],ru:['Цены?','Honor & Reward?','Doctor Portal?'],es:['¿Precios?','Honor & Reward?','Doctor Portal?']},
+  // 5 visibal
+  {de:['22h Tragezeit?','3-Aligner System?','Preise?'],en:['22h wear time?','3-Aligner System?','Pricing?'],fr:['Durée port 22h?','Système Three-Aligner?','Prix?'],it:['22h di utilizzo?','Sistema Three-Aligner?','Prezzi?'],ru:['Режим ношения 22ч?','Система Three-Aligner?','Цены?'],es:['¿22h de uso?','¿Sistema Three-Aligner?','¿Precios?']},
+  // 6 22h
+  {de:['Essen & Trinken?','Schmerzen & Druck?','Was ist VISIBAL?'],en:['Eating & drinking?','Pain & pressure?','What is VISIBAL?'],fr:['Manger & boire?','Douleurs?','Qu\'est-ce que VISIBAL?'],it:['Mangiare & bere?','Dolore?','Cos\'è VISIBAL?'],ru:['Еда и питьё?','Боль и давление?','Что такое VISIBAL?'],es:['¿Comer & beber?','¿Dolor?','¿Qué es VISIBAL?']},
+  // 7 pain
+  {de:['22h Tragezeit?','Essen & Trinken?','Kontakt'],en:['22h wear time?','Eating & drinking?','Contact'],fr:['Durée port 22h?','Manger & boire?','Contact'],it:['22h di utilizzo?','Mangiare & bere?','Contatto'],ru:['Режим ношения 22ч?','Еда и питьё?','Контакт'],es:['¿22h de uso?','¿Comer & beber?','Contacto']},
+  // 8 eating
+  {de:['22h Tragezeit?','Schmerzen?','Retainer?'],en:['22h wear time?','Pain?','Retainer?'],fr:['Durée port 22h?','Douleurs?','Retainer?'],it:['22h di utilizzo?','Dolore?','Retainer?'],ru:['Режим ношения 22ч?','Боль?','Ретейнер?'],es:['¿22h de uso?','¿Dolor?','¿Retenedor?']},
+  // 9 retainer
+  {de:['Preise?','3-Aligner System?','Kontakt'],en:['Pricing?','3-Aligner System?','Contact'],fr:['Prix?','Système Three-Aligner?','Contact'],it:['Prezzi?','Sistema Three-Aligner?','Contatto'],ru:['Цены?','Система Three-Aligner?','Контакт'],es:['¿Precios?','¿Sistema Three-Aligner?','Contacto']},
+  // 10 demo
+  {de:['Preise?','Kontakt','Doctor Portal?'],en:['Pricing?','Contact','Doctor Portal?'],fr:['Prix?','Contact','Doctor Portal?'],it:['Prezzi?','Contatto','Doctor Portal?'],ru:['Цены?','Контакт','Doctor Portal?'],es:['¿Precios?','Contacto','Doctor Portal?']},
+  // 11 swiss
+  {de:['3-Aligner System?','Preise?','Doctor Portal?'],en:['3-Aligner System?','Pricing?','Doctor Portal?'],fr:['Système Three-Aligner?','Prix?','Doctor Portal?'],it:['Sistema Three-Aligner?','Prezzi?','Doctor Portal?'],ru:['Система Three-Aligner?','Цены?','Doctor Portal?'],es:['¿Sistema Three-Aligner?','¿Precios?','Doctor Portal?']},
+  // 12 portal
+  {de:['Preise?','Lieferzeiten?','Kontakt'],en:['Pricing?','Delivery times?','Contact'],fr:['Prix?','Délais de livraison?','Contact'],it:['Prezzi?','Tempi di consegna?','Contatto'],ru:['Цены?','Сроки доставки?','Контакт'],es:['¿Precios?','¿Tiempos de entrega?','Contacto']},
+  // 13 contact
+  {de:['Preise?','Demo anfragen?','3-Aligner System?'],en:['Pricing?','Request demo?','3-Aligner System?'],fr:['Prix?','Demander démo?','Système Three-Aligner?'],it:['Prezzi?','Richiedere demo?','Sistema Three-Aligner?'],ru:['Цены?','Запросить демо?','Система Three-Aligner?'],es:['¿Precios?','¿Solicitar demo?','¿Sistema Three-Aligner?']}
+];
+
+const NIVELL_FALLBACK_SUGGS = {
+  de:['3-Aligner System?','Preise & Lieferzeit','Was ist VISIBAL?'],
+  en:['3-Aligner System?','Pricing & delivery','What is VISIBAL?'],
+  fr:['Système Three-Aligner?','Prix & délais','Qu\'est-ce que VISIBAL?'],
+  it:['Sistema Three-Aligner?','Prezzi & consegna','Cos\'è VISIBAL?'],
+  ru:['Система Three-Aligner?','Цены и доставка','Что такое VISIBAL?'],
+  es:['¿Sistema Three-Aligner?','Precios & entrega','¿Qué es VISIBAL?']
+};
+
+function findTopic(question) {
   const q = question.toLowerCase();
-  let best = null, max = 0;
-  for (const topic of NIVELLIPSO_KNOWLEDGE) {
+  let bestIdx = -1, max = 0;
+  for (let i = 0; i < NIVELLIPSO_KNOWLEDGE.length; i++) {
     let score = 0;
-    for (const kw of topic.keywords) { if (q.includes(kw)) score += kw.length; }
-    if (score > max) { max = score; best = topic; }
+    for (const kw of NIVELLIPSO_KNOWLEDGE[i].keywords) { if (q.includes(kw)) score += kw.length; }
+    if (score > max) { max = score; bestIdx = i; }
   }
-  if (!best) return null;
-  return best.answers[lang] || best.answers['de'];
+  if (bestIdx < 0) return null;
+  const lang = getLang();
+  return {
+    answer: NIVELLIPSO_KNOWLEDGE[bestIdx].answers[lang] || NIVELLIPSO_KNOWLEDGE[bestIdx].answers['de'],
+    followups: NIVELL_FOLLOWUPS[bestIdx]
+  };
+}
+
+function showFollowupSuggs(followups) {
+  const lang = getLang();
+  const suggs = document.getElementById('chatSugg');
+  if (!suggs || !followups) return;
+  const items = followups[lang] || followups['de'];
+  if (!items || !items.length) return;
+  suggs.innerHTML = '';
+  items.forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'sugg';
+    btn.textContent = label;
+    btn.onclick = () => {
+      const inp = document.getElementById('chatInput');
+      if (inp) { inp.value = label; sendNivellChat(); }
+    };
+    suggs.appendChild(btn);
+  });
+  suggs.style.display = 'flex';
 }
 
 // ── CHAT ──
@@ -225,19 +289,17 @@ async function sendNivellChat(systemPrompt) {
   addNivellMsg(text, 'user');
   showNivellTyping();
 
-  const localAnswer = findAnswer(text);
+  const result = findTopic(text);
   await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
-
-  if (localAnswer) {
-    hideNivellTyping();
-    addNivellMsg(localAnswer, 'bot');
-    return;
-  }
-
   hideNivellTyping();
-  addNivellMsg(NIVELL_FALLBACK[getLang()] || NIVELL_FALLBACK['de'],
-    'bot'
-  );
+
+  if (result) {
+    addNivellMsg(result.answer, 'bot');
+    showFollowupSuggs(result.followups);
+  } else {
+    addNivellMsg(NIVELL_FALLBACK[getLang()] || NIVELL_FALLBACK['de'], 'bot');
+    showFollowupSuggs(NIVELL_FALLBACK_SUGGS);
+  }
 }
 
 function sendNivellSugg(btn, systemPrompt) {
