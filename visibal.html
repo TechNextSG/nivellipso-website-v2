@@ -18,7 +18,7 @@
 :root { --vis-dark: #0d0000; }
 
 /* HERO */
-.vis-hero { background: linear-gradient(140deg, #0a0000 0%, #111 55%, #1a0000 100%); position: relative; overflow: visible; padding: 72px 40px 80px; margin-top: 70px; min-height: calc(100vh - 70px); }
+.vis-hero { background: linear-gradient(140deg, #0a0000 0%, #111 55%, #1a0000 100%); position: relative; overflow: hidden; padding: 60px 40px; margin-top: 70px; height: calc(100vh - 70px); box-sizing: border-box; }
 .vis-hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 560px; height: 560px; background: radial-gradient(circle, rgba(192,0,0,.16) 0%, transparent 68%); pointer-events: none; }
 .vis-hero-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
 
