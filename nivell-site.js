@@ -378,3 +378,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn.open').forEach(b => b.classList.remove('open'));
   });
 });
+
+// ── SCROLL-HIDE NAV ──
+(function(){
+  var nav=document.querySelector('.n-nav'), p=0;
+  if(!nav)return;
+  window.addEventListener('scroll',function(){
+    var y=window.pageYOffset;
+    nav.classList.toggle('hdr-hide',y>p&&y>80);
+    p=y;
+  },{passive:true});
+})();
