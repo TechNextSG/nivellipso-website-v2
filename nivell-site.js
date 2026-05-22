@@ -443,11 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── SCROLL-HIDE NAV ──
 (function(){
-  var nav=document.querySelector('.n-nav'), p=0;
+  var nav=document.querySelector('.n-nav'), lastY=0;
   if(!nav)return;
   window.addEventListener('scroll',function(){
     var y=window.pageYOffset;
-    nav.classList.toggle('hdr-hide',y>p&&y>80);
-    p=y;
+    if(y<=0){nav.classList.remove('hdr-hide');lastY=0;return;}
+    if(y<lastY-8){nav.classList.remove('hdr-hide');}
+    else if(y>lastY+5&&y>80){nav.classList.add('hdr-hide');}
+    lastY=y;
   },{passive:true});
 })();
